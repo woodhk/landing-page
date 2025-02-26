@@ -3,7 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'FluentPro - AI-Powered English Training',
+  title: 'FluentPro',
   description: 'Give your employees the Business English Speaking skills they need to perform their job better in English.',
 };
 
