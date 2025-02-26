@@ -25,8 +25,8 @@ const HeroSection: React.FC = () => {
         <div className="flex flex-col space-y-6 max-w-[560px]">
           {/* Main content with improved vertical rhythm */}
           <div>
-            <div className="inline-block px-4 py-1.5 bg-[#E6F9F0] text-[#1E8B59] font-medium text-sm rounded-full mb-4">
-              AI-Powered Learning Platform
+            <div className="inline-block px-4 py-1.5 bg-[#FFF4E5] text-[#A36B00] font-medium text-sm rounded-full mb-4">
+              Designed for Learners, Loved by HR
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#1C2530] leading-tight mb-5">
               AI-Powered <span className="text-[#234BFF]">English Training</span> Tailored to Staff's Industry & Role
