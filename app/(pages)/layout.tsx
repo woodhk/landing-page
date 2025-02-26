@@ -1,6 +1,6 @@
 // app/(pages)/layout.tsx
 import React from 'react';
-import Navbar from '../components/navigation/Navbar';
+import StickyNavbar from '../components/navigation/StickyNavbar';
 import Footer from '../components/navigation/Footer';
 
 export default function PagesLayout({
@@ -10,8 +10,8 @@ export default function PagesLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-grow">
+      <StickyNavbar />
+      <main className="flex-grow pt-28"> {/* Increased padding-top to account for fixed navbar with padding */}
         {children}
       </main>
       <Footer />
