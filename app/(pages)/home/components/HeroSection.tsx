@@ -19,15 +19,12 @@ const HeroSection: React.FC = () => {
     <div className="relative">
       {/* Background gradient element */}
       <div className="absolute -top-0 -right-0 w-96 h-96 rounded-full bg-gradient-to-br from-[#234BFF]/10 to-[#8A24FF]/5 blur-2xl" />
-      <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-gradient-to-tr from-[#00B8D9]/10 to-[#234BFF]/5 blur-xl" />
+
       
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center py-8 px-4 sm:px-6 lg:px-4 max-w-7xl mx-auto">
         <div className="flex flex-col space-y-6 max-w-[560px]">
           {/* Main content with improved vertical rhythm */}
           <div>
-            <div className="inline-block px-4 py-1.5 bg-[#FFF4E5] text-[#A36B00] font-medium text-sm rounded-full mb-4">
-              Designed for Learners, Loved by HR
-            </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#1C2530] leading-tight mb-5">
               AI-Powered <span className="text-[#234BFF]">English Training</span> Tailored to Staff's Industry & Role
             </h1>
