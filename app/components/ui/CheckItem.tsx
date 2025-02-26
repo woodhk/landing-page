@@ -6,10 +6,10 @@ interface CheckItemProps {
 
 const CheckItem: React.FC<CheckItemProps> = ({ text }) => {
   return (
-    <div className="flex items-start">
-      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#E6F9F0] flex items-center justify-center">
+    <div className="flex items-center"> {/* Changed from items-start to items-center */}
+      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-[#234BFF] flex items-center justify-center">
         <svg 
-          className="h-4 w-4 text-[#28C76F]" 
+          className="h-4 w-4 text-white" 
           xmlns="http://www.w3.org/2000/svg" 
           viewBox="0 0 20 20" 
           fill="currentColor"

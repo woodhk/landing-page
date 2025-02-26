@@ -6,30 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Button from '../../components/ui/Button';
 
-interface NavDropdownProps {
-  title: string;
-}
-
-const NavDropdown: React.FC<NavDropdownProps> = ({ title }) => {
-  return (
-    <button className="text-[#1C2530] px-3 py-2 text-base font-medium flex items-center">
-      {title}
-      <svg 
-        className="ml-1 h-5 w-5" 
-        xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 20 20" 
-        fill="currentColor"
-      >
-        <path 
-          fillRule="evenodd" 
-          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" 
-          clipRule="evenodd" 
-        />
-      </svg>
-    </button>
-  );
-};
-
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -45,14 +21,9 @@ const Navbar: React.FC = () => {
                   alt="FluentPro Logo" 
                   width={1000} 
                   height={1000} 
-                  className="h-16 w-auto" // Increased height from h-10 to h-16
+                  className="h-16 w-auto"
                 />
               </Link>
-            </div>
-            
-            <div className="hidden sm:ml-12 sm:flex sm:space-x-8">
-              <NavDropdown title="Platform" />
-              <NavDropdown title="Solutions" />
             </div>
           </div>
           
@@ -102,8 +73,6 @@ const Navbar: React.FC = () => {
       {/* Mobile menu, show/hide based on menu state */}
       <div className={`${isOpen ? 'block' : 'hidden'} sm:hidden`}>
         <div className="pt-2 pb-3 space-y-1">
-          <a href="#" className="block pl-3 pr-4 py-2 border-l-4 border-[#234BFF] text-[#234BFF] font-medium">Platform</a>
-          <a href="#" className="block pl-3 pr-4 py-2 border-l-4 border-transparent hover:border-[#DEE4F1] text-[#4A5768]">Solutions</a>
           <Link href="/about" className="block pl-3 pr-4 py-2 border-l-4 border-transparent hover:border-[#DEE4F1] text-[#4A5768]">About Us</Link>
           <a href="#" className="block pl-3 pr-4 py-2 border-l-4 border-transparent hover:border-[#DEE4F1] text-[#4A5768]">Request a Demo</a>
         </div>
