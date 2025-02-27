@@ -30,10 +30,10 @@ const StickyNavbar: React.FC = () => {
 
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center py-6 px-0"
+      className="fixed top-0 left-0 right-0 z-50 w-full bg-white py-4 shadow-lg border-b border-[#F4F7FB]"
     >
-      <div className="w-full max-w-7xl bg-white rounded-full shadow-lg px-3 py-4 border border-[#F4F7FB]">
-        <div className="flex justify-between items-center h-12">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+        <div className="flex justify-between items-center h-12 max-w-7xl mx-auto">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/home" className="flex items-center">
@@ -188,9 +188,10 @@ const StickyNavbar: React.FC = () => {
       </div>
       
       {/* Mobile Navigation Menu */}
-      <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'} fixed top-28 left-0 right-0 p-4 z-40 bg-white`}>
-        <div className="bg-[#F8F9FA] rounded-2xl overflow-hidden shadow-lg">
-          {/* Explore Section */}
+      <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'} fixed top-28 left-0 right-0 z-40 bg-white shadow-lg`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#F8F9FA] rounded-2xl overflow-hidden shadow-lg my-4">
+            {/* Explore Section */}
           <div className="p-4">
             <h2 className="text-xl font-medium text-gray-500 mb-6">Explore</h2>
             <div className="grid grid-cols-1 gap-y-6">
@@ -201,6 +202,7 @@ const StickyNavbar: React.FC = () => {
                 About
               </Link>
             </div>
+          </div>
           </div>
           
           {/* Divider */}

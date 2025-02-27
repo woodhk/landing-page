@@ -1,70 +1,208 @@
 import React from 'react';
-import { motion } from 'framer-motion'; // Ensure framer-motion is installed
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Experts = () => {
+  // Animation variants for staggered animations
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        damping: 15,
+        stiffness: 100
+      }
+    }
+  };
+
+  const metricVariants = {
+    hidden: { y: 20, opacity: 0, scale: 0.9 },
+    visible: (custom: number) => ({
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: custom * 0.1,
+        type: 'spring',
+        damping: 12,
+        stiffness: 100
+      }
+    })
+  };
+
+  // Client logos for the brands section
+  const clientLogos = [
+    { src: '/hsbc.png', alt: 'HSBC' },
+    { src: '/pwc.png', alt: 'PwC' },
+    { src: '/deloitte.png', alt: 'Deloitte' },
+    { src: '/jpmorgan.png', alt: 'JP Morgan' },
+    { src: '/adidas.png', alt: 'Adidas' }
+  ];
+
   return (
-    <section className="bg-white dark:bg-gray-900 py-12">
+    <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Two Column Section with Equal Height */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-          {/* Left Column - Badge, Title, Text, and Metrics */}
-          <div className="flex flex-col space-y-6">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
+          {/* Left Column - Content */}
+          <div className="flex flex-col space-y-8">
             {/* Badge and Title */}
-            <div>
-              <div className="inline-block px-4 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-600 shadow-sm">
-                Expert Designed
+            <motion.div variants={itemVariants}>
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 shadow-sm">
+                <span className="mr-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 15l-2-6 2 1.5 2-1.5-2 6z" />
+                    <path d="M8.5 9.5l3.5-3.5 3.5 3.5M4 22h16M12 2v4" />
+                  </svg>
+                </span>
+                Expert-Designed Curriculum
               </div>
-              <h1 className="mt-4 text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white text-left">
-                30 Years of Experience as a Business English Consultancy
-              </h1>
-            </div>
+              <h2 className="mt-5 text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                <span className="text-blue-600 dark:text-blue-400">30 Years</span> of Business English Excellence
+              </h2>
+            </motion.div>
 
             {/* Text Content */}
-            <div className="space-y-4">
-              <p className="text-lg text-gray-700 dark:text-gray-300">
-                Over the past 30 years, we've conducted training for hundreds of Hong Kong and international companies, including many <span className="font-bold">Fortune 500 companies</span>.
+            <motion.div className="space-y-4" variants={itemVariants}>
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                Over three decades, we've delivered premium training to hundreds of Hong Kong and international organizations, including many <span className="font-bold text-blue-600 dark:text-blue-400">Fortune 500 companies</span>.
               </p>
-              <p className="text-lg text-gray-700 dark:text-gray-300">
-                Fluentpro is the latest product of The <span className="font-bold">LanguageKey</span>.
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                FluentPro, the latest innovation from <span className="font-bold text-blue-600 dark:text-blue-400">The LanguageKey</span>, harnesses AI to bring our expertise in business English training directly to you, creating immersive learning experiences that are accessible anytime, anywhere.
               </p>
-              <p className="text-lg text-gray-700 dark:text-gray-300">
-                It leverages AI to deliver 30 years of expertise in designing and delivering business English training courses, bringing real-world learning experiences straight to your desktop.
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                Our mission: providing personalized, 1-on-1 business English coaching that's both effective and affordable for professionals worldwide.
               </p>
-              <p className="text-lg text-gray-700 dark:text-gray-300">
-                Our goal is to offer tailored, 1-on-1 business English coaching to anyone, anywhere, at any time, providing a more cost-effective solution.
-              </p>
-            </div>
+            </motion.div>
 
-              {/* Metrics Section */}
-              <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 mt-6">
-                <div className="flex-1 bg-neutral-50 dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:-translate-y-1 transition-transform transition-shadow duration-300">
-                  <div className="text-3xl font-bold text-dynamic-blue">200+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Companies Collaborated</div>
-                </div>
-                <div className="flex-1 bg-neutral-50 dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:-translate-y-1 transition-transform transition-shadow duration-300">
-                  <div className="text-3xl font-bold text-dynamic-blue">10,000+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Staff Trained</div>
-                </div>
-                <div className="flex-1 bg-neutral-50 dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:-translate-y-1 transition-transform transition-shadow duration-300">
-                  <div className="text-3xl font-bold text-dynamic-blue">500+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Corporate Training Programs</div>
+            {/* Metrics Section with enhanced styling */}
+            <motion.div 
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-4"
+              variants={itemVariants}
+            >
+              {[
+                { value: "200+", label: "Global Companies", index: 0 },
+                { value: "10,000+", label: "Professionals Trained", index: 1 },
+                { value: "500+", label: "Custom Programs", index: 2 }
+              ].map((metric, index) => (
+                <motion.div 
+                  key={index}
+                  custom={metric.index}
+                  variants={metricVariants}
+                  className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-blue-100 dark:border-blue-900 flex flex-col items-center justify-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300 mb-2">
+                    {metric.value}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
+                    {metric.label}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* CTA Button */}
+            <motion.div variants={itemVariants}>
+              <button className="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300">
+                Learn More
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Right Column - Image with enhanced animation and decoration */}
+          <div className="relative order-first lg:order-last">
+            {/* Decorative elements */}
+            <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-100 dark:bg-blue-900 rounded-full opacity-40 blur-2xl"></div>
+            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-indigo-100 dark:bg-indigo-900 rounded-full opacity-40 blur-2xl"></div>
+            
+            <motion.div 
+              className="relative z-10 rounded-2xl overflow-hidden shadow-2xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                type: "spring", 
+                damping: 20, 
+                stiffness: 100,
+                delay: 0.2
+              }}
+            >
+              {/* Using proper Next.js Image component for optimization */}
+              <div className="aspect-w-16 aspect-h-12 lg:aspect-h-10 w-full h-full flex">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 w-full h-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500 dark:text-blue-300 opacity-80">
+                    <rect width="18" height="18" x="3" y="3" rx="2" />
+                    <path d="M9 3v18" />
+                    <path d="M9 15h12" />
+                    <path d="M15 9h6" />
+                    <path d="M21 21V8" />
+                  </svg>
                 </div>
               </div>
+              
+              {/* Floating stats card for visual interest */}
+              <motion.div 
+                className="absolute -bottom-5 -right-5 sm:bottom-5 sm:right-5 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-blue-50 dark:border-blue-900 max-w-[200px]"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="flex-shrink-0 bg-blue-100 dark:bg-blue-900 p-2 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">97% Success Rate</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Client satisfaction</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Trusted by logos section */}
+        <motion.div 
+          className="mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ delay: 0.5 }}
+        >
+          <h3 className="text-center text-base font-medium text-gray-500 dark:text-gray-400 mb-8">
+            TRUSTED BY INDUSTRY LEADERS
+          </h3>
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+            {clientLogos.map((logo, index) => (
+              <div key={index} className="h-8 flex items-center grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                <img src={logo.src} alt={logo.alt} className="h-full" />
               </div>
-          {/* Right Column - Image with Animation */}
-          <motion.div 
-            className="bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden h-full"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <img 
-              src="path/to/training-image.jpg" 
-              alt="Training session at LanguageKey" 
-              className="object-cover w-full h-full"
-            />
-          </motion.div>
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
