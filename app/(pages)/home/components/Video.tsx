@@ -4,8 +4,9 @@ const Video: React.FC = () => {
   const [isHovering, setIsHovering] = useState(false);
   
   return (
-    <section className="bg-[#EBF1FF] w-full py-16 mt-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#EBF1FF] w-screen max-w-full overflow-hidden">
+      {/* Content container with centered max width */}
+      <div className="py-16">
         {/* Heading and subheading above the video */}
         <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold text-[#1C2530] mb-4">
@@ -18,12 +19,12 @@ const Video: React.FC = () => {
         
         {/* Video Section with dark background */}
         <div 
-          className="relative overflow-hidden rounded-xl shadow-lg"
+          className="relative overflow-hidden rounded-xl shadow-lg max-w-7xl lg:max-w-6xl mx-auto"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         > 
           {/* Video container */}
-          <div className="aspect-w-16 aspect-h-9 bg-[#EBEBEB] relative">
+          <div className="aspect-w-16 aspect-h-9 bg-[#0D1127] relative">
             {/* This will be replaced with the actual video */}
             <div className="w-full h-full absolute inset-0">
               {/* Video placeholder - would be replaced with actual video */}
@@ -70,8 +71,6 @@ const Video: React.FC = () => {
               </button>
             </div>
           </div>
-          
-
         </div>
       </div>
     </section>
