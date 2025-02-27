@@ -78,55 +78,59 @@ const Video = () => {
             </div>
           </div>
 
-          {/* Testimonials Infinite Scroll Bar */}
-          <div className="relative z-10 mt-0">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col md:flex-row items-center py-6">
-                {/* Trusted by text - Left side */}
-                <div className="w-full md:w-1/4 flex-shrink-0 mb-6 md:mb-0">
-                  <h3 className="text-xl font-medium text-[#4A5768]">
-                    Trusted by 100+<br className="hidden md:block" /> 
-                    Industry Leaders
-                  </h3>
-                </div>
+            {/* Testimonials bar - minimal design with no borders */}
+            <div className="relative z-10 mt-14 max-w-7xl lg:max-w-6xl mx-auto">
+            <div className="flex items-center">
+              {/* Trusted by text - Left side */}
+              <div className="min-w-fit pr-10">
+                <h3 className="text-xl font-bold text-[#1C2530]">
+                  Trusted by 100+<br />
+                  Industry Leaders
+                </h3>
+              </div>
+              
+              {/* Logo carousel with fade effect */}
+              <div className="flex-1 overflow-hidden relative">
+                {/* Left fade gradient */}
+                <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-[#EBF1FF] to-transparent"></div>
                 
-                {/* Logo carousel with infinite scroll */}
-                <div className="w-full md:w-3/4 overflow-hidden bg-[#DEE4F1] rounded-md">
-                  <div className="marquee-container relative py-4">
-                    <div className="marquee flex space-x-8">
-                      {testimonialLogos.map((logo, index) => (
-                        <div 
-                          key={`logo-first-${index}`}
-                          className="flex-shrink-0 flex items-center justify-center h-10 w-32"
-                        >
-                          <img 
-                            src={logo.src} 
-                            alt={logo.alt} 
-                            className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" 
-                          />
-                        </div>
-                      ))}
-                      
-                      {/* Duplicate logos for seamless scrolling */}
-                      {testimonialLogos.slice(0, 10).map((logo, index) => (
-                        <div 
-                          key={`logo-duplicate-${index}`}
-                          className="flex-shrink-0 flex items-center justify-center h-10 w-32"
-                        >
-                          <img 
-                            src={logo.src} 
-                            alt={logo.alt} 
-                            className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" 
-                          />
-                        </div>
-                      ))}
-                    </div>
+                <div className="marquee-container py-4">
+                  <div className="marquee flex space-x-16">
+                    {testimonialLogos.map((logo, index) => (
+                      <div 
+                        key={`logo-first-${index}`}
+                        className="flex-shrink-0 flex items-center justify-center h-12"
+                      >
+                        <img 
+                          src={logo.src} 
+                          alt={logo.alt} 
+                          className="h-14 w-auto object-contain" 
+                        />
+                      </div>
+                    ))}
+                    
+                    {/* Duplicate logos for seamless scrolling */}
+                    {testimonialLogos.slice(0, 10).map((logo, index) => (
+                      <div 
+                        key={`logo-duplicate-${index}`}
+                        className="flex-shrink-0 flex items-center justify-center h-12"
+                      >
+                        <img 
+                          src={logo.src} 
+                          alt={logo.alt} 
+                          className="h-14 w-auto object-contain" 
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
+                
+                {/* Right fade gradient */}
+                <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-[#EBF1FF] to-transparent"></div>
               </div>
             </div>
           </div>
-        </div>
+          </div>
         
         {/* Bottom gradient - blue to white */}
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-[#EBF1FF] to-white w-full"></div>
