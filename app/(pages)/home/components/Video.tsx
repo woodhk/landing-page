@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { testimonialLogos } from '../data-testimonial/testimonials';
 
 const Video: React.FC = () => {
   const [isHovering, setIsHovering] = useState(false);
   
   return (
-    <section className="bg-[#EBF1FF] w-full py-16">
+    <section className="bg-[#EBF1FF] w-full py-16 mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading and subheading above the video */}
         <div className="text-center mb-12">
@@ -24,7 +23,7 @@ const Video: React.FC = () => {
           onMouseLeave={() => setIsHovering(false)}
         > 
           {/* Video container */}
-          <div className="aspect-w-16 aspect-h-9 bg-[#0D1127] relative">
+          <div className="aspect-w-16 aspect-h-9 bg-[#EBEBEB] relative">
             {/* This will be replaced with the actual video */}
             <div className="w-full h-full absolute inset-0">
               {/* Video placeholder - would be replaced with actual video */}
@@ -72,76 +71,9 @@ const Video: React.FC = () => {
             </div>
           </div>
           
-          {/* Gradient transition overlay */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0D1127]/0 to-[#EBF1FF] pointer-events-none"></div>
-        </div>
-        
-        {/* Testimonials Section with infinite scroll */}
-        <div className="mt-8 relative">
-          <div className="flex flex-col md:flex-row items-center py-6">
-            {/* Trusted by text - Left side */}
-            <div className="w-full md:w-1/4 flex-shrink-0 mb-6 md:mb-0">
-              <h3 className="text-xl font-medium text-[#4A5768]">
-                Trusted by over 50,000<br className="hidden md:block" /> 
-                companies of all sizes
-              </h3>
-            </div>
-            
-            {/* Logo carousel with infinite scroll */}
-            <div className="w-full md:w-3/4 overflow-hidden bg-[#DEE4F1] rounded-md">
-              <div className="marquee-container relative py-4">
-                <div className="marquee flex space-x-8">
-                  {testimonialLogos.map((logo, index) => (
-                    <div 
-                      key={`logo-first-${index}`}
-                      className="flex-shrink-0 flex items-center justify-center h-10 w-32"
-                    >
-                      <img 
-                        src={logo.src} 
-                        alt={logo.alt} 
-                        className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" 
-                      />
-                    </div>
-                  ))}
-                  
-                  {/* Duplicate logos for seamless scrolling */}
-                  {testimonialLogos.slice(0, 10).map((logo, index) => (
-                    <div 
-                      key={`logo-duplicate-${index}`}
-                      className="flex-shrink-0 flex items-center justify-center h-10 w-32"
-                    >
-                      <img 
-                        src={logo.src} 
-                        alt={logo.alt} 
-                        className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" 
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
-      
-      {/* CSS for the infinite scrolling effect */}
-      <style jsx>{`
-        .marquee-container {
-          overflow: hidden;
-          width: 100%;
-        }
-        
-        .marquee {
-          animation: scroll 30s linear infinite;
-          display: flex;
-          white-space: nowrap;
-        }
-        
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-32px * ${testimonialLogos.length})); }
-        }
-      `}</style>
     </section>
   );
 };
