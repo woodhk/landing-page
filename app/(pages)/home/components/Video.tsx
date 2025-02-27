@@ -11,7 +11,7 @@ const Video = () => {
         <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-[#EBF1FF] w-full"></div>
         
         {/* Main content with solid blue background */}
-        <div className="bg-[#EBF1FF] w-full pt-24 pb-24">
+        <div className="bg-[#EBF1FF] w-full pt-24 pb-20">
           {/* Heading and subheading above the video */}
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-bold text-[#1C2530] mb-4">
