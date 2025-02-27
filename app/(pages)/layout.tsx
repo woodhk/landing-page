@@ -9,9 +9,9 @@ export default function PagesLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen w-full">
       <StickyNavbar />
-      <main className="flex-grow pt-28"> {/* Increased padding-top to account for fixed navbar with padding */}
+      <main className="flex-grow pt-32"> {/* Increased padding-top to account for fixed navbar with padding */}
         {children}
       </main>
       <Footer />

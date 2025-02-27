@@ -30,10 +30,10 @@ const StickyNavbar: React.FC = () => {
 
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 z-50 w-full bg-white py-4 shadow-lg border-b border-[#F4F7FB]"
+      className="fixed top-0 left-0 right-0 z-50 w-full pt-6 px-4 sm:px-6 lg:px-8"
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
-        <div className="flex justify-between items-center h-12 max-w-7xl mx-auto">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex justify-between items-center h-16 bg-white rounded-full shadow-lg px-6 border border-[#F4F7FB]">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/home" className="flex items-center">
@@ -188,7 +188,7 @@ const StickyNavbar: React.FC = () => {
       </div>
       
       {/* Mobile Navigation Menu */}
-      <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'} fixed top-28 left-0 right-0 z-40 bg-white shadow-lg`}>
+      <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'} fixed top-32 left-0 right-0 z-40 bg-white shadow-lg`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#F8F9FA] rounded-2xl overflow-hidden shadow-lg my-4">
             {/* Explore Section */}

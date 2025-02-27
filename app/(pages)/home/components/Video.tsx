@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { testimonialLogos } from '../data-testimonial/testimonials';
+import { testimonialLogos } from '../data/testimonials';
 
 const Video = () => {
   const [isHovering, setIsHovering] = useState(false);

@@ -52,8 +52,12 @@ const Experts = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-blue-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+      {/* Add decorative elements for enhanced depth */}
+      <div className="absolute -top-40 right-20 w-80 h-80 rounded-full bg-blue-200 dark:bg-blue-900 opacity-20 blur-3xl"></div>
+      <div className="absolute bottom-20 -left-20 w-60 h-60 rounded-full bg-indigo-100 dark:bg-indigo-900 opacity-20 blur-3xl"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
           initial="hidden"
@@ -184,25 +188,7 @@ const Experts = () => {
           </div>
         </motion.div>
 
-        {/* Trusted by logos section */}
-        <motion.div 
-          className="mt-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ delay: 0.5 }}
-        >
-          <h3 className="text-center text-base font-medium text-gray-500 dark:text-gray-400 mb-8">
-            TRUSTED BY INDUSTRY LEADERS
-          </h3>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-            {clientLogos.map((logo, index) => (
-              <div key={index} className="h-8 flex items-center grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
-                <img src={logo.src} alt={logo.alt} className="h-full" />
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        {/* Removed trusted by logo section as requested */}
       </div>
     </section>
   );
