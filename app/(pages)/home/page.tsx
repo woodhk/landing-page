@@ -5,7 +5,7 @@ import HeroSection from './components/HeroSection';
 import Video from './components/Video';
 import Experts from './components/Expert';
 import Testimonial from './components/Testimonials';
-// No need to import Navbar as it's in the shared layout
+import Industry from './components/Industry'; // Import the Industry component
 
 export default function HomePage() {
   return (
@@ -23,6 +23,12 @@ export default function HomePage() {
       
       {/* Testimonials section - intentionally without container to allow full-width background */}
       <Testimonial />
+
+      {/* Industry section - full-width background */}
+      <Industry />
+      
     </div>
+    
+    
   );
 }
