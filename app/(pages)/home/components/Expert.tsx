@@ -76,23 +76,26 @@ const Experts = () => {
                     <path d="M8.5 9.5l3.5-3.5 3.5 3.5M4 22h16M12 2v4" />
                   </svg>
                 </span>
-                Expert-Designed Curriculum
+                Expert-Designed
               </div>
               <h2 className="mt-5 text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                <span className="text-blue-600 dark:text-blue-400">30 Years</span> of Business English Excellence
+                <span className="text-blue-600 dark:text-blue-400">30 Years</span> of Experience as a Business English Consultancy
               </h2>
             </motion.div>
 
             {/* Text Content */}
             <motion.div className="space-y-4" variants={itemVariants}>
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Over three decades, we've delivered premium training to hundreds of Hong Kong and international organizations, including many <span className="font-bold text-blue-600 dark:text-blue-400">Fortune 500 companies</span>.
+                Over the past 30 years, we've conducted training for 100s of Hong Kong and international companies, including many <span className="font-bold text-blue-600 dark:text-blue-400">Fortune 500 companies</span>.
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                FluentPro, the latest innovation from <span className="font-bold text-blue-600 dark:text-blue-400">The LanguageKey</span>, harnesses AI to bring our expertise in business English training directly to you, creating immersive learning experiences that are accessible anytime, anywhere.
+                Fluentpro is the latest product of <span className="font-bold text-blue-600 dark:text-blue-400">The LanguageKey</span>.
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Our mission: providing personalized, 1-on-1 business English coaching that's both effective and affordable for professionals worldwide.
+                It leverages AI to deliver 30 years of expertise in designing and delivering business English training courses, bringing real-world learning experiences straight to your desktop.
+              </p>
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                Our goal is to offer tailored, 1-on-1 business English coaching to anyone, anywhere, at any time, bringing a more cost effective solution.
               </p>
             </motion.div>
 
@@ -103,16 +106,16 @@ const Experts = () => {
             >
               {[
                 { value: "200+", label: "Global Companies", index: 0 },
-                { value: "10,000+", label: "Professionals Trained", index: 1 },
+                { value: "10,000+", label: "Staff Trained", index: 1 },
                 { value: "500+", label: "Custom Programs", index: 2 }
               ].map((metric, index) => (
                 <motion.div 
                   key={index}
                   custom={metric.index}
                   variants={metricVariants}
-                  className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-blue-100 dark:border-blue-900 flex flex-col items-center justify-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg border border-blue-100 dark:border-blue-900 flex flex-col items-start justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300 mb-2">
+                  <div className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300 mb-2 text-left w-full">
                     {metric.value}
                   </div>
                   <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
@@ -152,7 +155,7 @@ const Experts = () => {
               }}
             >
               {/* Using proper Next.js Image component for optimization */}
-              <div className="aspect-w-16 aspect-h-12 lg:aspect-h-10 w-full h-full flex">
+              <div className="aspect-w-16 aspect-h-16 lg:aspect-h-14 w-full h-full flex">
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 w-full h-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500 dark:text-blue-300 opacity-80">
                     <rect width="18" height="18" x="3" y="3" rx="2" />
