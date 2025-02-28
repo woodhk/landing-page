@@ -62,7 +62,7 @@ export const KeyValuePropositions = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.1 }}
         >
           <div className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 shadow-sm mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
@@ -91,7 +91,7 @@ export const KeyValuePropositions = () => {
               }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.3 }}
+              transition={{ delay: index * 0.05, duration: 0.2 }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -104,7 +104,7 @@ export const KeyValuePropositions = () => {
                   className="absolute inset-0 rounded-full"
                   layoutId="activeTab"
                   initial={false}
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                 />
               )}
             </motion.button>
@@ -119,7 +119,7 @@ export const KeyValuePropositions = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.3 }}
               className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700"
             >
               <div className="grid grid-cols-1 md:grid-cols-2">
@@ -128,7 +128,7 @@ export const KeyValuePropositions = () => {
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2, duration: 0.4 }}
+                    transition={{ delay: 0.1, duration: 0.3 }}
                   >
                     <div className="inline-flex items-center px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium mb-4">
                       {tabIcons[activeItem.id as keyof typeof tabIcons]}
@@ -157,7 +157,7 @@ export const KeyValuePropositions = () => {
                   className="p-8 md:p-10 flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 border-t md:border-t-0 md:border-l border-gray-100 dark:border-gray-700"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3, duration: 0.4 }}
+                  transition={{ delay: 0.15, duration: 0.3 }}
                 >
                   {renderAnimation()}
                 </motion.div>
