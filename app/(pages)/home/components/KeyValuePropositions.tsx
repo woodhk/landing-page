@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { keyValueData } from '../data/KeyValueProposition';
+import { IndustryJargonAnimation, DefaultAnimation } from '../data/animations/IndustryJargon';
 
 export const KeyValuePropositions = () => {
   const [activeTab, setActiveTab] = useState(keyValueData[0].id);
@@ -135,18 +136,18 @@ export const KeyValuePropositions = () => {
                   </motion.div>
                 </div>
                 
-                {/* Right side: Animation placeholder */}
+                {/* Right side: Animation */}
                 <motion.div 
                   className="p-8 md:p-10 flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 border-t md:border-t-0 md:border-l border-gray-100 dark:border-gray-700"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3, duration: 0.4 }}
                 >
-                  <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md border border-gray-100 dark:border-gray-700 max-w-sm">
-                    <p className="text-center text-gray-600 dark:text-gray-300">
-                      {activeItem.animationDescription}
-                    </p>
-                  </div>
+                  {activeItem.id === "industry-jargon" ? (
+                    <IndustryJargonAnimation />
+                  ) : (
+                    <DefaultAnimation description={activeItem.animationDescription} />
+                  )}
                 </motion.div>
               </div>
             </motion.div>
