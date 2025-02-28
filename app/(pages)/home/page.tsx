@@ -15,6 +15,7 @@ import AiEthics from './components/AiEthics';
 import LandingTestimonial from './components/Testimonial2';
 import MissionVision from './components/MissionVision';
 import FAQ from './components/FAQ';
+import Cta from './components/Cta';
 
 export default function HomePage() {
   return (
@@ -43,6 +44,7 @@ export default function HomePage() {
       <LandingTestimonial />
       <MissionVision />
       <FAQ />
+      <Cta />
     </div>
     
     
