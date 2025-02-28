@@ -8,6 +8,7 @@ import Testimonial from './components/Testimonials';
 import Industry from './components/Industry'; 
 import Benefits from './components/Benefits'; 
 import KeyValuePropositions from './components/KeyValuePropositions'; 
+import AutomatedOnboarding from './components/AutomatedOnboarding'; 
 
 export default function HomePage() {
   return (
@@ -30,6 +31,7 @@ export default function HomePage() {
       <Industry />
       <Benefits />
       <KeyValuePropositions />
+      <AutomatedOnboarding />
       
     </div>
     
