@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { keyValueData } from '../data/KeyValueProposition';
 import { IndustryJargonAnimation, DefaultAnimation } from '../data/animations/IndustryJargon';
+import { FormalityToneAnimation } from '../data/animations/Formality'; // Import the new animation
+import { CulturalAwarenessAnimation } from '../data/animations/Culture'; // Import the new animation
 
 export const KeyValuePropositions = () => {
   const [activeTab, setActiveTab] = useState(keyValueData[0].id);
@@ -32,6 +34,20 @@ export const KeyValuePropositions = () => {
         <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
       </svg>
     )
+  };
+
+  // Function to determine which animation to render
+  const renderAnimation = () => {
+    switch(activeItem?.id) {
+      case "industry-jargon":
+        return <IndustryJargonAnimation />;
+      case "formality-tone":
+        return <FormalityToneAnimation />;
+      case "cultural-awareness":
+        return <CulturalAwarenessAnimation />; // Add this line
+      default:
+        return <DefaultAnimation description={activeItem?.animationDescription || ""} />;
+    }
   };
 
   return (
@@ -143,11 +159,7 @@ export const KeyValuePropositions = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3, duration: 0.4 }}
                 >
-                  {activeItem.id === "industry-jargon" ? (
-                    <IndustryJargonAnimation />
-                  ) : (
-                    <DefaultAnimation description={activeItem.animationDescription} />
-                  )}
+                  {renderAnimation()}
                 </motion.div>
               </div>
             </motion.div>
