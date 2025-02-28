@@ -64,11 +64,11 @@ const MissionVision = () => {
         {/* Content with slide animations */}
         <div className="relative min-h-[450px] md:min-h-[400px] overflow-hidden">
           {/* Mission and Vision content in single container for sliding effect */}
-          <div className="flex flex-col md:flex-row md:w-[200%] absolute inset-0 transition-transform duration-500 ease-in-out" 
+          <div className="flex flex-col md:flex-row md:w-[200%] md:space-x-8 absolute inset-0 transition-transform duration-500 ease-in-out" 
                style={{ transform: activeTab === 'mission' ? 'translateX(0%)' : 'translateX(-50%)' }}>
             
             {/* Mission Content */}
-            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24 w-full md:min-w-[50%]">
+            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24 w-full md:min-w-[50%] md:pr-4">
               {/* Mission Text */}
               <div className="w-full md:w-1/2 space-y-6">
                 <div className="inline-block mb-2">
@@ -120,7 +120,7 @@ const MissionVision = () => {
             </div>
             
             {/* Vision Content */}
-            <div className="flex flex-col-reverse md:flex-row items-center gap-12 lg:gap-24 w-full md:min-w-[50%]">
+            <div className="flex flex-col-reverse md:flex-row items-center gap-12 lg:gap-24 w-full md:min-w-[50%] md:pl-4">
               {/* Vision Image */}
               <div className="w-full md:w-1/2">
                 <div className="relative">

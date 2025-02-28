@@ -127,14 +127,14 @@ export default function AutomatedOnboarding() {
           
           
           {/* Steps with improved styling */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-10">
             {onboardingSteps.map((step) => (
               <motion.div 
                 key={step.id}
                 onClick={() => handleStepClick(step.id)}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
-                className={`p-5 rounded-xl cursor-pointer transition-all duration-200 relative overflow-hidden ${
+                className={`py-3 px-4 rounded-xl cursor-pointer transition-all duration-200 relative overflow-hidden ${
                   activeStep === step.id 
                     ? 'bg-dynamic-blue text-white shadow-md border-b-4 border-deep-dynamic-blue'
                     : 'bg-transparent text-dark hover:bg-light-2/50'
@@ -166,7 +166,7 @@ export default function AutomatedOnboarding() {
                 )}
                 
                 <div className="relative z-10 text-left">
-                  <div className="flex items-center mb-3">
+                  <div className="flex items-center mb-2">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3 ${
                       activeStep === step.id 
                         ? 'bg-white text-dynamic-blue'
