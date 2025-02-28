@@ -8,56 +8,106 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function AutomatedOnboarding() {
   const [activeStep, setActiveStep] = useState(1);
   const [animationProgress, setAnimationProgress] = useState(0);
-  const [lastInteractionTime, setLastInteractionTime] = useState<number>(Date.now());
+  // Use a timestamp for controlling the animation
+  const [animationStartTime, setAnimationStartTime] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
   
   const activeContent = onboardingSteps.find(step => step.id === activeStep)?.content;
   
-  // Animation system that resets whenever the user interacts or a step completes
+  // Setup Intersection Observer to detect when component is in view
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          
+          // Only set the animation start time once when first entering the view
+          if (animationStartTime === null) {
+            setAnimationStartTime(Date.now());
+          }
+        } else {
+          setIsVisible(false);
+        }
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -100px 0px" }
+    );
+    
+    const section = document.getElementById('automated-onboarding-section');
+    if (section) {
+      observer.observe(section);
+    }
+    
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, [animationStartTime]);
+  
+  // Separate effect to handle step transition
+  useEffect(() => {
+    // Only set up if visible
+    if (!isVisible) return;
+    
+    // Each step is 15 seconds
+    const stepDuration = 15000;
+    
+    // Set up a timer to move to the next step
+    const nextStepTimer = setTimeout(() => {
+      // Move to the next step (cycling through 1-4)
+      const nextStep = activeStep === onboardingSteps.length ? 1 : activeStep + 1;
+      setActiveStep(nextStep);
+      setAnimationProgress(0);
+      
+      // Reset animation start time for the new step
+      setAnimationStartTime(Date.now());
+    }, stepDuration);
+    
+    // Clean up the timer
+    return () => clearTimeout(nextStepTimer);
+  }, [activeStep, isVisible, onboardingSteps.length]);
+  
+  // Animation system that updates progress within a step
+  useEffect(() => {
+    // Don't run the animation until the section has been viewed
+    if (!isVisible || animationStartTime === null) {
+      return;
+    }
+    
     // Animation configuration
     const animationInterval = 50; // Update animation every 50ms for smoothness
     const stepDuration = 15000; // 15 seconds per step
     
-    // Start time reference (updates when user interacts)
-    const startTime = lastInteractionTime;
-    
-    // Animation interval that respects interaction time
+    // Animation interval that continuously updates progress within the current step
     const animateProgress = setInterval(() => {
       const now = Date.now();
-      const elapsed = now - startTime;
-      const progress = (elapsed / stepDuration) * 100;
+      const elapsed = now - animationStartTime;
       
-      // Update progress based on elapsed time since last interaction
+      // Calculate progress percentage for the current step (0-100%)
+      const progress = Math.min((elapsed / stepDuration) * 100, 100);
+      
+      // Update progress for current step
       setAnimationProgress(progress);
-      
-      // When reaching 100%, move to next step and reset interaction time
-      if (progress >= 100) {
-        // Move to next step in sequence
-        setActiveStep(prevStep => {
-          return prevStep < 4 ? prevStep + 1 : 1;
-        });
-        
-        // Update the last interaction time to now
-        setLastInteractionTime(now);
-      }
     }, animationInterval);
     
     // Clean up function
     return () => {
       clearInterval(animateProgress);
     };
-  }, [lastInteractionTime]); // Now depends on interaction time, so resets when user clicks
+  }, [animationStartTime, isVisible]); // Dependencies for progress animation
 
   const handleStepClick = (stepId: number) => {
     // Set the active step to the one clicked
     setActiveStep(stepId);
     
-    // Update the interaction time to now - this will reset the animation
-    setLastInteractionTime(Date.now());
+    // Reset animation progress and start time to now
+    setAnimationProgress(0);
+    setAnimationStartTime(Date.now());
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-24">
+    <section id="automated-onboarding-section" className="max-w-7xl mx-auto px-4 py-24">
       {/* Heading */}
       <div className="text-center mb-16 relative">
         <h2 className="text-4xl md:text-5xl font-bold mb-2 text-dark">Designed for Learners.</h2>
@@ -91,7 +141,7 @@ export default function AutomatedOnboarding() {
                 }`}
               >
                 {/* Progress background that fills up as the animation progresses */}
-                {activeStep === step.id && (
+                {activeStep === step.id && isVisible && animationStartTime !== null && (
                   <div 
                     className="absolute top-0 left-0 h-full bg-white/15 transition-all duration-100"
                     style={{
@@ -103,7 +153,7 @@ export default function AutomatedOnboarding() {
                 )}
                 
                 {/* Leading edge highlight effect - more subtle */}
-                {activeStep === step.id && (
+                {activeStep === step.id && isVisible && animationStartTime !== null && (
                   <div 
                     className="absolute top-0 h-full w-[3px] bg-white/20"
                     style={{
