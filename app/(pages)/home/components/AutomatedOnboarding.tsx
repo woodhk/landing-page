@@ -7,29 +7,54 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AutomatedOnboarding() {
   const [activeStep, setActiveStep] = useState(1);
-  const activeContent = onboardingSteps.find(step => step.id === activeStep)?.content;
-
-  // Auto-rotate steps every 8 seconds unless user has interacted
-  const [userInteracted, setUserInteracted] = useState(false);
+  const [animationProgress, setAnimationProgress] = useState(0);
+  const [lastInteractionTime, setLastInteractionTime] = useState<number>(Date.now());
   
+  const activeContent = onboardingSteps.find(step => step.id === activeStep)?.content;
+  
+  // Animation system that resets whenever the user interacts or a step completes
   useEffect(() => {
-    if (!userInteracted) {
-      const interval = setInterval(() => {
-        setActiveStep(current => 
-          current === onboardingSteps.length ? 1 : current + 1
-        );
-      }, 8000);
+    // Animation configuration
+    const animationInterval = 50; // Update animation every 50ms for smoothness
+    const stepDuration = 15000; // 15 seconds per step
+    
+    // Start time reference (updates when user interacts)
+    const startTime = lastInteractionTime;
+    
+    // Animation interval that respects interaction time
+    const animateProgress = setInterval(() => {
+      const now = Date.now();
+      const elapsed = now - startTime;
+      const progress = (elapsed / stepDuration) * 100;
       
-      return () => clearInterval(interval);
-    }
-  }, [userInteracted]);
+      // Update progress based on elapsed time since last interaction
+      setAnimationProgress(progress);
+      
+      // When reaching 100%, move to next step and reset interaction time
+      if (progress >= 100) {
+        // Move to next step in sequence
+        setActiveStep(prevStep => {
+          return prevStep < 4 ? prevStep + 1 : 1;
+        });
+        
+        // Update the last interaction time to now
+        setLastInteractionTime(now);
+      }
+    }, animationInterval);
+    
+    // Clean up function
+    return () => {
+      clearInterval(animateProgress);
+    };
+  }, [lastInteractionTime]); // Now depends on interaction time, so resets when user clicks
 
   const handleStepClick = (stepId: number) => {
-    setUserInteracted(true);
+    // Set the active step to the one clicked
     setActiveStep(stepId);
+    
+    // Update the interaction time to now - this will reset the animation
+    setLastInteractionTime(Date.now());
   };
-
-  const progressPercentage = ((activeStep - 1) / (onboardingSteps.length - 1)) * 100;
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-24">
@@ -50,7 +75,6 @@ export default function AutomatedOnboarding() {
           <p className="text-dark-2 text-lg font-medium">From Sign up to Monitoring Training Within Minutes</p>
           <h3 className="text-3xl md:text-4xl font-bold mt-4 mb-10 text-dark">Automated Staff <span className="text-dynamic-blue">Onboarding</span></h3>
           
-          {/* Removed progress bar as requested */}
           
           {/* Steps with improved styling */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
@@ -66,6 +90,31 @@ export default function AutomatedOnboarding() {
                     : 'bg-transparent text-dark hover:bg-light-2/50'
                 }`}
               >
+                {/* Progress background that fills up as the animation progresses */}
+                {activeStep === step.id && (
+                  <div 
+                    className="absolute top-0 left-0 h-full bg-white/15 transition-all duration-100"
+                    style={{
+                      width: `${animationProgress}%`,
+                      borderTopRightRadius: '0.75rem',
+                      borderBottomRightRadius: '0.75rem'
+                    }}
+                  />
+                )}
+                
+                {/* Leading edge highlight effect - more subtle */}
+                {activeStep === step.id && (
+                  <div 
+                    className="absolute top-0 h-full w-[3px] bg-white/20"
+                    style={{
+                      left: `${animationProgress}%`,
+                      transform: "translateX(-50%)",
+                      transition: "left 50ms linear",
+                      boxShadow: "0 0 5px 2px rgba(255, 255, 255, 0.08)"
+                    }}
+                  />
+                )}
+                
                 <div className="relative z-10 text-left">
                   <div className="flex items-center mb-3">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3 ${
@@ -81,16 +130,6 @@ export default function AutomatedOnboarding() {
                     {step.subtitle}
                   </p>
                 </div>
-                {activeStep === step.id && (
-                  <motion.div 
-                    className="absolute bottom-0 right-0 w-16 h-16 opacity-20"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1, rotate: 45 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="w-full h-full bg-white rounded-tl-3xl"></div>
-                  </motion.div>
-                )}
               </motion.div>
             ))}
           </div>
