@@ -13,6 +13,7 @@ import HrFeatures from './components/HrFeatures';
 import EthicsCard from './components/AiEthics'; 
 import AiEthics from './components/AiEthics';
 import LandingTestimonial from './components/Testimonial2';
+import MissionVision from './components/MissionVision';
 
 export default function HomePage() {
   return (
@@ -39,6 +40,7 @@ export default function HomePage() {
       <HrFeatures />
       <AiEthics />
       <LandingTestimonial />
+      <MissionVision />
     </div>
     
     
