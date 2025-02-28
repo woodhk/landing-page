@@ -10,6 +10,9 @@ import Benefits from './components/Benefits';
 import KeyValuePropositions from './components/KeyValuePropositions'; 
 import AutomatedOnboarding from './components/AutomatedOnboarding'; 
 import HrFeatures from './components/HrFeatures'; 
+import EthicsCard from './components/AiEthics'; 
+import AiEthics from './components/AiEthics';
+import LandingTestimonial from './components/Testimonial2';
 
 export default function HomePage() {
   return (
@@ -34,6 +37,8 @@ export default function HomePage() {
       <KeyValuePropositions />
       <AutomatedOnboarding />
       <HrFeatures />
+      <AiEthics />
+      <LandingTestimonial />
     </div>
     
     
