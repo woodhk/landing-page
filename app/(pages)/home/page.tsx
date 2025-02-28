@@ -6,6 +6,7 @@ import Video from './components/Video';
 import Experts from './components/Expert';
 import Testimonial from './components/Testimonials';
 import Industry from './components/Industry'; // Import the Industry component
+import Benefits from './components/Benefits'; // Import the Industry component
 
 export default function HomePage() {
   return (
@@ -26,6 +27,7 @@ export default function HomePage() {
 
       {/* Industry section - full-width background */}
       <Industry />
+      <Benefits />
       
     </div>
     
