@@ -22,7 +22,7 @@ export const FormalityToneAnimation = () => {
         if (containerRef.current) {
           containerRef.current.scrollTop = 0;
         }
-      }, 5000);
+      }, 10000);
     }
     
     return () => {

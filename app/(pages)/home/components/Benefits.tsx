@@ -86,9 +86,13 @@ const Benefits = () => {
               variants={itemVariants}
             >
               <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 relative h-56">
-                <div className="flex items-center justify-center h-full text-gray-700 dark:text-gray-300 text-xl font-medium">
-                  Placeholder
-                </div>
+                <Image 
+                  src={card.imageSrc}
+                  alt={card.imageAlt}
+                  width={400}
+                  height={300}
+                  className="object-contain w-full h-full p-4"
+                />
               </div>
               
               <div className="p-8">
