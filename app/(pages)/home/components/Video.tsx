@@ -6,25 +6,25 @@ const Video = () => {
   
   return (
     <>
-      <section className="relative w-screen max-w-full overflow-hidden">
+      <section className="relative w-full overflow-hidden">
         {/* Top gradient - white to blue */}
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-[#EBF1FF] w-full"></div>
+        <div className="absolute top-0 left-0 right-0 h-16 md:h-24 bg-gradient-to-b from-white to-[#EBF1FF] w-full"></div>
         
         {/* Main content with solid blue background */}
-        <div className="bg-[#EBF1FF] w-full pt-24 pb-20">
+        <div className="bg-[#EBF1FF] w-full pt-16 md:pt-24 pb-16 md:pb-20 px-4 sm:px-6">
           {/* Heading and subheading above the video */}
-          <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-7xl font-bold text-dynamic-blue mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-dynamic-blue mb-3 md:mb-4">
               Meet FluentPro
             </h2>
-            <p className="text-2xl text-[#4A5768]">
+            <p className="text-lg sm:text-xl md:text-2xl text-medium">
               An AI Powered Business English Speaking Coach
             </p>
           </div>
           
           {/* Video Section with dark background */}
           <div 
-            className="relative overflow-hidden rounded-xl shadow-lg max-w-7xl lg:max-w-6xl mx-auto"
+            className="relative overflow-hidden rounded-lg md:rounded-xl shadow-md md:shadow-lg max-w-7xl lg:max-w-6xl mx-auto"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           > 
@@ -40,8 +40,8 @@ const Video = () => {
                 />
               </div>
               
-              {/* Listen button with hover effect */}
-              <div className="absolute top-8 left-8 z-20">
+              {/* Listen button with hover effect - hidden on smallest screens */}
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 z-20 hidden sm:block">
                 <button 
                   className="bg-white rounded-full flex items-center justify-start overflow-hidden transition-all duration-300 ease-in-out shadow-md"
                   style={{ 
@@ -67,10 +67,10 @@ const Video = () => {
                 </button>
               </div>
               
-              {/* Play button - properly centered */}
+              {/* Play button - properly centered with responsive sizing */}
               <div className="absolute inset-0 flex items-center justify-center z-10">
-                <button className="bg-[#5B6FF9]/90 hover:bg-[#4257FF] w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg transform translate-x-0 translate-y-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-8 h-8">
+                <button className="bg-[#5B6FF9]/90 hover:bg-[#4257FF] w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </button>
@@ -78,33 +78,33 @@ const Video = () => {
             </div>
           </div>
 
-            {/* Testimonials bar - minimal design with no borders */}
-            <div className="relative z-10 mt-14 max-w-7xl lg:max-w-6xl mx-auto">
-            <div className="flex items-center">
-              {/* Trusted by text - Left side */}
-              <div className="min-w-fit pr-10">
-                <h3 className="text-xl font-bold text-[#1C2530]">
-                  Trusted by 100+<br />
-                  Industry Leaders
+          {/* Testimonials bar - redesigned for mobile */}
+          <div className="relative z-10 mt-8 sm:mt-10 md:mt-14 max-w-7xl lg:max-w-6xl mx-auto">
+            <div className="flex flex-col sm:flex-row items-center">
+              {/* Trusted by text - Top on mobile, Left side on desktop */}
+              <div className="min-w-fit sm:pr-6 md:pr-10 mb-4 sm:mb-0 text-center sm:text-left">
+                <h3 className="text-lg md:text-xl font-bold text-dark">
+                  <span className="sm:hidden">Trusted by 100+ Industry Leaders</span>
+                  <span className="hidden sm:block">Trusted by 100+<br />Industry Leaders</span>
                 </h3>
               </div>
               
               {/* Logo carousel with fade effect */}
-              <div className="flex-1 overflow-hidden relative">
+              <div className="flex-1 overflow-hidden relative w-full">
                 {/* Left fade gradient */}
-                <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-[#EBF1FF] to-transparent"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-16 z-10 bg-gradient-to-r from-[#EBF1FF] to-transparent"></div>
                 
-                <div className="marquee-container py-4">
-                  <div className="marquee flex space-x-16">
+                <div className="marquee-container py-3 md:py-4">
+                  <div className="marquee flex space-x-8 sm:space-x-12 md:space-x-16">
                     {testimonialLogos.map((logo, index) => (
                       <div 
                         key={`logo-first-${index}`}
-                        className="flex-shrink-0 flex items-center justify-center h-12"
+                        className="flex-shrink-0 flex items-center justify-center h-8 sm:h-10 md:h-12"
                       >
                         <img 
                           src={logo.src} 
                           alt={logo.alt} 
-                          className="h-14 w-auto object-contain" 
+                          className="h-8 sm:h-10 md:h-14 w-auto object-contain" 
                         />
                       </div>
                     ))}
@@ -113,12 +113,12 @@ const Video = () => {
                     {testimonialLogos.slice(0, 20).map((logo, index) => (
                       <div 
                         key={`logo-duplicate-${index}`}
-                        className="flex-shrink-0 flex items-center justify-center h-12"
+                        className="flex-shrink-0 flex items-center justify-center h-8 sm:h-10 md:h-12"
                       >
                         <img 
                           src={logo.src} 
                           alt={logo.alt} 
-                          className="h-14 w-auto object-contain" 
+                          className="h-8 sm:h-10 md:h-14 w-auto object-contain" 
                         />
                       </div>
                     ))}
@@ -126,14 +126,14 @@ const Video = () => {
                 </div>
                 
                 {/* Right fade gradient */}
-                <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-[#EBF1FF] to-transparent"></div>
+                <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-16 z-10 bg-gradient-to-l from-[#EBF1FF] to-transparent"></div>
               </div>
             </div>
           </div>
-          </div>
+        </div>
         
         {/* Bottom gradient - blue to white */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-[#EBF1FF] to-white w-full"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-16 md:h-24 bg-gradient-to-b from-[#EBF1FF] to-white w-full"></div>
       </section>
       
       <style jsx>{`
@@ -151,6 +151,12 @@ const Video = () => {
         @keyframes scroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(calc(-32px * ${testimonialLogos.length})); }
+        }
+        
+        @media (max-width: 640px) {
+          .marquee {
+            animation: scroll 20s linear infinite;
+          }
         }
       `}</style>
     </>
