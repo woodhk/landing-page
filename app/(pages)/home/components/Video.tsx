@@ -110,7 +110,7 @@ const Video = () => {
                     ))}
                     
                     {/* Duplicate logos for seamless scrolling */}
-                    {testimonialLogos.slice(0, 10).map((logo, index) => (
+                    {testimonialLogos.slice(0, 20).map((logo, index) => (
                       <div 
                         key={`logo-duplicate-${index}`}
                         className="flex-shrink-0 flex items-center justify-center h-12"
