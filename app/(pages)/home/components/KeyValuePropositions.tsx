@@ -130,7 +130,13 @@ export const KeyValuePropositions = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1, duration: 0.3 }}
                   >
-                    <div className="inline-flex items-center px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium mb-4">
+                    <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-4 ${
+                      activeItem.id === 'formality-tone' 
+                        ? 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300' 
+                        : activeItem.id === 'cultural-awareness'
+                          ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
+                          : 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300'
+                    }`}>
                       {tabIcons[activeItem.id as keyof typeof tabIcons]}
                       <span className="ml-2">{activeItem.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ')}</span>
                     </div>
@@ -141,14 +147,6 @@ export const KeyValuePropositions = () => {
                       {activeItem.description}
                     </p>
 
-                    <div className="mt-8">
-                      <button className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-                        Learn more
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                      </button>
-                    </div>
                   </motion.div>
                 </div>
                 
