@@ -69,7 +69,7 @@ export const industryData: IndustryData[] = [
     ]
   },
   {
-    id: "more",
+    id: "your Industry?",
     name: "Your Industry and More",
     description: [
       "Our courses cover a vast range of industries and roles, from Retail to Telecoms, and many more.",

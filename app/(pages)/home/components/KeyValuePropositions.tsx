@@ -124,7 +124,7 @@ export const KeyValuePropositions = () => {
           ))}
         </div>
 
-        {/* Content with sliding animation - similar to MissionVision component */}
+        {/* Content with sliding animation */}
         <div className="relative min-h-[450px] overflow-hidden">
           <div 
             className="flex w-[300%] transition-transform duration-500 ease-in-out"
@@ -132,7 +132,7 @@ export const KeyValuePropositions = () => {
           >
             {keyValueData.map((item) => (
               <div key={item.id} className="w-[33.333%] flex-shrink-0">
-                <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700 m-1">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] transition-shadow duration-300 m-1">
                   <div className="grid grid-cols-1 md:grid-cols-2">
                     {/* Left side: Text */}
                     <div className="p-8 md:p-10 flex flex-col justify-center">
@@ -196,7 +196,7 @@ export const KeyValuePropositions = () => {
                     
                     {/* Right side: Animation */}
                     <div 
-                      className="p-8 md:p-10 flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 border-t md:border-t-0 md:border-l border-gray-100 dark:border-gray-700 relative"
+                      className="p-8 md:p-10 flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 border-t md:border-t-0 md:border-l border-gray-100/20 dark:border-gray-700 relative"
                     >
                       {renderAnimation()}
                     </div>

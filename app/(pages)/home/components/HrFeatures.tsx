@@ -174,7 +174,7 @@ const HrFeatures = () => {
                     
                     {/* Feature highlights */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                      {['Customizable', 'Data-driven', 'Time-saving'].map((highlight, i) => (
+                      {feature.highlights.map((highlight, i) => (
                         <div key={i} className="flex items-center space-x-2">
                           <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
                             index % 2 === 0 ? 'bg-dynamic-blue/20' : 'bg-deep-azure/20'

@@ -166,7 +166,7 @@ const Testimonial: React.FC = () => {
               <path d="M21 11l-9-9-9 9" />
               <path d="M21 7l-9-9-9 9" />
             </svg>
-            Client Success Stories
+            Client Achievements
           </div>
           
           <h2 className="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight mb-6">

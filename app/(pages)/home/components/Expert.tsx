@@ -52,10 +52,10 @@ const Experts = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-blue-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Add decorative elements for enhanced depth */}
-      <div className="absolute -top-40 right-20 w-80 h-80 rounded-full bg-blue-200 dark:bg-blue-900 opacity-20 blur-3xl"></div>
-      <div className="absolute bottom-20 -left-20 w-60 h-60 rounded-full bg-indigo-100 dark:bg-indigo-900 opacity-20 blur-3xl"></div>
+      <div className="absolute -top-40 right-20 w-80 h-80 rounded-full bg-blue-100 dark:bg-blue-900 opacity-20 blur-3xl"></div>
+      <div className="absolute bottom-20 -left-20 w-60 h-60 rounded-full bg-gray-100 dark:bg-indigo-900 opacity-20 blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
@@ -147,7 +147,7 @@ const Experts = () => {
             >
               {/* Using proper Next.js Image component for optimization */}
               <div className="aspect-w-16 aspect-h-16 lg:aspect-h-14 w-full h-full flex">
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 w-full h-full flex items-center justify-center">
+                <div className="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-blue-900 dark:to-indigo-900 w-full h-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500 dark:text-blue-300 opacity-80">
                     <rect width="18" height="18" x="3" y="3" rx="2" />
                     <path d="M9 3v18" />
@@ -160,14 +160,14 @@ const Experts = () => {
               
               {/* Floating stats card for visual interest */}
               <motion.div 
-                className="absolute -bottom-5 -right-5 sm:bottom-5 sm:right-5 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-blue-50 dark:border-blue-900 max-w-[200px]"
+                className="absolute -bottom-5 -right-5 sm:bottom-5 sm:right-5 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-100 dark:border-blue-900 max-w-[200px]"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7, duration: 0.5 }}
               >
                 <div className="flex items-center space-x-3">
-                  <div className="flex-shrink-0 bg-blue-100 dark:bg-blue-900 p-2 rounded-md">
+                  <div className="flex-shrink-0 bg-gray-100 dark:bg-blue-900 p-2 rounded-md">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>

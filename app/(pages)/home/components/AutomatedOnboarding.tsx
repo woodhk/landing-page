@@ -205,9 +205,14 @@ export default function AutomatedOnboarding() {
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                   {/* Text Content */}
-                  <div className="p-8 md:p-10 flex items-center min-h-[350px] bg-gradient-to-br from-[#DEE4F1] to-[#F4F7FB]">
-                    <div className="text-left">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-dynamic-blue to-light-3 bg-clip-text text-transparent">
+                  <div className="p-8 md:p-10 flex items-center min-h-[350px] bg-gradient-to-br from-[#DEE4F1] to-[#F4F7FB] relative overflow-hidden">
+                    {/* Decorative gradient circles for visual depth */}
+                    <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-dynamic-blue/10 blur-3xl pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-dynamic-blue/5 blur-2xl pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/4 w-20 h-20 rounded-full bg-dynamic-blue/10 blur-xl pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
+                    
+                    <div className="text-left relative z-10">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-dynamic-blue to-light-3 bg-clip-text text-transparent">
                         {activeContent.heading}
                       </h3>
                       <p className="text-medium-2 leading-relaxed">
