@@ -10,9 +10,18 @@ import { CulturalAwarenessAnimation } from '../data/animations/Culture'; // Impo
 
 export const KeyValuePropositions = () => {
   const [activeTab, setActiveTab] = useState(keyValueData[0].id);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const handleTabChange = (tabId: string) => {
+    if (isAnimating || tabId === activeTab) return;
+    
+    setIsAnimating(true);
     setActiveTab(tabId);
+    
+    // Reset animation state after animation completes
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 500);
   };
 
   const activeItem = keyValueData.find(item => item.id === activeTab);
@@ -50,6 +59,8 @@ export const KeyValuePropositions = () => {
     }
   };
 
+  // We're using inline transform calculation instead
+
   return (
     <section className="py-24 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden relative">
       {/* Decorative elements */}
@@ -84,6 +95,7 @@ export const KeyValuePropositions = () => {
             <motion.button
               key={item.id}
               onClick={() => handleTabChange(item.id)}
+              disabled={isAnimating}
               className={`relative flex items-center w-full md:w-auto px-5 py-3 rounded-full transition-all duration-300 ${
                 activeTab === item.id
                   ? 'bg-blue-600 text-white shadow-md font-medium'
@@ -111,58 +123,88 @@ export const KeyValuePropositions = () => {
           ))}
         </div>
 
-        {/* Content */}
-        <AnimatePresence mode="wait">
-          {activeItem && (
-            <motion.div 
-              key={activeItem.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                {/* Left side: Text */}
-                <div className="p-8 md:p-10 flex flex-col justify-center">
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1, duration: 0.3 }}
-                  >
-                    <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-4 ${
-                      activeItem.id === 'formality-tone' 
-                        ? 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300' 
-                        : activeItem.id === 'cultural-awareness'
-                          ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
-                          : 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300'
-                    }`}>
-                      {tabIcons[activeItem.id as keyof typeof tabIcons]}
-                      <span className="ml-2">{activeItem.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ')}</span>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-                      {activeItem.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      {activeItem.description}
-                    </p>
+        {/* Content with sliding animation - similar to MissionVision component */}
+        <div className="relative min-h-[450px] overflow-hidden">
+          <div 
+            className="flex w-[300%] transition-transform duration-500 ease-in-out"
+            style={{ transform: activeTab === keyValueData[0].id ? 'translateX(0%)' : activeTab === keyValueData[1].id ? 'translateX(-33.333%)' : 'translateX(-66.666%)' }}
+          >
+            {keyValueData.map((item) => (
+              <div key={item.id} className="w-[33.333%] flex-shrink-0">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700 m-1">
+                  <div className="grid grid-cols-1 md:grid-cols-2">
+                    {/* Left side: Text */}
+                    <div className="p-8 md:p-10 flex flex-col justify-center">
+                      <motion.div
+                        className="relative"
+                      >
+                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-4 ${
+                          item.id === 'formality-tone' 
+                            ? 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300' 
+                            : item.id === 'cultural-awareness'
+                              ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
+                              : 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300'
+                        }`}>
+                          {tabIcons[item.id as keyof typeof tabIcons]}
+                          <span className="ml-2">{item.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ')}</span>
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          {item.description}
+                        </p>
 
-                  </motion.div>
+                        {/* Navigation arrows */}
+                        <div className="mt-8 flex space-x-3">
+                          <motion.button
+                            className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 shadow-md flex items-center justify-center text-gray-600 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => {
+                              const currentIndex = keyValueData.findIndex(item => item.id === activeTab);
+                              const prevIndex = currentIndex === 0 ? keyValueData.length - 1 : currentIndex - 1;
+                              handleTabChange(keyValueData[prevIndex].id);
+                            }}
+                            disabled={isAnimating}
+                            aria-label="Previous card"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </motion.button>
+                          <motion.button
+                            className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 shadow-md flex items-center justify-center text-gray-600 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => {
+                              const currentIndex = keyValueData.findIndex(item => item.id === activeTab);
+                              const nextIndex = currentIndex === keyValueData.length - 1 ? 0 : currentIndex + 1;
+                              handleTabChange(keyValueData[nextIndex].id);
+                            }}
+                            disabled={isAnimating}
+                            aria-label="Next card"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </motion.button>
+                        </div>
+                      </motion.div>
+                    </div>
+                    
+                    {/* Right side: Animation */}
+                    <div 
+                      className="p-8 md:p-10 flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 border-t md:border-t-0 md:border-l border-gray-100 dark:border-gray-700 relative"
+                    >
+                      {renderAnimation()}
+                    </div>
+                  </div>
                 </div>
-                
-                {/* Right side: Animation */}
-                <motion.div 
-                  className="p-8 md:p-10 flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 border-t md:border-t-0 md:border-l border-gray-100 dark:border-gray-700"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.15, duration: 0.3 }}
-                >
-                  {renderAnimation()}
-                </motion.div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
