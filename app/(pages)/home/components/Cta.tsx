@@ -260,7 +260,6 @@ const Cta = () => {
                         onChange={handleInputChange}
                         className="w-full p-4 border border-gray-300 rounded-lg bg-blue-50 bg-opacity-30 appearance-none focus:border-[#234BFF] focus:ring focus:ring-blue-100 transition-all"
                         required
-                        defaultValue=""
                       >
                         <option value="" disabled>Country *</option>
                         {countryOptions.map(option => (
@@ -324,7 +323,6 @@ const Cta = () => {
                           value={formData.companySize || ''}
                           onChange={handleInputChange}
                           className="w-full p-4 border border-gray-300 rounded-lg bg-blue-50 bg-opacity-30 appearance-none placeholder-gray-500 focus:border-[#234BFF] focus:ring focus:ring-blue-100 transition-all"
-                          defaultValue=""
                         >
                           <option value="" disabled>Company Size</option>
                           {companySizeOptions.map(option => (
@@ -343,7 +341,6 @@ const Cta = () => {
                           value={formData.learners || ''}
                           onChange={handleInputChange}
                           className="w-full p-4 border border-gray-300 rounded-lg bg-blue-50 bg-opacity-30 appearance-none placeholder-gray-500 focus:border-[#234BFF] focus:ring focus:ring-blue-100 transition-all"
-                          defaultValue=""
                         >
                           <option value="" disabled># of Learners</option>
                           {learnersOptions.map(option => (

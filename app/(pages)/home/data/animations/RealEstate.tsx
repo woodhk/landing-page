@@ -108,7 +108,7 @@ export const RealEstateAnimation: React.FC = () => {
         
         {/* Bottom text - no animation */}
         <p className="text-xs text-center text-gray-600 dark:text-gray-300 mt-3">
-          Job-specific courses for property experts
+          Job-specific courses for Property experts
         </p>
       </div>
     </div>

@@ -151,7 +151,7 @@ const Testimonial: React.FC = () => {
   };
 
   return (
-    <section className="py-24 pb-48 bg-gradient-to-b from-indigo-50 to-white dark:from-indigo-900 dark:to-gray-900 relative overflow-hidden">
+    <section className="py-24 pb-16 bg-gradient-to-b from-indigo-50 to-white dark:from-indigo-900 dark:to-gray-900 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-blue-100 dark:bg-blue-900 rounded-full opacity-30 blur-3xl -translate-x-1/3 -translate-y-1/3"></div>
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-indigo-100 dark:bg-indigo-900 rounded-full opacity-30 blur-3xl translate-x-1/3 translate-y-1/3"></div>

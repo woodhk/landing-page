@@ -109,7 +109,7 @@ export const ShippingLogisticsAnimation: React.FC = () => {
         
         {/* Bottom text - no animation */}
         <p className="text-xs text-center text-gray-600 dark:text-gray-300 mt-3">
-          Job-specific courses for logistics pros
+          Job-specific courses for Logistics staff
         </p>
       </div>
     </div>
