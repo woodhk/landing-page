@@ -101,15 +101,12 @@ const MissionVision = () => {
                     <div className="absolute -right-16 -top-16 w-32 h-32 bg-dynamic-blue/10 rounded-full blur-xl"></div>
                     <div className="absolute -left-16 -bottom-16 w-32 h-32 bg-deep-azure/10 rounded-full blur-xl"></div>
                     
-                    <div className="relative z-10 bg-white/60 backdrop-blur-sm rounded-xl border border-light-2/70 p-6 w-5/6 shadow-sm">
-                      <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-dynamic-blue/10 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-dynamic-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                      </div>
-                      <p className="text-center text-medium">
-                        {mission.image.alt}
-                      </p>
+                    <div className="relative z-10 bg-white/60 backdrop-blur-sm rounded-xl border border-light-2/70 p-4 w-5/6 shadow-sm">
+                      <img 
+                        src="/mission.svg" 
+                        alt={mission.image.alt} 
+                        className="w-full h-auto mx-auto"
+                      />
                     </div>
                   </div>
                   
@@ -130,14 +127,11 @@ const MissionVision = () => {
                     <div className="absolute -right-16 -bottom-16 w-32 h-32 bg-dynamic-blue/10 rounded-full blur-xl"></div>
                     
                     <div className="relative z-10 bg-white/60 backdrop-blur-sm rounded-xl border border-light-2/70 p-6 w-5/6 shadow-sm">
-                      <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-deep-azure/10 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-deep-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <p className="text-center text-medium">
-                        {vision.image.alt}
-                      </p>
+                      <img 
+                        src="/vision.svg" 
+                        alt={vision.image.alt} 
+                        className="w-full h-auto mx-auto"
+                      />
                     </div>
                   </div>
                   
