@@ -82,8 +82,8 @@ export const CulturalAwarenessAnimation = () => {
             </svg>
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-900 dark:text-white">GlobalBridge</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Cultural Intelligence Advisor</p>
+            <p className="text-sm font-medium text-gray-900 dark:text-white">Role-Play Practice</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Introduce Yourself to a Potential Client</p>
           </div>
         </div>
       </div>

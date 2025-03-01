@@ -75,24 +75,18 @@ const HrFeatures = () => {
           className="mb-16 text-center max-w-3xl mx-auto"
         >
           <motion.div variants={itemVariants} className="mb-6">
-            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-dynamic-blue/10 text-dynamic-blue rounded-full shadow-sm">
+            <span className="inline-block px-4 py-1.5 mb-2 text-sm font-medium bg-dynamic-blue/10 text-dynamic-blue rounded-full shadow-sm">
               HR & L&D Features
             </span>
           </motion.div>
           
           <motion.h2 
             variants={itemVariants}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-6 text-shadow"
+            className="text-3xl md:text-4xl lg:text-7xl font-bold text-dark mb-6 text-shadow"
           >
-            Designed to maximize ROI on training investment
+            Designed to Maximize Return on Investment
           </motion.h2>
           
-          <motion.p 
-            variants={itemVariants}
-            className="text-medium-2 text-lg md:text-xl leading-relaxed"
-          >
-            Our platform creates a seamless experience for both HR departments and staff members.
-          </motion.p>
         </motion.div>
 
         <div className="space-y-20 md:space-y-32">

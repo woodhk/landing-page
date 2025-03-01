@@ -162,7 +162,7 @@ const MissionVision = () => {
                 </p>
                 <div className="pt-4">
                   <div className="inline-flex items-center font-medium text-deep-azure group cursor-pointer hover:text-deep-azure/80 transition-colors">
-                    <span>View our roadmap</span>
+                    <span>Learn about our vision</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>

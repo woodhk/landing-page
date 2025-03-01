@@ -69,15 +69,6 @@ const Experts = () => {
           <div className="flex flex-col space-y-8">
             {/* Badge and Title */}
             <motion.div variants={itemVariants}>
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 shadow-sm">
-                <span className="mr-1.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 15l-2-6 2 1.5 2-1.5-2 6z" />
-                    <path d="M8.5 9.5l3.5-3.5 3.5 3.5M4 22h16M12 2v4" />
-                  </svg>
-                </span>
-                Expert-Designed
-              </div>
               <h2 className="mt-5 text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
                 <span className="text-blue-600 dark:text-blue-400">30 Years</span> of Experience as a Business English Consultancy
               </h2>
@@ -182,7 +173,7 @@ const Experts = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">97% Success Rate</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">92%</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Client satisfaction</p>
                   </div>
                 </div>

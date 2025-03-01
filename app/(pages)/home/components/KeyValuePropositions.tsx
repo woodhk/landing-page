@@ -81,8 +81,9 @@ export const KeyValuePropositions = () => {
             </svg>
             Business Communication
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
-            English Training That Delivers <span className="text-blue-600 dark:text-blue-400">Real Business Results</span>, <br className="hidden md:inline" />Not Just Fixes Grammar
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight text-center">
+            English Training That Delivers <br />
+            <span className="text-blue-600 dark:text-blue-400">Noticeable Business Results</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             FluentPro helps staff master industry-specific language, the right tone, and cultural awareness, so they can confidently lead meetings, negotiate, and build trust in global business.

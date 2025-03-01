@@ -52,8 +52,10 @@ const Benefits = () => {
             AI Role-Plays Simulate <span className="text-blue-600 dark:text-blue-400">Real Business Conversations</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Learn industry-specific language, cultural awareness, and soft skills.
+           Practice Job-Specific Conversations With AI <br />
+           While Developing Cultural Awareness and Soft Skills
           </p>
+
         </motion.div>
 
         <motion.div 

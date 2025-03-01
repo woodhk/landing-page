@@ -27,10 +27,6 @@ const TestimonialItem: React.FC<TestimonialItemProps> = ({ testimonial, companyN
       transition={{ duration: 0.4 }}
       viewport={{ once: true }}
     >
-      {/* Decorative quote mark */}
-      <div className="text-blue-100 dark:text-blue-900 text-5xl font-serif absolute -top-1 -left-1">
-        "
-      </div>
       
       {/* Highlighted Quote */}
       <h3 className="text-xl font-bold text-gray-900 dark:text-white relative z-10 mb-3 leading-tight">
@@ -76,8 +72,7 @@ const TestimonialItem: React.FC<TestimonialItemProps> = ({ testimonial, companyN
         )}
       </div>
       
-      {/* Divider */}
-      <div className="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full mb-4"></div>
+      
       
       {/* Author info with logo */}
       <div className="flex items-center">
@@ -107,15 +102,15 @@ const Testimonial: React.FC = () => {
     // First set - Bank of East Asia, Phillips, DKSH
     {
       ...firstRowTestimonials[0],
-      highlightQuote: "Very professional approach to language training"
+      highlightQuote: "Professional, and high-quality language training"
     },
     {
       ...secondRowTestimonials[3], // Phillips
-      highlightQuote: "Positive feedback from all participants"
+      highlightQuote: "Effective methods, quality materials, and results-driven"
     },
     {
       ...firstRowTestimonials[2], // DKSH
-      highlightQuote: "Engaging and tailored English workshop"
+      highlightQuote: "Tailored, interactive, and practical English training"
     },
     
     // Second set - Adidas, MTR, Wing Hang Bank
@@ -174,7 +169,7 @@ const Testimonial: React.FC = () => {
             Client Success Stories
           </div>
           
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight mb-6">
+          <h2 className="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight mb-6">
             Trusted and Respected in<br />
             <span className="text-blue-600 dark:text-blue-400">Hong Kong</span> for 30+ Years
           </h2>

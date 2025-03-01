@@ -73,11 +73,17 @@ const Industry: React.FC = () => {
                     }`}
                   >
                     {/* Industry Icon */}
-                    <div className={`h-12 w-12 rounded-full ${
-                      selectedIndustry === industry.id 
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300' 
-                        : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400'
-                    } flex-shrink-0 flex items-center justify-center mr-4`}>
+                    <div className={`h-12 w-12 rounded-full flex-shrink-0 flex items-center justify-center mr-4 ${
+                      industry.id === "banking-finance" 
+                        ? (selectedIndustry === industry.id ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' : 'bg-gray-100 dark:bg-gray-800 text-blue-500 dark:text-blue-400/70')
+                        : industry.id === "real-estate"
+                          ? (selectedIndustry === industry.id ? 'bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400' : 'bg-gray-100 dark:bg-gray-800 text-green-500 dark:text-green-400/70')
+                        : industry.id === "shipping-logistics"
+                          ? (selectedIndustry === industry.id ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400' : 'bg-gray-100 dark:bg-gray-800 text-indigo-500 dark:text-indigo-400/70')
+                        : industry.id === "insurance"
+                          ? (selectedIndustry === industry.id ? 'bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400' : 'bg-gray-100 dark:bg-gray-800 text-red-500 dark:text-red-400/70')
+                        : (selectedIndustry === industry.id ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' : 'bg-gray-100 dark:bg-gray-800 text-amber-500 dark:text-amber-400/70')
+                    }`}>
                       {industry.id === "banking-finance" && (
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
@@ -110,7 +116,15 @@ const Industry: React.FC = () => {
                     </div>
                     <span className={`text-lg ${
                       selectedIndustry === industry.id 
-                        ? 'font-semibold text-blue-600 dark:text-blue-400' 
+                        ? (industry.id === "banking-finance" 
+                            ? 'font-semibold text-blue-600 dark:text-blue-400'
+                            : industry.id === "real-estate" 
+                              ? 'font-semibold text-green-600 dark:text-green-400'
+                              : industry.id === "shipping-logistics" 
+                                ? 'font-semibold text-indigo-600 dark:text-indigo-400'
+                                : industry.id === "insurance" 
+                                  ? 'font-semibold text-red-600 dark:text-red-400'
+                                  : 'font-semibold text-amber-600 dark:text-amber-400')
                         : 'font-medium text-gray-700 dark:text-gray-300'
                     }`}>
                       {industry.name}

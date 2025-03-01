@@ -82,8 +82,8 @@ export const FormalityToneAnimation = () => {
             </svg>
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-900 dark:text-white">ToneCoach</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">AI Communication Coach</p>
+            <p className="text-sm font-medium text-gray-900 dark:text-white">FluentPro</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">AI ToneCoach</p>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@ export const FormalityToneAnimation = () => {
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
               <p className="text-sm text-gray-700 dark:text-gray-200">
-                I can't make the meeting. I have this deadline today and I'm super busy. Maybe tomorrow?
+                I can't make the meeting. I have a deadline today and I'm super busy.
               </p>
             </motion.div>
           )}
@@ -206,7 +206,7 @@ export const FormalityToneAnimation = () => {
                     <p className="text-xs text-red-600 dark:text-red-400 font-medium">Current Response</p>
                   </div>
                   <p className="text-sm text-gray-700 dark:text-gray-200">
-                    I can't make the meeting. I have this deadline today and I'm super busy. Maybe tomorrow?
+                    I can't make the meeting. I have this deadline today and I'm super busy.
                   </p>
                   <div className="mt-2 text-xs text-red-600 dark:text-red-400">
                     <span className="inline-block px-1 py-0.5 bg-red-100 dark:bg-red-900/30 rounded mr-1 mb-1">Too informal</span>

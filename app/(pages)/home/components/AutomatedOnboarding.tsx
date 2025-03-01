@@ -108,22 +108,30 @@ export default function AutomatedOnboarding() {
 
   return (
     <section id="automated-onboarding-section" className="max-w-7xl mx-auto px-4 py-24">
-      {/* Heading */}
-      <div className="text-center mb-16 relative">
-        <h2 className="text-4xl md:text-5xl font-bold mb-2 text-dark">Designed for Learners.</h2>
-        <h2 className="text-4xl md:text-5xl font-bold mb-3 text-dark">Loved by <span className="text-dynamic-blue">HR and L&D</span></h2>
-      </div>
 
       {/* Main Content with Enhanced UI */}
+      {/* Heading */}
+        <div className="text-center mb-16 relative">
+        <h2 className="text-4xl md:text-5xl font-bold mb-2 text-dark">Designed for Learners.</h2>
+        <h2 className="text-4xl md:text-7xl font-bold mb-3 text-dark">Loved by <span className="text-dynamic-blue">HR and L&D</span></h2>
+      </div>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="border border-light-2 rounded-3xl overflow-hidden shadow-xl bg-gradient-to-b from-[#F4F8FF] to-[#E8F0FF] mb-12"
+        className="border border-light-2 rounded-3xl overflow-hidden shadow-xl bg-gradient-to-tl from-[#03000A] via-[#0C1234] to-[#1C2E5A] mb-12 relative"
       >
-        <div className="pt-12 pb-6 px-6 md:px-12 text-center">
-          <p className="text-dark-2 text-lg font-medium">From Sign up to Monitoring Training Within Minutes</p>
-          <h3 className="text-3xl md:text-4xl font-bold mt-4 mb-10 text-dark">Automated Staff <span className="text-dynamic-blue">Onboarding</span></h3>
+        <div className="absolute inset-0 opacity-20">
+          <div className="w-full h-full" style={{ 
+            backgroundImage: 'radial-gradient(circle, #3B82F6 1px, transparent 2px)', 
+            backgroundSize: '20px 20px' 
+          }}></div>
+        </div>
+        <div className="pt-12 pb-8 px-6 md:px-12 text-center relative z-10">
+          <p className="text-light-3 text-lg font-medium">From Sign up to Monitoring Training Within Minutes</p>
+          <h3 className="text-3xl md:text-5xl font-bold mt-4 mb-10 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent pb-1">
+          Automated Staff Onboarding
+          </h3>
           
           
           {/* Steps with improved styling */}
@@ -136,14 +144,14 @@ export default function AutomatedOnboarding() {
                 whileTap={{ scale: 0.99 }}
                 className={`py-3 px-4 rounded-xl cursor-pointer transition-all duration-200 relative overflow-hidden ${
                   activeStep === step.id 
-                    ? 'bg-dynamic-blue text-white shadow-md border-b-4 border-deep-dynamic-blue'
-                    : 'bg-transparent text-dark hover:bg-light-2/50'
+                    ? 'bg-light-3 text-black shadow-md border-b-4 border-light-2'
+                    : 'bg-transparent text-white hover:bg-light-2/20'
                 }`}
               >
                 {/* Progress background that fills up as the animation progresses */}
                 {activeStep === step.id && isVisible && animationStartTime !== null && (
                   <div 
-                    className="absolute top-0 left-0 h-full bg-white/15 transition-all duration-100"
+                    className="absolute top-0 left-0 h-full bg-light-2 transition-all duration-100"
                     style={{
                       width: `${animationProgress}%`,
                       borderTopRightRadius: '0.75rem',
@@ -152,15 +160,15 @@ export default function AutomatedOnboarding() {
                   />
                 )}
                 
-                {/* Leading edge highlight effect - more subtle */}
+                {/* Leading edge highlight effect - more visible */}
                 {activeStep === step.id && isVisible && animationStartTime !== null && (
                   <div 
-                    className="absolute top-0 h-full w-[3px] bg-white/20"
+                    className="absolute top-0 h-full w-[3px] bg-medium-1"
                     style={{
                       left: `${animationProgress}%`,
                       transform: "translateX(-50%)",
                       transition: "left 50ms linear",
-                      boxShadow: "0 0 5px 2px rgba(255, 255, 255, 0.08)"
+                      boxShadow: "0 0 5px 2px rgba(100, 100, 100, 0.2)"
                     }}
                   />
                 )}
@@ -169,14 +177,14 @@ export default function AutomatedOnboarding() {
                   <div className="flex items-center mb-2">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3 ${
                       activeStep === step.id 
-                        ? 'bg-white text-dynamic-blue'
-                        : 'bg-dynamic-blue text-white'
+                        ? 'bg-gradient-to-tl from-dynamic-blue to-white text-white'
+                        : 'bg-gradient-to-tl from-dark-1 to-white text-light-2'
                     }`}>
                       {step.id}
                     </div>
                     <h4 className="font-bold text-xl">{step.title}</h4>
                   </div>
-                  <p className={`text-sm leading-relaxed ${activeStep === step.id ? 'text-white/90' : 'text-medium-2'}`}>
+                  <p className={`text-sm leading-relaxed ${activeStep === step.id ? 'text-dark/90' : 'text-white/90'}`}>
                     {step.subtitle}
                   </p>
                 </div>
@@ -197,9 +205,9 @@ export default function AutomatedOnboarding() {
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                   {/* Text Content */}
-                  <div className="p-8 md:p-10 flex items-center min-h-[350px] bg-gradient-to-br from-dynamic-blue/15 to-white">
+                  <div className="p-8 md:p-10 flex items-center min-h-[350px] bg-gradient-to-br from-[#DEE4F1] to-[#F4F7FB]">
                     <div className="text-left">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-6 text-dark">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-dynamic-blue to-light-3 bg-clip-text text-transparent">
                         {activeContent.heading}
                       </h3>
                       <p className="text-medium-2 leading-relaxed">
@@ -209,7 +217,7 @@ export default function AutomatedOnboarding() {
                   </div>
 
                   {/* Image Placeholder with better styling */}
-                  <div className="bg-gradient-to-br from-dynamic-blue/5 to-light-3 flex items-center justify-center p-8 md:p-10 min-h-[350px]">
+                  <div className="bg-gradient-to-br from-light-3 to-light-2 flex items-center justify-center p-8 md:p-10 min-h-[350px] relative overflow-hidden">
                     <div 
                       className="w-full aspect-[16/10] bg-white flex items-center justify-center rounded-lg shadow-md overflow-hidden border-2 border-dynamic-blue/30"
                     >
@@ -233,7 +241,7 @@ export default function AutomatedOnboarding() {
         </div>
         
         {/* Step dots for mobile navigation */}
-        <div className="flex justify-center gap-2 py-4 md:hidden">
+        <div className="flex justify-center gap-2 py-4 md:hidden relative z-10">
           {onboardingSteps.map((step) => (
             <button
               key={step.id}
