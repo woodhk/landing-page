@@ -222,17 +222,21 @@ export default function AutomatedOnboarding() {
                   {/* Image Placeholder with better styling */}
                   <div className="bg-gradient-to-br from-[#F5F9FF] via-[#EDF4FF] to-[#E8F0FF] flex items-center justify-center p-8 md:p-10 min-h-[350px] relative overflow-hidden">
                     <div 
-                      className="w-full aspect-[16/10] bg-white flex items-center justify-center rounded-lg shadow-md overflow-hidden border-2 border-dynamic-blue/30"
+                      className="w-full aspect-[16/10] bg-white flex items-center justify-center rounded-lg shadow-md overflow-hidden border-2 border-dynamic-blue/30 relative z-10"
                     >
-                      <div className="text-center px-8 py-12">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-dynamic-blue/10">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-dynamic-blue">
-                            <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-                            <circle cx="9" cy="9" r="2" />
-                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                          </svg>
-                        </div>
-                        <p className="font-medium text-dynamic-blue">{activeContent.imagePlaceholder}</p>
+                      {/* Grid background for depth */}
+                      <div className="absolute inset-0">
+                        <div className="w-full h-full" style={{ 
+                          backgroundImage: 'linear-gradient(to right, #E2E8F0 1px, transparent 1px), linear-gradient(to bottom, #E2E8F0 1px, transparent 1px)',
+                          backgroundSize: '24px 24px'
+                        }}></div>
+                      </div>
+                      <div className="relative z-10 w-full h-full flex items-center justify-center">
+                        <img 
+                          src={activeContent.imagePlaceholder}
+                          alt={activeContent.heading}
+                          className="w-[90%] h-[90%] object-contain"
+                        />
                       </div>
                     </div>
                   </div>
