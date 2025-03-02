@@ -14,7 +14,7 @@ export const faqData: FAQItem[] = [
   },
   {
     question: "How is this different from our current training?",
-    answer: "Most traditional training methods help with general English skills like day to day vocabulary and grammar, which can be useful for language development. FluentPro, however, goes a step further by focusing on industry and role-specific scenarios, interactive role-plays, and AI-powered feedback. This way, employees don't just learn English—they learn the English they need to perform their job better."
+    answer: "Traditional training methods can certainly help with general English skills like everyday vocabulary and grammar. However, for those looking to build job-specific English skills, FluentPro offers a more targeted approach. By focusing on industry and role-specific scenarios, interactive role-plays, and AI-powered feedback, FluentPro ensures that employees don’t just improve their English—they develop the precise language skills needed to excel in their roles."
   },
   {
     question: "How can we ensure staff will use it?",

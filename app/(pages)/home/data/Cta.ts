@@ -54,13 +54,23 @@ export const learnersOptions = [
 ];
 
 export const countryOptions = [
-  { label: "United States", value: "US" },
+  { label: "Hong Kong", value: "HK" },
+  { label: "China", value: "CN" },
+  { label: "Japan", value: "JP" },
+  { label: "Singapore", value: "SG" },
+  { label: "Vietnam", value: "VN" },
+  { label: "South Korea", value: "KR" },
+  { label: "Taiwan", value: "TW" },
+  { label: "Malaysia", value: "MY" },
+  { label: "Thailand", value: "TH" },
+  { label: "Indonesia", value: "ID" },
+  { label: "Philippines", value: "PH" },
+  { label: "India", value: "IN" },
   { label: "United Kingdom", value: "UK" },
   { label: "Canada", value: "CA" },
   { label: "Australia", value: "AU" },
   { label: "Germany", value: "DE" },
   { label: "France", value: "FR" },
-  { label: "Japan", value: "JP" },
   // Add more countries as needed
 ];
 

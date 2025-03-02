@@ -33,7 +33,7 @@ const MissionVision = () => {
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
         {/* Section Heading & Tabs */}
         <div className="flex flex-col items-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark mb-6">Our Values</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-dark mb-6">Our Values</h2>
           
           <div className="inline-flex rounded-full bg-light-2/70 p-1.5 backdrop-blur-sm shadow-sm">
             <button 

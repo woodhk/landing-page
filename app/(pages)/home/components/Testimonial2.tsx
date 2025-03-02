@@ -273,16 +273,6 @@ const LandingTestimonial = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <a 
-              href="#contact" 
-              className="inline-flex items-center gap-2 px-6 py-3 bg-dynamic-blue text-white rounded-full font-medium hover:bg-dynamic-blue/90 transition-all shadow-md hover:shadow-lg"
-            >
-              Schedule a Demo
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 3.33334V12.6667" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M12.6667 8L8.00008 12.6667L3.33341 8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
           </motion.div>
         </div>
       </div>
