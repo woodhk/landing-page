@@ -60,14 +60,17 @@ const HrFeatures = () => {
   };
 
   return (
-    <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-light-3/40">
+    <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-gray-100 relative">
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-50 z-0"></div>
+
       {/* Background patterns for visual interest */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50 z-10">
         <div className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-dynamic-blue/5 blur-3xl"></div>
         <div className="absolute bottom-40 right-[5%] w-80 h-80 rounded-full bg-deep-azure/5 blur-3xl"></div>
       </div>
       
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 lg:px-8 relative z-20">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -112,7 +115,7 @@ const HrFeatures = () => {
                       index % 2 === 0 
                         ? 'bg-gradient-to-br from-dynamic-blue/10 via-dynamic-blue/5 to-white' 
                         : 'bg-gradient-to-br from-deep-azure/10 via-deep-azure/5 to-white'
-                    }`}
+                    } bg-white`}
                   >
                     {/* Enhanced background elements */}
                     <div className="absolute -right-12 -top-12 w-64 h-64 rounded-full bg-dynamic-blue/10 blur-3xl opacity-60"></div>
@@ -129,7 +132,7 @@ const HrFeatures = () => {
                     </div>
                     
                     <div className="flex items-center justify-center p-10 md:p-12 h-[320px] md:h-[400px]">
-                      <div className="text-center p-8 bg-white/80 backdrop-blur-md rounded-xl border border-light-2/50 shadow-lg max-w-md transform transition-all duration-300 hover:shadow-xl hover:scale-105">
+                      <div className="text-center p-8 bg-white rounded-xl border border-light-2/50 shadow-lg max-w-md transform transition-all duration-300 hover:shadow-xl hover:scale-105 relative z-10">
                         <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${
                           index % 2 === 0 ? 'bg-dynamic-blue/10' : 'bg-deep-azure/10'
                         }`}>
