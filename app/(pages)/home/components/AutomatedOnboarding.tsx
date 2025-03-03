@@ -6,6 +6,8 @@ import { onboardingSteps } from '../data/AutomatedOnboarding';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DocumentManager } from '../data/animations/DocumentManager';
 import { InviteStaff } from '../data/animations/InviteStaff';
+import { Monitor } from '../data/animations/Monitor';
+import { CreateAccount } from '../data/animations/CreateAccount';
 
 export default function AutomatedOnboarding() {
   const [activeStep, setActiveStep] = useState(1);
@@ -234,10 +236,14 @@ export default function AutomatedOnboarding() {
                         }}></div>
                       </div>
                       <div className="relative z-10 w-full h-full flex items-center justify-center">
-                        {activeStep === 2 ? (
+                        {activeStep === 1 ? (
+                          <CreateAccount />
+                        ) : activeStep === 2 ? (
                           <DocumentManager />
                         ) : activeStep === 3 ? (
                           <InviteStaff />
+                        ) : activeStep === 4 ? (
+                          <Monitor />
                         ) : (
                           <img 
                             src={activeContent.imagePlaceholder}
