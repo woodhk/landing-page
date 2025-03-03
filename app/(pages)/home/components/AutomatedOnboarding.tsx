@@ -4,6 +4,8 @@
 import { useState, useEffect } from 'react';
 import { onboardingSteps } from '../data/AutomatedOnboarding';
 import { motion, AnimatePresence } from 'framer-motion';
+import { DocumentManager } from '../data/animations/DocumentManager';
+import { InviteStaff } from '../data/animations/InviteStaff';
 
 export default function AutomatedOnboarding() {
   const [activeStep, setActiveStep] = useState(1);
@@ -232,11 +234,17 @@ export default function AutomatedOnboarding() {
                         }}></div>
                       </div>
                       <div className="relative z-10 w-full h-full flex items-center justify-center">
-                        <img 
-                          src={activeContent.imagePlaceholder}
-                          alt={activeContent.heading}
-                          className="w-[90%] h-[90%] object-contain"
-                        />
+                        {activeStep === 2 ? (
+                          <DocumentManager />
+                        ) : activeStep === 3 ? (
+                          <InviteStaff />
+                        ) : (
+                          <img 
+                            src={activeContent.imagePlaceholder}
+                            alt={activeContent.heading}
+                            className="w-[90%] h-[90%] object-contain"
+                          />
+                        )}
                       </div>
                     </div>
                   </div>
