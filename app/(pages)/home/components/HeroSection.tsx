@@ -14,6 +14,19 @@ const HeroSection: React.FC = () => {
   return (
     <>
     <div className="relative">
+      {/* Dot pattern background with fade-out effect */}
+      <div className="absolute inset-0 w-full h-[calc(100%+12rem)] -top-24">
+        <div 
+          className="absolute inset-0 w-full h-full opacity-20"
+          style={{ 
+            backgroundImage: 'radial-gradient(circle, #3B82F6 1px, transparent 2px)', 
+            backgroundSize: '20px 20px',
+            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.1) 95%, rgba(0,0,0,0) 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.1) 95%, rgba(0,0,0,0) 100%)'
+          }}
+        />
+      </div>
+
       {/* Background gradient element */}
       <div className="absolute -top-0 -right-0 w-60 md:w-96 h-60 md:h-96 rounded-full bg-gradient-to-br from-dynamic-blue/10 to-neon-violet/5 blur-2xl" />
 

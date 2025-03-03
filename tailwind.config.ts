@@ -9,6 +9,53 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		keyframes: {
+  			blob: {
+  				'0%': {
+  					transform: 'translate(0px, 0px) scale(1)',
+  				},
+  				'33%': {
+  					transform: 'translate(30px, -50px) scale(1.1)',
+  				},
+  				'66%': {
+  					transform: 'translate(-20px, 20px) scale(0.9)',
+  				},
+  				'100%': {
+  					transform: 'translate(0px, 0px) scale(1)',
+  				},
+  			},
+  			zigzagFlow: {
+  				'0%': {
+  					transform: 'translateX(0) translateY(0)',
+  				},
+  				'100%': {
+  					transform: 'translateX(-100px) translateY(100px)',
+  				},
+  			},
+  			underline: {
+  				'0%': {
+  					width: '0%',
+  					left: '0',
+  				},
+  				'100%': {
+  					width: '100%',
+  					left: '0',
+  				},
+  			},
+  		},
+  		animation: {
+  			'blob': 'blob 7s infinite',
+  			'zigzag': 'zigzagFlow 20s linear infinite',
+  			'underline': 'underline 1s ease-out forwards',
+  		},
+  		utilities: {
+  			'.animation-delay-2000': {
+  				'animation-delay': '2s',
+  			},
+  			'.animation-delay-4000': {
+  				'animation-delay': '4s',
+  			},
+  		},
   		colors: {
   			'dynamic-blue': '#234BFF',
   			'deep-dynamic-blue': '#1A38BF',

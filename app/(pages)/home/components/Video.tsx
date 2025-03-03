@@ -7,6 +7,19 @@ const Video = () => {
   return (
     <>
       <section className="relative w-full overflow-hidden">
+        {/* Dot pattern continuation */}
+        <div className="absolute top-0 left-0 right-0 h-32 w-full">
+          <div 
+            className="absolute inset-0 w-full h-full opacity-[0.15]"
+            style={{ 
+              backgroundImage: 'radial-gradient(circle, #3B82F6 1px, transparent 2px)', 
+              backgroundSize: '20px 20px',
+              maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%)'
+            }}
+          />
+        </div>
+
         {/* Top gradient - white to blue */}
         <div className="absolute top-0 left-0 right-0 h-16 md:h-24 bg-gradient-to-b from-white to-[#EBF1FF] w-full"></div>
         

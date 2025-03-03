@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { firstRowTestimonials, secondRowTestimonials } from '../data/Testimonial2';
 
@@ -12,9 +12,25 @@ interface TestimonialItemProps {
 
 const TestimonialItem: React.FC<TestimonialItemProps> = ({ testimonial, companyName, role, logo, highlightQuote }) => {
   const [expanded, setExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   // Get a shortened testimonial if it's too long - shorter on mobile
-  const shortenLength = window.innerWidth < 640 ? 80 : 120;
+  const shortenLength = isMobile ? 80 : 120;
   const shortenedTestimonial = testimonial.length > shortenLength ? 
     `${testimonial.substring(0, shortenLength)}...` : testimonial;
   

@@ -15,8 +15,8 @@ const CalendlyIntegration = ({ url, onDateSelected }: CalendlyProps) => {
     script.async = true;
     document.body.appendChild(script);
 
-    // Set up event listener for date selection
-    window.addEventListener('message', (e) => {
+    // Define the event handler function
+    const handleCalendlyEvent = (e: MessageEvent) => {
       if (e.data.event && e.data.event.indexOf('calendly') === 0) {
         if (e.data.event === 'calendly.event_scheduled') {
           // Handle the scheduled event
@@ -25,14 +25,19 @@ const CalendlyIntegration = ({ url, onDateSelected }: CalendlyProps) => {
           onDateSelected(scheduledDate);
         }
       }
-    });
+    };
+
+    // Set up event listener for date selection
+    window.addEventListener('message', handleCalendlyEvent);
 
     return () => {
       // Clean up script when component unmounts
-      document.body.removeChild(script);
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
       
       // Remove event listener
-      window.removeEventListener('message', () => {});
+      window.removeEventListener('message', handleCalendlyEvent);
     };
   }, [url, onDateSelected]);
 

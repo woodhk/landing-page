@@ -1,5 +1,10 @@
-import { redirect } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
-export default function RootPage() {
-  redirect('/home');
+// Dynamically import the HomePage component with no SSR
+const HomePage = dynamic(() => import('./(pages)/home/page'), {
+  ssr: false,
+});
+
+export default function Page() {
+  return <HomePage />;
 }

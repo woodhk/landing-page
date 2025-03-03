@@ -53,6 +53,17 @@ const Experts = () => {
 
   return (
     <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+      {/* Decorative background lines */}
+      <div className="absolute inset-0 z-0">
+        <svg className="absolute bottom-0 right-0 w-3/4 h-full opacity-50 dark:opacity-40" viewBox="0 0 100 200" preserveAspectRatio="none">
+          <line x1="0" y1="200" x2="100" y2="100" vectorEffect="non-scaling-stroke" stroke="currentColor" strokeWidth="2" className="text-blue-400/50" />
+          <line x1="20" y1="200" x2="100" y2="120" vectorEffect="non-scaling-stroke" stroke="currentColor" strokeWidth="2" className="text-gray-400/40" />
+          <line x1="40" y1="200" x2="100" y2="140" vectorEffect="non-scaling-stroke" stroke="currentColor" strokeWidth="2" className="text-blue-300/50" />
+          <line x1="60" y1="200" x2="100" y2="160" vectorEffect="non-scaling-stroke" stroke="currentColor" strokeWidth="2" className="text-gray-400/40" />
+          <line x1="80" y1="200" x2="100" y2="180" vectorEffect="non-scaling-stroke" stroke="currentColor" strokeWidth="2" className="text-blue-300/50" />
+        </svg>
+      </div>
+      
       {/* Add decorative elements for enhanced depth */}
       <div className="absolute -top-40 right-20 w-60 md:w-80 h-60 md:h-80 rounded-full bg-blue-100 dark:bg-blue-900 opacity-20 blur-3xl"></div>
       <div className="absolute bottom-20 -left-20 w-40 md:w-60 h-40 md:h-60 rounded-full bg-gray-100 dark:bg-indigo-900 opacity-20 blur-3xl"></div>
