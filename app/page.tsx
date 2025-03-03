@@ -1,10 +1,5 @@
-import dynamic from 'next/dynamic';
-
-// Dynamically import the HomePage component with no SSR
-const HomePage = dynamic(() => import('./(pages)/home/page'), {
-  ssr: false,
-});
+import ClientPage from './client-page';
 
 export default function Page() {
-  return <HomePage />;
+  return <ClientPage />;
 }
