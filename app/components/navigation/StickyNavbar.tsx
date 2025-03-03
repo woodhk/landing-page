@@ -40,11 +40,11 @@ const StickyNavbar: React.FC = () => {
               <Image 
                 src="/logo.svg" 
                 alt="FluentPro Logo" 
-                width={40} 
-                height={40} 
-                className="h-8 w-auto"
+                width={32} 
+                height={32} 
+                className="h-7 w-auto"
               />
-              <span className="ml-2 text-2xl font-bold">FluentPro</span>
+              <span className="ml-2 text-xl font-bold">FluentPro</span>
             </Link>
           </div>
           
@@ -134,7 +134,7 @@ const StickyNavbar: React.FC = () => {
             
             {/* Call to Action Button */}
             <button 
-              className="bg-[#234BFF] hover:bg-[#1A38BF] text-white px-6 py-3 rounded-full font-medium flex items-center transition-colors"
+              className="bg-[#234BFF] hover:bg-[#1A38BF] text-white px-4 py-3 rounded-full font-medium flex items-center transition-colors text-sm md:text-base"
               onClick={() => {/* Implement demo request logic */}}
             >
               Request a Demo
@@ -158,7 +158,7 @@ const StickyNavbar: React.FC = () => {
             >
               <span className="sr-only">Toggle menu</span>
               <svg 
-                className={`w-8 h-8 transition-transform duration-300 ${mobileMenuOpen ? 'rotate-45' : ''}`}
+                className={`w-7 h-7 transition-transform duration-300 ${mobileMenuOpen ? 'rotate-45' : ''}`}
                 xmlns="http://www.w3.org/2000/svg" 
                 fill="none" 
                 viewBox="0 0 24 24" 
@@ -169,7 +169,7 @@ const StickyNavbar: React.FC = () => {
             </button>
 
             <button 
-              className="bg-[#234BFF] hover:bg-[#1A38BF] text-white px-6 py-3 rounded-full font-medium flex items-center transition-colors"
+              className="bg-[#234BFF] hover:bg-[#1A38BF] text-white px-4 py-3 rounded-full font-medium flex items-center transition-colors text-sm md:text-base"
               onClick={() => {/* Implement demo request logic */}}
             >
               Request a Demo
@@ -188,48 +188,90 @@ const StickyNavbar: React.FC = () => {
       </div>
       
       {/* Mobile Navigation Menu */}
-      <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'} fixed top-32 left-0 right-0 z-40 bg-white shadow-lg`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#F8F9FA] rounded-2xl overflow-hidden shadow-lg my-4">
+      <div 
+        className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'} fixed top-32 left-0 right-0 z-40 bg-white shadow-lg`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="bg-[#F8F9FA] rounded-2xl overflow-hidden">
             {/* Explore Section */}
-          <div className="p-4">
-            <h2 className="text-xl font-medium text-gray-500 mb-6">Explore</h2>
-            <div className="grid grid-cols-1 gap-y-6">
-              <Link 
-                href="/about" 
-                className="text-[#273046] font-medium text-lg"
-              >
-                About
-              </Link>
+            <div className="p-6">
+              <h2 className="text-[#4A5768] font-semibold mb-6">Explore</h2>
+              <div className="space-y-4">
+                <Link 
+                  href="/about" 
+                  className="flex items-center justify-between group p-4 rounded-xl hover:bg-white transition-all duration-200"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        className="h-5 w-5 text-[#234BFF]" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <span className="text-[#273046] font-medium block">About Us</span>
+                      <span className="text-sm text-[#4A5768]">Learn more about FluentPro</span>
+                    </div>
+                  </div>
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-5 w-5 text-[#4A5768] group-hover:text-[#234BFF] transition-colors" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
-          </div>
-          </div>
           
-          {/* Divider */}
-          <hr className="border-t border-gray-200 mx-4" />
-          
-          {/* Language Section */}
-          <div className="p-4 pt-6">
-            <div className="grid grid-cols-2 gap-y-6 gap-x-10">
-              <Link 
-                href="/en" 
-                className="text-[#234BFF] font-medium text-lg"
-              >
-                English
-              </Link>
-              <div></div>
-              <Link 
-                href="/zh-hk" 
-                className="text-[#273046] font-medium text-lg"
-              >
-                繁體中文
-              </Link>
-              <Link 
-                href="/zh-cn" 
-                className="text-[#273046] font-medium text-lg"
-              >
-                简体中文
-              </Link>
+            {/* Language Section */}
+            <div className="p-6 bg-white">
+              <h2 className="text-[#4A5768] font-semibold mb-6">Select Language</h2>
+              <div className="space-y-2">
+                <Link 
+                  href="/en" 
+                  className="flex items-center justify-between p-4 rounded-xl bg-blue-50 text-[#234BFF]"
+                >
+                  <div className="flex items-center space-x-3">
+                    <span className="font-medium">English</span>
+                    <span className="text-sm px-2 py-1 bg-[#234BFF] text-white rounded-full">Active</span>
+                  </div>
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-5 w-5" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </Link>
+                <Link 
+                  href="/zh-hk" 
+                  className="flex items-center justify-between p-4 rounded-xl hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex items-center space-x-3">
+                    <span className="font-medium text-[#273046]">繁體中文</span>
+                    <span className="text-sm text-[#4A5768]">Traditional Chinese</span>
+                  </div>
+                </Link>
+                <Link 
+                  href="/zh-cn" 
+                  className="flex items-center justify-between p-4 rounded-xl hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex items-center space-x-3">
+                    <span className="font-medium text-[#273046]">简体中文</span>
+                    <span className="text-sm text-[#4A5768]">Simplified Chinese</span>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

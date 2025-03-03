@@ -51,32 +51,32 @@ export const CreateAccount = () => {
   };
   
   return (
-    <div className="w-full h-full flex items-center justify-center py-6">
+    <div className="w-full h-full flex items-center justify-center py-3 md:py-6">
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="w-[80%] max-w-[360px] bg-white rounded-lg shadow-sm overflow-hidden"
+        className="w-[90%] max-w-[360px] bg-white rounded-lg shadow-sm overflow-hidden"
       >
         {/* Form Header */}
-        <div className="border-b border-gray-100 bg-gradient-to-r from-blue-50 to-indigo-50 px-4 py-2.5">
+        <div className="border-b border-gray-100 bg-gradient-to-r from-blue-50 to-indigo-50 px-3 py-1.5 md:px-4 md:py-2.5">
           <motion.h2 
             variants={itemVariants}
-            className="text-base font-semibold text-gray-800 text-center"
+            className="text-sm md:text-base font-semibold text-gray-800 text-center"
           >
             Create Your Account
           </motion.h2>
         </div>
         
         {/* Form Fields */}
-        <div className="px-4 py-2.5">
-          <form className="space-y-2">
+        <div className="px-3 py-2 md:px-4 md:py-2.5">
+          <form className="space-y-1.5 md:space-y-2">
             {/* Name Fields in one row */}
             <motion.div variants={itemVariants} className="flex space-x-2">
               <div className="flex-1">
                 <label 
                   htmlFor="firstName" 
-                  className="block text-[10px] font-medium text-gray-700 mb-0.5 text-left"
+                  className="block text-[9px] md:text-[10px] font-medium text-gray-700 mb-0.5 text-left"
                 >
                   First Name
                 </label>
@@ -88,7 +88,7 @@ export const CreateAccount = () => {
                   onChange={handleInputChange}
                   onFocus={() => setFocusedField('firstName')}
                   onBlur={() => setFocusedField(null)}
-                  className={`w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none ${focusedField === 'firstName' ? 'ring-1 ring-blue-200' : ''}`}
+                  className={`w-full px-1.5 py-0.5 md:px-2 md:py-1 border border-gray-300 rounded text-[10px] md:text-xs focus:outline-none ${focusedField === 'firstName' ? 'ring-1 ring-blue-200' : ''}`}
                   placeholder="John"
                 />
               </div>
@@ -96,7 +96,7 @@ export const CreateAccount = () => {
               <div className="flex-1">
                 <label 
                   htmlFor="lastName" 
-                  className="block text-[10px] font-medium text-gray-700 mb-0.5 text-left"
+                  className="block text-[9px] md:text-[10px] font-medium text-gray-700 mb-0.5 text-left"
                 >
                   Last Name
                 </label>
@@ -108,7 +108,7 @@ export const CreateAccount = () => {
                   onChange={handleInputChange}
                   onFocus={() => setFocusedField('lastName')}
                   onBlur={() => setFocusedField(null)}
-                  className={`w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none ${focusedField === 'lastName' ? 'ring-1 ring-blue-200' : ''}`}
+                  className={`w-full px-1.5 py-0.5 md:px-2 md:py-1 border border-gray-300 rounded text-[10px] md:text-xs focus:outline-none ${focusedField === 'lastName' ? 'ring-1 ring-blue-200' : ''}`}
                   placeholder="Smith"
                 />
               </div>
@@ -118,7 +118,7 @@ export const CreateAccount = () => {
             <motion.div variants={itemVariants}>
               <label 
                 htmlFor="email" 
-                className="block text-[10px] font-medium text-gray-700 mb-0.5 text-left"
+                className="block text-[9px] md:text-[10px] font-medium text-gray-700 mb-0.5 text-left"
               >
                 Email Address
               </label>
@@ -130,7 +130,7 @@ export const CreateAccount = () => {
                 onChange={handleInputChange}
                 onFocus={() => setFocusedField('email')}
                 onBlur={() => setFocusedField(null)}
-                className={`w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none ${focusedField === 'email' ? 'ring-1 ring-blue-200' : ''}`}
+                className={`w-full px-1.5 py-0.5 md:px-2 md:py-1 border border-gray-300 rounded text-[10px] md:text-xs focus:outline-none ${focusedField === 'email' ? 'ring-1 ring-blue-200' : ''}`}
                 placeholder="john.smith@company.com"
               />
             </motion.div>
@@ -140,11 +140,11 @@ export const CreateAccount = () => {
               <div className="flex justify-between items-center mb-0.5">
                 <label 
                   htmlFor="password" 
-                  className="text-[10px] font-medium text-gray-700 text-left"
+                  className="text-[9px] md:text-[10px] font-medium text-gray-700 text-left"
                 >
                   Password
                 </label>
-                <span className="text-[9px] text-gray-500">Min. 8 characters</span>
+                <span className="text-[8px] md:text-[9px] text-gray-500">Min. 8 characters</span>
               </div>
               <input
                 type="password"
@@ -154,7 +154,7 @@ export const CreateAccount = () => {
                 onChange={handleInputChange}
                 onFocus={() => setFocusedField('password')}
                 onBlur={() => setFocusedField(null)}
-                className={`w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none ${focusedField === 'password' ? 'ring-1 ring-blue-200' : ''}`}
+                className={`w-full px-1.5 py-0.5 md:px-2 md:py-1 border border-gray-300 rounded text-[10px] md:text-xs focus:outline-none ${focusedField === 'password' ? 'ring-1 ring-blue-200' : ''}`}
                 placeholder="••••••••"
               />
             </motion.div>
@@ -167,7 +167,7 @@ export const CreateAccount = () => {
                 initial="idle"
                 whileHover="hover"
                 whileTap="tap"
-                className="w-full py-1 px-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded text-xs transition-colors"
+                className="w-full py-0.5 md:py-1 px-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded text-[10px] md:text-xs transition-colors"
               >
                 Create Account
               </motion.button>

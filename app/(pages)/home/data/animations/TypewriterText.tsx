@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 const phrases = [
   'Human Resources',
-  'Learning and Development',
+  'Learning & Development',
   'Department Heads',
   'Training Managers'
 ];
@@ -46,8 +46,8 @@ export default function TypewriterText() {
   }, [text, phraseIndex, isDeleting]);
   
   return (
-    <span className="text-dynamic-blue inline-flex items-center min-w-[12ch]">
-      <span className="text-left">{text}</span>
+    <span className="text-dynamic-blue inline-block w-full sm:inline-flex sm:items-center">
+      <span className="text-left break-words">{text}</span>
       <span className="animate-pulse ml-1 relative" style={{ top: '-0.05em' }}>|</span>
     </span>
   );

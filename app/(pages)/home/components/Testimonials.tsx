@@ -219,7 +219,7 @@ const Testimonial: React.FC = () => {
         <div className="md:hidden relative mb-12">
           <div className="overflow-hidden">
             <div 
-              className="flex transition-transform duration-300 ease-in-out"
+              className="flex transition-transform duration-300 ease-in-out mb-1"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
               {mobileTestimonials.map((testimonial, index) => (

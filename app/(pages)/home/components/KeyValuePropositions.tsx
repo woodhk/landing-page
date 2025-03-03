@@ -91,7 +91,7 @@ export const KeyValuePropositions = () => {
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 mb-8 px-4 md:px-0">
+        <div className="hidden md:flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 mb-8 px-4 md:px-0">
           {keyValueData.map((item, index) => (
             <motion.button
               key={item.id}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { industryData } from '../data/industry';
@@ -12,11 +12,38 @@ import { YourIndustryAnimation } from '../data/animations/YourIndustry';
 
 const Industry: React.FC = () => {
   const [selectedIndustry, setSelectedIndustry] = useState(industryData[0].id);
+  // New state to track expanded industry for mobile view
+  const [expandedIndustry, setExpandedIndustry] = useState<string | null>(null);
+  
+  // Create refs for each industry card
+  const industryRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   // Find the currently selected industry data
   const currentIndustry = industryData.find(
     industry => industry.id === selectedIndustry
   ) || industryData[0];
+
+  // Handle click on industry item in mobile view
+  const handleMobileIndustryClick = (industryId: string) => {
+    if (expandedIndustry === industryId) {
+      // If clicking on already expanded industry, collapse it
+      setExpandedIndustry(null);
+    } else {
+      // Otherwise expand this industry and collapse others
+      setExpandedIndustry(industryId);
+      setSelectedIndustry(industryId);
+      
+      // Scroll to the selected industry card with a small delay to allow for state update
+      setTimeout(() => {
+        if (industryRefs.current[industryId]) {
+          industryRefs.current[industryId]?.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }, 100);
+    }
+  };
 
   return (
     <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800">
@@ -54,63 +81,141 @@ const Industry: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {/* Left sidebar - Industry selection - Now with horizontal scrolling on small screens */}
+          {/* Left sidebar - Industry selection */}
           <div>
-            {/* For mobile: horizontal scrolling list */}
-            <div className="block sm:hidden overflow-x-auto pb-4 -mx-4 px-4">
-              <div className="flex space-x-3">
-                {industryData.map((industry, idx) => (
-                  <motion.div 
-                    key={`mobile-${industry.id}`}
-                    className="flex-shrink-0 w-40"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: idx * 0.05 }}
-                  >
+            {/* For mobile: vertical expandable/collapsible list */}
+            <div className="block sm:hidden space-y-3">
+              {industryData.map((industry, idx) => (
+                <motion.div 
+                  key={`mobile-${industry.id}`}
+                  className="w-full"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: idx * 0.05 }}
+                  ref={(el) => {
+                    industryRefs.current[industry.id] = el;
+                  }}
+                >
+                  <div className="rounded-lg overflow-hidden shadow-sm">
+                    {/* Industry Header/Button */}
                     <button
-                      onClick={() => setSelectedIndustry(industry.id)}
-                      className={`flex flex-col items-center w-full h-full text-center transition-all duration-200 rounded-lg p-3 ${
-                        selectedIndustry === industry.id 
-                          ? 'bg-blue-50 dark:bg-blue-900/20' 
-                          : 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700/30'
+                      onClick={() => handleMobileIndustryClick(industry.id)}
+                      className={`flex items-center w-full text-left transition-all duration-200 p-3 ${
+                        expandedIndustry === industry.id 
+                          ? (industry.id === "banking-finance" 
+                              ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
+                              : industry.id === "real-estate" 
+                                ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400'
+                                : industry.id === "shipping-logistics" 
+                                  ? 'bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400'
+                                  : industry.id === "insurance" 
+                                    ? 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400'
+                                    : 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400')
+                          : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300'
                       }`}
                     >
                       {/* Industry Icon */}
-                      <div className={`h-10 w-10 rounded-full flex-shrink-0 flex items-center justify-center mb-2 ${
+                      <div className={`h-10 w-10 rounded-full flex-shrink-0 flex items-center justify-center mr-3 ${
                         industry.id === "banking-finance" 
-                          ? (selectedIndustry === industry.id ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' : 'bg-gray-100 dark:bg-gray-800 text-blue-500 dark:text-blue-400/70')
+                          ? (expandedIndustry === industry.id ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' : 'bg-gray-100 dark:bg-gray-800 text-blue-500 dark:text-blue-400/70')
                           : industry.id === "real-estate"
-                            ? (selectedIndustry === industry.id ? 'bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400' : 'bg-gray-100 dark:bg-gray-800 text-green-500 dark:text-green-400/70')
+                            ? (expandedIndustry === industry.id ? 'bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400' : 'bg-gray-100 dark:bg-gray-800 text-green-500 dark:text-green-400/70')
                           : industry.id === "shipping-logistics"
-                            ? (selectedIndustry === industry.id ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400' : 'bg-gray-100 dark:bg-gray-800 text-indigo-500 dark:text-indigo-400/70')
+                            ? (expandedIndustry === industry.id ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400' : 'bg-gray-100 dark:bg-gray-800 text-indigo-500 dark:text-indigo-400/70')
                           : industry.id === "insurance"
-                            ? (selectedIndustry === industry.id ? 'bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400' : 'bg-gray-100 dark:bg-gray-800 text-red-500 dark:text-red-400/70')
-                          : (selectedIndustry === industry.id ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' : 'bg-gray-100 dark:bg-gray-800 text-amber-500 dark:text-amber-400/70')
+                            ? (expandedIndustry === industry.id ? 'bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400' : 'bg-gray-100 dark:bg-gray-800 text-red-500 dark:text-red-400/70')
+                          : (expandedIndustry === industry.id ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' : 'bg-gray-100 dark:bg-gray-800 text-amber-500 dark:text-amber-400/70')
                       }`}>
                         {getRenderIcon(industry.id)}
                       </div>
-                      <span className={`text-sm ${
-                        selectedIndustry === industry.id 
-                          ? (industry.id === "banking-finance" 
-                              ? 'font-semibold text-blue-600 dark:text-blue-400'
-                              : industry.id === "real-estate" 
-                                ? 'font-semibold text-green-600 dark:text-green-400'
-                                : industry.id === "shipping-logistics" 
-                                  ? 'font-semibold text-indigo-600 dark:text-indigo-400'
-                                  : industry.id === "insurance" 
-                                    ? 'font-semibold text-red-600 dark:text-red-400'
-                                    : 'font-semibold text-amber-600 dark:text-amber-400')
-                          : 'font-medium text-gray-700 dark:text-gray-300'
-                      }`}>
+                      <span className="text-base font-medium flex-grow">
                         {industry.name}
                       </span>
+                      {/* Expand/Collapse Icon - Modified to point right initially */}
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        className={`h-5 w-5 transition-transform duration-200 transform ${expandedIndustry === industry.id ? 'rotate-90' : ''}`} 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </button>
-                  </motion.div>
-                ))}
-              </div>
+                    
+                    {/* Expandable Content */}
+                    {expandedIndustry === industry.id && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="bg-white dark:bg-gray-800 p-4 border-t border-gray-100 dark:border-gray-700"
+                      >
+                        {/* Industry Illustration/Animation */}
+                        <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 rounded-lg h-auto min-h-40 py-4 mb-4 overflow-hidden shadow-sm">
+                          <div className="w-full h-full flex items-center justify-center">
+                            {industry.hasAnimation ? (
+                              <>
+                                {industry.id === "banking-finance" && <BankingAnimation />}
+                                {industry.id === "real-estate" && <RealEstateAnimation />}
+                                {industry.id === "shipping-logistics" && <ShippingLogisticsAnimation />}
+                                {industry.id === "insurance" && <InsuranceAnimation />}
+                                {industry.id === "your Industry?" && <YourIndustryAnimation />}
+                              </>
+                            ) : (
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-600/40 dark:text-blue-400/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                              </svg>
+                            )}
+                          </div>
+                        </div>
+                        
+                        {/* Description Paragraphs */}
+                        {industry.description.map((paragraph, index) => (
+                          <p 
+                            key={index} 
+                            className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3"
+                          >
+                            {paragraph}
+                          </p>
+                        ))}
+
+                        {/* Client logos section */}
+                        <div className="mt-4">
+                          <div className="flex items-center mb-3">
+                            <div className="w-6 h-0.5 bg-blue-500 dark:bg-blue-400 mr-2"></div>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">Proven Track Record with:</p>
+                          </div>
+                          
+                          {/* Client logos grid */}
+                          <div className="grid grid-cols-2 gap-2">
+                            {industry.clientLogos.map((client, index) => (
+                              <div 
+                                key={`mobile-client-${index}`}
+                                className="bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-all duration-200 
+                                  rounded-lg p-2 flex items-center justify-center border border-gray-100 dark:border-gray-700
+                                  hover:border-blue-100 dark:hover:border-blue-900 group aspect-video"
+                              >
+                                <div className="h-8 w-full flex items-center justify-center">
+                                  <img
+                                    src={client.logo}
+                                    alt={client.name}
+                                    className="object-contain h-full max-h-8 w-auto mx-auto opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                                  />
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
-            {/* For tablet/desktop: vertical list */}
+            {/* For tablet/desktop: vertical list (unchanged) */}
             <div className="hidden sm:block space-y-3 bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-sm">
               {industryData.map((industry, idx) => (
                 <motion.div 
@@ -163,8 +268,8 @@ const Industry: React.FC = () => {
             </div>
           </div>
 
-          {/* Right - Industry description - Optimized for mobile */}
-          <div className="space-y-4 sm:space-y-5 bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-sm">
+          {/* Right - Industry description - Only visible on tablet/desktop */}
+          <div className="hidden sm:block space-y-4 sm:space-y-5 bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-sm">
             {/* Industry Title */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -226,31 +331,8 @@ const Industry: React.FC = () => {
                   <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium">Proven Track Record with:</p>
                 </div>
                 
-                {/* For small mobile: 2-column grid */}
-                <div className="grid grid-cols-2 gap-2 sm:hidden">
-                  {currentIndustry.clientLogos.map((client, index) => (
-                    <motion.div 
-                      key={`mobile-${index}`}
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                      className="bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-all duration-200 
-                        rounded-lg p-2 flex items-center justify-center border border-gray-100 dark:border-gray-700
-                        hover:border-blue-100 dark:hover:border-blue-900 group aspect-video"
-                    >
-                      <div className="h-8 w-full flex items-center justify-center">
-                        <img
-                          src={client.logo}
-                          alt={client.name}
-                          className="object-contain h-full max-h-8 w-auto mx-auto opacity-80 group-hover:opacity-100 transition-opacity duration-200"
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-                
-                {/* For tablet/desktop: Horizontal flexible layout */}
-                <div className="hidden sm:flex flex-wrap gap-3">
+                {/* Client logos flex layout */}
+                <div className="flex flex-wrap gap-3">
                   {currentIndustry.clientLogos.map((client, index) => (
                     <motion.div 
                       key={index}
