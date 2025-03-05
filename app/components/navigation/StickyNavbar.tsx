@@ -7,6 +7,7 @@ import Image from 'next/image';
 
 const StickyNavbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [exploreMenuOpen, setExploreMenuOpen] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
@@ -41,6 +42,15 @@ const StickyNavbar: React.FC = () => {
       if (timeoutId) clearTimeout(timeoutId);
     };
   }, []);
+
+  // Handle mouse enter/leave for hover effect
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   // Close menus when clicking outside
   useEffect(() => {
@@ -85,16 +95,18 @@ const StickyNavbar: React.FC = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out
-        ${isScrolled 
-          ? 'pt-2 sm:pt-3 md:pt-4' 
-          : 'pt-4 sm:pt-5 md:pt-6'}`}
+        ${(!isScrolled || (isScrolled && isHovered)) 
+          ? 'pt-4 sm:pt-5 md:pt-6' 
+          : 'pt-2 sm:pt-3 md:pt-4'}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={navbarRef}>
         <div 
-          className={`flex justify-between items-center rounded-full border border-[#F4F7FB] transition-all duration-300
-            ${isScrolled 
-              ? 'h-14 sm:h-16 md:h-16 px-4 sm:px-5 md:px-6 bg-white/95 backdrop-blur-md shadow-md' 
-              : 'h-16 sm:h-18 md:h-16 px-5 sm:px-6 md:px-6 bg-white shadow-lg'}`}
+          className={`flex justify-between items-center rounded-full border border-[#F4F7FB] transition-all duration-300 ease-in-out
+            ${(!isScrolled || (isScrolled && isHovered)) 
+              ? 'h-16 sm:h-18 md:h-16 px-5 sm:px-6 md:px-6 bg-white shadow-lg' 
+              : 'h-14 sm:h-16 md:h-16 px-4 sm:px-5 md:px-6 bg-white/95 backdrop-blur-md shadow-md'}`}
         >
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -104,9 +116,9 @@ const StickyNavbar: React.FC = () => {
                 alt="FluentPro Logo" 
                 width={32} 
                 height={32} 
-                className={`transition-all duration-300 ${isScrolled ? 'h-6 w-auto' : 'h-7 w-auto'}`}
+                className={`transition-all duration-300 ease-in-out ${(!isScrolled || (isScrolled && isHovered)) ? 'h-7 w-auto' : 'h-6 w-auto'}`}
               />
-              <span className={`ml-2 font-bold transition-all duration-300 ${isScrolled ? 'text-lg' : 'text-xl'}`}>FluentPro</span>
+              <span className={`ml-2 font-bold transition-all duration-300 ease-in-out ${(!isScrolled || (isScrolled && isHovered)) ? 'text-xl' : 'text-lg'}`}>FluentPro</span>
             </Link>
           </div>
           
@@ -119,8 +131,8 @@ const StickyNavbar: React.FC = () => {
                   setExploreMenuOpen(!exploreMenuOpen);
                   setLanguageMenuOpen(false);
                 }}
-                className={`flex items-center rounded-full text-[#4A5768] hover:bg-[#F4F7FB] hover:text-[#234BFF] font-semibold transition-colors
-                  ${isScrolled ? 'px-4 py-2 text-sm' : 'px-6 py-3'}`}
+                className={`flex items-center rounded-full text-[#4A5768] hover:bg-[#F4F7FB] hover:text-[#234BFF] font-semibold transition-all duration-300 ease-in-out
+                  ${(!isScrolled || (isScrolled && isHovered)) ? 'px-6 py-3' : 'px-4 py-2 text-sm'}`}
                 aria-expanded={exploreMenuOpen}
                 aria-haspopup="true"
               >
@@ -165,8 +177,8 @@ const StickyNavbar: React.FC = () => {
                   setLanguageMenuOpen(!languageMenuOpen);
                   setExploreMenuOpen(false);
                 }}
-                className={`flex items-center rounded-full bg-[#F4F7FB] text-[#4A5768] hover:bg-[#DEE4F1] font-semibold transition-colors border border-[#E5E7EB]
-                  ${isScrolled ? 'px-4 py-2 text-sm' : 'px-6 py-3'}`}
+                className={`flex items-center rounded-full bg-[#F4F7FB] text-[#4A5768] hover:bg-[#DEE4F1] font-semibold transition-all duration-300 ease-in-out border border-[#E5E7EB]
+                  ${(!isScrolled || (isScrolled && isHovered)) ? 'px-6 py-3' : 'px-4 py-2 text-sm'}`}
                 aria-expanded={languageMenuOpen}
                 aria-haspopup="true"
               >
@@ -213,8 +225,8 @@ const StickyNavbar: React.FC = () => {
             
             {/* Call to Action Button */}
             <button 
-              className={`bg-[#234BFF] hover:bg-[#1A38BF] text-white rounded-full font-medium flex items-center transition-colors
-                ${isScrolled ? 'px-3 py-2 text-sm' : 'px-4 py-3 text-base'}`}
+              className={`bg-[#234BFF] hover:bg-[#1A38BF] text-white rounded-full font-medium flex items-center transition-all duration-300 ease-in-out
+                ${(!isScrolled || (isScrolled && isHovered)) ? 'px-4 py-3 text-base' : 'px-3 py-2 text-sm'}`}
               onClick={() => {/* Implement demo request logic */}}
             >
               Request a Demo
@@ -251,8 +263,8 @@ const StickyNavbar: React.FC = () => {
             </button>
 
             <button 
-              className={`bg-[#234BFF] hover:bg-[#1A38BF] text-white rounded-full font-medium flex items-center transition-colors
-                ${isScrolled ? 'px-3 py-2 text-xs' : 'px-3 py-2 text-sm'}`}
+              className={`bg-[#234BFF] hover:bg-[#1A38BF] text-white rounded-full font-medium flex items-center transition-all duration-300 ease-in-out
+                ${(!isScrolled || (isScrolled && isHovered)) ? 'px-3 py-2 text-sm' : 'px-3 py-2 text-xs'}`}
               onClick={() => {/* Implement demo request logic */}}
             >
               Request Demo
@@ -276,8 +288,8 @@ const StickyNavbar: React.FC = () => {
         className={`md:hidden fixed left-0 right-0 z-40 bg-white/95 backdrop-blur-md shadow-lg border-t border-[#DEE4F1] transition-all duration-300 ease-in-out overflow-hidden
           ${mobileMenuOpen 
             ? 'max-h-[calc(100vh-5rem)] opacity-100' 
-            : 'max-h-0 opacity-0'}`}
-        style={{ top: isScrolled ? '4rem' : '5rem' }}
+            : 'max-h-0 opacity-0'}
+          ${(!isScrolled || (isScrolled && isHovered)) ? 'top-[5rem]' : 'top-[4rem]'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
           <div className="bg-[#F8F9FA] rounded-2xl overflow-hidden">
