@@ -2,6 +2,29 @@
 
 import { useState, useEffect } from 'react';
 
+// Custom hook for media queries that works with SSR
+function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState(false);
+  
+  useEffect(() => {
+    // Only run on client side
+    if (typeof window !== 'undefined') {
+      const media = window.matchMedia(query);
+      // Set initial value
+      setMatches(media.matches);
+      
+      // Set up listener for changes
+      const listener = () => setMatches(media.matches);
+      media.addEventListener('change', listener);
+      
+      // Clean up
+      return () => media.removeEventListener('change', listener);
+    }
+  }, [query]);
+  
+  return matches;
+}
+
 const phrases = [
   'Human Resources',
   'Learning & Development',
@@ -10,11 +33,17 @@ const phrases = [
 ];
 
 export default function TypewriterText() {
+  // Check if screen is at least medium size (md breakpoint in Tailwind)
+  const isLargeScreen = useMediaQuery('(min-width: 768px)');
+  
   const [text, setText] = useState('');
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   
   useEffect(() => {
+    // Only run the animation on larger screens
+    if (!isLargeScreen) return;
+    
     const currentPhrase = phrases[phraseIndex];
     
     // Typing speed (in milliseconds)
@@ -43,12 +72,22 @@ export default function TypewriterText() {
     }, isDeleting ? deletingSpeed : typingSpeed);
     
     return () => clearTimeout(timer);
-  }, [text, phraseIndex, isDeleting]);
+  }, [text, phraseIndex, isDeleting, isLargeScreen]);
   
   // Find the longest phrase to use for the container width
   const longestPhrase = phrases.reduce((longest, current) => 
     current.length > longest.length ? current : longest, '');
   
+  // For small screens, just show static text
+  if (!isLargeScreen) {
+    return (
+      <span className="text-dynamic-blue">
+        HR & LD
+      </span>
+    );
+  }
+  
+  // For larger screens, show the typewriter animation
   return (
     <span className="text-dynamic-blue inline-block relative">
       {/* Invisible text with the longest phrase to maintain consistent width */}
