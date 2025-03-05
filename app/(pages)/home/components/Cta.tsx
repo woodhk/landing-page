@@ -256,9 +256,13 @@ const Cta = () => {
                 <motion.div 
                   key={index}
                   whileHover={{ y: -5, scale: 1.05 }}
-                  className="h-12 md:h-14 bg-white rounded-lg shadow-sm flex items-center justify-center p-2 border border-gray-100"
+                  className="h-12 md:h-14 bg-white rounded-lg shadow-sm flex items-center justify-center p-1 sm:p-2 border border-gray-100"
                 >
-                  <img src={company.img} alt={company.alt} className="max-w-full max-h-full object-contain" />
+                  <img 
+                    src={company.img} 
+                    alt={company.alt} 
+                    className="max-w-[80%] max-h-[80%] w-auto h-auto object-contain" 
+                  />
                 </motion.div>
               ))}
             </div>

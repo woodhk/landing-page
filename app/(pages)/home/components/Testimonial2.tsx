@@ -49,13 +49,13 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: Testimonial; ind
       
       {/* Quote icon */}
       <div className="absolute top-4 sm:top-6 right-4 sm:right-6 opacity-10">
-        <Quote size={30} className="sm:size-40 text-dynamic-blue" />
+        <Quote size={30} className="sm:size-40 lg:size-24 text-dynamic-blue" />
       </div>
       
       {/* Header */}
       <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 z-10">
         <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 bg-gray-50 rounded-full p-2 border border-gray-100 shadow-sm">
-          <Image src={testimonial.logo} alt={testimonial.companyName} fill className="object-contain p-1" />
+          <Image src={testimonial.logo} alt={testimonial.companyName} fill className="object-contain p-1" style={{ objectFit: 'contain', maxWidth: '80%', maxHeight: '80%' }} />
         </div>
         <div>
           <h3 className="font-bold text-dark text-xs sm:text-sm">{testimonial.companyName}</h3>

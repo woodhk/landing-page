@@ -99,7 +99,7 @@ const TestimonialItem: React.FC<TestimonialItemProps> = ({ testimonial, companyN
           <img 
             src={logo} 
             alt={`${companyName} logo`} 
-            className="h-6 sm:h-8 w-auto object-contain"
+            className="max-w-[80%] max-h-[80%] w-auto h-auto object-contain"
           />
         </div>
         <div>

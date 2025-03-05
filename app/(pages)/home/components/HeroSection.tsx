@@ -92,15 +92,15 @@ const HeroSection: React.FC = () => {
         
         {/* Right panel - only visible on larger screens */}
         <div className="hidden lg:flex h-full items-center justify-center">
-          <div className="bg-light-3 border border-light-2 rounded-xl shadow-sm p-8 text-center w-full">
-            <div className="flex flex-col items-center justify-center gap-4 py-12">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#234BFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21 15 16 10 5 21"></polyline>
-              </svg>
-              <p className="text-medium font-medium">Dashboard Image</p>
-              <p className="text-medium-3 text-sm">Product screenshot will be displayed here</p>
+          <div className="relative bg-white border border-light-2 rounded-xl shadow-lg p-4 text-center w-full overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white opacity-50"></div>
+            <div className="relative">
+              <img 
+                src="/admin-dashboard.png" 
+                alt="Admin Dashboard" 
+                className="w-full h-auto rounded-lg transform hover:scale-105 transition-transform duration-300 shadow-md"
+              />
+              <div className="absolute -inset-1 bg-blue-500/5 rounded-xl blur-sm -z-10"></div>
             </div>
           </div>
         </div>

@@ -3,6 +3,23 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { hrFeatures } from '../data/HrFeatures';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+
+// Function to map feature ID to image path
+const getImagePath = (id: number) => {
+  switch (id) {
+    case 1:
+      return '/admin-dashboard.png';
+    case 2:
+      return '/staff-homepage.png';
+    case 3:
+      return '/scenarios-homepage.png';
+    case 4:
+      return '/company-specific.png';
+    default:
+      return '';
+  }
+};
 
 const HrFeatures = () => {
   // State for tracking visible features in desktop view
@@ -205,22 +222,16 @@ const HrFeatures = () => {
                       {/* 3D lighting effect */}
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/30 opacity-80"></div>
                       
-                      <div className="absolute inset-0 flex items-center justify-center p-6">
-                        <div className="text-center p-4 bg-white rounded-lg border border-light-2/50 shadow-lg max-w-[85%] relative z-10">
-                          <div className={`w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center ${
-                            index % 2 === 0 ? 'bg-dynamic-blue/10' : 'bg-deep-azure/10'
-                          }`}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`${
-                              index % 2 === 0 ? 'text-dynamic-blue' : 'text-deep-azure'
-                            }`}>
-                              <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-                              <circle cx="9" cy="9" r="2" />
-                              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                            </svg>
-                          </div>
-                          <p className={`font-medium text-sm ${index % 2 === 0 ? 'text-dynamic-blue' : 'text-deep-azure'}`}>
-                            {feature.imagePlaceholder}
-                          </p>
+                      <div className="absolute inset-0 flex items-center justify-center p-3">
+                        <div className="relative w-full h-full max-w-[95%] aspect-video z-10 bg-white/5 backdrop-blur-[2px] rounded-lg overflow-hidden">
+                          <Image
+                            src={getImagePath(feature.id)}
+                            alt={feature.imagePlaceholder}
+                            fill
+                            className="object-contain drop-shadow-md"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            priority={index === 0}
+                          />
                         </div>
                       </div>
                     </div>
@@ -302,22 +313,16 @@ const HrFeatures = () => {
                       {feature.id}
                     </div>
                     
-                    <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-8 md:p-10 lg:p-12">
-                      <div className="text-center p-4 sm:p-6 md:p-8 bg-white rounded-lg sm:rounded-xl border border-light-2/50 shadow-lg max-w-[85%] sm:max-w-md transform transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 relative z-10">
-                        <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full flex items-center justify-center ${
-                          index % 2 === 0 ? 'bg-dynamic-blue/10' : 'bg-deep-azure/10'
-                        }`}>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`sm:w-6 sm:h-6 ${
-                            index % 2 === 0 ? 'text-dynamic-blue' : 'text-deep-azure'
-                          }`}>
-                            <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-                            <circle cx="9" cy="9" r="2" />
-                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                          </svg>
-                        </div>
-                        <p className={`font-medium text-sm sm:text-base md:text-lg ${index % 2 === 0 ? 'text-dynamic-blue' : 'text-deep-azure'}`}>
-                          {feature.imagePlaceholder}
-                        </p>
+                    <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-5 md:p-6 lg:p-8">
+                      <div className="relative w-full h-full max-w-[95%] sm:max-w-[90%] aspect-video z-10 bg-white/5 backdrop-blur-[2px] rounded-lg overflow-hidden transform transition-all duration-300 group-hover:scale-105">
+                        <Image
+                          src={getImagePath(feature.id)}
+                          alt={feature.imagePlaceholder}
+                          fill
+                          className="object-contain drop-shadow-md"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          priority={index === 0}
+                        />
                       </div>
                     </div>
                   </div>
