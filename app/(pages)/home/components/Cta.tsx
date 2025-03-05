@@ -244,6 +244,12 @@ const Cta = () => {
             </motion.div>
           )}
 
+          {/* 
+            CHANGED SECTION BELOW:
+            - Removed h-12 / md:h-14
+            - Allowed the container to auto-size
+            - Ensured images remain neatly contained
+          */}
           <motion.div variants={itemVariants} className="mb-8">
             <p className="font-semibold mb-4 md:mb-5 text-gray-700">Trusted by Global Industry Leaders</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
@@ -256,12 +262,13 @@ const Cta = () => {
                 <motion.div 
                   key={index}
                   whileHover={{ y: -5, scale: 1.05 }}
-                  className="h-12 md:h-14 bg-white rounded-lg shadow-sm flex items-center justify-center p-1 sm:p-2 border border-gray-100"
+                  className="relative bg-white rounded-lg shadow-sm flex items-center justify-center p-2 border border-gray-100"
+                  style={{ minHeight: '60px' }} // ensures a minimum box height on mobile
                 >
                   <img 
                     src={company.img} 
                     alt={company.alt} 
-                    className="max-w-[80%] max-h-[80%] w-auto h-auto object-contain" 
+                    className="max-w-full max-h-full object-contain"
                   />
                 </motion.div>
               ))}
