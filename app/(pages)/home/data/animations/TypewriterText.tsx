@@ -45,10 +45,27 @@ export default function TypewriterText() {
     return () => clearTimeout(timer);
   }, [text, phraseIndex, isDeleting]);
   
+  // Find the longest phrase to use for the container width
+  const longestPhrase = phrases.reduce((longest, current) => 
+    current.length > longest.length ? current : longest, '');
+  
   return (
-    <span className="text-dynamic-blue inline">
-      <span className="text-left">{text}</span>
-      <span className="animate-pulse ml-1 relative" style={{ top: '-0.05em' }}>|</span>
+    <span className="text-dynamic-blue inline-block relative">
+      {/* Invisible text with the longest phrase to maintain consistent width */}
+      <span 
+        className="invisible absolute" 
+        aria-hidden="true"
+      >
+        {longestPhrase}
+      </span>
+      
+      {/* Visible text that changes */}
+      <span className="inline-block">
+        {text}
+      </span>
+      
+      {/* Cursor */}
+      <span className="animate-pulse inline-block ml-1">|</span>
     </span>
   );
 }

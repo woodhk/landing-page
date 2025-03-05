@@ -42,11 +42,20 @@ const config: Config = {
   					left: '0',
   				},
   			},
+  			fadeIn: {
+  				'0%': {
+  					opacity: '0',
+  				},
+  				'100%': {
+  					opacity: '1',
+  				},
+  			},
   		},
   		animation: {
   			'blob': 'blob 7s infinite',
   			'zigzag': 'zigzagFlow 20s linear infinite',
   			'underline': 'underline 1s ease-out forwards',
+  			'fadeIn': 'fadeIn 0.2s ease-out forwards',
   		},
   		utilities: {
   			'.animation-delay-2000': {
