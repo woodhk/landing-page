@@ -123,7 +123,7 @@ export default function AutomatedOnboarding() {
         {/* Heading - FIXED to have everything on the same line */}
         <div className="text-center mb-16 relative">
           <h2 className="text-4xl md:text-5xl font-bold mb-2 text-dark">Designed for Learners.</h2>
-          <h2 className="text-4xl md:text-7xl font-bold mb-3 text-dark">
+          <h2 className="text-4xl md:text-7xl font-bold mb-3 text-dark" style={{ minHeight: 'calc(1.5em + 1.5rem)' }}>
             Loved by <TypewriterText />
           </h2>
         </div>

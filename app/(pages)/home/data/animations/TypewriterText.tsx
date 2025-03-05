@@ -50,22 +50,39 @@ export default function TypewriterText() {
     current.length > longest.length ? current : longest, '');
   
   return (
-    <span className="text-dynamic-blue inline-block relative">
-      {/* Invisible text with the longest phrase to maintain consistent width */}
-      <span 
-        className="invisible absolute" 
-        aria-hidden="true"
-      >
-        {longestPhrase}
-      </span>
-      
-      {/* Visible text that changes */}
-      <span className="inline-block">
-        {text}
-      </span>
-      
-      {/* Cursor */}
-      <span className="animate-pulse inline-block ml-1">|</span>
-    </span>
+    <div 
+      className="text-dynamic-blue inline-block relative" 
+      style={{ 
+        // Set a fixed height that can accommodate multiple lines on mobile
+        minHeight: '4.5em', // Increased height for mobile
+        // Ensure the container has proper width
+        minWidth: '4em',
+        // Ensure consistent display
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+      }}
+    >
+      {/* Container for all text content with fixed dimensions */}
+      <div className="relative w-full h-full flex items-center">
+        {/* Invisible text with the longest phrase to maintain consistent width */}
+        <div 
+          className="invisible absolute opacity-0 whitespace-pre-wrap" 
+          aria-hidden="true"
+        >
+          {longestPhrase}
+        </div>
+        
+        {/* Visible text that changes - positioned absolutely to prevent layout shifts */}
+        <div className="flex items-center">
+          <span className="whitespace-pre-wrap">
+            {text}
+          </span>
+          
+          {/* Cursor */}
+          <span className="animate-pulse ml-1">|</span>
+        </div>
+      </div>
+    </div>
   );
 }
