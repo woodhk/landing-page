@@ -126,8 +126,6 @@ export default function AutomatedOnboarding() {
           <h2 className="text-4xl md:text-7xl font-bold mb-3 text-dark">
             Loved by <TypewriterText />
           </h2>
-          {/* Add an empty div with fixed height to reserve space for text wrapping on mobile */}
-          <div className="h-16 md:h-0"></div>
         </div>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
