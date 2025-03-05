@@ -123,9 +123,11 @@ export default function AutomatedOnboarding() {
         {/* Heading - FIXED to have everything on the same line */}
         <div className="text-center mb-16 relative">
           <h2 className="text-4xl md:text-5xl font-bold mb-2 text-dark">Designed for Learners.</h2>
-          <h2 className="text-4xl md:text-7xl font-bold mb-3 text-dark" style={{ minHeight: 'calc(1.5em + 1.5rem)' }}>
+          <h2 className="text-4xl md:text-7xl font-bold mb-3 text-dark">
             Loved by <TypewriterText />
           </h2>
+          {/* Add an empty div with fixed height to reserve space for text wrapping on mobile */}
+          <div className="h-16 md:h-0"></div>
         </div>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
