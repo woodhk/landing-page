@@ -120,12 +120,11 @@ export default function AutomatedOnboarding() {
     <section id="automated-onboarding-section" className="w-full px-4 py-24 bg-gradient-to-b from-light-3 to-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Main Content with Enhanced UI */}
-        {/* Heading */}
+        {/* Heading - FIXED to have everything on the same line */}
         <div className="text-center mb-16 relative">
           <h2 className="text-4xl md:text-5xl font-bold mb-2 text-dark">Designed for Learners.</h2>
-          <h2 className="text-4xl md:text-7xl font-bold mb-3 text-dark flex flex-col sm:flex-row items-center justify-center">
-            <span>Loved by</span>
-            <TypewriterText />
+          <h2 className="text-4xl md:text-7xl font-bold mb-3 text-dark">
+            Loved by <TypewriterText />
           </h2>
         </div>
         <motion.div 
