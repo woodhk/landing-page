@@ -1,392 +1,258 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
-import { hrFeatures } from '../data/HrFeatures';
-import { motion } from 'framer-motion';
+import React, { useState, ReactNode } from 'react';
 import Image from 'next/image';
 
-// Function to map feature ID to image path
-const getImagePath = (id: number) => {
-  switch (id) {
-    case 1:
-      return '/admin-dashboard.png';
-    case 2:
-      return '/staff-homepage.png';
-    case 3:
-      return '/scenarios-homepage.png';
-    case 4:
-      return '/company-specific.png';
-    default:
-      return '';
-  }
-};
+// Type definitions
+interface FeatureCardProps {
+  title: string;
+  description: string;
+  icon: ReactNode;
+  imagePath: string;
+  tall?: boolean;
+}
 
-const HrFeatures = () => {
-  // State for tracking visible features in desktop view
-  const [visibleFeatures, setVisibleFeatures] = useState<Set<number>>(new Set());
-  const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  // State for mobile card navigation
-  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  // Navigation functions for mobile
-  const handlePrevFeature = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setActiveFeatureIndex((prev) => (prev === 0 ? hrFeatures.length - 1 : prev - 1));
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  const handleNextFeature = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setActiveFeatureIndex((prev) => (prev === hrFeatures.length - 1 ? 0 : prev + 1));
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  // Improved Intersection Observer to detect which features are in view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = parseInt(entry.target.getAttribute('data-index') || '0');
-          
-          if (entry.isIntersecting) {
-            // Add this feature to the set of visible features
-            setVisibleFeatures(prev => new Set(prev).add(index));
-          }
-        });
-      },
-      { 
-        threshold: 0.15, // Trigger when just 15% of the element is visible
-        rootMargin: "0px 0px -10% 0px" // Trigger slightly before the element enters viewport
-      }
-    );
-
-    featureRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      featureRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, []);
-
-  // Animation variants with improved performance for mobile
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        staggerChildren: 0.2,
-        duration: 0.5,
-        ease: "easeOut" 
-      } 
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" } 
-    }
-  };
-
+// Card component with hover effects - modified to only show image on hover without text
+const FeatureCard = ({ title, description, icon, imagePath, tall = false }: FeatureCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <section className="w-full py-8 sm:py-10 md:py-14 lg:py-20 bg-gradient-to-b from-gray-50 to-gray-100 relative overflow-hidden">
-      {/* Grid pattern overlay with responsive sizing */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] sm:bg-[size:2rem_2rem] opacity-50 z-0"></div>
-
-      {/* Background patterns for visual interest - more responsive positioning */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50 z-10">
-        <div className="absolute top-[10%] left-[5%] sm:left-[10%] w-40 h-40 sm:w-64 sm:h-64 rounded-full bg-dynamic-blue/5 blur-3xl"></div>
-        <div className="absolute bottom-[20%] right-[5%] w-48 h-48 sm:w-80 sm:h-80 rounded-full bg-deep-azure/5 blur-3xl"></div>
-      </div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="mb-6 sm:mb-12 md:mb-16 text-center max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto"
+    <div className="bg-gray-100 p-3 rounded-3xl h-full">
+      <div 
+        className={`relative bg-white rounded-2xl overflow-hidden transition-all duration-500 ${
+          tall ? 'h-full' : 'h-48 sm:h-64'
+        } ${isHovered ? 'shadow-lg' : 'shadow-sm'}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Content Layer */}
+        <div 
+          className={`absolute inset-0 p-6 flex flex-col transition-all duration-500 ease-in-out ${
+            isHovered ? 'opacity-0 transform translate-y-4' : 'opacity-100'
+          }`}
         >
-          <motion.div variants={itemVariants} className="mb-2 sm:mb-6">
-            <span className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 mb-1 text-xs sm:text-sm font-medium bg-dynamic-blue/10 text-dynamic-blue rounded-full shadow-sm">
-              HR & L&D Features
-            </span>
-          </motion.div>
-          
-          <motion.h2 
-            variants={itemVariants}
-            className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-dark mb-4 sm:mb-6 text-shadow leading-tight"
-          >
-            Designed to Maximize Return on Investment
-          </motion.h2>
-        </motion.div>
-
-        {/* Pagination Indicators moved closer to the card */}
-        <div className="flex justify-center space-x-2 mb-4 md:hidden">
-          {hrFeatures.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                if (isAnimating) return;
-                setIsAnimating(true);
-                setActiveFeatureIndex(index);
-                setTimeout(() => setIsAnimating(false), 500);
-              }}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                activeFeatureIndex === index 
-                  ? 'bg-dynamic-blue w-6' 
-                  : 'bg-gray-300'
-              }`}
-              aria-label={`Go to feature ${index + 1}`}
-            />
-          ))}
-        </div>
-        
-        {/* Mobile Card Navigation View */}
-        <div className="block md:hidden">
-          <div className="relative overflow-hidden">
-            {/* Card Container with sliding animation */}
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${activeFeatureIndex * 100}%)` }}
-            >
-              {hrFeatures.map((feature, index) => (
-                <div key={feature.id} className="w-full flex-shrink-0 px-2 sm:px-3">
-                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                    {/* Text Content (Top) */}
-                    <div className="p-6 relative">
-                      {/* Number indicator moved to top right of text card */}
-                      <div className={`absolute right-4 top-4 w-8 h-8 rounded-full flex items-center justify-center ${
-                        index % 2 === 0 ? 'bg-dynamic-blue' : 'bg-deep-azure'
-                      } text-white font-bold text-sm shadow-lg border border-white/30 z-20`}>
-                        {feature.id}
-                      </div>
-                      
-                      <div className="mb-3">
-                        <span className={`inline-block px-3 py-1.5 text-xs font-medium rounded-full shadow-sm ${
-                          index % 2 === 0 
-                            ? 'bg-dynamic-blue/15 text-dynamic-blue' 
-                            : 'bg-deep-azure/15 text-deep-azure'
-                        }`}>
-                          {feature.tag}
-                        </span>
-                      </div>
-                      
-                      <h2 className={`text-xl font-bold mb-3 ${
-                        index % 2 === 0 ? 'text-dark' : 'text-dark'
-                      } leading-tight`}>
-                        {feature.title}
-                      </h2>
-                      
-                      <p className="text-base text-medium-2 leading-relaxed mb-4">
-                        {feature.description}
-                      </p>
-                      
-                      {/* Feature highlights */}
-                      <div className="grid grid-cols-1 gap-2 mb-4">
-                        {feature.highlights.map((highlight, i) => (
-                          <div key={i} className="flex items-start space-x-2 group">
-                            <div className={`w-5 h-5 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0 ${
-                              index % 2 === 0 ? 'bg-dynamic-blue/20' : 'bg-deep-azure/20'
-                            }`}>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`${
-                                index % 2 === 0 ? 'text-dynamic-blue' : 'text-deep-azure'
-                              }`}>
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                              </svg>
-                            </div>
-                            <span className="text-sm text-medium font-medium">{highlight}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    {/* Image Content (Bottom) */}
-                    <div className={`relative w-full h-0 pb-[70%] overflow-hidden ${
-                      index % 2 === 0 
-                        ? 'bg-gradient-to-br from-dynamic-blue/10 via-dynamic-blue/5 to-white' 
-                        : 'bg-gradient-to-br from-deep-azure/10 via-deep-azure/5 to-white'
-                    } border-t border-light-2`}>
-                      {/* Background elements */}
-                      <div className="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-dynamic-blue/10 blur-3xl opacity-60"></div>
-                      <div className="absolute -left-12 -bottom-12 w-40 h-40 rounded-full bg-neon-violet/10 blur-3xl opacity-60"></div>
-                      
-                      {/* 3D lighting effect */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/30 opacity-80"></div>
-                      
-                      <div className="absolute inset-0 flex items-center justify-center p-3">
-                        <div className="relative w-full h-full max-w-[95%] aspect-video z-10 bg-white/5 backdrop-blur-[2px] rounded-lg overflow-hidden">
-                          <Image
-                            src={getImagePath(feature.id)}
-                            alt={feature.imagePlaceholder}
-                            fill
-                            className="object-contain drop-shadow-md"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            priority={index === 0}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Navigation Arrows at bottom edges of the card */}
-            <div className="relative mt-6 mb-2">
-              {/* Left arrow positioned at bottom left */}
-              <button 
-                onClick={handlePrevFeature}
-                disabled={isAnimating}
-                className="absolute left-2 bottom-0 w-10 h-10 rounded-full bg-white/80 shadow-md flex items-center justify-center text-gray-600 z-30"
-                aria-label="Previous feature"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-              </button>
-              
-              {/* Right arrow positioned at bottom right */}
-              <button 
-                onClick={handleNextFeature}
-                disabled={isAnimating}
-                className="absolute right-2 bottom-0 w-10 h-10 rounded-full bg-white/80 shadow-md flex items-center justify-center text-gray-600 z-30"
-                aria-label="Next feature"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                </svg>
-              </button>
+          <div className="mb-4">
+            <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center shadow-sm">
+              {icon}
             </div>
           </div>
+          
+          <div className="mt-auto">
+            <h3 className="text-xl font-bold mb-3 text-gray-900">{title}</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {description}
+            </p>
+          </div>
         </div>
+        
+        {/* Image Layer - removed text overlay */}
+        <div 
+          className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+            isHovered ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <div className="absolute inset-0 p-4 flex items-center justify-center">
+            <Image
+              src={imagePath}
+              alt={title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-        {/* Desktop View (Original Layout) */}
-        <div className="hidden md:block space-y-16 sm:space-y-20 md:space-y-24 lg:space-y-32">
-          {hrFeatures.map((feature, index) => (
-            <div 
-              key={feature.id}
-              ref={(el) => {
-                featureRefs.current[index] = el;
-              }}
-              data-index={index}
-              className="scroll-mt-16 sm:scroll-mt-20 md:scroll-mt-24"
-            >
-              <motion.div 
-                initial={{ opacity: 0, y: 40 }}
-                animate={visibleFeatures.has(index) ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className={`flex flex-col ${
-                  feature.isImageRight 
-                    ? 'md:flex-row' 
-                    : 'md:flex-row-reverse'
-                } gap-8 sm:gap-10 md:gap-12 lg:gap-20 relative`}
-              >
-                {/* Image Column with enhanced responsive design */}
-                <div className="w-full md:w-1/2 transition-all duration-300">
-                  <div 
-                    className={`relative w-full h-0 pb-[75%] sm:pb-[70%] md:pb-[85%] lg:pb-[75%] overflow-hidden rounded-xl sm:rounded-2xl shadow-xl border border-light-2 transform transition-all duration-300 hover:shadow-2xl ${
-                      index % 2 === 0 
-                        ? 'bg-gradient-to-br from-dynamic-blue/10 via-dynamic-blue/5 to-white' 
-                        : 'bg-gradient-to-br from-deep-azure/10 via-deep-azure/5 to-white'
-                    } bg-white group`}
-                  >
-                    {/* Enhanced background elements with responsive positioning */}
-                    <div className="absolute -right-12 -top-12 w-40 sm:w-64 h-40 sm:h-64 rounded-full bg-dynamic-blue/10 blur-3xl opacity-60"></div>
-                    <div className="absolute -left-12 -bottom-12 w-40 sm:w-64 h-40 sm:h-64 rounded-full bg-neon-violet/10 blur-3xl opacity-60"></div>
-                    
-                    {/* 3D lighting effect */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/30 opacity-80"></div>
-                    
-                    {/* Number indicator with enhanced design and responsive sizing */}
-                    <div className={`absolute ${feature.isImageRight ? 'left-4 sm:left-6' : 'right-4 sm:right-6'} top-4 sm:top-6 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center ${
-                      index % 2 === 0 ? 'bg-dynamic-blue' : 'bg-deep-azure'
-                    } text-white font-bold text-base sm:text-xl shadow-lg border-2 border-white/30 backdrop-blur-sm z-20`}>
-                      {feature.id}
-                    </div>
-                    
-                    <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-5 md:p-6 lg:p-8">
-                      <div className="relative w-full h-full max-w-[95%] sm:max-w-[90%] aspect-video z-10 bg-white/5 backdrop-blur-[2px] rounded-lg overflow-hidden transform transition-all duration-300 group-hover:scale-105">
-                        <Image
-                          src={getImagePath(feature.id)}
-                          alt={feature.imagePlaceholder}
-                          fill
-                          className="object-contain drop-shadow-md"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          priority={index === 0}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Content Column with enhanced responsive styling */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center mt-6 md:mt-0">
-                  <div className="mb-3 sm:mb-4">
-                    <span className={`inline-block px-3 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm font-medium rounded-full shadow-sm ${
-                      index % 2 === 0 
-                        ? 'bg-dynamic-blue/15 text-dynamic-blue' 
-                        : 'bg-deep-azure/15 text-deep-azure'
-                    }`}>
-                      {feature.tag}
-                    </span>
-                  </div>
-                  
-                  <h2 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 ${
-                    index % 2 === 0 ? 'text-dark' : 'text-dark'
-                  } leading-tight`}>
-                    {feature.title}
-                  </h2>
-                  
-                  <div className="space-y-4 sm:space-y-6">
-                    <p className="text-base sm:text-lg md:text-xl text-medium-2 leading-relaxed">
-                      {feature.description}
-                    </p>
-                    
-                    {/* Feature highlights with improved responsive grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6">
-                      {feature.highlights.map((highlight, i) => (
-                        <div key={i} className="flex items-start sm:items-center space-x-2 group">
-                          <div className={`w-5 h-5 rounded-full flex items-center justify-center mt-0.5 sm:mt-0 flex-shrink-0 transition-colors duration-300 ${
-                            index % 2 === 0 ? 'bg-dynamic-blue/20 group-hover:bg-dynamic-blue/30' : 'bg-deep-azure/20 group-hover:bg-deep-azure/30'
-                          }`}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`${
-                              index % 2 === 0 ? 'text-dynamic-blue' : 'text-deep-azure'
-                            }`}>
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                          </div>
-                          <span className="text-sm sm:text-base text-medium font-medium">{highlight}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-              
-              {/* Enhanced feature divider with responsive spacing */}
-              {index < hrFeatures.length - 1 && (
-                <motion.div 
-                  initial={{ opacity: 0, width: "0%" }}
-                  animate={visibleFeatures.has(index) ? { opacity: 1, width: "100%" } : {}}
-                  transition={{ duration: 1, delay: 0.3 }}
-                  className="w-full h-px bg-gradient-to-r from-transparent via-light-2 to-transparent mt-12 sm:mt-16 md:mt-20 lg:mt-28"
-                ></motion.div>
-              )}
+// Type definition for FluentProCard
+interface FluentProCardProps {
+  title: string;
+  description: string;
+  icon: ReactNode;
+  logoPath: string;
+  imagePath: string;
+}
+
+// FluentPro middle card component with hover effects - modified to only show image on hover
+const FluentProCard = ({ title, description, icon, logoPath, imagePath }: FluentProCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  return (
+    <div className="bg-gray-100 p-3 rounded-3xl h-full">
+      <div 
+        className="relative bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-500 h-full"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Content Layer */}
+        <div 
+          className={`absolute inset-0 flex flex-col h-full p-6 transition-all duration-500 ease-in-out ${
+            isHovered ? 'opacity-0 transform translate-y-8' : 'opacity-100'
+          }`}
+        >
+          <div className="mb-4">
+            <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center shadow-sm">
+              {icon}
             </div>
-          ))}
+          </div>
+          
+          <div className="flex justify-center items-center flex-grow py-6">
+            <img src={logoPath} alt={title} className="max-w-full max-h-36" />
+          </div>
+          
+          <div className="mt-auto">
+            <h3 className="text-xl font-bold mb-3 text-gray-900">{title}</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {description}
+            </p>
+          </div>
+        </div>
+        
+        {/* Image Layer - removed text overlay */}
+        <div 
+          className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+            isHovered ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Image
+              src={imagePath}
+              alt={title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const HrFeaturesBento = () => {
+  // Feature interface
+  interface Feature {
+    id: number;
+    title: string;
+    description: string;
+    imagePath: string;
+    icon: ReactNode;
+    column: string;
+  }
+  
+  // Features data
+  const features: Feature[] = [
+    {
+      id: 1,
+      title: "Track Progress & Minimize Admin Work",
+      description: "Gain insights into employee performance with detailed, real time analytics and reporting—designed to reduce HR workload, not add to it.",
+      imagePath: "/admin-dashboard.png",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-gray-700">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
+      column: "left"
+    },
+    {
+      id: 2,
+      title: "Flexible Learning for Any Staff Member",
+      description: "Staff can engage in training without the need for travel or coordinating schedules with trainers, allowing for uninterrupted progress at their convenience.",
+      imagePath: "/staff-homepage.png",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-gray-700">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      ),
+      column: "left"
+    },
+    {
+      id: 3,
+      title: "Company Specific Personalisation",
+      description: "Upload your company documents to create realistic role-plays based on your products, services, and policies—ensuring practical, job-relevant training.",
+      imagePath: "/upload.svg",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-gray-700">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      ),
+      column: "right"
+    },
+    {
+      id: 4,
+      title: "Focused Training for Maximum Impact",
+      description: "We skip general English and focus only on the essential scenarios staff face with customers, and colleagues, ensuring  targeted training that maximizes learning efficiency and company ROI.",
+      imagePath: "/scenarios-homepage.png",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-gray-700">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+      ),
+      column: "right"
+    }
+  ];
+
+  const leftColumnFeatures = features.filter(feature => feature.column === "left");
+  const rightColumnFeatures = features.filter(feature => feature.column === "right");
+
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="container mx-auto max-w-7xl px-4">
+        {/* Section Title */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl lg:text-7xl font-semibold text-gray-900 mb-6">
+            Designed to Maximize <br /> <span className="text-dynamic-blue font-bold">R</span>eturn <span className="text-dynamic-blue font-bold">O</span>n <span className="text-dynamic-blue font-bold">I</span>nvestment
+          </h2>
+        </div>
+        
+        {/* Main grid container */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* First column - 2 cards stacked */}
+          <div className="lg:col-span-4 flex flex-col gap-6">
+            {leftColumnFeatures.map(feature => (
+              <FeatureCard
+                key={feature.id}
+                title={feature.title}
+                description={feature.description}
+                icon={feature.icon}
+                imagePath={feature.imagePath}
+              />
+            ))}
+          </div>
+
+          {/* Middle column - 1 tall card */}
+          <div className="lg:col-span-3">
+            <FluentProCard
+              title="Parent Company"
+              description="Fluentpro is the latest product of The LanguageKey. Over the past 30 years, we've conducted training for 100s of Hong Kong and international companies, including many Fortune 500 companies."
+              icon={
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-gray-700">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              }
+              logoPath="/langkey.svg"
+              imagePath="/workshop.png"
+            />
+          </div>
+
+          {/* Third column - 2 cards stacked */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            {rightColumnFeatures.map(feature => (
+              <FeatureCard
+                key={feature.id}
+                title={feature.title}
+                description={feature.description}
+                icon={feature.icon}
+                imagePath={feature.imagePath}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default HrFeatures;
+export default HrFeaturesBento;

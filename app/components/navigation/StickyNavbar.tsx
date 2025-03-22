@@ -101,7 +101,7 @@ const StickyNavbar: React.FC = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={navbarRef}>
+      <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8" ref={navbarRef}>
         <div 
           className={`flex justify-between items-center rounded-full border border-[#F4F7FB] transition-all duration-300 ease-in-out
             ${(!isScrolled || (isScrolled && isHovered)) 
@@ -157,7 +157,7 @@ const StickyNavbar: React.FC = () => {
                 >
                   <div className="py-1">
                     <Link 
-                      href="/about" 
+                      href="https://language-key.vercel.app/home" 
                       className="block px-4 py-2 text-sm text-[#4A5768] hover:bg-[#F4F7FB] hover:text-[#234BFF] focus:bg-[#F4F7FB] focus:text-[#234BFF] focus:outline-none transition-colors"
                       onClick={() => setExploreMenuOpen(false)}
                       role="menuitem"
@@ -229,7 +229,7 @@ const StickyNavbar: React.FC = () => {
                 ${(!isScrolled || (isScrolled && isHovered)) ? 'px-4 py-3 text-base' : 'px-3 py-2 text-sm'}`}
               onClick={() => {/* Implement demo request logic */}}
             >
-              Request a Demo
+              Secure Early Access
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 className="h-4 w-4 ml-2" 
@@ -298,7 +298,7 @@ const StickyNavbar: React.FC = () => {
               <h2 className="text-[#4A5768] font-semibold mb-4 sm:mb-6">Explore</h2>
               <div className="space-y-2 sm:space-y-4">
                 <Link 
-                  href="/about" 
+                  href="https://language-key.vercel.app/home" 
                   className="flex items-center justify-between group p-3 sm:p-4 rounded-xl hover:bg-white transition-all duration-200"
                 >
                   <div className="flex items-center space-x-3">

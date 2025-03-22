@@ -288,7 +288,7 @@ const Cta = () => {
             <div className="p-6 sm:p-8 md:p-10">
               <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#234BFF] to-[#1A38BF]">
-                  Request a Demo
+                  Secure Early Access
                 </span>
               </h2>
               

@@ -81,7 +81,7 @@ const Experts = () => {
             {/* Badge and Title */}
             <motion.div variants={itemVariants}>
               <h2 className="mt-2 md:mt-5 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                <span className="text-blue-600 dark:text-blue-400">30 Years</span> of Experience as a Business English Consultancy
+                <span className="text-dynamic-blue dark:text-blue-400">30 Years</span> of Experience as a Business English Consultancy
               </h2>
             </motion.div>
 

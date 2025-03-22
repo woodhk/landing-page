@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-start">
             <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Company</h3>
             <ul className="space-y-2">
-              <li><Link href="/about" className="text-[#C9D2E5] hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="https://language-key.vercel.app/home" className="text-[#C9D2E5] hover:text-white transition-colors">About Us</Link></li>
             </ul>
           </div>
 

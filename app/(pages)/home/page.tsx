@@ -23,24 +23,15 @@ export default function HomePage() {
       {/* Hero section with contained width */}
       
         <HeroSection />
+        <Benefits />
+        <KeyValuePropositions />
+        
       
-      {/* Video section outside the container for full-width background */}
-      <Video />
-      
-      {/* Expert section - intentionally without container to allow full-width background */}
-      <Experts />
-      
-      {/* Testimonials section - intentionally without container to allow full-width background */}
-      <Testimonial />
-
-      {/* Industry section - full-width background */}
+     
       <Industry />
-      <Benefits />
-      <KeyValuePropositions />
       <AutomatedOnboarding />
       <HrFeatures />
       <AiEthics />
-      <LandingTestimonial />
       <MissionVision />
       <FAQ />
       <Cta />

@@ -27,7 +27,7 @@ const Video = () => {
         <div className="bg-[#EBF1FF] w-full pt-16 md:pt-24 pb-16 md:pb-20 px-4 sm:px-6">
           {/* Heading and subheading above the video */}
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-5xl sm:text-5xl md:text-5xl lg:text-7xl font-bold text-dynamic-blue mb-3 md:mb-4">
+            <h2 className="text-5xl sm:text-5xl md:text-5xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-dark to-[#4257FF] text-dark mb-3 md:mb-4">
               Meet FluentPro
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-medium">
