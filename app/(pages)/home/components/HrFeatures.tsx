@@ -60,7 +60,7 @@ const FeatureCard = ({ title, description, icon, imagePath, highlight, id }: Fea
           />
           
           {/* Gradient overlay - transparent at top, gradually increasing blue tint */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/30 to-blue-900/80">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray700/30 to-gray-800/80">
             {/* Empty div to maintain layout */}
           </div>
           
@@ -358,7 +358,7 @@ const HrRoiComponent = () => {
         </p>
         <a 
           href="https://forms.gle/tLkLiSziGZZDjLpJA" 
-          className="inline-flex items-center bg-black text-white px-8 py-4 rounded-lg text-base font-medium hover:bg-gray-900 transition-colors whitespace-nowrap flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+          className="inline-flex items-center bg-white text-black px-8 py-4 rounded-lg text-base font-medium hover:bg-gray-100 transition-colors whitespace-nowrap flex gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-gray-200"
         >
           Secure Early Access
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">

@@ -23,7 +23,7 @@ const CTASection = () => {
             <div className="md:ml-8">
               <Link 
                 href="https://forms.gle/tLkLiSziGZZDjLpJA" 
-                className="bg-black text-white px-8 py-4 rounded-lg text-base font-medium hover:bg-gray-900 transition-colors whitespace-nowrap flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="bg-white text-black px-8 py-4 rounded-lg text-base font-medium hover:bg-gray-100 transition-colors whitespace-nowrap flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-gray-200"
               >
                 <span>Secure Early Access</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
