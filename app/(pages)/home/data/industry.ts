@@ -1,5 +1,8 @@
 // app/(pages)/home/data/industry.ts
 
+/**
+ * Interface defining the structure of industry data
+ */
 export interface IndustryData {
   id: string;
   name: string;
@@ -11,6 +14,9 @@ export interface IndustryData {
   }[];
 }
 
+/**
+ * Data for each industry section
+ */
 export const industryData: IndustryData[] = [
   {
     id: "banking-finance",
