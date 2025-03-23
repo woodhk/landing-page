@@ -20,7 +20,7 @@ export interface MissionVisionData {
 export const missionVisionData: MissionVisionData = {
   mission: {
     title: "Our Mission",
-    description: "At FluentPro, our mission is to equip professionals with the targeted Business English speaking skills they need to excel in real-world workplace scenarios. Using AI-driven simulations, we focus solely on refining spoken communication for client, customer, and colleague interactions.",
+    description: "Our mission is to equip professionals with the Business English speaking skills they need to excel in client, customer, and colleague interactions, all while ensuring performance and progress can be monitored and prove to deliver high ROI.",
     image: {
       alt: "Placeholder Image showing virtual assistant interacting with a professional and giving feedback"
     }

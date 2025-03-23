@@ -49,12 +49,8 @@ const Benefits = () => {
             Interactive Learning
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white leading-tight">
-            AI Role-Plays Simulate <span className="text-blue-600 dark:text-blue-400">Real Business Conversations</span>
+            AI Role-Plays Simulate <br /> <span className="text-blue-600 dark:text-blue-400">Real Business Conversations</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-           Practice Job-Specific Conversations With AI <br />
-           While Developing Cultural Awareness and Soft Skills
-          </p>
 
         </motion.div>
 

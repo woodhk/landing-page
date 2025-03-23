@@ -92,6 +92,11 @@ const StickyNavbar: React.FC = () => {
     };
   }, [mobileMenuOpen]);
 
+  // Function to handle early access button click
+  const handleEarlyAccessClick = () => {
+    window.open("https://forms.gle/tLkLiSziGZZDjLpJA", "_blank");
+  };
+
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out
@@ -202,22 +207,24 @@ const StickyNavbar: React.FC = () => {
                   aria-orientation="vertical"
                 >
                   <div className="py-1">
-                    <Link 
-                      href="/zh-hk" 
-                      className="block px-4 py-2 text-sm text-[#4A5768] hover:bg-[#F4F7FB] hover:text-[#234BFF] focus:bg-[#F4F7FB] focus:text-[#234BFF] focus:outline-none transition-colors"
-                      onClick={() => setLanguageMenuOpen(false)}
+                    <div 
+                      className="relative group block px-4 py-2 text-sm text-gray-400 cursor-not-allowed"
                       role="menuitem"
                     >
                       繁體中文 (Traditional Chinese)
-                    </Link>
-                    <Link 
-                      href="/zh-cn" 
-                      className="block px-4 py-2 text-sm text-[#4A5768] hover:bg-[#F4F7FB] hover:text-[#234BFF] focus:bg-[#F4F7FB] focus:text-[#234BFF] focus:outline-none transition-colors"
-                      onClick={() => setLanguageMenuOpen(false)}
+                      <span className="absolute right-3 top-2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 text-white text-xs rounded px-2 py-1">
+                        Coming Soon
+                      </span>
+                    </div>
+                    <div 
+                      className="relative group block px-4 py-2 text-sm text-gray-400 cursor-not-allowed"
                       role="menuitem"
                     >
                       简体中文 (Simplified Chinese)
-                    </Link>
+                      <span className="absolute right-3 top-2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 text-white text-xs rounded px-2 py-1">
+                        Coming Soon
+                      </span>
+                    </div>
                   </div>
                 </div>
               )}
@@ -227,7 +234,7 @@ const StickyNavbar: React.FC = () => {
             <button 
               className={`bg-[#234BFF] hover:bg-[#1A38BF] text-white rounded-full font-medium flex items-center transition-all duration-300 ease-in-out
                 ${(!isScrolled || (isScrolled && isHovered)) ? 'px-4 py-3 text-base' : 'px-3 py-2 text-sm'}`}
-              onClick={() => {/* Implement demo request logic */}}
+              onClick={handleEarlyAccessClick}
             >
               Secure Early Access
               <svg 
@@ -265,9 +272,9 @@ const StickyNavbar: React.FC = () => {
             <button 
               className={`bg-[#234BFF] hover:bg-[#1A38BF] text-white rounded-full font-medium flex items-center transition-all duration-300 ease-in-out
                 ${(!isScrolled || (isScrolled && isHovered)) ? 'px-3 py-2 text-sm' : 'px-3 py-2 text-xs'}`}
-              onClick={() => {/* Implement demo request logic */}}
+              onClick={handleEarlyAccessClick}
             >
-              Request Demo
+              Secure Early Access
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 className="h-3 w-3 ml-1" 
@@ -353,24 +360,24 @@ const StickyNavbar: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </Link>
-                <Link 
-                  href="/zh-hk" 
-                  className="flex items-center justify-between p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors"
+                <div 
+                  className="relative group flex items-center justify-between p-3 sm:p-4 rounded-xl text-gray-400 cursor-not-allowed"
                 >
                   <div className="flex items-center space-x-3">
-                    <span className="font-medium text-sm sm:text-base text-[#273046]">繁體中文</span>
-                    <span className="text-xs sm:text-sm text-[#4A5768]">Traditional Chinese</span>
+                    <span className="font-medium text-sm sm:text-base">繁體中文</span>
+                    <span className="text-xs sm:text-sm">Traditional Chinese</span>
                   </div>
-                </Link>
-                <Link 
-                  href="/zh-cn" 
-                  className="flex items-center justify-between p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors"
+                  <span className="text-xs sm:text-sm text-gray-500">Coming Soon</span>
+                </div>
+                <div 
+                  className="relative group flex items-center justify-between p-3 sm:p-4 rounded-xl text-gray-400 cursor-not-allowed"
                 >
                   <div className="flex items-center space-x-3">
-                    <span className="font-medium text-sm sm:text-base text-[#273046]">简体中文</span>
-                    <span className="text-xs sm:text-sm text-[#4A5768]">Simplified Chinese</span>
+                    <span className="font-medium text-sm sm:text-base">简体中文</span>
+                    <span className="text-xs sm:text-sm">Simplified Chinese</span>
                   </div>
-                </Link>
+                  <span className="text-xs sm:text-sm text-gray-500">Coming Soon</span>
+                </div>
               </div>
             </div>
           </div>

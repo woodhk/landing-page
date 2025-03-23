@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '../../../components/ui/Button';
-import CheckItem from '../../../components/ui/CheckItem';
 import { Check } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
@@ -46,7 +45,7 @@ const HeroSection: React.FC = () => {
               </div>
               <div className="ml-3">
                 <p className="text-lg font-medium text-gray-900">
-                Simulate and practice real business conversations staff encounter on a day to day basis
+                Simulate real business conversations staff encounter everyday
                 </p>
               </div>
             </div>
@@ -73,7 +72,7 @@ const HeroSection: React.FC = () => {
                 <Button 
                   primary 
                   size="large" 
-                  text="Secure Early Access" 
+                  text="Secure Early Access"
                 />
               </div>
             </div>
@@ -86,7 +85,7 @@ const HeroSection: React.FC = () => {
             <img 
               src="/fp-computer.svg" 
               alt="Computer Illustration" 
-              className="w-full h-auto max-w-lg mx-auto transform scale-[1.2] transition-transform duration-300"
+              className="w-full h-auto max-w-lg mx-auto transform scale-[1.2] hover:scale-[1.3] transition-transform duration-300"
             />
           </div>
         </div>

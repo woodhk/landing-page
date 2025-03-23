@@ -8,11 +8,20 @@ const MissionVision = () => {
   const { mission, vision } = missionVisionData;
   const [activeTab, setActiveTab] = useState<'mission' | 'vision'>('mission');
   const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState<1 | -1>(1); // 1 for right-to-left, -1 for left-to-right
 
   const handleTabChange = (tab: 'mission' | 'vision') => {
     if (isAnimating || tab === activeTab) return;
     
     setIsAnimating(true);
+    
+    // Set direction based on tab change
+    if (tab === 'vision' && activeTab === 'mission') {
+      setDirection(1); // Moving from Mission to Vision (right-to-left)
+    } else if (tab === 'mission' && activeTab === 'vision') {
+      setDirection(-1); // Moving from Vision to Mission (left-to-right)
+    }
+    
     setActiveTab(tab);
     
     // Reset animation state after animation completes
@@ -67,15 +76,16 @@ const MissionVision = () => {
           </div>
         </div>
 
-        {/* Content with improved animations - reduced fixed heights */}
+        {/* Content with slide animations - reduced fixed heights */}
         <div className="relative min-h-[300px] sm:min-h-[350px] md:min-h-[400px] overflow-hidden">
-          <AnimatePresence mode="wait">
+          <AnimatePresence initial={false} custom={direction}>
             {activeTab === 'mission' ? (
               <motion.div
                 key="mission"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
+                custom={direction}
+                initial={{ x: direction > 0 ? "-100%" : "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: direction > 0 ? "100%" : "-100%" }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
@@ -95,14 +105,6 @@ const MissionVision = () => {
                     <p className="text-medium text-base sm:text-lg leading-relaxed">
                       {mission.description}
                     </p>
-                    <div className="pt-2 sm:pt-4">
-                      <div className="inline-flex items-center font-medium text-dynamic-blue group cursor-pointer hover:text-dynamic-blue/80 transition-colors">
-                        <span>Learn about our approach</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </div>
-                    </div>
                   </div>
                   
                   {/* Mission Image - hidden on mobile, shown on md screens and up */}
@@ -133,9 +135,10 @@ const MissionVision = () => {
             ) : (
               <motion.div
                 key="vision"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
+                custom={direction}
+                initial={{ x: direction > 0 ? "100%" : "-100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: direction > 0 ? "-100%" : "100%" }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
@@ -155,14 +158,6 @@ const MissionVision = () => {
                     <p className="text-medium text-base sm:text-lg leading-relaxed">
                       {vision.description}
                     </p>
-                    <div className="pt-2 sm:pt-4">
-                      <div className="inline-flex items-center font-medium text-deep-azure group cursor-pointer hover:text-deep-azure/80 transition-colors">
-                        <span>Learn about our vision</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </div>
-                    </div>
                   </div>
                   
                   {/* Vision Image - hidden on mobile, shown on md screens and up */}

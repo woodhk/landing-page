@@ -67,9 +67,8 @@ const Industry: React.FC = () => {
           </h2>
           <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto sm:mx-0 leading-relaxed">
             From hospitality to finance, HR to sales, we offer scenario-based courses 
-            tailored to each job role. AI then personalizes each lesson to the specific 
-            language needs of staff. If your industry isn't covered, our language experts 
-            will create a custom course for <span className="font-bold text-blue-600 dark:text-blue-400">free.</span>
+            tailored to each job role. If your industry isn't covered, our language experts 
+            will <span className="font-bold text-dynamic-blue">create a custom course for free.</span>
           </p>
         </motion.div>
 
