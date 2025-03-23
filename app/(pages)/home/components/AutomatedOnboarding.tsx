@@ -4,11 +4,11 @@
 import { useState, useEffect } from 'react';
 import { onboardingSteps } from '../data/AutomatedOnboarding';
 import { motion, AnimatePresence } from 'framer-motion';
-import { DocumentManager } from '../data/animations/DocumentManager';
-import { InviteStaff } from '../data/animations/InviteStaff';
-import { Monitor } from '../data/animations/Monitor';
-import { CreateAccount } from '../data/animations/CreateAccount';
-import TypewriterText from '../data/animations/TypewriterText';
+import { DocumentManager } from './animations/DocumentManager';
+import { InviteStaff } from './animations/InviteStaff';
+import { Monitor } from './animations/Monitor';
+import { CreateAccount } from './animations/CreateAccount';
+import TypewriterText from './animations/TypewriterText';
 
 // Constants
 const STEP_DURATION_MS = 15000; // 15 seconds per step

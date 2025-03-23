@@ -4,9 +4,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { keyValueData } from '../data/KeyValueProposition';
-import { IndustryJargonAnimation, DefaultAnimation } from '../data/animations/IndustryJargon';
-import { FormalityToneAnimation } from '../data/animations/Formality'; // Import the new animation
-import { CulturalAwarenessAnimation } from '../data/animations/Culture'; // Import the new animation
+import { IndustryJargonAnimation, DefaultAnimation } from './animations/IndustryJargon';
+import { FormalityToneAnimation } from './animations/Formality'; // Import the new animation
+import { CulturalAwarenessAnimation } from './animations/Culture'; // Import the new animation
 
 export const KeyValuePropositions = () => {
   const [activeTab, setActiveTab] = useState(keyValueData[0].id);
