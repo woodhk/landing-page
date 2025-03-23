@@ -1,6 +1,7 @@
 // app/layout.tsx
 import './globals.css';
 import type { Metadata } from 'next';
+import { ChatUI } from './components/Chat';
 
 export const metadata: Metadata = {
   title: 'FluentPro',
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         {children}
+        <ChatUI />
       </body>
     </html>
   );
