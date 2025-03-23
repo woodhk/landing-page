@@ -1,4 +1,4 @@
-import { IndustryData } from '../../../data/industry';
+import { IndustryData } from '../../data/industry';
 
 // Define types used throughout Industry component
 export type IndustryId = string;
