@@ -37,7 +37,7 @@ const DesktopIndustryDetails: React.FC<DesktopIndustryDetailsProps> = ({ industr
     </motion.div>
     
     {/* Description Paragraphs */}
-    {industry.description.map((paragraph, index) => (
+    {industry.description.map((paragraph: string, index: number) => (
       <motion.p 
         key={index} 
         className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed"
@@ -54,4 +54,4 @@ const DesktopIndustryDetails: React.FC<DesktopIndustryDetailsProps> = ({ industr
   </div>
 );
 
-export default DesktopIndustryDetails; 
+export default DesktopIndustryDetails;

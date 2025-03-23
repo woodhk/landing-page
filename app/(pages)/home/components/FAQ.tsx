@@ -67,22 +67,16 @@ const FAQ = () => {
                   <p className="text-base text-gray-700">{faq.answer}</p>
                   {faq.question === "Do we have the budget for this training?" && (
                     <p className="mt-2">
-                      <a 
-                        href="#" 
-                        className="text-blue-600 hover:underline"
-                      >
-                        your free demo call
-                      </a>
-                      .
+                      
                     </p>
                   )}
                   {faq.question === "Will this actually improve workplace communication?" && (
                     <p className="mt-2">
                       <a 
-                        href="#" 
+                        href="https://language-key.vercel.app/home" 
                         className="text-blue-600 hover:underline"
                       >
-                        free pilot program
+                        Learn more
                       </a>
                     </p>
                   )}

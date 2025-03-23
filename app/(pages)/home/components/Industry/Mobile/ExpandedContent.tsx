@@ -24,7 +24,7 @@ const MobileExpandedContent: React.FC<MobileExpandedContentProps> = ({ industry 
     </div>
     
     {/* Description Paragraphs */}
-    {industry.description.map((paragraph, index) => (
+    {industry.description.map((paragraph: string, index: number) => (
       <p 
         key={index} 
         className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3"
@@ -42,7 +42,7 @@ const MobileExpandedContent: React.FC<MobileExpandedContentProps> = ({ industry 
       
       {/* Client logos grid */}
       <div className="grid grid-cols-2 gap-2">
-        {industry.clientLogos.map((client, index) => (
+        {industry.clientLogos.map((client: {logo: string; name: string}, index: number) => (
           <div 
             key={`mobile-client-${index}`}
             className="bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-all duration-200 
@@ -63,4 +63,4 @@ const MobileExpandedContent: React.FC<MobileExpandedContentProps> = ({ industry 
   </motion.div>
 );
 
-export default MobileExpandedContent; 
+export default MobileExpandedContent;
