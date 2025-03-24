@@ -137,10 +137,7 @@ export async function POST(req: NextRequest) {
       // Enhanced system prompt with FluentPro information if available
       const systemPrompt = `You are a helpful assistant focused on answering questions about FluentPro, an AI-powered Business English training web application.
       
-      ${fluentProContext ? 'USE THE FOLLOWING INFORMATION TO ANSWER QUESTIONS ABOUT FLUENTPRO:\n\n' + fluentProContext : 'Keep responses brief and focused on the website content.'}
-      
-      If you don't have specific information to answer a question about FluentPro, DO NOT make up or hallucinate an answer. 
-      Instead, politely ask the user to email support@languagekey.com for more information.`;
+      ${fluentProContext ? 'USE THE FOLLOWING INFORMATION TO ANSWER QUESTIONS ABOUT FLUENTPRO:\n\n' + fluentProContext : 'Keep responses brief and focused on the website content.'}`;
 
       // Prepare input messages
       const inputMessages = [
