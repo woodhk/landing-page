@@ -19,16 +19,6 @@ const nextConfig = {
     ],
   },
   
-  // API route configuration
-  api: {
-    // Configure body parser size limit
-    bodyParser: {
-      sizeLimit: '1mb',
-    },
-    // Enable response compression
-    responseLimit: false,
-  },
-  
   // Configure security headers
   async headers() {
     return [
