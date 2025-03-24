@@ -67,42 +67,61 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Create a response stream
-    const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: [
-        {
-          role: 'system',
-          content: 'You are a helpful assistant focused on answering questions about this website. Keep responses brief and focused on the website content.'
-        },
-        ...messages
-      ],
-      stream: true,
-    });
-
-    // Create a new ReadableStream
-    const stream = new ReadableStream({
-      async start(controller) {
-        // Process each chunk from the OpenAI stream
-        for await (const chunk of response) {
-          const content = chunk.choices[0]?.delta?.content || '';
-          if (content) {
-            // Encode the content as UTF-8
-            const encoder = new TextEncoder();
-            controller.enqueue(encoder.encode(content));
+    // Get the latest user message
+    const userMessage = messages.find(msg => msg.role === 'user')?.content || '';
+    
+    try {
+      // Create a response using Chat Completions API since we know it works reliably
+      const response = await openai.chat.completions.create({
+        model: 'gpt-3.5-turbo',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a helpful assistant focused on answering questions about this website. Keep responses brief and focused on the website content.'
+          },
+          {
+            role: 'user',
+            content: userMessage
           }
-        }
-        controller.close();
-      },
-    });
+        ],
+        stream: true,
+      });
 
-    // Return the stream as response
-    return new NextResponse(stream, {
-      headers: {
-        'Content-Type': 'text/plain; charset=utf-8',
-        'Cache-Control': 'no-cache',
-      },
-    });
+      // Create a new ReadableStream
+      const stream = new ReadableStream({
+        async start(controller) {
+          try {
+            // Process each chunk from the OpenAI stream
+            for await (const chunk of response) {
+              const content = chunk.choices[0]?.delta?.content || '';
+              if (content) {
+                // Encode the content as UTF-8
+                const encoder = new TextEncoder();
+                controller.enqueue(encoder.encode(content));
+              }
+            }
+            controller.close();
+          } catch (error) {
+            console.error('Streaming error:', error);
+            controller.error(error);
+          }
+        },
+      });
+
+      // Return the stream as response
+      return new NextResponse(stream, {
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Cache-Control': 'no-cache',
+        },
+      });
+    } catch (responseError) {
+      console.error('OpenAI API error:', responseError);
+      return NextResponse.json(
+        { error: 'Error with AI response: ' + (responseError instanceof Error ? responseError.message : 'Unknown error') },
+        { status: 500 }
+      );
+    }
   } catch (error) {
     console.error('Chat API error:', error);
     return NextResponse.json(

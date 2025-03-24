@@ -1,14 +1,5 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/home',
-        permanent: true,
-      },
-    ];
-  },
-  
   // Enable React strict mode for improved error handling
   reactStrictMode: true,
   
@@ -66,4 +57,4 @@ const nextConfig = {
   poweredByHeader: false,
 };
 
-module.exports = nextConfig;
+export default nextConfig;
