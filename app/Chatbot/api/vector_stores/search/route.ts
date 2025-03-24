@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     // Search the vector store
     const searchResponse = await openai.vectorStores.search(
       vectorStoreId,
-      { query, limit: 5 }
+      { query }
     );
 
     return new Response(JSON.stringify(searchResponse), { status: 200 });
