@@ -1,6 +1,6 @@
 "use client";
 
-import { FluentProSetupPage } from '@/Chatbot/components';
+import { FluentProSetupPage } from '../Chatbot/components/FluentProSetupPage';
 
 export default function RAGSetupPage() {
   return <FluentProSetupPage />;

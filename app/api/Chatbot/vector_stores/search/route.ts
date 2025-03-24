@@ -1,2 +1,2 @@
 // Re-export the implementation from the Chatbot module
-export { POST } from "@/Chatbot/api/vector_stores/search/route"; 
+export { POST } from "../../../../../app/Chatbot/api/vector_stores/search/route"; 

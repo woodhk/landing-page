@@ -3,6 +3,13 @@
 import { useState } from 'react';
 import { useToolSettings } from './ChatContext';
 
+// Add a utility function for UTF-8 safe base64 encoding
+function utf8ToBase64(str: string) {
+  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (_, p1) => 
+    String.fromCharCode(parseInt(p1, 16))
+  ));
+}
+
 interface SetupProps {
   fluentProInfo: string;
 }
@@ -36,9 +43,11 @@ export function VectorStoreSetup({ fluentProInfo }: SetupProps) {
 
       const vectorStore = await createStoreResponse.json();
       const vectorStoreId = vectorStore.id;
+      
+      console.log("Vector store created:", vectorStoreId);
 
       // Step 2: Upload the FluentPro information as a file
-      const fileContent = btoa(fluentProInfo); // Convert to base64
+      const fileContent = utf8ToBase64(fluentProInfo); // Safe base64 conversion
       const fileObject = {
         name: "fluentpro-info.txt",
         content: fileContent,
@@ -60,6 +69,8 @@ export function VectorStoreSetup({ fluentProInfo }: SetupProps) {
 
       const file = await uploadFileResponse.json();
       const fileId = file.id;
+      
+      console.log("File uploaded:", fileId);
 
       // Step 3: Add the file to the vector store
       const addFileResponse = await fetch("/api/Chatbot/vector_stores/add_file", {
@@ -76,12 +87,38 @@ export function VectorStoreSetup({ fluentProInfo }: SetupProps) {
       if (!addFileResponse.ok) {
         throw new Error("Failed to add file to vector store");
       }
+      
+      console.log("File added to vector store");
 
       // Save the vector store ID to the tools store
-      setVectorStore({
+      const vectorStoreData = {
         id: vectorStoreId,
         name: "FluentPro",
-      });
+      };
+      
+      setVectorStore(vectorStoreData);
+      console.log("Vector store saved to state:", vectorStoreData);
+      
+      // Verify the store is accessible
+      try {
+        const verifyResponse = await fetch(`/api/Chatbot/vector_stores/search`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            vectorStoreId,
+            query: "What is FluentPro?",
+          }),
+        });
+        
+        if (verifyResponse.ok) {
+          console.log("Vector store verified successfully");
+        }
+      } catch (verifyError) {
+        console.error("Vector store verification failed:", verifyError);
+        // Continue anyway, this is just a verification step
+      }
 
       setStatus('success');
       setMessage('FluentPro knowledge base is ready!');

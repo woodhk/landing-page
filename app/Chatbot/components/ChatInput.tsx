@@ -46,21 +46,27 @@ export function ChatInput() {
     try {
       // Prepare tools config
       const tools = [];
+      
+      // Always include the vector store if available for FluentPro queries
+      if (vectorStore?.id) {
+        tools.push({
+          type: "file_search",
+          vector_store_id: vectorStore.id
+        });
+        console.log("Added vector store to tools:", vectorStore.id);
+      } else {
+        console.log("No vector store ID available");
+      }
+      
       if (functionsEnabled) {
         tools.push({
           type: "function"
         });
       }
+      
       if (webSearchEnabled) {
         tools.push({
           type: "web_search"
-        });
-      }
-      // Always include file search if vector store is available
-      if (vectorStore?.id) {
-        tools.push({
-          type: "file_search",
-          vector_store_id: vectorStore.id
         });
       }
       

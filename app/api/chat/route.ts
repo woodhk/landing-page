@@ -43,6 +43,43 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
+// Function to search vector store for relevant content
+async function searchVectorStore(vectorStoreId: string, query: string) {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/api/Chatbot/vector_stores/search`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        vectorStoreId,
+        query,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to search vector store');
+    }
+
+    const data = await response.json();
+    return data.chunks || [];
+  } catch (error) {
+    console.error('Error searching vector store:', error);
+    return [];
+  }
+}
+
+// Check if a message is related to FluentPro
+function isFluentProRelated(message: string): boolean {
+  const fluentProTerms = [
+    'fluentpro', 'fluent pro', 'fluentPro', 
+    'language key', 'languagekey', 
+    'english training', 'business english'
+  ];
+  
+  return fluentProTerms.some(term => message.toLowerCase().includes(term.toLowerCase()));
+}
+
 export async function POST(req: NextRequest) {
   try {
     // Get user's IP for rate limiting
@@ -68,16 +105,53 @@ export async function POST(req: NextRequest) {
     }
 
     try {
+      // Get the last user message
+      const lastUserMessage = messages[messages.length - 1];
+      let fluentProContext = '';
+
+      // Check if we have any vector store info in the tools config
+      const vectorStoreInfo = tools?.find((tool: any) => 
+        tool.type === 'file_search' && tool.vector_store_id
+      );
+      
+      // If this is a FluentPro related question and we have a vector store
+      if (
+        lastUserMessage && 
+        lastUserMessage.role === 'user' && 
+        isFluentProRelated(lastUserMessage.content) && 
+        vectorStoreInfo?.vector_store_id
+      ) {
+        // Search the vector store for relevant information
+        const chunks = await searchVectorStore(
+          vectorStoreInfo.vector_store_id, 
+          lastUserMessage.content
+        );
+        
+        if (chunks.length > 0) {
+          // Format the retrieved chunks into context
+          fluentProContext = 'Information about FluentPro:\n\n' + 
+            chunks.map((chunk: any) => chunk.text).join('\n\n');
+        }
+      }
+
+      // Enhanced system prompt with FluentPro information if available
+      const systemPrompt = `You are a helpful assistant focused on answering questions about FluentPro, an AI-powered Business English training web application.
+      
+      ${fluentProContext ? 'USE THE FOLLOWING INFORMATION TO ANSWER QUESTIONS ABOUT FLUENTPRO:\n\n' + fluentProContext : 'Keep responses brief and focused on the website content.'}
+      
+      If you don't have specific information to answer a question about FluentPro, DO NOT make up or hallucinate an answer. 
+      Instead, politely ask the user to email support@languagekey.com for more information.`;
+
       // Prepare input messages
       const inputMessages = [
         {
           role: 'system',
-          content: 'You are a helpful assistant focused on answering questions about this website. Keep responses brief and focused on the website content.'
+          content: systemPrompt
         },
         ...messages
       ];
 
-      // For now, use regular chat completions until we fully implement the Responses API
+      // Create chat completion with the enhanced context
       const response = await openai.chat.completions.create({
         model: 'gpt-4o-mini',
         messages: inputMessages,
@@ -112,20 +186,6 @@ export async function POST(req: NextRequest) {
           'Cache-Control': 'no-cache',
         },
       });
-
-      // Future implementation with OpenAI Responses API
-      // This would be fully implemented to handle tool calls and other features
-      /*
-      const events = await openai.responses.create({
-        model: 'gpt-4o-mini',
-        input: inputMessages,
-        tools: tools || undefined,
-        stream: true,
-        parallel_tool_calls: false,
-      });
-
-      // Create a more advanced event stream implementation here
-      */
     } catch (responseError) {
       console.error('OpenAI API error:', responseError);
       return NextResponse.json(

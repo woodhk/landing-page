@@ -1,5 +1,6 @@
 import { handleTool, toolsMap } from "./tools";
 import { Item, MessageItem, ToolCallItem } from "./types";
+import { v4 as uuidv4 } from 'uuid';
 
 /**
  * Parse JSON with error handling
@@ -134,10 +135,73 @@ export const processUserMessage = async (
   const updatedConversationItems = [...conversationItems, apiMessage];
   setConversationItems(updatedConversationItems);
 
-  // Track function arguments for streaming
-  let functionArguments = "";
+  // Check if we should use the Chat API (faster) or the turn-response API (with tools)
+  const isFluentProQuestion = isFluentProRelated(apiMessage.content);
+  const hasVectorStoreId = tools?.some(tool => tool.type === 'file_search' && tool.vector_store_id);
+  
+  // If this is a FluentPro question and we have a vector store, use the Chat API
+  if (isFluentProQuestion && hasVectorStoreId) {
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: updatedConversationItems,
+          tools: tools,
+        }),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+      
+      // Handle streaming response
+      const reader = response.body!.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
+      let text = "";
+      
+      // Create a temporary assistant message
+      const assistantMessage: MessageItem = {
+        type: "message",
+        role: "assistant",
+        id: uuidv4(),
+        content: [{ type: "output_text", text: "" }],
+      };
+      
+      // Add the message to the UI
+      setChatMessages([...updatedChatMessages, assistantMessage]);
+      
+      // Stream in the response
+      while (!done) {
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+        
+        if (value) {
+          const chunk = decoder.decode(value);
+          text += chunk;
+          
+          // Update the message in the UI
+          assistantMessage.content = [{ type: "output_text", text }];
+          setChatMessages([...updatedChatMessages, assistantMessage]);
+        }
+      }
+      
+      // Add the final message to conversation history
+      setConversationItems([...updatedConversationItems, {
+        role: "assistant",
+        content: text,
+      }]);
+      
+      return;
+    } catch (error) {
+      console.error("Error calling chat API:", error);
+      // Fall back to the turn-response API if there's an error
+    }
+  }
 
-  // Process the conversation with the AI
+  // If not a FluentPro question or there was an error, use the turn-response API
+  let functionArguments = "";
   await handleTurn(updatedConversationItems, tools, async ({ event, data }) => {
     if (event === "response.output_item.added") {
       const { item } = data || {};
@@ -328,4 +392,16 @@ export const processUserMessage = async (
       }
     }
   });
-}; 
+};
+
+// Helper function to check if a message is related to FluentPro
+function isFluentProRelated(message: string): boolean {
+  const fluentProTerms = [
+    'fluentpro', 'fluent pro', 'fluentPro', 
+    'language key', 'languagekey', 
+    'english training', 'business english'
+  ];
+  
+  return fluentProTerms.some(term => 
+    message.toLowerCase().includes(term.toLowerCase()));
+} 
