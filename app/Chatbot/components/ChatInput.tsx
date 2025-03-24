@@ -73,7 +73,7 @@ export function ChatInput() {
       // Process user message using the handleTurn function
       await processUserMessage(
         userMessage,
-        tools.length > 0 ? tools : undefined,
+        tools.length > 0 ? tools : [],
         chatMessages,
         conversationItems,
         setChatMessages,
