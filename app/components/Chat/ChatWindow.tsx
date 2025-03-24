@@ -6,6 +6,7 @@ import { X, Loader2 } from 'lucide-react';
 import { useChat } from './ChatContext';
 import { ChatMessage } from './ChatMessage';
 import { ChatInput } from './ChatInput';
+import { ToolCall } from './ToolCall';
 
 export function ChatWindow() {
   const { messages, isOpen, closeChat, isLoading } = useChat();
@@ -60,11 +61,13 @@ export function ChatWindow() {
           {/* Messages */}
           <div className="flex-1 overflow-y-auto p-4">
             {messages.map((message, index) => (
-              <ChatMessage
-                key={index}
-                content={message.content}
-                isUser={message.role === 'user'}
-              />
+              <div key={index} className="mb-4">
+                {message.type === "message" ? (
+                  <ChatMessage message={message} />
+                ) : message.type === "tool_call" ? (
+                  <ToolCall toolCall={message} />
+                ) : null}
+              </div>
             ))}
             {isLoading && (
               <div className="flex w-full justify-center py-2">

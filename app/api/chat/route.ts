@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { OpenAI } from 'openai';
+import OpenAI from 'openai';
 
 // Create an OpenAI API client
 const openai = new OpenAI({
@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
 
     // Parse the request body
     const body = await req.json();
-    const { messages } = body;
+    const { messages, tools } = body;
     
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json(
@@ -67,27 +67,24 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Get the latest user message
-    const userMessage = messages.find(msg => msg.role === 'user')?.content || '';
-    
     try {
-      // Create a response using Chat Completions API since we know it works reliably
+      // Prepare input messages
+      const inputMessages = [
+        {
+          role: 'system',
+          content: 'You are a helpful assistant focused on answering questions about this website. Keep responses brief and focused on the website content.'
+        },
+        ...messages
+      ];
+
+      // For now, use regular chat completions until we fully implement the Responses API
       const response = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
-        messages: [
-          {
-            role: 'system',
-            content: 'You are a helpful assistant focused on answering questions about this website. Keep responses brief and focused on the website content.'
-          },
-          {
-            role: 'user',
-            content: userMessage
-          }
-        ],
+        model: 'gpt-4o-mini',
+        messages: inputMessages,
         stream: true,
       });
 
-      // Create a new ReadableStream
+      // Create a ReadableStream
       const stream = new ReadableStream({
         async start(controller) {
           try {
@@ -109,12 +106,26 @@ export async function POST(req: NextRequest) {
       });
 
       // Return the stream as response
-      return new NextResponse(stream, {
+      return new Response(stream, {
         headers: {
           'Content-Type': 'text/plain; charset=utf-8',
           'Cache-Control': 'no-cache',
         },
       });
+
+      // Future implementation with OpenAI Responses API
+      // This would be fully implemented to handle tool calls and other features
+      /*
+      const events = await openai.responses.create({
+        model: 'gpt-4o-mini',
+        input: inputMessages,
+        tools: tools || undefined,
+        stream: true,
+        parallel_tool_calls: false,
+      });
+
+      // Create a more advanced event stream implementation here
+      */
     } catch (responseError) {
       console.error('OpenAI API error:', responseError);
       return NextResponse.json(

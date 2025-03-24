@@ -64,6 +64,9 @@ const nextConfig = {
   
   // Disable x-powered-by header
   poweredByHeader: false,
+  
+  // Add transpilePackages configuration to tell Next.js to transpile framer-motion
+  transpilePackages: ['framer-motion'],
 };
 
 module.exports = nextConfig;

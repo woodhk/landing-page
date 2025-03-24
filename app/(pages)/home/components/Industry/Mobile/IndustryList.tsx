@@ -24,7 +24,7 @@ const MobileIndustryList: React.FC<MobileIndustryListProps> = ({
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: idx * 0.05 }}
-        ref={(el) => {
+        ref={(el: HTMLDivElement | null) => {
           if (industryRefs.current) {
             industryRefs.current[industry.id] = el;
           }
