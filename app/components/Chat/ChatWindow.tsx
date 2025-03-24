@@ -33,25 +33,25 @@ export function ChatWindow() {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed bottom-24 right-6 z-50 flex h-[500px] w-[350px] flex-col overflow-hidden rounded-xl bg-white shadow-xl"
+          className="fixed bottom-24 right-6 z-50 flex h-[500px] w-[350px] flex-col overflow-hidden rounded-xl bg-white shadow-2xl border border-gray-100"
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
           transition={{ duration: 0.2 }}
         >
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-gray-200 bg-blue-600 px-4 py-3 text-white">
+          <div className="flex items-center justify-between border-b border-gray-200 bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-4 text-white">
             <div className="flex items-center">
               <img
                 src="/logo.svg"
                 alt="AI Assistant"
-                className="mr-2 h-6 w-6 rounded-full"
+                className="mr-3 h-6 w-6 rounded-full"
               />
-              <h3 className="font-medium">AI Assistant</h3>
+              <h3 className="font-semibold">AI Assistant</h3>
             </div>
             <button
               onClick={closeChat}
-              className="rounded-full p-1 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="rounded-full p-1.5 hover:bg-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
               aria-label="Close chat"
             >
               <X className="h-5 w-5" />
@@ -59,9 +59,9 @@ export function ChatWindow() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4">
+          <div className="flex-1 overflow-y-auto p-5 bg-gray-50">
             {messages.map((message, index) => (
-              <div key={index} className="mb-4">
+              <div key={index} className="mb-5">
                 {message.type === "message" ? (
                   <ChatMessage message={message} />
                 ) : message.type === "tool_call" ? (
@@ -70,7 +70,7 @@ export function ChatWindow() {
               </div>
             ))}
             {isLoading && (
-              <div className="flex w-full justify-center py-2">
+              <div className="flex w-full justify-center py-3">
                 <Loader2 className="h-6 w-6 animate-spin text-blue-600" />
               </div>
             )}

@@ -135,24 +135,24 @@ export function ChatInput() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="border-t border-gray-200 p-4">
-      <div className="flex rounded-lg border border-gray-300 bg-white overflow-hidden">
+    <form onSubmit={handleSubmit} className="border-t border-gray-200 bg-white p-4">
+      <div className="flex rounded-lg border border-gray-300 bg-white overflow-hidden shadow-sm hover:shadow transition-shadow duration-200">
         <textarea
           ref={inputRef}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Type your message..."
-          className="flex-1 resize-none border-0 px-4 py-2 focus:outline-none text-sm h-10 max-h-40 min-h-10"
+          className="flex-1 resize-none border-0 px-4 py-3 focus:outline-none text-sm h-10 max-h-40 min-h-10"
           rows={1}
           style={{ height: 'auto' }}
         />
-        <div className="flex items-center pr-2">
+        <div className="flex items-center pr-3">
           <ToolsPanel />
           <button
             type="submit"
             disabled={!input.trim()}
-            className="ml-2 flex items-center justify-center bg-blue-600 p-2 rounded-full text-white hover:bg-blue-700 disabled:bg-blue-300 transition-colors"
+            className="ml-2 flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 p-2.5 rounded-full text-white hover:from-blue-600 hover:to-blue-700 disabled:opacity-50 disabled:from-blue-400 disabled:to-blue-400 transition-all"
           >
             <Send className="h-4 w-4" />
           </button>

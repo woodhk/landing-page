@@ -36,27 +36,27 @@ export function ToolCall({ toolCall }: ToolCallProps) {
   };
 
   return (
-    <div className="flex flex-col w-full bg-gray-100 rounded-lg p-3 text-xs text-gray-700 space-y-2">
+    <div className="flex flex-col w-full bg-white rounded-lg p-4 text-xs text-gray-700 space-y-2.5 border border-gray-200 shadow-sm">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
           {getStatusIcon()}
           <span className="font-medium">{getFunctionTitle()}</span>
         </div>
-        <span className="text-xs text-gray-500">
+        <span className="text-xs text-gray-500 px-2 py-0.5 bg-gray-100 rounded-full">
           {toolCall.status === 'in_progress' || toolCall.status === 'searching' ? 'Working...' : toolCall.status}
         </span>
       </div>
       
       {toolCall.arguments && (
-        <div className="bg-gray-200 p-2 rounded font-mono text-xs overflow-auto">
+        <div className="bg-gray-50 p-3 rounded-md font-mono text-xs overflow-auto border border-gray-200">
           {JSON.stringify(toolCall.parsedArguments || JSON.parse(toolCall.arguments), null, 2)}
         </div>
       )}
       
       {toolCall.output && (
         <div className="mt-2">
-          <div className="text-xs font-semibold mb-1">Output:</div>
-          <div className="bg-white p-2 rounded font-mono text-xs overflow-auto max-h-40">
+          <div className="text-xs font-semibold mb-1 text-gray-600">Output:</div>
+          <div className="bg-gray-50 p-3 rounded-md font-mono text-xs overflow-auto max-h-40 border border-gray-200">
             {typeof toolCall.output === 'string' ? 
               (toolCall.output.startsWith('{') ? 
                 JSON.stringify(JSON.parse(toolCall.output), null, 2) : 
