@@ -6,7 +6,7 @@ const CTASection = () => {
     <div className="mx-4 sm:mx-8 md:mx-12 lg:mx-16 my-20">
       <div 
         className="w-full py-16 md:py-24 px-6 md:px-10 bg-cover bg-center rounded-xl overflow-hidden"
-        style={{ backgroundImage: 'url("/cta-bg.svg")' }}
+        style={{ backgroundImage: 'url("/abstract-bg/cta-bg.svg")' }}
       >
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">

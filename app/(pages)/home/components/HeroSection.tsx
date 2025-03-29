@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
         <div 
           className="absolute inset-0 w-full h-full"
           style={{ 
-            backgroundImage: 'url("/abstract-bg-hero-3.svg")',
+            backgroundImage: 'url("/abstract-bg/abstract-bg-hero-3.svg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             transform: 'scaleX(-1)',
@@ -83,7 +83,7 @@ const HeroSection: React.FC = () => {
         <div className="hidden lg:flex h-full items-center justify-center">
           <div className="relative p-4 w-full">
             <img 
-              src="/fp-computer.svg" 
+              src="/app-screenshots/fp-computer.svg" 
               alt="Computer Illustration" 
               className="w-full h-auto max-w-lg mx-auto transform scale-[1.2] hover:scale-[1.3] transition-transform duration-300"
             />
