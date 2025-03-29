@@ -1,7 +1,7 @@
 // app/(pages)/layout.tsx
 import React from 'react';
-import StickyNavbar from '../components/navigation/StickyNavbar';
-import Footer from '../components/navigation/Footer';
+import StickyNavbar from '../../components/navigation/StickyNavbar';
+import Footer from '../../components/navigation/Footer';
 
 export default function PagesLayout({
   children,

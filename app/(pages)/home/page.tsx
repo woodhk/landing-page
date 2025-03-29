@@ -10,13 +10,10 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero section with contained width */}
-      
-        <HeroSection />
+      <HeroSection />
       <AiEthics />
       <FAQ />
       <Cta />
     </div>
-    
-    
   );
 }

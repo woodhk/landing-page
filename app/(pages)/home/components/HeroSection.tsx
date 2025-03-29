@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../../components/ui/Button';
+import Button from '../../../../components/custom-ui/Button';
 import { Check } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
