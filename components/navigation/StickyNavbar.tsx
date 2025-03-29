@@ -117,7 +117,7 @@ const StickyNavbar: React.FC = () => {
           <div className="flex-shrink-0">
             <Link href="/home" className="flex items-center">
               <Image 
-                src="/logo.svg" 
+                src="/logo/logo.svg" 
                 alt="FluentPro Logo" 
                 width={32} 
                 height={32} 
