@@ -2,6 +2,7 @@ import React from 'react';
 import { customCourses } from '../data/CustomCourses';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '../../../../components/shared/carousel';
 import { Button } from '../../../../components/shared/shad-button';
+import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -40,6 +41,7 @@ const CustomCourses = () => {
                           className="bg-blue-600 hover:bg-blue-700 transition-colors w-full sm:w-auto"
                         >
                           Learn more
+                          <ArrowUpRight className="h-4 w-4" />
                         </Button>
                       </Link>
                     </div>
