@@ -10,6 +10,7 @@ import {
 } from "@/components/shared/navigation-menu";
 import { useNavbar } from '@/lib/hooks/useNavbar';
 import Platform from './components/Platform';
+import Solutions from './components/Solutions';
 
 const StickyNavbar: React.FC = () => {
   const {
@@ -58,13 +59,13 @@ const StickyNavbar: React.FC = () => {
             {/* Desktop Navigation Menus */}
             <div className="hidden md:flex items-center space-x-1">
               <Platform />
-              {/* Add Solutions component here when implemented */}
+              <Solutions />
             </div>
           </div>
           
           {/* Right side - About Us and CTA */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/about" className="text-sm font-medium hover:text-gray-700">
+            <Link href="https://language-key.vercel.app/home" className="text-sm font-medium hover:text-gray-700">
               About Us
             </Link>
             
