@@ -2,7 +2,10 @@
 
 import React from 'react';
 import HeroSection from './components/HeroSection';
+import Video from './components/Video';
+import Benefits from './components/Benefits';
 import CustomCourses from './components/CustomCourses';
+import Audience from './components/Audience';
 import AiEthics from './components/AiEthics';
 import FAQ from './components/FAQ';
 import Cta from '../../../components/home/Cta';
@@ -12,6 +15,9 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
       {/* Hero section with contained width */}
       <HeroSection />
+      <Video />
+      <Benefits />
+      <Audience />
       <CustomCourses />
       <AiEthics />
       <FAQ />

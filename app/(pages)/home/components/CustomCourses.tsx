@@ -9,7 +9,7 @@ const CustomCourses = () => {
   return (
     <section className="w-full py-12 md:py-16 lg:py-20">
       <div className="container mx-auto px-4">
-        <h1 className="text-6xl font-semibold mb-12 text-center">Customized Content for Your Industry</h1>
+        <h1 className="text-5xl font-semibold mb-12 text-left">Customized Content for Your Industry</h1>
         
         <div className="relative">
           <Carousel
