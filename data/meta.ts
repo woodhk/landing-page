@@ -1,0 +1,40 @@
+export const pageMeta = {
+  "/": {
+    title: "FluentPro – AI-Powered Business English",
+    description: "Train your team in real-world English speaking skills with AI simulations.",
+    keywords: "business english, AI language learning, professional english training",
+    ogImage: "/images/your-industry.svg",
+  },
+  "/features/hr": {
+    title: "HR Features – FluentPro",
+    description: "Track employee English progress, manage teams, and export reports easily.",
+    keywords: "HR tools, employee training, progress tracking, team management",
+    ogImage: "/images/og/hr-features.png",
+  },
+  "/features/staff": {
+    title: "Staff Features – FluentPro",
+    description: "Interactive AI roleplays to help staff master English for their jobs.",
+    keywords: "staff training, AI roleplay, business communication, english practice",
+    ogImage: "/images/og/staff-features.png",
+  },
+  "/industry/logistics": {
+    title: "Logistics Industry – FluentPro",
+    description: "Help your delivery and logistics teams communicate clearly in English.",
+    keywords: "logistics english, supply chain communication, delivery staff training",
+    ogImage: "/images/og/logistics.png",
+  },
+  "/industry/banking": {
+    title: "Banking Industry – FluentPro",
+    description: "Empower your banking staff with professional English communication skills.",
+    keywords: "banking english, financial communication, customer service training",
+    ogImage: "/images/og/banking.png",
+  }
+} as const;
+
+// Type for accessing metadata
+export type PagePath = keyof typeof pageMeta;
+
+// Helper function to get metadata for a specific page
+export function getPageMeta(path: PagePath) {
+  return pageMeta[path];
+}

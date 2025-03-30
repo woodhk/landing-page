@@ -5,8 +5,8 @@ import HeroSection from './components/HeroSection';
 import CustomCourses from './components/CustomCourses';
 import AiEthics from './components/AiEthics';
 import FAQ from './components/FAQ';
-import Cta from './components/Cta';
-
+import Cta from '../../../components/home/Cta';
+  
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">

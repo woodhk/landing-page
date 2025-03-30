@@ -1,7 +1,7 @@
 import React from 'react';
 import { customCourses } from '../data/CustomCourses';
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '../../../../components/ui/carousel';
-import { Button } from '../../../../components/ui/button';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '../../../../components/shared/carousel';
+import { Button } from '../../../../components/shared/shad-button';
 import Image from 'next/image';
 import Link from 'next/link';
 
