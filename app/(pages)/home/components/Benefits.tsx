@@ -20,7 +20,7 @@ const Benefits = () => {
     <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-5xl mx-auto mb-20">
-          <h2 className="text-3xl font-medium tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-semibold sm:text-4xl md:text-5xl lg:text-6xl">
             Why choose Fluentpro for your employees' language learning needs
           </h2>
         </div>

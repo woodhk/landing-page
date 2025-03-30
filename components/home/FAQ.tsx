@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { faqData } from '../data/FAQ';
+import { faqData } from '../../data/FAQ';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -11,7 +11,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-16 px-4 md:px-6 w-full md:px-32 lg:px-48 mx-auto">
+    <section className="py-16 px-4 md:px-6 w-full md:px-18 lg:px-24 mx-auto">
       <div className="flex flex-col md:flex-row gap-12">
         {/* Left Column - Title */}
         <div className="md:w-2/5 lg:w-1/3">

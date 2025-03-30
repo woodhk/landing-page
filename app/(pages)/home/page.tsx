@@ -6,8 +6,8 @@ import Video from './components/Video';
 import Benefits from './components/Benefits';
 import CustomCourses from './components/CustomCourses';
 import Audience from './components/Audience';
-import AiEthics from './components/AiEthics';
-import FAQ from './components/FAQ';
+import AiEthics from '../../../components/home/AiEthics';
+import FAQ from '../../../components/home/FAQ';
 import Cta from '../../../components/home/Cta';
   
 export default function HomePage() {

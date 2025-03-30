@@ -3,7 +3,7 @@
 
 import React from "react";
 import { Shield, Lock, Filter, FileText } from "lucide-react";
-import { aiEthicsData, EthicsCardProps } from "../data/AiEthics";
+import { aiEthicsData, EthicsCardProps } from "../../data/AiEthics";
 
 // Map of icon names to their corresponding components
 const ICON_MAP = {

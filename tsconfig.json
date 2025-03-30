@@ -33,6 +33,6 @@
     "lib/**/*.ts",
     "lib/**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "data/AiEthics.ts", "data/FAQ.ts"  ],
   "exclude": ["node_modules", "**/node_modules/*"]
 }

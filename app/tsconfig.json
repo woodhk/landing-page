@@ -22,6 +22,6 @@
       "@/*": ["./*"]
 }   
   },
-  "include": ["../next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "../components/home/Cta.tsx"],
+  "include": ["../next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "../components/home/Cta.tsx", "../components/home/AiEthics.tsx", "../components/home/FAQ.tsx", "../data/AiEthics.ts", "../data/FAQ.ts"],
   "exclude": ["node_modules"]
 }

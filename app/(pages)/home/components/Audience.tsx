@@ -10,7 +10,7 @@ const Audience = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl text-gray-700 tracking-tight mb-4">
             Designed for Learners
           </h2>
-          <h1 className="text-3xl md:text-4xl lg:text-7xl mx-auto">
+          <h1 className="text-3xl font-semibold md:text-4xl lg:text-7xl mx-auto">
             Loved by Human Resources
           </h1>
         </div>
