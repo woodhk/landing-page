@@ -71,9 +71,11 @@ const Audience = () => {
                 {hrData[0].description}
               </p>
               <div className="pt-4">
+              <Link href={hrData[0].href}>
                 <Button variant="default" size="lg" className="bg-indigo-600 hover:bg-indigo-700 shadow-sm">
                   Explore HR Features
                 </Button>
+                </Link>
               </div>
             </div>
           </div>

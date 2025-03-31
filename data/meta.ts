@@ -5,7 +5,7 @@ export const pageMeta = {
     keywords: "business english, AI language learning, professional english training",
     ogImage: "/images/your-industry.svg",
   },
-  "/features/hr": {
+  "/(hr)/admin": {
     title: "HR Features – FluentPro",
     description: "Track employee English progress, manage teams, and export reports easily.",
     keywords: "HR tools, employee training, progress tracking, team management",

@@ -29,14 +29,14 @@ const HeroSection: React.FC = () => {
           {/* Main content with improved vertical rhythm */}
           <div>
             <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold text-dark leading-tight mb-3">
-              AI-Powered <span className="text-dynamic-blue">English Training</span> Tailored to Staff's Industry & Role
+            Track ROI From Your Team's English Training Instantly
             </h1>
           </div>
           
           {/* Features with improved design - Custom check items */}
           <div>
             <p className="text-xl font-medium text-gray-900">
-            Provide your staff with stress-free, real-world English practice through AI-powered role-plays that simulate workplace conversations.
+            Get real-time insights on staff progress with no extra admin work - all from one dashboard.
             </p>
           </div>
           
