@@ -11,7 +11,7 @@ export const pageMeta = {
     keywords: "HR tools, employee training, progress tracking, team management",
     ogImage: "/images/og/hr-features.png",
   },
-  "/features/staff": {
+  "/(staff)/staff": {
     title: "Staff Features – FluentPro",
     description: "Interactive AI roleplays to help staff master English for their jobs.",
     keywords: "staff training, AI roleplay, business communication, english practice",

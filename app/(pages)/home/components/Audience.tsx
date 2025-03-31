@@ -1,6 +1,8 @@
 import { hrData, staffData } from "../data/audience";
 import React from "react";
 import { Button } from "../../../../components/shared/shad-button";
+import Link from "next/link";
+
 
 const Audience = () => {
   return (
@@ -29,9 +31,11 @@ const Audience = () => {
                 {staffData[0].description}
               </p>
               <div className="pt-4">
-                <Button variant="default" size="lg" className="bg-blue-600 hover:bg-blue-700 shadow-sm">
-                  Explore Staff Features
-                </Button>
+                <Link href={staffData[0].href}>
+                  <Button variant="default" size="lg" className="bg-blue-600 hover:bg-blue-700 shadow-sm">
+                    Explore Staff Features
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">
