@@ -164,7 +164,7 @@ export const forStaffCard: FeatureCardItem = {
   description: "Features that enhance staff's Business English speaking skills",
   image: "/app-screenshots/fp-computer.svg",
   icon: ChevronRight,
-  href: "/platform/for-staff",
+  href: "/staff",
 };
 
 export const forHrCard: FeatureCardItem = {
@@ -172,7 +172,7 @@ export const forHrCard: FeatureCardItem = {
   description: "Features to track staff performance and progress",
   image: "/app-screenshots/fp-computer.svg",
   icon: ChevronRight,
-  href: "/platform/for-hr",
+  href: "/admin",
 };
 
 // Main menu structure
