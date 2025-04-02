@@ -11,7 +11,7 @@ const CTASection = () => {
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="text-white max-w-xl">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">FluentPro Early Access</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Help Us, Help You</h2>
               <p className="text-base md:text-lg opacity-90 mb-6">
               Join the FluentPro early access list and get ahead with cutting-edge Business English training powered by AI.
               </p>

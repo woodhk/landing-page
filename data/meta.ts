@@ -17,6 +17,12 @@ export const pageMeta = {
     keywords: "staff training, AI roleplay, business communication, english practice",
     ogImage: "/images/og/staff-features.png",
   },
+  "/(staff)/(features)/custom-courses": {
+    title: "Custom Courses – FluentPro",
+    description: "Custom courses for your team, tailored to your industry and role.",
+    keywords: "custom courses, industry-specific training, role-based English, business communication",
+    ogImage: "/images/og/custom-courses.png",
+  },
   "/industry/logistics": {
     title: "Logistics Industry – FluentPro",
     description: "Help your delivery and logistics teams communicate clearly in English.",
