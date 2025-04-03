@@ -28,6 +28,14 @@ export const pageMeta = {
     description: "Role-plays for your team, tailored to your industry and role.",
     keywords: "role-plays, industry-specific training, role-based English, business communication",
     ogImage: "/images/og/role-plays.png",
+
+  },
+  "/(staff)/(features)/native-language": {
+    title: "Native Language Support – FluentPro",
+    description: "Native language support for your team, tailored to your industry and role.",
+    keywords: "native language support, industry-specific training, role-based English, business communication",
+    ogImage: "/images/og/native-language.png",
+  
   },
   "/industry/logistics": {
     title: "Logistics Industry – FluentPro",

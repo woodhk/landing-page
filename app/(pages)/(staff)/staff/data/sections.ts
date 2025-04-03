@@ -16,6 +16,6 @@ export const sections: Section[] = [
     title: "Native Language Support",
     description: "Explain how the app is native language friendly (ask follow up questions, translate phrases for better understanding in their native language)",
     image: "/app-screenshots/feedback.svg",
-    href: "/staff/localisation/",
+    href: "/native-language/",
   },
 ]; 
