@@ -6,9 +6,9 @@ export default function Hero() {
   return (
     <section className="w-full py-12 md:py-16 lg:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+        <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 text-gray-900">
-          Custom Courses & Lessons for Any Industry and Role
+          Role-Plays That Simulate Customer, Client or Colleague Interactions
           </h1>
 
           <div className="flex flex-wrap justify-center gap-4 mb-16">
@@ -26,7 +26,7 @@ export default function Hero() {
             </Link>
           </div>
 
-          <div className="w-full relative aspect-[4/3] max-w-2xl mx-auto">
+          <div className="w-full relative aspect-[4/2] max-w-2xl mx-auto">
             <div className="absolute -inset-8 rounded-[1.5rem] overflow-hidden">
               <Image
                 src="/abstract-bg/imageBackground4.svg"
@@ -41,10 +41,10 @@ export default function Hero() {
             <div className="relative z-10 w-full h-full flex items-center justify-center p-4">
               <div className="rounded-lg overflow-hidden shadow-2xl w-full max-w-3xl">
                 <Image
-                  src="/app-screenshots/scenarios-homepage.png"
+                  src="/app-screenshots/roleplay.png"
                   alt="Scenarios Homepage Screenshot"
                   width={1600}
-                  height={1200}
+                  height={1600}
                   className="w-full h-auto"
                   priority
                 />

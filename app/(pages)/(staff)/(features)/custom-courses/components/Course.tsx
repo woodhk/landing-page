@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { courseSteps } from '../data/course';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -59,10 +60,10 @@ const Course = () => {
                   </div>
                   
                   {step.buttonText && (
-                    <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium gap-1">
+                    <Link href="/role-plays" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium gap-1">
                       {step.buttonText}
                       <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </Link>
                   )}
                 </div>
 

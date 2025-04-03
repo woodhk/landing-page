@@ -23,6 +23,12 @@ export const pageMeta = {
     keywords: "custom courses, industry-specific training, role-based English, business communication",
     ogImage: "/images/og/custom-courses.png",
   },
+  "/(staff)/(features)/role-plays": {
+    title: "Role-Plays – FluentPro",
+    description: "Role-plays for your team, tailored to your industry and role.",
+    keywords: "role-plays, industry-specific training, role-based English, business communication",
+    ogImage: "/images/og/role-plays.png",
+  },
   "/industry/logistics": {
     title: "Logistics Industry – FluentPro",
     description: "Help your delivery and logistics teams communicate clearly in English.",
