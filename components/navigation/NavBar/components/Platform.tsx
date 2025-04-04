@@ -27,16 +27,18 @@ export const Platform = () => {
             <div className="flex py-6 px-6">
               {/* All Features sidebar */}
               <div className="w-[160px] pr-4 border-r border-gray-100 mr-6">
-                <Link 
-                  href={platformMenu.allFeatures.href}
-                  className="flex items-center gap-2 mb-2 p-2 rounded-md bg-gray-50 hover:bg-gray-100 transition-colors"
-                >
-                  <div className="flex items-center justify-center w-8 h-8 rounded-md bg-blue-50">
-                    <BookOpen className="h-5 w-5 text-[#234BFF]" />
-                  </div>
-                  <span className="font-medium flex-1">Features</span>
-                  <ChevronRight className="h-4 w-4 text-gray-400" />
-                </Link>
+                <NavigationMenuLink asChild>
+                  <Link 
+                    href={platformMenu.allFeatures.href}
+                    className="flex items-center gap-2 mb-2 p-2 rounded-md bg-gray-50 hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex items-center justify-center w-8 h-8 rounded-md bg-blue-50">
+                      <BookOpen className="h-5 w-5 text-[#234BFF]" />
+                    </div>
+                    <span className="font-medium flex-1">Features</span>
+                    <ChevronRight className="h-4 w-4 text-gray-400" />
+                  </Link>
+                </NavigationMenuLink>
               </div>
 
               {/* Main section - 2 columns */}
@@ -55,12 +57,14 @@ export const Platform = () => {
                       <ul className="space-y-2">
                         {platformMenu.categories[0].items.map((item, i) => (
                           <li key={i}>
-                            <Link
-                              href={item.href}
-                              className="text-sm text-gray-600 hover:text-gray-900"
-                            >
-                              {item.title}
-                            </Link>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={item.href}
+                                className="text-sm text-gray-600 hover:text-gray-900"
+                              >
+                                {item.title}
+                              </Link>
+                            </NavigationMenuLink>
                           </li>
                         ))}
                       </ul>
@@ -77,12 +81,14 @@ export const Platform = () => {
                       <ul className="space-y-2">
                         {platformMenu.categories[2].items.map((item, i) => (
                           <li key={i}>
-                            <Link
-                              href={item.href}
-                              className="text-sm text-gray-600 hover:text-gray-900"
-                            >
-                              {item.title}
-                            </Link>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={item.href}
+                                className="text-sm text-gray-600 hover:text-gray-900"
+                              >
+                                {item.title}
+                              </Link>
+                            </NavigationMenuLink>
                           </li>
                         ))}
                       </ul>
@@ -102,12 +108,14 @@ export const Platform = () => {
                       <ul className="space-y-2">
                         {platformMenu.categories[1].items.map((item, i) => (
                           <li key={i}>
-                            <Link
-                              href={item.href}
-                              className="text-sm text-gray-600 hover:text-gray-900"
-                            >
-                              {item.title}
-                            </Link>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={item.href}
+                                className="text-sm text-gray-600 hover:text-gray-900"
+                              >
+                                {item.title}
+                              </Link>
+                            </NavigationMenuLink>
                           </li>
                         ))}
                       </ul>
@@ -124,15 +132,17 @@ export const Platform = () => {
                       <ul className="space-y-2">
                         {platformMenu.categories[4].items.map((item, i) => (
                           <li key={i}>
-                            <Link
-                              href={item.href}
-                              className="text-sm text-gray-600 hover:text-gray-900"
-                            >
-                              {item.title}
-                              {item.title === "Business English Recruitment Test" && (
-                                <span className="ml-2 text-xs bg-gray-100 px-2 py-0.5 rounded-full">Coming Soon</span>
-                              )}
-                            </Link>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={item.href}
+                                className="text-sm text-gray-600 hover:text-gray-900"
+                              >
+                                {item.title}
+                                {item.title === "Business English Recruitment Test" && (
+                                  <span className="ml-2 text-xs bg-gray-100 px-2 py-0.5 rounded-full">Coming Soon</span>
+                                )}
+                              </Link>
+                            </NavigationMenuLink>
                           </li>
                         ))}
                       </ul>
@@ -149,12 +159,14 @@ export const Platform = () => {
                       <ul className="space-y-2">
                         {platformMenu.categories[3].items.map((item, i) => (
                           <li key={i}>
-                            <Link
-                              href={item.href}
-                              className="text-sm text-gray-600 hover:text-gray-900"
-                            >
-                              {item.title}
-                            </Link>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={item.href}
+                                className="text-sm text-gray-600 hover:text-gray-900"
+                              >
+                                {item.title}
+                              </Link>
+                            </NavigationMenuLink>
                           </li>
                         ))}
                       </ul>
@@ -167,26 +179,28 @@ export const Platform = () => {
               <div className="pl-6 ml-6 border-l border-gray-100">
                 <div className="space-y-18">
                   {platformMenu.featureCards.map((card, index) => (
-                    <Link href={card.href} key={index}>
-                      <div className="w-[240px] bg-gray-50 rounded-lg p-4 relative">
-                        <div className="mb-2">
-                          <h3 className="font-medium flex items-center">
-                            {card.title} 
-                            <ChevronRight className="h-4 w-4 ml-1" />
-                          </h3>
-                          <p className="text-sm text-gray-600">{card.description}</p>
+                    <NavigationMenuLink asChild key={index}>
+                      <Link href={card.href}>
+                        <div className="w-[240px] bg-gray-50 rounded-lg p-4 relative">
+                          <div className="mb-2">
+                            <h3 className="font-medium flex items-center">
+                              {card.title} 
+                              <ChevronRight className="h-4 w-4 ml-1" />
+                            </h3>
+                            <p className="text-sm text-gray-600">{card.description}</p>
+                          </div>
+                          <div className="w-full h-[160px] flex items-center justify-center">
+                            <Image
+                              src={card.image}
+                              alt={card.title}
+                              width={180}
+                              height={135}
+                              className="object-contain"
+                            />
+                          </div>
                         </div>
-                        <div className="w-full h-[160px] flex items-center justify-center">
-                          <Image
-                            src={card.image}
-                            alt={card.title}
-                            width={180}
-                            height={135}
-                            className="object-contain"
-                          />
-                        </div>
-                      </div>
-                    </Link>
+                      </Link>
+                    </NavigationMenuLink>
                   ))}
                 </div>
               </div>
@@ -194,13 +208,15 @@ export const Platform = () => {
 
             {/* CTA button at the bottom */}
             <div className="px-6 py-4 border-t border-gray-100 flex justify-end">
-              <Link 
-                href={platformMenu.cta.href}
-                target="_blank"
-                className="flex items-center text-sm text-blue-600 font-medium hover:text-blue-800 transition-colors"
-              >
-                {platformMenu.cta.title} <ChevronRight className="h-4 w-4 ml-1" />
-              </Link>
+              <NavigationMenuLink asChild>
+                <Link 
+                  href={platformMenu.cta.href}
+                  target="_blank"
+                  className="flex items-center text-sm text-blue-600 font-medium hover:text-blue-800 transition-colors"
+                >
+                  {platformMenu.cta.title} <ChevronRight className="h-4 w-4 ml-1" />
+                </Link>
+              </NavigationMenuLink>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>

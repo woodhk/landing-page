@@ -7,7 +7,8 @@ import {
   NavigationMenuContent, 
   NavigationMenuItem, 
   NavigationMenuList, 
-  NavigationMenuTrigger 
+  NavigationMenuTrigger, 
+  NavigationMenuLink
 } from '@/components/shared/navigation-menu';
 import { solutionsMenu } from '../data/solutions';
 import { cn } from '@/lib/utils';
@@ -91,28 +92,29 @@ export const Solutions = () => {
                         const colorScheme = cardColorSchemes[itemIndex % cardColorSchemes.length];
                         
                         return (
-                          <Link 
-                            href={item.href} 
-                            key={i}
-                            className="block w-[260px]"
-                          >
-                            <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-shadow hover:shadow-md h-full">
-                              {/* Colored header with icon */}
-                              <div className={`${colorScheme.bg} p-4 rounded-t-lg relative h-12`}>
-                                <div className="absolute -bottom-5 left-4 bg-white p-2 rounded-lg shadow-sm border border-gray-100">
-                                  {React.createElement(item.icon, { 
-                                    className: `h-6 w-6 ${colorScheme.icon}` 
-                                  })}
+                          <NavigationMenuLink asChild key={i}>
+                            <Link 
+                              href={item.href} 
+                              className="block w-[260px]"
+                            >
+                              <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-shadow hover:shadow-md h-full">
+                                {/* Colored header with icon */}
+                                <div className={`${colorScheme.bg} p-4 rounded-t-lg relative h-12`}>
+                                  <div className="absolute -bottom-5 left-4 bg-white p-2 rounded-lg shadow-sm border border-gray-100">
+                                    {React.createElement(item.icon, { 
+                                      className: `h-6 w-6 ${colorScheme.icon}` 
+                                    })}
+                                  </div>
+                                </div>
+                                
+                                {/* Content area */}
+                                <div className="p-4 pt-8 bg-white">
+                                  <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
+                                  <p className="text-sm text-gray-600">{item.description}</p>
                                 </div>
                               </div>
-                              
-                              {/* Content area */}
-                              <div className="p-4 pt-8 bg-white">
-                                <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-                                <p className="text-sm text-gray-600">{item.description}</p>
-                              </div>
-                            </div>
-                          </Link>
+                            </Link>
+                          </NavigationMenuLink>
                         );
                       })}
                       
@@ -142,13 +144,15 @@ export const Solutions = () => {
                 </HoverCardContent>
               </HoverCard>
 
-              <Link 
-                href={solutionsMenu.cta.href}
-                target="_blank"
-                className="flex items-center text-sm text-blue-600 font-medium hover:text-blue-800 transition-colors"
-              >
-                {solutionsMenu.cta.title} <ChevronRight className="h-4 w-4 ml-1" />
-              </Link>
+              <NavigationMenuLink asChild>
+                <Link 
+                  href={solutionsMenu.cta.href}
+                  target="_blank"
+                  className="flex items-center text-sm text-blue-600 font-medium hover:text-blue-800 transition-colors"
+                >
+                  {solutionsMenu.cta.title} <ChevronRight className="h-4 w-4 ml-1" />
+                </Link>
+              </NavigationMenuLink>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
