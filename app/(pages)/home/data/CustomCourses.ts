@@ -28,7 +28,7 @@ export const customCourses: CustomCourse[] = [
     title: "Hotels & Hospitality",
     description: "Custom Courses professionals in the hotels and hospitality industry need to communicate effectively in English.",
     image: "/images/hotel-hospitality.svg",
-    href: "/hotels-hospitality",
+    href: "/hotel-hospitality",
   },
   {
     title: "Retail & Consumer Goods",
