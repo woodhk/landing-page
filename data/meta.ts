@@ -35,7 +35,18 @@ export const pageMeta = {
     description: "Native language support for your team, tailored to your industry and role.",
     keywords: "native language support, industry-specific training, role-based English, business communication",
     ogImage: "/images/og/native-language.png",
-  
+  },
+  "/(staff)/(features)/language-drills": {
+    title: "Language Drills – FluentPro",
+    description: "Language drills for your team, tailored to your industry and role.",
+    keywords: "language drills, industry-specific training, role-based English, business communication",
+    ogImage: "/images/og/language-drills.png",
+  },
+  "/(staff)/(features)/coaches": {
+    title: "Coaches – FluentPro",
+    description: "Coaches for your team, tailored to your industry and role.",
+    keywords: "coaches, industry-specific training, role-based English, business communication",
+    ogImage: "/images/og/coaches.png",
   },
   "/industry/logistics": {
     title: "Logistics Industry – FluentPro",

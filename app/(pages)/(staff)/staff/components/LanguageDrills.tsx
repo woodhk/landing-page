@@ -76,7 +76,7 @@ const LanguageDrills: React.FC = () => {
                 {description}
               </p>
               <Link 
-                href="/staff/language-drills"
+                href="/language-drills"
                 className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
               >
                 Learn more
