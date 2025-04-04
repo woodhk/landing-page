@@ -76,4 +76,4 @@ export interface IndustryData {
   // etc.
 }
 
-export type IndustrySlug = 'banking-finance' | 'shipping-logistics' | 'hotel-hospitality' | 'real-estate'; 
+export type IndustrySlug = 'banking-finance' | 'shipping-logistics' | 'hotel-hospitality' | 'real-estate' | 'retail'; 

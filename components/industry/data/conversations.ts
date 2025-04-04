@@ -107,11 +107,38 @@ export const realEstateConversations: ConversationsSection = {
   },
 };
 
+export const retailConversations: ConversationsSection = {
+  mainTitle: "Workplace Conversations Without The Pressure...",
+  subtitle: "Realistic Role-plays, real-time coaching and personalised language drills help Retail professionals navigate real-world conversations in a safe environment",
+  rolePlaysCard: {
+    tag: "Tailored for Retail Professionals",
+    title: "Train Staff to Handle Customers, Sales & Complaints Effectively",
+    description: "From handling customer inquiries to upselling, Fluentpro trains your team for the conversations they face daily with retail and role specific role-plays.",
+    imageUrl: commonImagePath,
+    learnMoreLink: "/role-plays",
+  },
+  coachingCard: {
+    tag: "Real-time Coaching",
+    title: "Refine Every Conversation with AI-Powered Feedback",
+    description: "Whether addressing customer complaints, or sales interactions, our four specialised AI coaches work together to guide, correct, and assess every staff's response.",
+    imageUrl: commonImagePath,
+    learnMoreLink: "/coaches",
+  },
+  exercisesCard: {
+    tag: "Personalised Exercises",
+    title: "Dynamic Language Drills Personalised to Mistakes",
+    description: "FluentPro's language drills target each staff member's specific mistakes, so they can focus only on what they need to improve, not waste time on what they already know.",
+    imageUrl: commonImagePath,
+    learnMoreLink: "/language-drills",
+  },
+};
+
 export const industryConversationsData: Record<IndustrySlug, ConversationsSection> = {
   'banking-finance': bankingFinanceConversations,
   'shipping-logistics': shippingLogisticsConversations,
   'hotel-hospitality': hospitalityConversations,
   'real-estate': realEstateConversations,
+  'retail': retailConversations,
 };
 
 export const getConversationsByIndustry = (industry: IndustrySlug): ConversationsSection => {

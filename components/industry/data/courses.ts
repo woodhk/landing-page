@@ -203,11 +203,62 @@ export const realEstateCourses: CoursesSection = {
   ],
 };
 
+export const retailCourses: CoursesSection = {
+  sectionTitle: 'Customised Courses for Any Retail Store & Job Role',
+  sectionDescription: 'From Supermarkets to Luxury Stores, we offer scenario-based courses tailored to each job role. AI then personalizes each lesson to the specific language needs of staff. If staffs job title aren\'t covered, our language experts will create a custom course for free.',
+  customCoursesLink: '/custom-courses',
+  courseCards: [
+    {
+      title: 'Cosmetic & Skin Care',
+      description: 'Your staff aren\'t just selling products—they\'re selling beauty, confidence, and care.',
+      detailDescription: 'FluentPro\'s courses help your team engage customers with empathy, explain skincare routines clearly, and recommend products with the right balance of professionalism and warmth.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/retail/courses/cosmetics',
+    },
+    {
+      title: 'Department Stores',
+      description: 'Train your multilingual staff to navigate customers through different departments and provide consistent service across all sections.',
+      detailDescription: 'Our department store training helps staff direct customers efficiently, explain store policies clearly, and maintain the same high standard of English communication regardless of department.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/retail/courses/department-stores',
+    },
+    {
+      title: 'Electronics & Gadget Stores',
+      description: 'Help your team explain complex features in simple English that non-technical customers can understand.',
+      detailDescription: 'Our specialized courses teach staff to describe technical specifications in accessible language, recommend the right products based on customer needs, and explain warranties and support options clearly.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/retail/courses/electronics',
+    },
+    {
+      title: 'Luxury Good Stores',
+      description: 'Train your sales associates to create exclusive shopping experiences that match the premium nature of your products.',
+      detailDescription: 'Our luxury retail courses focus on sophisticated language skills, creating rapport with high-value clients, and telling compelling brand stories that emphasize heritage and craftsmanship.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/retail/courses/luxury',
+    },
+    {
+      title: 'Supermarkets',
+      description: 'Give your staff the language skills to handle high-volume customer interactions efficiently and courteously.',
+      detailDescription: 'Our supermarket-focused training helps cashiers, shelf-stockers, and department specialists communicate effectively with customers, resolve checkout issues, and provide assistance quickly in a fast-paced environment.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/retail/courses/supermarkets',
+    },
+    {
+      title: 'Other',
+      description: 'Don\'t see your specific retail segment listed? We\'ll create a custom course for your team at no extra cost.',
+      detailDescription: 'Our language experts will work with you to understand your retail niche\'s specific needs and develop tailored courses that address your unique customer communication challenges.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/retail/courses/custom',
+    },
+  ],
+};
+
 export const industryCoursesData: Record<IndustrySlug, CoursesSection> = {
   'banking-finance': bankingFinanceCourses,
   'shipping-logistics': shippingLogisticsCourses,
   'hotel-hospitality': hospitalityCourses,
   'real-estate': realEstateCourses,
+  'retail': retailCourses,
 };
 
 export const getCoursesByIndustry = (industry: IndustrySlug): CoursesSection => {

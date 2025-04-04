@@ -53,6 +53,17 @@ export const industriesHeroData: IndustryHeroData[] = [
       brochureLink: '/industry/real-estate/brochure',
     },
   },
+  {
+    id: '5',
+    name: 'Retail',
+    slug: 'retail',
+    hero: {
+      title: "Turn 'Can I Help You?' into 'Would You Like a Receipt?'",
+      description: 'Give your retail staff the Business English speaking skills needed to handle customer inquiries with confidence—and increase sales.',
+      secureAccessLink: '/industry/retail/access',
+      brochureLink: '/industry/retail/brochure',
+    },
+  },
 ];
 
 export const getIndustryBySlug = (slug: string): IndustryHeroData | undefined => {
