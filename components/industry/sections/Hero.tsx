@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import React from 'react';
-import { HeroSection as HeroSectionType } from './types';
+import { HeroSection } from '../types';
 
-interface HeroSectionProps {
-  data: HeroSectionType;
+interface HeroProps {
+  data: HeroSection;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
+export const Hero: React.FC<HeroProps> = ({ data }) => {
   const { title, description, secureAccessLink, brochureLink } = data;
 
   return (
@@ -39,4 +39,4 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
   );
 };
 
-export default HeroSection; 
+export default Hero; 

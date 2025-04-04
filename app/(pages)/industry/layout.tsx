@@ -13,4 +13,4 @@ export default function IndustryLayout({
       {/* Footer or other shared components */}
     </div>
   );
-}
+} 

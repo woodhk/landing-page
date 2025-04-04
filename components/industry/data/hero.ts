@@ -1,6 +1,13 @@
-import { IndustryData } from './types';
+import { HeroSection } from '../types';
 
-export const industriesData: IndustryData[] = [
+export interface IndustryHeroData {
+  id: string;
+  name: string;
+  slug: string;
+  hero: HeroSection;
+}
+
+export const industriesHeroData: IndustryHeroData[] = [
   {
     id: '1',
     name: 'Banking & Finance',
@@ -47,10 +54,10 @@ export const industriesData: IndustryData[] = [
   },
 ];
 
-export const getIndustryBySlug = (slug: string): IndustryData | undefined => {
-  return industriesData.find(industry => industry.slug === slug);
+export const getIndustryBySlug = (slug: string): IndustryHeroData | undefined => {
+  return industriesHeroData.find(industry => industry.slug === slug);
 };
 
-export const getAllIndustries = (): IndustryData[] => {
-  return industriesData;
+export const getAllIndustries = (): IndustryHeroData[] => {
+  return industriesHeroData;
 }; 

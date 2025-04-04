@@ -1,9 +1,9 @@
 import React from 'react';
-import { IndustryData } from './types';
-import HeroSection from './HeroSection';
+import { IndustryHeroData } from './data/hero';
+import Hero from './sections/Hero';
 
 interface IndustryTemplateProps {
-  industry: IndustryData;
+  industry: IndustryHeroData;
   // We can add props for additional sections as needed
   // For example:
   // showTestimonials?: boolean;
@@ -21,7 +21,7 @@ export const IndustryTemplate: React.FC<IndustryTemplateProps> = ({
   return (
     <div className="industry-template">
       {/* Hero Section */}
-      <HeroSection data={industry.hero} />
+      <Hero data={industry.hero} />
       
       {/* Additional sections can be added here conditionally */}
       {/* For example:

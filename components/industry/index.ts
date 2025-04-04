@@ -1,4 +1,4 @@
-export * from './data';
+export * from './data/hero';
 export * from './types';
-export { default as HeroSection } from './HeroSection';
+export { default as Hero } from './sections/Hero';
 export { default as IndustryTemplate } from './IndustryTemplate'; 
