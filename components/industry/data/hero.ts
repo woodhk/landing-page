@@ -1,9 +1,10 @@
 import { HeroSection } from '../types';
+import { IndustrySlug } from '../types';
 
 export interface IndustryHeroData {
   id: string;
   name: string;
-  slug: string;
+  slug: IndustrySlug;
   hero: HeroSection;
 }
 

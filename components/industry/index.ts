@@ -1,4 +1,10 @@
 export * from './data/hero';
+export * from './data/features';
+export * from './data/courses';
+export * from './data/conversations';
 export * from './types';
 export { default as Hero } from './sections/Hero';
+export { default as Features } from './sections/Features';
+export { default as Courses } from './sections/Courses';
+export { default as Conversations } from './sections/Conversations';
 export { default as IndustryTemplate } from './IndustryTemplate'; 
