@@ -253,12 +253,63 @@ export const retailCourses: CoursesSection = {
   ],
 };
 
+export const telecommunicationsCourses: CoursesSection = {
+  sectionTitle: 'Telecommunication Courses for Any Job Role',
+  sectionDescription: 'From Technical Support Staff to Project Managers, we offer scenario-based courses tailored to each job role. AI then personalizes each lesson to the specific language needs of staff. If staffs job title aren\'t covered, our language experts will create a custom course for free.',
+  customCoursesLink: '/custom-courses',
+  courseCards: [
+    {
+      title: 'Call Center Agents',
+      description: 'Turn anxious agents into confident problem-solvers who handle disruptions, escalations, and high call volumes—without dropping your satisfaction scores.',
+      detailDescription: 'Our role-specific courses train agents to defuse tense situations, explain technical issues clearly, and resolve concerns faster—reducing escalations by up to 40% and boosting first-call resolution.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/telecommunications/courses/call-center',
+    },
+    {
+      title: 'Project Managers',
+      description: 'Help your project leaders communicate effectively with global teams, vendors, and stakeholders to keep complex initiatives on track.',
+      detailDescription: 'Our project management courses focus on precise communication skills for multilingual environments, status reporting best practices, and facilitating clear discussions that keep projects moving forward.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/telecommunications/courses/project-managers',
+    },
+    {
+      title: 'Sales Staff',
+      description: 'Equip your sales team with the language skills to explain complex telecom solutions and close more deals.',
+      detailDescription: 'Our sales-focused courses teach staff to identify client needs accurately, present technical benefits in accessible language, and navigate objections with confidence and clarity.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/telecommunications/courses/sales',
+    },
+    {
+      title: 'Training & Development Officers',
+      description: 'Enable your trainers to deliver clear, engaging instruction that overcomes language barriers.',
+      detailDescription: 'Our specialized courses help training staff simplify complex technical concepts, facilitate productive discussions, and create inclusive learning environments for multilingual teams.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/telecommunications/courses/training',
+    },
+    {
+      title: 'Senior Executives & Managers',
+      description: 'Give your leadership team the communication tools to represent your company in global markets and lead international teams.',
+      detailDescription: 'Our executive courses focus on strategic communication skills for presentations, negotiations, and cross-cultural team leadership that enhance your company\'s global presence.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/telecommunications/courses/executives',
+    },
+    {
+      title: 'Other',
+      description: 'Don\'t see your specific telecommunications role listed? We\'ll create a custom course for your team at no extra cost.',
+      detailDescription: 'Our language experts will work with you to understand your specific needs and develop tailored courses that address your unique telecommunications communication challenges.',
+      imageUrl: commonImagePath,
+      outlineLink: '/industry/telecommunications/courses/custom',
+    },
+  ],
+};
+
 export const industryCoursesData: Record<IndustrySlug, CoursesSection> = {
   'banking-finance': bankingFinanceCourses,
   'shipping-logistics': shippingLogisticsCourses,
   'hotel-hospitality': hospitalityCourses,
   'real-estate': realEstateCourses,
   'retail': retailCourses,
+  'telecommunications': telecommunicationsCourses,
 };
 
 export const getCoursesByIndustry = (industry: IndustrySlug): CoursesSection => {

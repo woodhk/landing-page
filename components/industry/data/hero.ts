@@ -64,6 +64,17 @@ export const industriesHeroData: IndustryHeroData[] = [
       brochureLink: '/industry/retail/brochure',
     },
   },
+  {
+    id: '6',
+    name: 'Telecommunications',
+    slug: 'telecommunications',
+    hero: {
+      title: "Deliver Strong English Communication, Not Just Bandwidth",
+      description: 'Help your telecom staff speak clear Business English so they can easily communicate with clients, suppliers, and partners—preventing delays, service issues, and lost deals.',
+      secureAccessLink: '/industry/telecommunications/access',
+      brochureLink: '/industry/telecommunications/brochure',
+    },
+  },
 ];
 
 export const getIndustryBySlug = (slug: string): IndustryHeroData | undefined => {

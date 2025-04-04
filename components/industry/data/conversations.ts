@@ -133,12 +133,39 @@ export const retailConversations: ConversationsSection = {
   },
 };
 
+export const telecommunicationsConversations: ConversationsSection = {
+  mainTitle: "Workplace Conversations Without The Pressure...",
+  subtitle: "Realistic Role-plays, real-time coaching and personalised language drills help Telecommunication professionals navigate real-world conversations in a safe environment",
+  rolePlaysCard: {
+    tag: "Tailored for Telecom Professionals",
+    title: "Train Staff to Handle Customer Inquiries, Sales & Service Issues",
+    description: "From discussing service plans to technical support, Fluentpro trains your team for the conversations they face daily with telecommunication and role specific role-plays.",
+    imageUrl: commonImagePath,
+    learnMoreLink: "/role-plays",
+  },
+  coachingCard: {
+    tag: "Real-time Coaching",
+    title: "Refine Every Conversation with AI-Powered Feedback",
+    description: "Whether handling billing inquiries or customer complaints, our four specialised AI coaches work together to guide, correct, and assess every staff's response.",
+    imageUrl: commonImagePath,
+    learnMoreLink: "/coaches",
+  },
+  exercisesCard: {
+    tag: "Personalised Exercises",
+    title: "Dynamic Language Drills Personalised to Mistakes",
+    description: "FluentPro's language drills target each staff member's specific mistakes, so they can focus only on what they need to improve, not waste time on what they already know.",
+    imageUrl: commonImagePath,
+    learnMoreLink: "/language-drills",
+  },
+};
+
 export const industryConversationsData: Record<IndustrySlug, ConversationsSection> = {
   'banking-finance': bankingFinanceConversations,
   'shipping-logistics': shippingLogisticsConversations,
   'hotel-hospitality': hospitalityConversations,
   'real-estate': realEstateConversations,
   'retail': retailConversations,
+  'telecommunications': telecommunicationsConversations,
 };
 
 export const getConversationsByIndustry = (industry: IndustrySlug): ConversationsSection => {

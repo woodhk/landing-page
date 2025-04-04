@@ -63,17 +63,5 @@ export interface HRSection {
   tabs: HRTab[];
 }
 
-export interface IndustryData {
-  id: string;
-  name: string;
-  slug: string;
-  hero: HeroSection;
-  features: FeaturesSection;
-  // We can add more sections here as needed
-  // For example:
-  // testimonials?: Testimonial[];
-  // benefits?: Benefit[];
-  // etc.
-}
 
-export type IndustrySlug = 'banking-finance' | 'shipping-logistics' | 'hotel-hospitality' | 'real-estate' | 'retail'; 
+export type IndustrySlug = 'banking-finance' | 'shipping-logistics' | 'hotel-hospitality' | 'real-estate' | 'retail' | 'telecommunications'; 

@@ -69,6 +69,19 @@ export const industryFeaturesData: Record<IndustrySlug, FeaturesSection> = {
       imageUrl: commonImagePath,
     },
   },
+  'telecommunications': {
+    sectionTitle: 'Flexible and Focused Training for Busy Telecommunication Professionals',
+    flexibleCard: {
+      title: 'Flexible Learning for Any Staff Member',
+      description: 'Staff can engage in training without the need for travel or coordinating schedules with trainers, allowing for uninterrupted progress at their convenience.',
+      imageUrl: commonImagePath,
+    },
+    focusedCard: {
+      title: 'Focused Training for Maximum Impact',
+      description: 'We only cover the essential English-facing scenarios telecom professionals encounter with clients, customers, and colleagues. No wasted time, no unnecessary content, just targeted training that maximizes learning efficiency and company ROI.',
+      imageUrl: commonImagePath,
+    },
+  },
 };
 
 export const getFeaturesByIndustry = (industry: IndustrySlug): FeaturesSection => {
