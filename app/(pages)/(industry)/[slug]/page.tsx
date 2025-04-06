@@ -9,8 +9,8 @@ interface IndustryPageProps {
   };
 }
 
-export default function IndustryPage({ params }: IndustryPageProps) {
-  const { slug } = params;
+export default async function IndustryPage({ params }: IndustryPageProps) {
+  const { slug } = await params;
   const industry = getIndustryBySlug(slug);
 
   if (!industry) {
