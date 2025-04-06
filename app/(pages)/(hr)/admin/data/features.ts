@@ -14,7 +14,7 @@ export const features: Feature[] = [
     description: "Getting your team started is effortless—just send one email. Our magic link connects staff to your dashboard instantly, with no extra steps or wasted time.",
     image: "/app-screenshots/invite-staff.png",
     buttonText: "Learn more",
-    href: "/staff/onboarding"
+    href: "/training-onboarding"
   },
   {
     tag: "Advanced Tailoring",
@@ -22,7 +22,7 @@ export const features: Feature[] = [
     description: "Upload company documents related to your products, services, and policies to create realistic workplace role-plays. Each speaking scenario is designed to simulate real conversations, ensuring practical and relevant training.",
     image: "/app-screenshots/upload.svg",
     buttonText: "Learn more",
-    href: "/staff/company-personalisation"
+    href: "/company-personalisation"
   },
   {
     tag: "Admin Dashboard",
@@ -30,6 +30,6 @@ export const features: Feature[] = [
     description: "Gain insights into employee performance with detailed, real time analytics and reporting—designed to reduce HR workload, not add to it.",
     image: "/app-screenshots/admin-dashboard.png",
     buttonText: "Learn more",
-    href: "/staff/admin-dashboard"
+    href: "/admin-dashboard"
   }
 ];
