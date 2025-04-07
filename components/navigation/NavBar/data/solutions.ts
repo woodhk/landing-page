@@ -138,7 +138,7 @@ export const crossIndustryItems: IndustryItem[] = [
     title: "Customer Support Staff",
     description: "Respond to customer inquiries, complaints, and support requests with clarity.",
     icon: Store,
-    href: "/solutions/cross-industry/customer-support",
+    href: "/solutions/cross-industry/customer-support-staff",
   },
   {
     title: "HR & Onboarding Staff",
