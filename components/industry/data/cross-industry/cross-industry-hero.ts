@@ -75,6 +75,28 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       brochureLink: '/cross-industry/finance/brochure',
     },
   },
+  {
+    id: 'c7',
+    name: 'HR and Onboarding Staff',
+    slug: 'hr-onboarding-staff',
+    hero: {
+      title: 'Connect and Develop Talent with Empathy and Precision',
+      description: 'Equip your HR and onboarding teams with the Business English skills to conduct meaningful interviews, deliver effective feedback, and create exceptional employee experiences at every stage of the talent lifecycle.',
+      secureAccessLink: '/cross-industry/hr-onboarding-staff/access',
+      brochureLink: '/cross-industry/hr-onboarding-staff/brochure',
+    },
+  },
+  {
+    id: 'c8',
+    name: 'Client Relationship & Account Management Staff',
+    slug: 'client-relationship',
+    hero: {
+      title: 'Build Client Trust and Loyalty Through Effective Communication',
+      description: 'Empower your client relationship and account management teams with the Business English skills to strengthen partnerships, handle high-stakes conversations, and deliver exceptional client experiences that drive retention and growth.',
+      secureAccessLink: '/cross-industry/client-relationship/access',
+      brochureLink: '/cross-industry/client-relationship/brochure',
+    },
+  },
   // Additional cross-industry roles can be added here
 ];
 

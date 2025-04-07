@@ -144,7 +144,7 @@ export const crossIndustryItems: IndustryItem[] = [
     title: "HR & Onboarding Staff",
     description: "Conduct interviews, onboard employees, and handle HR-related communication confidently.",
     icon: Users,
-    href: "/solutions/cross-industry/hr-onboarding",
+    href: "/solutions/cross-industry/hr-onboarding-staff",
   },
   {
     title: "Sales & Business Development",

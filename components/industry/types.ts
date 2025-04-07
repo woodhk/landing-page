@@ -65,6 +65,6 @@ export interface HRSection {
 
 export type IndustrySlug = 'banking-finance' | 'shipping-logistics' | 'hotel-hospitality' | 'real-estate' | 'retail' | 'telecommunications';
 
-export type CrossIndustrySlug = 'administrative-support' | 'customer-support-staff' | 'operations-project-management' | 'marketing-communications' | 'it-technical-support' | 'finance';
+export type CrossIndustrySlug = 'administrative-support' | 'customer-support-staff' | 'operations-project-management' | 'marketing-communications' | 'it-technical-support' | 'finance' | 'hr-onboarding-staff' | 'client-relationship';
 
 export type AllSlugs = IndustrySlug | CrossIndustrySlug; 

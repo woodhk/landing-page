@@ -103,6 +103,38 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       },
     },
   },
+  {
+    slug: 'hr-onboarding-staff',
+    features: {
+      sectionTitle: 'Flexible and Focused Training for HR and Onboarding Professionals',
+      flexibleCard: {
+        title: 'Flexible Learning for Any HR Professional',
+        description: 'Team members can engage with training modules between interviews, during recruitment cycles, or whenever their schedule permits—ensuring continuous skill development without disrupting critical people operations.',
+        imageUrl: '/features/hr-onboarding-staff/flexible-learning.svg',
+      },
+      focusedCard: {
+        title: 'Focused Training for Maximum Impact',
+        description: 'Our training addresses the essential English-facing scenarios HR professionals encounter daily. From conducting interviews to explaining benefits packages, we deliver targeted training that directly improves employee experience and organizational effectiveness.',
+        imageUrl: '/features/hr-onboarding-staff/focused-training.svg',
+      },
+    },
+  },
+  {
+    slug: 'client-relationship',
+    features: {
+      sectionTitle: 'Flexible and Focused Training for Client Relationship Professionals',
+      flexibleCard: {
+        title: 'Flexible Learning for Any Client Management Professional',
+        description: 'Account managers can progress through training between client meetings, during travel time, or whenever their schedule allows—ensuring continuous improvement without disrupting critical client relationships.',
+        imageUrl: '/features/client-relationship/flexible-learning.svg',
+      },
+      focusedCard: {
+        title: 'Focused Training for Maximum Impact',
+        description: 'Our training addresses the essential English-facing scenarios client relationship managers encounter daily. From navigating difficult conversations to presenting new solutions, we deliver targeted training that directly improves client satisfaction and retention rates.',
+        imageUrl: '/features/client-relationship/focused-training.svg',
+      },
+    },
+  },
   // Additional cross-industry roles can be added here
 ];
 

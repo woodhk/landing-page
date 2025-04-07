@@ -175,6 +175,62 @@ export const crossIndustryConversationsData: CrossIndustryConversationsData[] = 
       },
     },
   },
+  {
+    slug: 'hr-onboarding-staff',
+    conversations: {
+      mainTitle: 'HR Conversations, Without The Pressure...',
+      subtitle: 'Realistic Role-plays, real-time coaching and personalised language drills help HR and Onboarding professionals navigate sensitive workplace conversations in a safe environment',
+      rolePlaysCard: {
+        tag: 'Role-Play Scenarios',
+        title: 'Train for Interviews & Performance Discussions',
+        description: 'From conducting job interviews to delivering performance feedback, FluentPro prepares your HR team for the real conversations they handle daily with role-plays designed around authentic human resources scenarios.',
+        imageUrl: '/conversations/hr-onboarding-staff/role-plays.svg',
+        learnMoreLink: '/cross-industry/hr-onboarding-staff/role-plays',
+      },
+      coachingCard: {
+        tag: 'Real-time Coaching',
+        title: 'Master Workplace Conversations with AI-Powered Feedback',
+        description: 'Whether explaining benefits options, mediating conflicts, or welcoming new hires, four specialized AI coaches work together to guide, correct, and assess every spoken HR interaction.',
+        imageUrl: '/conversations/hr-onboarding-staff/coaching.svg',
+        learnMoreLink: '/cross-industry/hr-onboarding-staff/coaches',
+      },
+      exercisesCard: {
+        tag: 'Personalised Exercises',
+        title: 'Dynamic Language Drills for Clear and Empathetic Communication',
+        description: 'FluentPro\'s language drills target each team member\'s specific communication challenges, so they can focus only on what they need to improve—balancing professionalism with empathy in every employee interaction.',
+        imageUrl: '/conversations/hr-onboarding-staff/exercises.svg',
+        learnMoreLink: '/cross-industry/hr-onboarding-staff/drills',
+      },
+    },
+  },
+  {
+    slug: 'client-relationship',
+    conversations: {
+      mainTitle: 'Client Relationship Conversations, Without The Pressure...',
+      subtitle: 'Realistic Role-plays, real-time coaching and personalised language drills help Client Relationship professionals navigate complex client conversations in a safe environment',
+      rolePlaysCard: {
+        tag: 'Role-Play Scenarios',
+        title: 'Train for Client Meetings & Strategic Discussions',
+        description: 'From conducting quarterly business reviews to handling sensitive contract negotiations, FluentPro prepares your client-facing teams for the real conversations they handle daily with role-plays designed around authentic client relationship scenarios.',
+        imageUrl: '/conversations/client-relationship/role-plays.svg',
+        learnMoreLink: '/cross-industry/client-relationship/role-plays',
+      },
+      coachingCard: {
+        tag: 'Real-time Coaching',
+        title: 'Enhance Client Interactions with AI-Powered Feedback',
+        description: 'Whether handling difficult client questions, presenting business updates, or navigating renewal discussions, four specialized AI coaches work together to guide, correct, and assess every spoken client interaction.',
+        imageUrl: '/conversations/client-relationship/coaching.svg',
+        learnMoreLink: '/cross-industry/client-relationship/coaches',
+      },
+      exercisesCard: {
+        tag: 'Personalised Exercises',
+        title: 'Dynamic Language Drills for Persuasive and Diplomatic Communication',
+        description: 'FluentPro\'s language drills target each team member\'s specific communication challenges, so they can focus only on what they need to improve—balancing assertiveness with diplomacy in every client interaction.',
+        imageUrl: '/conversations/client-relationship/exercises.svg',
+        learnMoreLink: '/cross-industry/client-relationship/drills',
+      },
+    },
+  },
   // Additional cross-industry roles can be added here
 ];
 
