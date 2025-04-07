@@ -1,8 +1,8 @@
 import React from 'react';
-import { CrossIndustryHeroData } from './data/cross-industry-hero';
-import { getFeaturesByCrossIndustry } from './data/cross-industry-features';
-import { getCoursesByCrossIndustry } from './data/cross-industry-courses';
-import { getConversationsByCrossIndustry } from './data/cross-industry-conversations';
+import { CrossIndustryHeroData } from './data/cross-industry/cross-industry-hero';
+import { getFeaturesByCrossIndustry } from './data/cross-industry/cross-industry-features';
+import { getCoursesByCrossIndustry } from './data/cross-industry/cross-industry-courses';
+import { getConversationsByCrossIndustry } from './data/cross-industry/cross-industry-conversations';
 import { HRSection, hrSectionData } from '@/components/features/hr';
 import Hero from './sections/Hero';
 import Features from './sections/Features';
@@ -38,13 +38,13 @@ export const CrossIndustryTemplate: React.FC<CrossIndustryTemplateProps> = ({
       <Hero data={crossIndustry.hero} />
       
       {/* Features Section */}
-      <Features data={featuresData} />
+      {featuresData && <Features data={featuresData} />}
       
       {/* Courses Section */}
-      <Courses data={coursesData} />
+      {coursesData && <Courses data={coursesData} />}
       
       {/* Conversations Section */}
-      <Conversations data={conversationsData} />
+      {conversationsData && <Conversations data={conversationsData} />}
       
       {/* HR Section */}
       <HRSection data={hrSectionData} />

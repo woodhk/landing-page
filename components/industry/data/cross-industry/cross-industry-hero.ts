@@ -1,5 +1,5 @@
-import { HeroSection } from '../types';
-import { CrossIndustrySlug } from '../types';
+import { HeroSection } from '../../types';
+import { CrossIndustrySlug } from '../../types';
 
 export interface CrossIndustryHeroData {
   id: string;

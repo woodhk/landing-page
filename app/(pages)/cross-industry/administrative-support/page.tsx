@@ -1,5 +1,5 @@
 import React from 'react';
-import { getCrossIndustryBySlug } from '../../../../components/industry/data/cross-industry-hero';
+import { getCrossIndustryBySlug } from '../../../../components/industry/data/cross-industry/cross-industry-hero';
 import CrossIndustryTemplate from '../../../../components/industry/CrossIndustryTemplate';
 
 export default function AdministrativeSupportPage() {

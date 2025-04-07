@@ -1,5 +1,5 @@
-import { ConversationsSection } from '../types';
-import { IndustrySlug } from '../types';
+import { ConversationsSection } from '../../types';
+import { IndustrySlug } from '../../types';
 
 const commonImagePath = "/abstract-bg/imageBackground6.svg";
 

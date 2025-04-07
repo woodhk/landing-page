@@ -1,5 +1,5 @@
-import { FeaturesSection } from '../types';
-import { CrossIndustrySlug } from '../types';
+import { FeaturesSection } from '../../types';
+import { CrossIndustrySlug } from '../../types';
 
 interface CrossIndustryFeaturesData {
   slug: CrossIndustrySlug;

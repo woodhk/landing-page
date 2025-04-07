@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { getAllCrossIndustries, CrossIndustryHeroData } from '../../../components/industry/data/cross-industry-hero';
+import { getAllCrossIndustries, CrossIndustryHeroData } from '../../../components/industry/data/cross-industry/cross-industry-hero';
 
 export default function CrossIndustryLandingPage() {
   const crossIndustries = getAllCrossIndustries();

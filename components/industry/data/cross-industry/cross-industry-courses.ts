@@ -1,5 +1,5 @@
-import { CoursesSection } from '../types';
-import { CrossIndustrySlug } from '../types';
+import { CoursesSection } from '../../types';
+import { CrossIndustrySlug } from '../../types';
 
 interface CrossIndustryCoursesData {
   slug: CrossIndustrySlug;

@@ -1,5 +1,5 @@
-import { HeroSection } from '../types';
-import { IndustrySlug } from '../types';
+import { HeroSection } from '../../types';
+import { IndustrySlug } from '../../types';
 
 export interface IndustryHeroData {
   id: string;

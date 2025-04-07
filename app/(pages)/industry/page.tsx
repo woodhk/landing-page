@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { getAllIndustries, IndustryHeroData } from '../../../components/industry/data/hero';
+import { getAllIndustries, IndustryHeroData } from '../../../components/industry/data/industry/hero';
 
 export default function IndustryLandingPage() {
   const industries = getAllIndustries();

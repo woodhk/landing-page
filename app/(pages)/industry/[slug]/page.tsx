@@ -1,6 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { getIndustryBySlug, getAllIndustries } from '../../../../components/industry/data/hero';
+import { getIndustryBySlug, getAllIndustries } from '../../../../components/industry/data/industry/hero';
 import IndustryTemplate from '../../../../components/industry/IndustryTemplate';
 
 interface IndustryPageProps {

@@ -1,8 +1,8 @@
 import React from 'react';
-import { IndustryHeroData } from './data/hero';
-import { getFeaturesByIndustry } from './data/features';
-import { getCoursesByIndustry } from './data/courses';
-import { getConversationsByIndustry } from './data/conversations';
+import { IndustryHeroData } from './data/industry/hero';
+import { getFeaturesByIndustry } from './data/industry/features';
+import { getCoursesByIndustry } from './data/industry/courses';
+import { getConversationsByIndustry } from './data/industry/conversations';
 import { HRSection, hrSectionData } from '@/components/features/hr';
 import Hero from './sections/Hero';
 import Features from './sections/Features';

@@ -1,5 +1,5 @@
-import { CoursesSection } from '../types';
-import { IndustrySlug } from '../types';
+import { CoursesSection } from '../../types';
+import { IndustrySlug } from '../../types';
 
 const commonImagePath = "/abstract-bg/imageBackground6.svg";
 

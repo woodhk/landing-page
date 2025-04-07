@@ -1,5 +1,5 @@
-import { ConversationsSection } from '../types';
-import { CrossIndustrySlug } from '../types';
+import { ConversationsSection } from '../../types';
+import { CrossIndustrySlug } from '../../types';
 
 interface CrossIndustryConversationsData {
   slug: CrossIndustrySlug;
