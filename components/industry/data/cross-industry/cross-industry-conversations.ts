@@ -231,6 +231,90 @@ export const crossIndustryConversationsData: CrossIndustryConversationsData[] = 
       },
     },
   },
+  {
+    slug: 'sales-business-development',
+    conversations: {
+      mainTitle: 'Sales Conversations, Without The Pressure...',
+      subtitle: 'Realistic Role-plays, real-time coaching and personalised language drills help Sales professionals perfect their pitch and close more deals in a safe environment',
+      rolePlaysCard: {
+        tag: 'Role-Play Scenarios',
+        title: 'Train for Discovery Calls & Closing Meetings',
+        description: 'From conducting needs assessments to handling price objections, FluentPro prepares your sales team for the real conversations they handle daily with role-plays designed around authentic sales and negotiation scenarios.',
+        imageUrl: '/conversations/sales-business-development/role-plays.svg',
+        learnMoreLink: '/cross-industry/sales-business-development/role-plays',
+      },
+      coachingCard: {
+        tag: 'Real-time Coaching',
+        title: 'Perfect Your Pitch with AI-Powered Feedback',
+        description: 'Whether delivering value propositions, responding to objections, or negotiating contract terms, four specialized AI coaches work together to guide, correct, and assess every spoken sales interaction.',
+        imageUrl: '/conversations/sales-business-development/coaching.svg',
+        learnMoreLink: '/cross-industry/sales-business-development/coaches',
+      },
+      exercisesCard: {
+        tag: 'Personalised Exercises',
+        title: 'Dynamic Language Drills for Persuasive and Strategic Communication',
+        description: 'FluentPro\'s language drills target each team member\'s specific communication challenges, so they can focus only on what they need to improve—transforming good salespeople into exceptional revenue generators.',
+        imageUrl: '/conversations/sales-business-development/exercises.svg',
+        learnMoreLink: '/cross-industry/sales-business-development/drills',
+      },
+    },
+  },
+  {
+    slug: 'learning-development-staff',
+    conversations: {
+      mainTitle: 'Training Conversations, Without The Pressure...',
+      subtitle: 'Realistic Role-plays, real-time coaching and personalised language drills help Learning and Development professionals deliver impactful training in a safe environment',
+      rolePlaysCard: {
+        tag: 'Role-Play Scenarios',
+        title: 'Train for Workshop Facilitation & Training Delivery',
+        description: 'From conducting needs assessments to handling challenging participants, FluentPro prepares your L&D team for the real conversations they handle daily with role-plays designed around authentic training and facilitation scenarios.',
+        imageUrl: '/conversations/learning-development-staff/role-plays.svg',
+        learnMoreLink: '/cross-industry/learning-development-staff/role-plays',
+      },
+      coachingCard: {
+        tag: 'Real-time Coaching',
+        title: 'Enhance Your Training Delivery with AI-Powered Feedback',
+        description: 'Whether presenting complex concepts, facilitating group discussions, or addressing difficult questions, four specialized AI coaches work together to guide, correct, and assess every spoken training interaction.',
+        imageUrl: '/conversations/learning-development-staff/coaching.svg',
+        learnMoreLink: '/cross-industry/learning-development-staff/coaches',
+      },
+      exercisesCard: {
+        tag: 'Personalised Exercises',
+        title: 'Dynamic Language Drills for Engaging and Effective Instruction',
+        description: 'FluentPro\'s language drills target each trainer\'s specific communication challenges, so they can focus only on what they need to improve—transforming good instructors into exceptional learning facilitators.',
+        imageUrl: '/conversations/learning-development-staff/exercises.svg',
+        learnMoreLink: '/cross-industry/learning-development-staff/drills',
+      },
+    },
+  },
+  {
+    slug: 'team-department-leadership',
+    conversations: {
+      mainTitle: 'Leadership Conversations, Without The Pressure...',
+      subtitle: 'Realistic Role-plays, real-time coaching and personalised language drills help Team and Department Leaders communicate with impact and authority in a safe environment',
+      rolePlaysCard: {
+        tag: 'Role-Play Scenarios',
+        title: 'Train for Performance Reviews & Team Meetings',
+        description: 'From conducting feedback sessions to managing team conflicts, FluentPro prepares your leadership team for the real conversations they handle daily with role-plays designed around authentic management and leadership scenarios.',
+        imageUrl: '/conversations/team-department-leadership/role-plays.svg',
+        learnMoreLink: '/cross-industry/team-department-leadership/role-plays',
+      },
+      coachingCard: {
+        tag: 'Real-time Coaching',
+        title: 'Strengthen Your Leadership Voice with AI-Powered Feedback',
+        description: 'Whether delivering critical feedback, explaining organizational changes, or addressing team concerns, four specialized AI coaches work together to guide, correct, and assess every spoken leadership interaction.',
+        imageUrl: '/conversations/team-department-leadership/coaching.svg',
+        learnMoreLink: '/cross-industry/team-department-leadership/coaches',
+      },
+      exercisesCard: {
+        tag: 'Personalised Exercises',
+        title: 'Dynamic Language Drills for Clear and Motivational Communication',
+        description: 'FluentPro\'s language drills target each leader\'s specific communication challenges, so they can focus only on what they need to improve—balancing authority with empathy to inspire teams and drive results.',
+        imageUrl: '/conversations/team-department-leadership/exercises.svg',
+        learnMoreLink: '/cross-industry/team-department-leadership/drills',
+      },
+    },
+  },
   // Additional cross-industry roles can be added here
 ];
 

@@ -186,7 +186,7 @@ export const crossIndustryItems: IndustryItem[] = [
     title: "Learning & Development",
     description: "Develop training programs, conduct workshops, and enhance employee skills.",
     icon: Users,
-    href: "/solutions/cross-industry/learning-development",
+    href: "/solutions/cross-industry/learning-development-staff",
   },
 ];
 

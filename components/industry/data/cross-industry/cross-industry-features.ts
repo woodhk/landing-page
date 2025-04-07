@@ -135,6 +135,54 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       },
     },
   },
+  {
+    slug: 'sales-business-development',
+    features: {
+      sectionTitle: 'Flexible and Focused Training for Sales and Business Development Professionals',
+      flexibleCard: {
+        title: 'Flexible Learning for Any Sales Professional',
+        description: 'Sales teams can complete training modules between calls, during travel time, or whenever their schedule permits—ensuring continuous improvement without disrupting critical deal cycles or prospect engagements.',
+        imageUrl: '/features/sales-business-development/flexible-learning.svg',
+      },
+      focusedCard: {
+        title: 'Focused Training for Maximum Impact',
+        description: 'Our training addresses the essential English-facing scenarios sales professionals encounter daily. From articulating value propositions to handling objections, we deliver targeted training that directly improves conversion rates and accelerates deal velocity.',
+        imageUrl: '/features/sales-business-development/focused-training.svg',
+      },
+    },
+  },
+  {
+    slug: 'learning-development-staff',
+    features: {
+      sectionTitle: 'Flexible and Focused Training for Learning and Development Professionals',
+      flexibleCard: {
+        title: 'Flexible Learning for Any L&D Professional',
+        description: 'Training teams can progress through modules between workshops, during preparation time, or whenever their schedule allows—ensuring continuous improvement without disrupting critical learning initiatives and development programs.',
+        imageUrl: '/features/learning-development-staff/flexible-learning.svg',
+      },
+      focusedCard: {
+        title: 'Focused Training for Maximum Impact',
+        description: 'Our training addresses the essential English-facing scenarios L&D professionals encounter daily. From facilitating workshops to creating engaging materials, we deliver targeted training that directly improves instructional effectiveness and learning outcomes.',
+        imageUrl: '/features/learning-development-staff/focused-training.svg',
+      },
+    },
+  },
+  {
+    slug: 'team-department-leadership',
+    features: {
+      sectionTitle: 'Flexible and Focused Training for Team and Department Leaders',
+      flexibleCard: {
+        title: 'Flexible Learning for Any Leadership Level',
+        description: 'Leaders can complete training modules between meetings, during travel time, or whenever their busy schedule allows—ensuring continuous development without disrupting critical management responsibilities and team oversight.',
+        imageUrl: '/features/team-department-leadership/flexible-learning.svg',
+      },
+      focusedCard: {
+        title: 'Focused Training for Maximum Impact',
+        description: 'Our training addresses the essential English-facing scenarios leaders encounter daily. From conducting performance reviews to leading team meetings, we deliver targeted training that directly improves leadership effectiveness and organizational performance.',
+        imageUrl: '/features/team-department-leadership/focused-training.svg',
+      },
+    },
+  },
   // Additional cross-industry roles can be added here
 ];
 

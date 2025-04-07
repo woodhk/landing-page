@@ -97,6 +97,39 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       brochureLink: '/cross-industry/client-relationship/brochure',
     },
   },
+  {
+    id: 'c9',
+    name: 'Sales and Business Development',
+    slug: 'sales-business-development',
+    hero: {
+      title: 'Convert Prospects into Partners with Powerful Communication',
+      description: 'Equip your sales and business development teams with the Business English skills to articulate value propositions, navigate negotiations, and build profitable relationships in global markets.',
+      secureAccessLink: '/cross-industry/sales-business-development/access',
+      brochureLink: '/cross-industry/sales-business-development/brochure',
+    },
+  },
+  {
+    id: 'c10',
+    name: 'Learning and Development Staff',
+    slug: 'learning-development-staff',
+    hero: {
+      title: 'Develop Your Talent Through Exceptional Communication',
+      description: 'Empower your learning and development teams with the Business English skills to deliver impactful training, facilitate engaging workshops, and drive continuous professional growth across your organization.',
+      secureAccessLink: '/cross-industry/learning-development-staff/access',
+      brochureLink: '/cross-industry/learning-development-staff/brochure',
+    },
+  },
+  {
+    id: 'c11',
+    name: 'Team and Department Leadership',
+    slug: 'team-department-leadership',
+    hero: {
+      title: 'Lead Teams and Drive Performance with Confident Communication',
+      description: 'Equip your team leaders and managers with the Business English skills to motivate teams, provide clear direction, and communicate effectively across all levels of your organization.',
+      secureAccessLink: '/cross-industry/team-department-leadership/access',
+      brochureLink: '/cross-industry/team-department-leadership/brochure',
+    },
+  },
   // Additional cross-industry roles can be added here
 ];
 
