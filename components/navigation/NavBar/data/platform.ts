@@ -86,12 +86,6 @@ export const localizationItems: CategoryItem[] = [
 
 export const hrSolutionsItems: CategoryItem[] = [
   {
-    title: "Company-Wide Integration",
-    section: "hr-solutions",
-    icon: Building2,
-    href: "/platform/hr-solutions/company-integration",
-  },
-  {
     title: "Automated Staff Enrollment",
     section: "hr-solutions",
     icon: UserCircle,

@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="flex flex-col">
             <div className="flex items-center mb-4 sm:mb-6">
-              <Image src="/logo.svg" alt="FluentPro Logo" width={40} height={40} />
+              <Image src="/logo/logo.svg" alt="FluentPro Logo" width={40} height={40} />
               <span className="ml-2 text-xl font-bold">FluentPro</span>
             </div>
             <p className="text-[#C9D2E5] text-sm sm:text-base">
