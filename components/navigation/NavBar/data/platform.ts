@@ -53,52 +53,34 @@ export const interactiveLearningItems: CategoryItem[] = [
     title: "Custom Courses & Lessons",
     section: "interactive-learning",
     icon: BookOpen,
-    href: "/platform/interactive-learning/custom-courses",
+    href: "/custom-courses",
   },
   {
     title: "Role-Specific Scenarios",
     section: "interactive-learning",
     icon: Users,
-    href: "/platform/interactive-learning/role-scenarios",
+    href: "/role-plays",
   },
   {
-    title: "Industry-Specific Language",
+    title: "Dynamic Language Drills",
     section: "interactive-learning",
     icon: Building2,
-    href: "/platform/interactive-learning/industry-language",
+    href: "/language-drills",
   },
   {
-    title: "Real-Time AI Feedback",
+    title: "4 Expert Coaches",
     section: "interactive-learning",
     icon: Zap,
-    href: "/platform/interactive-learning/ai-feedback",
-  },
-  {
-    title: "Detailed Conversation Analysis",
-    section: "interactive-learning",
-    icon: MessageSquare,
-    href: "/platform/interactive-learning/conversation-analysis",
+    href: "/coaches",
   },
 ];
 
 export const localizationItems: CategoryItem[] = [
   {
-    title: "Multilingual Interface",
-    section: "localization",
-    icon: Globe,
-    href: "/platform/localization/multilingual-interface",
-  },
-  {
-    title: "AI-Generated Translations",
-    section: "localization",
-    icon: Brain,
-    href: "/platform/localization/ai-translations",
-  },
-  {
     title: "Native Language Support",
     section: "localization",
     icon: Languages,
-    href: "/platform/localization/native-support",
+    href: "/native-language",
   },
 ];
 
@@ -110,22 +92,22 @@ export const hrSolutionsItems: CategoryItem[] = [
     href: "/platform/hr-solutions/company-integration",
   },
   {
-    title: "Hands-Free Enrollment for Staff",
+    title: "Automated Staff Enrollment",
     section: "hr-solutions",
     icon: UserCircle,
-    href: "/platform/hr-solutions/enrollment",
+    href: "/training-onboarding",
   },
   {
-    title: "Training ROI & KPI Monitoring",
+    title: "ROI Focused Reports & Analytics",
     section: "hr-solutions",
     icon: BarChart4,
-    href: "/platform/hr-solutions/roi-monitoring",
+    href: "/admin-dashboard",
   },
   {
-    title: "Customizable Course Uploads",
+    title: "Company Specific Personalisation",
     section: "hr-solutions",
     icon: Upload,
-    href: "/platform/hr-solutions/course-uploads",
+    href: "/company-personalisation",
   },
 ];
 

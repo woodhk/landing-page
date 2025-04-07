@@ -11,14 +11,14 @@ export const hrSectionData: HRSection = {
       id: "automated-onboarding",
       title: "Automated Onboarding",
       description: "Getting your team started is effortless—just send one email. Our magic link connects staff to your dashboard instantly, with no extra steps or wasted time.",
-      link: "/automated-onboarding",
+      link: "/training-onboarding",
       imageUrl: commonImagePath,
     },
     {
       id: "reports-analytics",
       title: "Reports & Analytics",
       description: "Gain insights into employee performance with detailed, real time analytics and reporting—designed to reduce HR workload, not add to it.",
-      link: "/reports-analytics",
+      link: "/admin-dashboard",
       imageUrl: commonImagePath,
     },
     {

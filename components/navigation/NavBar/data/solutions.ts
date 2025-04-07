@@ -152,6 +152,42 @@ export const crossIndustryItems: IndustryItem[] = [
     icon: Briefcase,
     href: "/solutions/cross-industry/sales-business-development",
   },
+  {
+    title: "Marketing & Communications",
+    description: "Craft messages, manage campaigns, and maintain brand consistency.",
+    icon: Users,
+    href: "/solutions/cross-industry/marketing-communications",
+  },
+  {
+    title: "Operations & Project Management",
+    description: "Lead projects, delegate tasks, and manage cross-functional teams effectively.",
+    icon: Users,
+    href: "/solutions/cross-industry/operations-project-management",
+  },
+  {
+    title: "Team & Department Leadership",
+    description: "Inspire teams, manage performance, and lead with authority.",
+    icon: Users,
+    href: "/solutions/cross-industry/team-department-leadership",
+  },
+  {
+    title: "Finance",
+    description: "Analyze financial data, manage budgets, and communicate financial information clearly.",
+    icon: Users,
+    href: "/solutions/cross-industry/finance",
+  },
+  {
+    title: "IT & Technical Support",
+    description: "Troubleshoot technical issues, provide support, and maintain systems efficiently.",
+    icon: Users,
+    href: "/solutions/cross-industry/it-technical-support",
+  },
+  {
+    title: "Learning & Development",
+    description: "Develop training programs, conduct workshops, and enhance employee skills.",
+    icon: Users,
+    href: "/solutions/cross-industry/learning-development",
+  },
 ];
 
 // Main solutions menu structure

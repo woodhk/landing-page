@@ -34,7 +34,7 @@ export const customCourses: CustomCourse[] = [
     title: "Retail & Consumer Goods",
     description: "Custom Courses professionals in the retail and consumer goods industry need to communicate effectively in English.",
     image: "/images/retail.svg",
-    href: "/retail-consumer-goods",
+    href: "/retail",
   },
   {
     title: "Telecommunications",

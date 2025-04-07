@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection';
 import Video from './components/Video';
 import Benefits from './components/Benefits';
 import CustomCourses from './components/CustomCourses';
+import CrossIndustry from './components/CrossIndustry';
 import Audience from './components/Audience';
 import AiEthics from '../../../components/home/AiEthics';
 import FAQ from '../../../components/home/FAQ';
@@ -19,6 +20,8 @@ export default function HomePage() {
       <Benefits />
       <Audience />
       <CustomCourses />
+      <CrossIndustry />
+ 
       <AiEthics />
       <FAQ />
       <Cta />
