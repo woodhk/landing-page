@@ -42,6 +42,39 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       brochureLink: '/cross-industry/operations-project-management/brochure',
     },
   },
+  {
+    id: 'c4',
+    name: 'Marketing and Communications',
+    slug: 'marketing-communications',
+    hero: {
+      title: 'Craft Messages That Resonate—In Any Language',
+      description: 'Empower your marketing and communications teams with the Business English fluency to create compelling content, engage audiences, and build your brand across global markets.',
+      secureAccessLink: '/cross-industry/marketing-communications/access',
+      brochureLink: '/cross-industry/marketing-communications/brochure',
+    },
+  },
+  {
+    id: 'c5',
+    name: 'IT and Technical Support',
+    slug: 'it-technical-support',
+    hero: {
+      title: 'Explain Complex Tech Solutions with Perfect Clarity',
+      description: 'Equip your IT and technical support teams with the Business English skills to troubleshoot issues, communicate solutions, and provide seamless support to users across your global organization.',
+      secureAccessLink: '/cross-industry/it-technical-support/access',
+      brochureLink: '/cross-industry/it-technical-support/brochure',
+    },
+  },
+  {
+    id: 'c6',
+    name: 'Finance',
+    slug: 'finance',
+    hero: {
+      title: 'Communicate Financial Insights with Confidence and Clarity',
+      description: 'Provide your finance professionals with the Business English skills to present financial data, explain complex concepts, and guide strategic decisions across your global organization.',
+      secureAccessLink: '/cross-industry/finance/access',
+      brochureLink: '/cross-industry/finance/brochure',
+    },
+  },
   // Additional cross-industry roles can be added here
 ];
 

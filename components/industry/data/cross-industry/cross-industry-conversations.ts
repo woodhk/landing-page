@@ -91,6 +91,90 @@ export const crossIndustryConversationsData: CrossIndustryConversationsData[] = 
       },
     },
   },
+  {
+    slug: 'marketing-communications',
+    conversations: {
+      mainTitle: 'Marketing Conversations, Without The Pressure...',
+      subtitle: 'Realistic Role-plays, real-time coaching and personalised language drills help Marketing and Communications professionals perfect their messaging in a safe environment',
+      rolePlaysCard: {
+        tag: 'Role-Play Scenarios',
+        title: 'Train for Client Pitches & Campaign Presentations',
+        description: 'From presenting creative concepts to explaining campaign metrics, FluentPro prepares your marketing team for the real conversations they handle daily with role-plays designed around authentic marketing and communications scenarios.',
+        imageUrl: '/conversations/marketing-communications/role-plays.svg',
+        learnMoreLink: '/cross-industry/marketing-communications/role-plays',
+      },
+      coachingCard: {
+        tag: 'Real-time Coaching',
+        title: 'Refine Your Messaging with AI-Powered Feedback',
+        description: 'Whether pitching to clients, briefing creative teams, or presenting to executives, four specialized AI coaches work together to guide, correct, and assess every spoken professional interaction.',
+        imageUrl: '/conversations/marketing-communications/coaching.svg',
+        learnMoreLink: '/cross-industry/marketing-communications/coaches',
+      },
+      exercisesCard: {
+        tag: 'Personalised Exercises',
+        title: 'Dynamic Language Drills for Persuasive Communication',
+        description: 'FluentPro\'s language drills target each team member\'s specific communication gaps, so they can focus only on what they need to improve—maximizing persuasiveness and messaging clarity.',
+        imageUrl: '/conversations/marketing-communications/exercises.svg',
+        learnMoreLink: '/cross-industry/marketing-communications/drills',
+      },
+    },
+  },
+  {
+    slug: 'it-technical-support',
+    conversations: {
+      mainTitle: 'Technical Support Conversations, Without The Pressure...',
+      subtitle: 'Realistic Role-plays, real-time coaching and personalised language drills help IT and Technical Support professionals communicate complex solutions clearly in a safe environment',
+      rolePlaysCard: {
+        tag: 'Role-Play Scenarios',
+        title: 'Train for Troubleshooting & Technical Explanations',
+        description: 'From diagnosing system issues to explaining complex technical concepts, FluentPro prepares your IT team for the real conversations they handle daily with role-plays designed around authentic technical support scenarios.',
+        imageUrl: '/conversations/it-technical-support/role-plays.svg',
+        learnMoreLink: '/cross-industry/it-technical-support/role-plays',
+      },
+      coachingCard: {
+        tag: 'Real-time Coaching',
+        title: 'Master Technical Communication with AI-Powered Feedback',
+        description: 'Whether walking users through procedures, explaining error messages, or discussing security protocols, four specialized AI coaches work together to guide, correct, and assess every spoken technical interaction.',
+        imageUrl: '/conversations/it-technical-support/coaching.svg',
+        learnMoreLink: '/cross-industry/it-technical-support/coaches',
+      },
+      exercisesCard: {
+        tag: 'Personalised Exercises',
+        title: 'Dynamic Language Drills for Clear Technical Communication',
+        description: 'FluentPro\'s language drills target each team member\'s specific communication challenges, so they can focus only on what they need to improve—transforming complex technical knowledge into clear, accessible explanations.',
+        imageUrl: '/conversations/it-technical-support/exercises.svg',
+        learnMoreLink: '/cross-industry/it-technical-support/drills',
+      },
+    },
+  },
+  {
+    slug: 'finance',
+    conversations: {
+      mainTitle: 'Financial Conversations, Without The Pressure...',
+      subtitle: 'Realistic Role-plays, real-time coaching and personalised language drills help Finance professionals communicate complex financial concepts clearly in a safe environment',
+      rolePlaysCard: {
+        tag: 'Role-Play Scenarios',
+        title: 'Train for Financial Presentations & Client Consultations',
+        description: 'From explaining financial statements to discussing investment strategies, FluentPro prepares your finance team for the real conversations they handle daily with role-plays designed around authentic financial scenarios.',
+        imageUrl: '/conversations/finance/role-plays.svg',
+        learnMoreLink: '/cross-industry/finance/role-plays',
+      },
+      coachingCard: {
+        tag: 'Real-time Coaching',
+        title: 'Perfect Your Financial Communication with AI-Powered Feedback',
+        description: 'Whether presenting quarterly results, explaining tax implications, or discussing risk assessments, four specialized AI coaches work together to guide, correct, and assess every spoken financial interaction.',
+        imageUrl: '/conversations/finance/coaching.svg',
+        learnMoreLink: '/cross-industry/finance/coaches',
+      },
+      exercisesCard: {
+        tag: 'Personalised Exercises',
+        title: 'Dynamic Language Drills for Clear Financial Communication',
+        description: 'FluentPro\'s language drills target each team member\'s specific communication challenges, so they can focus only on what they need to improve—transforming complex financial data into clear, accessible insights.',
+        imageUrl: '/conversations/finance/exercises.svg',
+        learnMoreLink: '/cross-industry/finance/drills',
+      },
+    },
+  },
   // Additional cross-industry roles can be added here
 ];
 

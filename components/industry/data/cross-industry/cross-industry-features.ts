@@ -55,6 +55,54 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       },
     },
   },
+  {
+    slug: 'marketing-communications',
+    features: {
+      sectionTitle: 'Flexible and Focused Training for Marketing and Communications Professionals',
+      flexibleCard: {
+        title: 'Flexible Learning for Any Marketing or Communications Professional',
+        description: 'Team members can complete training sessions during content development processes, between campaign launches, or whenever their creative flow allows—ensuring continuous improvement without disrupting critical marketing timelines.',
+        imageUrl: '/features/marketing-communications/flexible-learning.svg',
+      },
+      focusedCard: {
+        title: 'Focused Training for Maximum Impact',
+        description: 'Our training addresses the essential English-facing scenarios marketing professionals encounter daily. From pitching creative concepts to crafting persuasive content, we deliver targeted training that directly improves audience engagement and campaign effectiveness.',
+        imageUrl: '/features/marketing-communications/focused-training.svg',
+      },
+    },
+  },
+  {
+    slug: 'it-technical-support',
+    features: {
+      sectionTitle: 'Flexible and Focused Training for IT and Technical Support Professionals',
+      flexibleCard: {
+        title: 'Flexible Learning for Any IT or Technical Support Professional',
+        description: 'Team members can access training sessions between support tickets, during system maintenance windows, or whenever their workload allows—ensuring continuous skill development without disrupting critical support operations.',
+        imageUrl: '/features/it-technical-support/flexible-learning.svg',
+      },
+      focusedCard: {
+        title: 'Focused Training for Maximum Impact',
+        description: 'Our training addresses the essential English-facing scenarios technical professionals encounter daily. From explaining system errors to guiding users through complex procedures, we deliver targeted training that directly improves resolution times and user satisfaction.',
+        imageUrl: '/features/it-technical-support/focused-training.svg',
+      },
+    },
+  },
+  {
+    slug: 'finance',
+    features: {
+      sectionTitle: 'Flexible and Focused Training for Finance Professionals',
+      flexibleCard: {
+        title: 'Flexible Learning for Any Finance Professional',
+        description: 'Team members can progress through training materials during non-peak periods, between reporting cycles, or whenever their schedule allows—ensuring continuous development without disrupting critical financial operations.',
+        imageUrl: '/features/finance/flexible-learning.svg',
+      },
+      focusedCard: {
+        title: 'Focused Training for Maximum Impact',
+        description: 'Our training addresses the essential English-facing scenarios finance professionals encounter daily. From presenting financial results to explaining compliance requirements, we deliver targeted training that directly improves communication effectiveness and stakeholder confidence.',
+        imageUrl: '/features/finance/focused-training.svg',
+      },
+    },
+  },
   // Additional cross-industry roles can be added here
 ];
 
