@@ -1,6 +1,6 @@
 import React from 'react';
 import { getCrossIndustryBySlug } from '../../../../components/industry/data/cross-industry/cross-industry-hero';
-import CrossIndustryTemplate from '../../../../components/industry/CrossIndustryTemplate';
+import CrossIndustryTemplate from '../../../../components/industry/templates/CrossIndustryTemplate';
 
 export default function AdministrativeSupportPage() {
   const crossIndustry = getCrossIndustryBySlug('administrative-support');

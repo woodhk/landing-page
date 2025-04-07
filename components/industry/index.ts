@@ -1,6 +1,6 @@
 export * from './types';
-export { default as IndustryTemplate } from './IndustryTemplate';
-export { default as CrossIndustryTemplate } from './CrossIndustryTemplate';
+export { default as IndustryTemplate } from './templates/IndustryTemplate';
+export { default as CrossIndustryTemplate } from './templates/CrossIndustryTemplate';
 
 // Industry data
 export * from './data/industry/hero';

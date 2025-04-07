@@ -1,7 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { getCrossIndustryBySlug, getAllCrossIndustries } from '../../../../components/industry/data/cross-industry/cross-industry-hero';
-import CrossIndustryTemplate from '../../../../components/industry/CrossIndustryTemplate';
+import CrossIndustryTemplate from '../../../../components/industry/templates/CrossIndustryTemplate';
 
 interface CrossIndustryPageProps {
   params: {
