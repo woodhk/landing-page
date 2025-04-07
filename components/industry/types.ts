@@ -63,5 +63,8 @@ export interface HRSection {
   tabs: HRTab[];
 }
 
+export type IndustrySlug = 'banking-finance' | 'shipping-logistics' | 'hotel-hospitality' | 'real-estate' | 'retail' | 'telecommunications';
 
-export type IndustrySlug = 'banking-finance' | 'shipping-logistics' | 'hotel-hospitality' | 'real-estate' | 'retail' | 'telecommunications'; 
+export type CrossIndustrySlug = 'administrative-support';
+
+export type AllSlugs = IndustrySlug | CrossIndustrySlug; 
