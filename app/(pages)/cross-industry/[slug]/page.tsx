@@ -4,13 +4,13 @@ import { getCrossIndustryBySlug, getAllCrossIndustries } from '../../../../compo
 import CrossIndustryTemplate from '../../../../components/industry/templates/CrossIndustryTemplate';
 
 interface CrossIndustryPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function CrossIndustryPage({ params }: CrossIndustryPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const crossIndustry = getCrossIndustryBySlug(slug);
 
   if (!crossIndustry) {

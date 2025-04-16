@@ -4,13 +4,13 @@ import { getIndustryBySlug, getAllIndustries } from '../../../../components/indu
 import IndustryTemplate from '../../../../components/industry/templates/IndustryTemplate';
 
 interface IndustryPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function IndustryPage({ params }: IndustryPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const industry = getIndustryBySlug(slug);
 
   if (!industry) {
