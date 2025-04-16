@@ -26,10 +26,14 @@ function useMediaQuery(query: string): boolean {
 }
 
 const phrases = [
-  'Human Resources',
-  'Learning & Development',
-  'Department Heads',
-  'Training Managers'
+  'Banking & Finance',
+  'Shipping & Logistics',
+  'Sales & Marketing',
+  'Hospitality',
+  'Insurance',
+  'Real Estate',
+  'Government',
+  'Retail',
 ];
 
 export default function TypewriterText() {
@@ -78,14 +82,6 @@ export default function TypewriterText() {
   const longestPhrase = phrases.reduce((longest, current) => 
     current.length > longest.length ? current : longest, '');
   
-  // For small screens, just show static text
-  if (!isLargeScreen) {
-    return (
-      <span className="text-dynamic-blue">
-        HR & LD
-      </span>
-    );
-  }
   
   // For larger screens, show the typewriter animation
   return (

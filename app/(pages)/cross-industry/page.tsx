@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { getAllCrossIndustries, CrossIndustryHeroData } from '../../../components/industry/data/cross-industry/cross-industry-hero';
+import { ArrowRight } from 'lucide-react';
+import { Button } from '../../../components/shared/shad-button';
 
 export default function CrossIndustryLandingPage() {
   const crossIndustries = getAllCrossIndustries();
@@ -20,6 +22,12 @@ export default function CrossIndustryLandingPage() {
           </Link>
         ))}
       </div>
+      <Link href="/industry">
+        <Button variant="default" size="lg" className="bg-dynamic-blue hover:bg-dynamic-blue/90 shadow-lg mt-20 py-6">
+          View Industry Solutions
+          <ArrowRight className="h-5 w-5" />
+        </Button>
+      </Link>
     </div>
   );
 } 

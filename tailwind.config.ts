@@ -6,6 +6,7 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+		'./lib/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
   	extend: {
@@ -67,7 +68,7 @@ const config: Config = {
   		},
   		colors: {
   			'dynamic-blue': '#234BFF',
-  			'deep-dynamic-blue': '#1A38BF',
+  			'dynamic-blue-dark': '#1A38BF',
   			'bright-cherry': '#FF244C',
   			'tropical-teal': '#00B8D9',
   			'deep-azure': '#415CD5',

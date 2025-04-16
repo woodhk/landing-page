@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../../../../components/shared/Button';
+import TypewriterText from '../../../../../lib/animations/TypewriterText';
 
 const HeroSection: React.FC = () => {
 
@@ -28,15 +29,16 @@ const HeroSection: React.FC = () => {
         <div className="flex flex-col space-y-4 md:space-y-6 max-w-[560px]">
           {/* Main content with improved vertical rhythm */}
           <div>
-            <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold text-dark leading-tight mb-3">
-              AI-Powered <span className="text-dynamic-blue">English Training</span> Tailored to Staff's Industry & Role
+            <h1 className="text-4xl sm:text-4xl md:text-[56px] font-bold text-dark mb-3 [&>span]:block [&>span:not(:last-child)]:mb-2 md:[&>span:not(:last-child)]:mb-3">
+              <span className="pb-3">English Training for</span>
+              <span><TypewriterText /></span>
             </h1>
           </div>
           
           {/* Features with improved design - Custom check items */}
           <div>
             <p className="text-xl font-medium text-gray-900">
-            Provide your staff with stress-free, real-world English practice through AI-powered role-plays that simulate workplace conversations.
+            Provide staff with stress-free, real-world English practice through AI-powered role-plays that simulate workplace conversations.
             </p>
           </div>
           

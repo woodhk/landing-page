@@ -1,12 +1,11 @@
 import React from 'react';
 import Button from '../../../../components/shared/Button';
-import { Check } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
 
   return (
     <>
-    <div className="relative">
+    <div className="relative bg-[#f2f0ff]">
       {/* SVG background image */}
       <div className="absolute inset-0 w-full h-[calc(100%+12rem)] -top-24">
         <div 
@@ -25,69 +24,39 @@ const HeroSection: React.FC = () => {
       {/* Background gradient element */}
       <div className="absolute -top-0 -right-0 w-60 md:w-96 h-60 md:h-96 rounded-full bg-gradient-to-br from-dynamic-blue/10 to-neon-violet/5 blur-2xl" />
 
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-center py-4 md:py-8 pb-12 md:pb-32 md:pt-32 px-4 sm:px-6 lg:px-4 max-w-7xl mx-auto">
-        <div className="flex flex-col space-y-4 md:space-y-6 max-w-[560px]">
-          {/* Main content with improved vertical rhythm */}
-          <div>
-            <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold text-dark leading-tight mb-3">
-              AI-Powered <span className="text-dynamic-blue">English Training</span> Tailored to Staff's Industry & Role
-            </h1>
-          </div>
+      <div className="relative flex flex-col items-center py-4 md:py-8 pb-12 md:pb-24 md:pt-32 px-4 sm:px-6 lg:px-4 max-w-7xl mx-auto">
+        {/* Main content centered with improved vertical rhythm */}
+        <div className="flex flex-col items-center text-center max-w-7xl mx-auto mb-12">
+          <h1 className="text-4xl sm:text-5xl md:text-[64px] font-semibold text-dark leading-tight mb-6 max-w-7xl">
+               Turning Staff into Fluent Professionals
+          </h1>
           
-          {/* Features with improved design - Custom check items */}
-          <div className="space-y-4 md:space-y-2">
-            {/* First check item with top-aligned icon and larger text */}
-            <div className="flex items-start space-x-2">
-              <div className="flex-shrink-0 mt-1">
-                <div className="w-5 h-5 bg-dynamic-blue rounded-full flex items-center justify-center">
-                  <Check className="h-3 w-3 text-white" />
-                </div>
-              </div>
-              <div className="ml-3">
-                <p className="text-lg font-medium text-gray-900">
-                Simulate real business conversations staff encounter everyday
-                </p>
-              </div>
-            </div>
-            
-            {/* Second check item */}
-            <div className="flex items-start space-x-2">
-              <div className="flex-shrink-0 mt-1">
-                <div className="w-5 h-5 bg-dynamic-blue rounded-full flex items-center justify-center">
-                  <Check className="h-3 w-3 text-white" />
-                </div>
-              </div>
-              <div className="ml-3">
-                <p className="text-lg font-medium text-gray-900">
-                Track individual or cohort performance with real-time reports and analytics
-                </p>
-              </div>
-            </div>
-          </div>
+          <h2 className="text-xl md:text-3xl text-gray-900 mb-10 max-w-3xl">
+            Easily train and track your team's English speaking skills with <span className="font-semibold">AI-powered lessons</span> tailored to their role and industry
+          </h2>
           
-            
-            {/* CTA Button */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center mt-3 md:mt-5 gap-4 sm:gap-0">
-              <div className="w-full sm:w-auto sm:flex-grow sm:max-w-sm">
-                <Button 
-                  primary 
-                  size="large" 
-                  text="Secure Early Access"
-                />
-              </div>
-            </div>
-          
-        </div>
-        
-        {/* Right panel - only visible on larger screens */}
-        <div className="hidden lg:flex h-full items-center justify-center">
-          <div className="relative p-4 w-full">
-            <img 
-              src="/app-screenshots/fp-computer.svg" 
-              alt="Computer Illustration" 
-              className="w-full h-auto max-w-lg mx-auto transform scale-[1.2] hover:scale-[1.3] transition-transform duration-300"
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
+            <Button 
+              primary
+              size="large" 
+              text="Secure Early Access"
+            />
+            <Button 
+              primary={false}
+              size="large" 
+              text="Download Brochure"
             />
           </div>
+        </div>
+        
+        {/* Image below */}
+        <div className="w-full max-w-3xl mx-auto">
+          <img 
+            src="/app-screenshots/fp-computer.svg" 
+            alt="Computer Illustration" 
+            className="w-full h-auto mx-auto transition-transform duration-300 hover:scale-105"
+          />
         </div>
       </div>
     </div>

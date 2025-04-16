@@ -18,7 +18,7 @@ const Audience = () => {
         </div>
         
         <div className="space-y-24">
-          {/* Staff Card */}
+          {/* Staff Card 
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
             <div className="lg:w-1/2 space-y-6 order-2 lg:order-1">
               <div className="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-2">
@@ -47,7 +47,7 @@ const Audience = () => {
                 />
               </div>
             </div>
-          </div>
+          </div>*/}
 
           {/* HR Card */}
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
