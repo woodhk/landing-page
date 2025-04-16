@@ -10,7 +10,7 @@ interface CrossIndustryPageProps {
 }
 
 export default async function CrossIndustryPage({ params }: CrossIndustryPageProps) {
-  const { slug } = await params;
+  const { slug } = params;
   const crossIndustry = getCrossIndustryBySlug(slug);
 
   if (!crossIndustry) {
