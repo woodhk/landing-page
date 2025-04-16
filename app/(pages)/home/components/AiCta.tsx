@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 const AiCta = () => {
   return (
-    <div className="container mx-auto my-12">
+    <div className="container mx-auto">
       {/* Blue background container with rounded corners */}
       <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-[100px] rounded-bl-none px-32 py-20 max-w-7xl mx-auto relative overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

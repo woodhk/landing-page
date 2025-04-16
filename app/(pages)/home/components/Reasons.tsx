@@ -3,7 +3,7 @@ import { benefits } from "../data/reasons";
 
 const Reasons = () => {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-20">
+    <section className="w-full">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-7xl mx-auto mb-20">
           <h2 className="text-3xl font-semibold sm:text-4xl md:text-5xl lg:text-6xl">

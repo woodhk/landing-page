@@ -35,7 +35,7 @@ const iconColors: Record<string, string> = {
 
 const Scenario = () => {
   return (
-    <div className="w-full mt-16 py-16 md:py-24 bg-white">
+    <div className="w-full bg-white">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 text-center text-dark leading-tight max-w-5xl mx-auto">
           Practice, Learn, Improve, Repeat

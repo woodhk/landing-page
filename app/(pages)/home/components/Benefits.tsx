@@ -6,7 +6,7 @@ import { CulturalAwarenessAnimation } from '../../../../lib/animations/Culture';
 const Benefits = () => {
   return (
     <div>
-      <div className='flex justify-center container max-w-7xl mx-auto my-24'>
+      <div className='flex justify-center container max-w-7xl mx-auto'>
         <h1 className='text-center text-6xl font-semibold max-w-5xl'>So much more than a 
           <br /> Language Learning App</h1>
       </div>

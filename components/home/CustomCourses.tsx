@@ -15,7 +15,7 @@ const CustomCourses = () => {
   ];
 
   return (
-    <section className="w-full py-12 md:py-16 lg:py-20">
+    <section className="w-full">
       <div className="container mx-auto px-4">
         <h1 className="text-6xl font-semibold mb-16 text-center">English Training For Any Industry
         </h1>
