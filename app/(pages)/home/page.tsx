@@ -7,7 +7,7 @@ import Video from './components/AiCta';
 import KeyValueProp from './components/KeyValueProp';
 import Benefits from './components/Benefits';
 import Reasons from './components/Reasons';
-import CustomCourses from './components/CustomCourses';
+import CustomCourses from '../../../components/home/CustomCourses';
 import CrossIndustry from './components/CrossIndustry';
 import Audience from './components/Audience';
 import AiEthics from '../../../components/home/AiEthics';

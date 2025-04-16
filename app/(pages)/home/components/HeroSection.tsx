@@ -5,24 +5,17 @@ const HeroSection: React.FC = () => {
 
   return (
     <>
-    <div className="relative bg-[#f2f0ff]">
-      {/* SVG background image */}
+    <div className="relative">
+      {/* Blue-50 background instead of image */}
       <div className="absolute inset-0 w-full h-[calc(100%+12rem)] -top-24">
         <div 
-          className="absolute inset-0 w-full h-full"
-          style={{ 
-            backgroundImage: 'url("/abstract-bg/abstract-bg-hero-3.svg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            transform: 'scaleX(-1)',
+          className="absolute inset-0 w-full h-full bg-blue-50"
+          style={{
             maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.1) 95%, rgba(0,0,0,0) 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.1) 95%, rgba(0,0,0,0) 100%)'
           }}
         />
       </div>
-
-      {/* Background gradient element */}
-      <div className="absolute -top-0 -right-0 w-60 md:w-96 h-60 md:h-96 rounded-full bg-gradient-to-br from-dynamic-blue/10 to-neon-violet/5 blur-2xl" />
 
       <div className="relative flex flex-col items-center py-4 md:py-8 pb-12 md:pb-24 md:pt-32 px-4 sm:px-6 lg:px-4 max-w-7xl mx-auto">
         {/* Main content centered with improved vertical rhythm */}

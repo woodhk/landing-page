@@ -10,6 +10,20 @@ export interface ComparisonFeature {
   otherAIApps: "✓" | "-";
 }
 
+// Define header styling configuration
+export interface HeaderConfig {
+  highlighted: boolean;
+  showCrown: boolean;
+}
+
+export interface GroupHeaderConfig {
+  groupTitle: string;
+  fluentPro: HeaderConfig;
+  oneOnOneCoaching: HeaderConfig;
+  classroomTraining: HeaderConfig;
+  otherAIApps: HeaderConfig;
+}
+
 // Export the data as a strongly-typed array
 export const comparisonData: ComparisonFeature[] = [
   {
@@ -52,10 +66,11 @@ export const comparisonData: ComparisonFeature[] = [
     classroomTraining: "✓",
     otherAIApps: "-"
   },
-
+  
+  // Progress Tracking & Reporting section
   {
     groupTitle: "Progress Tracking & Reporting",
-    feature: "Real time performance analytics for HR",
+    feature: "Real time performance analytics",
     fluentPro: "✓",
     oneOnOneCoaching: "-",
     classroomTraining: "-",
@@ -63,7 +78,7 @@ export const comparisonData: ComparisonFeature[] = [
   },
   {
     groupTitle: "Progress Tracking & Reporting",
-    feature: "General English skill grading (e.g. grammar, pronunciation)",
+    feature: "General English Improvements (e.g. grammar, pronunciation)",
     fluentPro: "✓",
     oneOnOneCoaching: "✓",
     classroomTraining: "-",
@@ -71,13 +86,12 @@ export const comparisonData: ComparisonFeature[] = [
   },
   {
     groupTitle: "Progress Tracking & Reporting",
-    feature: "Business English skill grading (e.g. clarity, logical flow, tone)",
+    feature: "Business English Improvements (e.g. soft skills, clarity, tone)",
     fluentPro: "✓",
     oneOnOneCoaching: "✓",
     classroomTraining: "-",
     otherAIApps: "-"
   },
-
   {
     groupTitle: "Progress Tracking & Reporting",
     feature: "Exportable progress reports (e.g. CSV)",
@@ -128,25 +142,17 @@ export const comparisonData: ComparisonFeature[] = [
     otherAIApps: "✓"
   },
   {
-    groupTitle: "Scalability & Accessibility",
-    feature: "Mobile-friendly",
-    fluentPro: "coming soon",
-    oneOnOneCoaching: "-",
-    classroomTraining: "-",
-    otherAIApps: "✓"
-  },
-  {
     groupTitle: "Engagement & Interactivity",
-    feature: "Individual role-play simulations",
+    feature: "Workplace Role-play simulations",
     fluentPro: "✓",
     oneOnOneCoaching: "✓",
     classroomTraining: "-",
-    otherAIApps: "✓"
+    otherAIApps: "-"
   },
   {
     groupTitle: "Engagement & Interactivity",
     feature: "Gamified progress tracking (points, ranks)",
-    fluentPro: "✓",
+    fluentPro: "coming soon",
     oneOnOneCoaching: "-",
     classroomTraining: "-",
     otherAIApps: "✓"
@@ -168,6 +174,54 @@ export const comparisonData: ComparisonFeature[] = [
     otherAIApps: "✓"
   },
 ];
+
+// Define header styling configuration for each group
+export const headerConfigByGroup: GroupHeaderConfig[] = [
+  {
+    groupTitle: "Personalization & Adaptability",
+    fluentPro: { highlighted: true, showCrown: true },
+    oneOnOneCoaching: { highlighted: true, showCrown: true },
+    classroomTraining: { highlighted: false, showCrown: false },
+    otherAIApps: { highlighted: false, showCrown: false }
+  },
+  {
+    groupTitle: "Progress Tracking & Reporting",
+    fluentPro: { highlighted: true, showCrown: true },
+    oneOnOneCoaching: { highlighted: false, showCrown: false },
+    classroomTraining: { highlighted: false, showCrown: false },
+    otherAIApps: { highlighted: false, showCrown: false }
+  },
+  {
+    groupTitle: "Scalability & Accessibility",
+    fluentPro: { highlighted: true, showCrown: true },
+    oneOnOneCoaching: { highlighted: false, showCrown: false },
+    classroomTraining: { highlighted: false, showCrown: false },
+    otherAIApps: { highlighted: true, showCrown: true }
+  },
+  {
+    groupTitle: "Engagement & Interactivity",
+    fluentPro: { highlighted: true, showCrown: true },
+    oneOnOneCoaching: { highlighted: false, showCrown: false },
+    classroomTraining: { highlighted: false, showCrown: false },
+    otherAIApps: { highlighted: false, showCrown: false }
+  }
+];
+
+// Helper function to get header configuration for a specific group
+export const getHeaderConfigForGroup = (groupTitle: string): GroupHeaderConfig => {
+  const config = headerConfigByGroup.find(config => config.groupTitle === groupTitle);
+  if (!config) {
+    // Default configuration if not found
+    return {
+      groupTitle,
+      fluentPro: { highlighted: true, showCrown: true },
+      oneOnOneCoaching: { highlighted: false, showCrown: false },
+      classroomTraining: { highlighted: false, showCrown: false },
+      otherAIApps: { highlighted: false, showCrown: false }
+    };
+  }
+  return config;
+};
 
 // Helper function to get unique group titles
 export const getUniqueGroupTitles = (): string[] => {

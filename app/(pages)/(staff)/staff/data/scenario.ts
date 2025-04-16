@@ -34,7 +34,7 @@ export const serviceCardsData: serviceCard[] = [
   {
     title: "Personalised Language Drills",
     description: "Our AI will dynamically create language drills that target mistakes the user made.",
-    icon: "Target",
+    icon: "Crosshair",
     href: "/language-drills",
   },
   {

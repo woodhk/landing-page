@@ -1,6 +1,6 @@
 import React from 'react';
-import { customCourses } from '../data/CustomCourses';
-import { Button } from '../../../../components/shared/shad-button';
+import { customCourses } from '../../data/CustomCourses';
+import { Button } from '../shared/shad-button';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';

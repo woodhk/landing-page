@@ -29,11 +29,12 @@ const phrases = [
   'Banking & Finance',
   'Shipping & Logistics',
   'Sales & Marketing',
-  'Hospitality',
+  'Hospitality & Retail',
+  'Telecommunications',
   'Insurance',
   'Real Estate',
   'Government',
-  'Retail',
+  'Consulting',
 ];
 
 export default function TypewriterText() {
