@@ -5,82 +5,113 @@ const commonImagePath = "/abstract-bg/imageBackground6.svg";
 
 export const industryFeaturesData: Record<IndustrySlug, FeaturesSection> = {
   'banking-finance': {
-    sectionTitle: 'Flexible and Focused Training for Busy Banking & Finance Professionals',
-    flexibleCard: {
-      title: 'Flexible Learning for Any Banking & Finance Professional',
-      description: 'Staff can engage in training without the need for travel or coordinating schedules with trainers, allowing for uninterrupted progress at their convenience.',
-      imageUrl: commonImagePath,
-    },
-    focusedCard: {
-      title: 'Focused Training for Maximum Impact',
-      description: 'We only cover the essential English-facing scenarios banking & finance professionals encounter with clients, customers, and colleagues. No wasted time, no unnecessary content, just targeted training that maximizes learning efficiency and company ROI.',
-      imageUrl: commonImagePath,
-    },
+    sectionTitle: 'Flexible and Focused Training',
+    mainDescription: 'FluentPro gives your banking & finance staff the speaking practice they need to avoid misunderstandings, save time, and communicate with confidence.',
+    features: [
+      {
+        title: 'Reduce Miscommunication',
+        description: '$12,500/year per employee is lost to poor communication. With job-relevant training, staff can make mistakes with our AI, not your clients.',
+      },
+      {
+        title: 'Reclaim Lost Productivity',
+        description: 'Staff reclaim up to 7.5 hours a week by avoiding repeated explanations and misunderstandings.',
+      },
+      {
+        title: 'Real World Practice',
+        description: 'Practice real workplace conversations to avoid awkward misunderstandings and streamline team collaboration.',
+      },
+
+    ]
   },
   'shipping-logistics': {
-    sectionTitle: 'Flexible and Focused Training for Busy Shipping & Logistics Professionals',
-    flexibleCard: {
-      title: 'Flexible Learning for Any Shipping & Logistic Professional',
-      description: 'Staff can engage in training without the need for travel or coordinating schedules with trainers, allowing for uninterrupted progress at their convenience.',
-      imageUrl: commonImagePath,
-    },
-    focusedCard: {
-      title: 'Focused Training for Maximum Impact',
-      description: 'We only cover the essential English-facing scenarios shipping & logistic professionals encounter with clients, customers, and colleagues. No wasted time, no unnecessary content, just targeted training that maximizes learning efficiency and company ROI.',
-      imageUrl: commonImagePath,
-    },
+    sectionTitle: 'Use video to close more deals',
+    mainDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    features: [
+      {
+        title: 'Engage prospects',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      {
+        title: 'Personalize your pitches',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      {
+        title: 'Inspire action',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      }
+    ]
   },
   'hotel-hospitality': {
-    sectionTitle: 'Flexible and Focused Training for Busy Hospitality Professionals',
-    flexibleCard: {
-      title: 'Flexible Learning for Any Staff Member',
-      description: 'Staff can engage in training without the need for travel or coordinating schedules with trainers, allowing for uninterrupted progress at their convenience.',
-      imageUrl: commonImagePath,
-    },
-    focusedCard: {
-      title: 'Focused Training for Maximum Impact',
-      description: 'We only cover the essential English-facing scenarios hospitality staff encounter with clients, customers, and colleagues. No wasted time, no unnecessary content, just targeted training that maximizes learning efficiency and company ROI.',
-      imageUrl: commonImagePath,
-    },
+    sectionTitle: 'Use video to close more deals',
+    mainDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    features: [
+      {
+        title: 'Engage prospects',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      {
+        title: 'Personalize your pitches',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      {
+        title: 'Inspire action',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      }
+    ]
   },
   'real-estate': {
-    sectionTitle: 'Flexible and Focused Training for Busy Real Estate Professionals',
-    flexibleCard: {
-      title: 'Flexible Learning for Any Staff Member',
-      description: 'Staff can engage in training without the need for travel or coordinating schedules with trainers, allowing for uninterrupted progress at their convenience.',
-      imageUrl: commonImagePath,
-    },
-    focusedCard: {
-      title: 'Focused Training for Maximum Impact',
-      description: 'We only cover the essential English-facing scenarios real estate professionals encounter with clients, customers, and colleagues. No wasted time, no unnecessary content, just targeted training that maximizes learning efficiency and company ROI.',
-      imageUrl: commonImagePath,
-    },
+    sectionTitle: 'Use video to close more deals',
+    mainDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    features: [
+      {
+        title: 'Engage prospects',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      {
+        title: 'Personalize your pitches',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      {
+        title: 'Inspire action',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      }
+    ]
   },
   'retail': {
-    sectionTitle: 'Flexible and Focused Training for Busy Retail Professionals',
-    flexibleCard: {
-      title: 'Flexible Learning for Any Staff Member',
-      description: 'Staff can engage in training without the need for travel or coordinating schedules with trainers, allowing for uninterrupted progress at their convenience.',
-      imageUrl: commonImagePath,
-    },
-    focusedCard: {
-      title: 'Focused Training for Maximum Impact',
-      description: 'We only cover the essential English-facing scenarios retail professionals encounter with clients, customers, and colleagues. No wasted time, no unnecessary content, just targeted training that maximizes learning efficiency and company ROI.',
-      imageUrl: commonImagePath,
-    },
+    sectionTitle: 'Use video to close more deals',
+    mainDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    features: [
+      {
+        title: 'Engage prospects',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      {
+        title: 'Personalize your pitches',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      {
+        title: 'Inspire action',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      }
+    ]
   },
   'telecommunications': {
-    sectionTitle: 'Flexible and Focused Training for Busy Telecommunication Professionals',
-    flexibleCard: {
-      title: 'Flexible Learning for Any Staff Member',
-      description: 'Staff can engage in training without the need for travel or coordinating schedules with trainers, allowing for uninterrupted progress at their convenience.',
-      imageUrl: commonImagePath,
-    },
-    focusedCard: {
-      title: 'Focused Training for Maximum Impact',
-      description: 'We only cover the essential English-facing scenarios telecom professionals encounter with clients, customers, and colleagues. No wasted time, no unnecessary content, just targeted training that maximizes learning efficiency and company ROI.',
-      imageUrl: commonImagePath,
-    },
+    sectionTitle: 'Use video to close more deals',
+    mainDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    features: [
+      {
+        title: 'Engage prospects',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      {
+        title: 'Personalize your pitches',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      {
+        title: 'Inspire action',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      }
+    ]
   },
 };
 

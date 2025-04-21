@@ -11,7 +11,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="px-4 md:px-6 w-full md:px-18 lg:px-24 mx-auto">
+    <section className="px-4 md:px-6 w-full md:px-18 lg:px-24 mx-auto my-24">
       <div className="flex flex-col md:flex-row gap-12">
         {/* Left Column - Title */}
         <div className="md:w-2/5 lg:w-1/3">

@@ -19,11 +19,11 @@ export default function StaffPage() {
   return (
     <div className="min-h-screen bg-white">
       <Hero />
-      <Section><Scenario /></Section>
+      <Scenario />
       <Section><ComparisonTable /></Section>
       <Section><CustomCourses /></Section>
       <Section><FAQ /></Section>
-      <Section><CtaSection /></Section>
+      <CtaSection />
     </div>
   );
 }

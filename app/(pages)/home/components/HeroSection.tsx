@@ -21,11 +21,13 @@ const HeroSection: React.FC = () => {
         {/* Main content centered with improved vertical rhythm */}
         <div className="flex flex-col items-center text-center max-w-7xl mx-auto mb-12">
           <h1 className="text-4xl sm:text-5xl md:text-[64px] font-semibold text-dark leading-tight mb-6 max-w-7xl">
-               Turning Staff into Fluent Professionals
+               English Training Without English Trainers
           </h1>
           
-          <h2 className="text-xl md:text-3xl text-gray-900 mb-10 max-w-3xl">
-            Easily train and track your team's English speaking skills with <span className="font-semibold">AI-powered lessons</span> tailored to their role and industry
+          <h2 className="text-xl md:text-3xl text-gray-900 mb-10 max-w-4xl">
+            Easily train and track your team's English speaking skills with 
+            <br />
+            <span className="font-semibold">AI-powered lessons</span> tailored to staff's role and industry
           </h2>
           
           {/* CTA Buttons */}
@@ -43,13 +45,19 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
         
-        {/* Image below */}
-        <div className="w-full max-w-3xl mx-auto">
-          <img 
-            src="/app-screenshots/fp-computer.svg" 
-            alt="Computer Illustration" 
-            className="w-full h-auto mx-auto transition-transform duration-300 hover:scale-105"
-          />
+        {/* YouTube video replacing the image - with increased height */}
+        <div className="w-full max-w-4xl mx-auto">
+          <div className="relative" style={{ paddingBottom: "56.25%" }}>
+            <iframe 
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+              height="450"
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>

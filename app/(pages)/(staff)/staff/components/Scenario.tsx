@@ -35,12 +35,12 @@ const iconColors: Record<string, string> = {
 
 const Scenario = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white mt-32 mb-64">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 text-center text-dark leading-tight max-w-5xl mx-auto">
           Practice, Learn, Improve, Repeat
         </h1>
-        <h2 className="text-center text-2xl md:text-3xl lg:text-2xl mb-16 text-gray-500 leading-tight max-w-5xl mx-auto">Explore how Fluentpro's features help improve your staff's spoken Business English skills</h2>
+        <h2 className="text-center text-2xl md:text-3xl lg:text-2xl mb-16 text-gray-500 leading-tight max-w-5xl mx-auto">Combining language experts and AI to advance your colleagues' workplace interactions</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {serviceCardsData.map((card, index) => {

@@ -18,6 +18,8 @@ export const industriesHeroData: IndustryHeroData[] = [
       description: 'Give your team the Business English Speaking skills needed to articulate complex financial insights persuasively and gain client trust.',
       secureAccessLink: '/industry/banking-finance/access',
       brochureLink: '/industry/banking-finance/brochure',
+      industryName: 'Fluentpro for Banking & Finance',
+      imageUrl: '/images/banking-finance-hero.png',
     },
   },
   {
@@ -29,6 +31,8 @@ export const industriesHeroData: IndustryHeroData[] = [
       description: 'Give staff the right Business English speaking skills to smoothly communicate with clients, suppliers, and partners, avoiding costly misunderstandings.',
       secureAccessLink: '/industry/shipping-logistics/access',
       brochureLink: '/industry/shipping-logistics/brochure',
+      industryName: 'Fluentpro for Shipping & Logistics',
+      imageUrl: '/images/banking-finance-hero.png',
     },
   },
   {
@@ -40,6 +44,8 @@ export const industriesHeroData: IndustryHeroData[] = [
       description: 'Help your staff resolve issues smoothly, make guests feel valued, and turn great service into lasting loyalty with confident Business English speaking skills.',
       secureAccessLink: '/industry/hotel-hospitality/access',
       brochureLink: '/industry/hotel-hospitality/brochure',
+      industryName: 'Fluentpro for Hotel & Hospitality',
+      imageUrl: '/images/banking-finance-hero.png',
     },
   },
   {
@@ -51,6 +57,8 @@ export const industriesHeroData: IndustryHeroData[] = [
       description: 'Improve tenant interactions, close deals faster, and enhance team professionalism with tailored Business English training.',
       secureAccessLink: '/industry/real-estate/access',
       brochureLink: '/industry/real-estate/brochure',
+      industryName: 'Fluentpro for Real Estate',
+      imageUrl: '/images/banking-finance-hero.png',
     },
   },
   {
@@ -62,6 +70,8 @@ export const industriesHeroData: IndustryHeroData[] = [
       description: 'Give your retail staff the Business English speaking skills needed to handle customer inquiries with confidence—and increase sales.',
       secureAccessLink: '/industry/retail/access',
       brochureLink: '/industry/retail/brochure',
+      industryName: 'Fluentpro for Retail',
+      imageUrl: '/images/banking-finance-hero.png',
     },
   },
   {
@@ -73,6 +83,8 @@ export const industriesHeroData: IndustryHeroData[] = [
       description: 'Help your telecom staff speak clear Business English so they can easily communicate with clients, suppliers, and partners—preventing delays, service issues, and lost deals.',
       secureAccessLink: '/industry/telecommunications/access',
       brochureLink: '/industry/telecommunications/brochure',
+      industryName: 'Fluentpro for Telecommunications',
+      imageUrl: '/images/banking-finance-hero.png',
     },
   },
 ];

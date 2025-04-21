@@ -26,7 +26,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
       {/* Hero section with contained width */}
       <HeroSection />
-      <Section><Testimonials /></Section>
+      <Testimonials />
       <Section><AiCta /></Section>
       <Section><KeyValueProp /></Section>
       <Section><Benefits /></Section>

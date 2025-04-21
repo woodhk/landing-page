@@ -3,6 +3,8 @@ export interface HeroSection {
   description: string;
   secureAccessLink: string;
   brochureLink: string;
+  industryName: string;
+  imageUrl: string;
 }
 
 export interface FeatureCard {
@@ -11,10 +13,15 @@ export interface FeatureCard {
   imageUrl: string;
 }
 
+export interface Feature {
+  title: string;
+  description: string;
+}
+
 export interface FeaturesSection {
   sectionTitle: string;
-  flexibleCard: FeatureCard;
-  focusedCard: FeatureCard;
+  mainDescription: string;
+  features: Feature[];
 }
 
 export interface CourseCard {

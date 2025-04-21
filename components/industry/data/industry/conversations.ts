@@ -10,14 +10,14 @@ export const bankingFinanceConversations: ConversationsSection = {
     tag: "Role-Play Scenarios",
     title: "Train for Client Calls & Boardroom Discussions",
     description: "From high-stakes negotiations to compliance discussions, Fluentpro trains your team for the conversations they face daily with real-world, banking & finance role-plays.",
-    imageUrl: commonImagePath,
+    imageUrl: '/images/banking-role-play.png',
     learnMoreLink: "/role-plays",
   },
   coachingCard: {
     tag: "Real-time Coaching",
     title: "Refine Every Response with AI-Powered Feedback",
     description: "Whether explaining financial products, or negotiating deals, four specialised AI coaches work together to guide, correct, and assess every interaction",
-    imageUrl: commonImagePath,
+    imageUrl: '/images/banking-feedback.png',
     learnMoreLink: "/coaches",
   },
   exercisesCard: {

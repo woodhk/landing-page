@@ -113,7 +113,7 @@ const AiEthics: React.FC = () => {
   const { heading, subHeading, description, cards } = aiEthicsData;
   
   return (
-    <section className="w-full bg-white relative">
+    <section className="w-full bg-white relative py-16 my-16">
       <BackgroundDecoration />
       <div className="container mx-auto px-4">
         <HeaderSection 
