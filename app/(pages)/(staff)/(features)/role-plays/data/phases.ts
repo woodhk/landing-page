@@ -18,7 +18,7 @@ const phases: Phase[] = [
     id: "phase-1",
     pill: "Phase 1",
     title: "Guided Practice",
-    description: "AI provides step-by-step guidance to help staff understand what an ideal conversation should sound like. The user can also ask follow up questions in their native language if needed.",
+    description: "This section gives your employees clear, step-by-step support so they understand how to handle conversations with clarity and confidence. If anything’s unclear, they can ask questions in their native language — reducing frustration and speeding up learning.",
     analogyTitle: "Phase 1 Analogy",
     analogy: "Cooking with a chef, step by step. The chef walks you through every step: ingredients, timing, techniques. You can ask questions along the way to fully understand how the dish should turn out.",
     imagePath: "/abstract-bg/imageBackground4.svg",

@@ -5,14 +5,14 @@ import workplaceInteractions from '../data/types';
 
 const WorkplaceInteractionsSection: React.FC = () => {
   return (
-    <section className="w-full py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+    <section className="w-full pt-32 pb-32 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
       {/* Title and Subtitle */}
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dark">
         Real workplaces have varied conversations. FluentPro prepares staff for all of them.
         </h2>
-        <p className="text-xl text-medium max-w-3xl mx-auto">
-        From one-on-one chats to high-stakes presentations, every interaction gets covered.
+        <p className="text-xl text-medium max-w-4xl mx-auto">
+        From one-on-one meetings to high-stakes presentations, every interaction gets covered.
         </p>
       </div>
 

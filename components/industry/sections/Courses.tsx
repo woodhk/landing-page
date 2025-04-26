@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronsDown } from 'lucide-react'
+import { ChevronsDown, Download } from 'lucide-react'
 import { CoursesSection, CourseCard } from '../types';
 import { 
   Carousel, 
@@ -44,21 +44,9 @@ const CourseCardComponent: React.FC<{ course: CourseCard, isActive: boolean }> =
           <div>
             <Link 
               href={course.outlineLink}
-              className="inline-flex h-12 items-center justify-center rounded-md bg-dynamic-blue text-white px-6 text-sm font-medium transition-colors hover:bg-dynamic-blue/90 focus:outline-none focus:ring-2 focus:ring-dynamic-blue/50 focus:ring-offset-2 w-full md:w-auto"
+              className="inline-flex items-center text-dynamic-blue hover:text-dynamic-blue/80 transition-colors focus:outline-none focus:underline"
             >
-              <svg 
-                className="mr-2 h-5 w-5" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor" 
-                strokeWidth={2}
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" 
-                />
-              </svg>
+              <Download className="mr-2 h-5 w-5" />
               Download Course Outline
             </Link>
           </div>

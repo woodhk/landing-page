@@ -16,11 +16,11 @@ export const HRSection: React.FC<HRSectionProps> = ({ data }) => {
   const activeTabData = tabs.find(tab => tab.id === activeTab) || tabs[0];
 
   return (
-    <section className="w-full py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+    <section className="w-full py-20 md:py-28 bg-blue-50">
       <div className="container mx-auto px-5 md:px-8">
         {/* Header with improved hierarchy */}
         <div className="max-w-4xl mx-auto mb-16 text-center">
-          <span className="inline-block py-1 px-3 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-4">
+          <span className="inline-block py-1 px-3 bg-blue-100 text-blue-700 rounded-full text-md font-medium mb-4">
             {mainTitle}
           </span>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-gray-900">

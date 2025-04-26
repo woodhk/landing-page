@@ -22,9 +22,8 @@ const HeroSection: React.FC = () => {
         <div className="flex flex-col space-y-4 md:space-y-6 max-w-[560px]">
           {/* Main content with improved vertical rhythm */}
           <div>
-            <h1 className="text-4xl sm:text-4xl md:text-[56px] font-bold text-dark mb-3 [&>span]:block [&>span:not(:last-child)]:mb-2 md:[&>span:not(:last-child)]:mb-3">
-              <span className="pb-3">English Training for</span>
-              <span><TypewriterText /></span>
+            <h1 className="text-4xl sm:text-4xl md:text-6xl font-bold text-dark mb-3">
+              Turning Staff Into <span className="text-dynamic-blue">Fluent Professionals</span>
             </h1>
           </div>
           
@@ -53,9 +52,9 @@ const HeroSection: React.FC = () => {
         <div className="hidden lg:flex h-full items-center justify-center">
           <div className="relative p-4 w-full">
             <img 
-              src="/app-screenshots/fp-computer.svg" 
+              src="/ui-elements/staff-hero.png" 
               alt="Computer Illustration" 
-              className="w-full h-auto max-w-lg mx-auto transform scale-[1.2] hover:scale-[1.3] transition-transform duration-300"
+              className="w-full h-auto max-w-lg mx-auto transform scale-[1.2] hover:scale-[1.3] transition-transform duration-300 rounded-xl"
             />
           </div>
         </div>

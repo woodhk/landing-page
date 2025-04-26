@@ -14,6 +14,7 @@ import AiEthics from '../../../components/home/AiEthics';
 import FAQ from '../../../components/home/FAQ';
 import Cta from '../../../components/home/Cta';
 
+
 // Section wrapper component for consistent spacing
 const Section = ({ children, className = "" }: { children: ReactNode; className?: string }) => (
   <section className={`my-64 ${className}`}>
@@ -27,15 +28,15 @@ export default function HomePage() {
       {/* Hero section with contained width */}
       <HeroSection />
       <Testimonials />
-      <Section><AiCta /></Section>
-      <Section><KeyValueProp /></Section>
-      <Section><Benefits /></Section>
-      <Section><AiEthics /></Section>
-      <Section><CustomCourses /></Section>
-      <Section><Reasons /></Section>
-      <Section><Audience /></Section>
-      <Section><FAQ /></Section>
-      <Section><Cta /></Section>
+      <AiCta />
+      <KeyValueProp />
+      <Benefits />
+      <CustomCourses />
+      <Reasons />
+      <Audience />
+      <AiEthics />
+      <FAQ />
+      <Cta />
     </div>
   );
 }

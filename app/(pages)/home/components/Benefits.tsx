@@ -5,9 +5,12 @@ import { CulturalAwarenessAnimation } from '../../../../lib/animations/Culture';
 
 const Benefits = () => {
   return (
-    <div>
-      <div className='flex justify-center container max-w-7xl mx-auto'>
-        <h1 className='text-center text-6xl font-semibold max-w-5xl'>So much more than a 
+    <div 
+      className="bg-cover bg-center bg-no-repeat" 
+      style={{ backgroundImage: "url('/abstract-bg/imageBackground9.png')" }}
+    >
+      <div className='flex justify-center container max-w-7xl mx-auto pt-32'>
+        <h1 className='text-center text-6xl font-semibold max-w-5xl text-light-3'>So much more than a 
           <br /> Language Learning App</h1>
       </div>
 
@@ -74,7 +77,7 @@ const Benefits = () => {
 
       {/* Reports & Analytics */}
 
-      <div className='flex justify-center container max-w-6xl mx-auto my-24'>
+      <div className='flex justify-center container max-w-6xl mx-auto pb-24'>
          <div className="bg-gradient-to-bl from-blue-50/80 to-blue-50 rounded-[100px] rounded-bl-none px-32 py-20 max-w-7xl mx-auto relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
             {/* Text Content Column (on the left) - Increased from 1 to 2 columns */}

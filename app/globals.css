@@ -95,3 +95,23 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Logo infinite scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-scroll {
+  animation: scroll 200s linear infinite;
+  width: fit-content;
+}
+
+/* Pause animation on hover */
+.logo-scroll:hover {
+  animation-play-state: paused;
+}

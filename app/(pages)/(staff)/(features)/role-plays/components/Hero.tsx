@@ -1,58 +1,69 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Button from '../../../../../../components/shared/Button';
 
-export default function Hero() {
+const Hero: React.FC = () => {
   return (
-    <section className="w-full py-12 md:py-16 lg:py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 text-gray-900">
-          Role-Plays That Simulate Customer, Client or Colleague Interactions
-          </h1>
+    <>
+    <div className="relative">
+      {/* Blue-50 background instead of image */}
+      <div className="absolute inset-0 w-full h-[calc(100%+12rem)] -top-24">
+        <div 
+          className="absolute inset-0 w-full h-full bg-blue-50"
+          style={{ 
+            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.1) 95%, rgba(0,0,0,0) 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.1) 95%, rgba(0,0,0,0) 100%)'
+          }}
+        />
+      </div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
-            <Link
-              href="#early-access"
-              className="inline-flex items-center px-6 py-3 rounded-lg bg-dynamic-blue text-white font-medium hover:bg-dynamic-blue/80 transition-colors"
-            >
-              Secure Early Access
-            </Link>
-            <Link
-              href="#download"
-              className="inline-flex items-center px-6 py-3 rounded-lg bg-white border border-gray-200 text-gray-800 font-medium hover:bg-gray-50 transition-colors"
-            >
-              Download Brochure
-            </Link>
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-center py-4 md:py-8 pb-12 md:pb-32 md:pt-32 px-4 sm:px-6 lg:px-4 max-w-7xl mx-auto">
+        <div className="flex flex-col space-y-4 md:space-y-6 max-w-[560px]">
+          {/* Main content with improved vertical rhythm */}
+          <div>
+          <span className="inline-block px-3 py-1 text-sm font-medium text-dynamic-blue bg-blue-100 rounded-full mb-4">Real World Role-Plays</span>
+            <h1 className="text-4xl sm:text-4xl md:text-6xl font-bold text-dark mb-3">
+            Simulate Customer, Client or Colleague Interactions
+            </h1>
           </div>
-
-          <div className="w-full relative aspect-[4/2] max-w-2xl mx-auto">
-            <div className="absolute -inset-8 rounded-[1.5rem] overflow-hidden">
-              <Image
-                src="/abstract-bg/imageBackground4.svg"
-                alt="Background pattern"
-                fill
-                className="object-cover"
-                priority
+          
+          {/* Features with improved design */}
+          <div>
+            <p className="text-xl font-medium text-gray-900">
+            Practice real-world conversations with AI-powered role-plays designed for your specific industry challenges.
+            </p>
+          </div>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center mt-3 md:mt-5 gap-4">
+            <div className="w-full sm:w-auto sm:flex-grow sm:max-w-sm">
+              <Button 
+                primary={true}
+                size="large" 
+                text="Secure Early Access"
+                url="#early-access"
               />
             </div>
             
-            {/* Using fixed height/width with larger dimensions */}
-            <div className="relative z-10 w-full h-full flex items-center justify-center p-4">
-              <div className="rounded-lg overflow-hidden shadow-2xl w-full max-w-3xl">
-                <Image
-                  src="/app-screenshots/roleplay.png"
-                  alt="Scenarios Homepage Screenshot"
-                  width={1600}
-                  height={1600}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
-            </div>
+          </div>
+        </div>
+        
+        {/* Right panel - only visible on larger screens */}
+        <div className="hidden lg:flex h-full items-center justify-center">
+          <div className="relative p-4 w-full">
+            <img 
+              src="/app-screenshots/roleplay.png" 
+              alt="Role-Play Screenshot" 
+              className="w-full h-auto max-w-lg mx-auto transform scale-[1.2] hover:scale-[1.3] transition-transform duration-300 rounded-xl shadow-xl"
+            />
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    </>
   );
-}
+};
+
+export default Hero;

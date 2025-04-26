@@ -11,7 +11,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
   const { title, description, secureAccessLink, brochureLink, industryName, imageUrl } = data;
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white">
+    <section className="w-full py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="w-full mx-auto">

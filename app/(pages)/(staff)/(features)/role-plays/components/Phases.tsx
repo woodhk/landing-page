@@ -10,12 +10,12 @@ export default function Phases() {
   const [activePhase, setActivePhase] = useState("phase-1")
 
   return (
-    <section className="py-16 px-4 max-w-7xl mx-auto">
+    <div className="w-full bg-blue-50">
+    <section className="pt-32 pb-32 px-4 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-5xl font-bold mb-6">Step by Step Guidance</h2>
+        <h2 className="text-5xl font-bold mb-6">Role-Play, Learn, Improve, Repeat</h2>
         <p className="text-lg max-w-4xl mx-auto">
-          Each role-play is structured into five phases, gradually reducing support at each stage, until staff
-          are role-playing full conversations independently, as they would in real workplace situations.
+          Each role-play is structured into five phases, gradually reducing support at each stage, until staff are role-playing full conversations independently, as they would in real workplace situations.
         </p>
       </div>
 
@@ -80,5 +80,6 @@ export default function Phases() {
         ))}
       </Tabs>
     </section>
+    </div>
   )
 }

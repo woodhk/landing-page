@@ -18,7 +18,7 @@ const CardComponent: React.FC<{ card: ConversationCard }> = ({ card }) => {
   };
 
   return (
-    <div className="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden h-full flex flex-col hover:shadow-xl">
+    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden h-full flex flex-col hover:shadow-xl">
       <div className="relative h-60 w-full">
         <Image 
           src={card.imageUrl} 
@@ -27,11 +27,7 @@ const CardComponent: React.FC<{ card: ConversationCard }> = ({ card }) => {
           style={{ objectFit: 'cover' }}
         />
         {/* Tag positioned absolutely over the image in the top left corner */}
-        <div className="absolute top-3 left-3 z-10">
-          <span className="inline-block bg-gray-700 rounded-md px-3 py-1 text-sm font-medium text-light-3">
-            {card.tag}
-          </span>
-        </div>
+     
       </div>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold mb-3">{card.title}</h3>
@@ -54,7 +50,7 @@ export const Conversations: React.FC<ConversationsProps> = ({ data }) => {
   const { mainTitle, subtitle, rolePlaysCard, coachingCard, exercisesCard } = data;
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white">
+    <section className="w-full py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto mb-12 text-center">
           <h2 className="text-3xl md:text-6xl font-bold mb-6">

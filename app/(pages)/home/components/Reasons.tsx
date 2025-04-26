@@ -3,7 +3,7 @@ import { benefits } from "../data/reasons";
 
 const Reasons = () => {
   return (
-    <section className="w-full">
+    <section className="w-full py-32 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-7xl mx-auto mb-20">
           <h2 className="text-3xl font-semibold sm:text-4xl md:text-5xl lg:text-6xl">
@@ -15,7 +15,7 @@ const Reasons = () => {
             const Icon = benefit.icon;
             return (
               <div key={index} className="flex items-center gap-4 justify-start w-full">
-                <div className="bg-blue-50 rounded-full p-2">
+                <div className="bg-blue-100 rounded-full p-2">
                   <Icon className="h-5 w-5 text-blue-600" />
                 </div>
                 <h3 className="text-lg font-medium">{benefit.title}</h3>

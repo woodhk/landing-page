@@ -1,60 +1,83 @@
 import React from 'react';
 import { Button } from '../../../../components/shared/shad-button';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Globe, BarChart } from 'lucide-react';
 
 const AiCta = () => {
   return (
-    <div className="container mx-auto">
-      {/* Blue background container with rounded corners */}
-      <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-[100px] rounded-bl-none px-32 py-20 max-w-7xl mx-auto relative overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Text Content Column */}
-          <div className="flex flex-col justify-center text-left z-10 pr-8">
-            <p className="text-blue-300 text-lg font-semibold mb-2">Secure Early Access</p>
-            <div className="relative inline-block">
-              <h3 className="text-5xl font-medium mb-6 text-white">
-                FluentPro AI
-                <Sparkles className="absolute left-[268px] top-0 h-6 w-6 text-blue-300" />
-              </h3>
+    <div className="container mx-auto mt-32">
+      <div className="bg-slate-50 border border-slate-200 rounded-xl shadow-sm max-w-7xl mx-auto overflow-hidden">
+        {/* Top section with angled division */}
+        <div className="relative bg-gradient-to-r from-slate-900 to-slate-800 h-48">
+          <div className="absolute inset-0 bg-[url('/api/placeholder/400/320')] bg-cover opacity-10"></div>
+          
+          {/* Angled divider */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-slate-50" style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0)' }}></div>
+          
+          {/* Header content positioned over the angle */}
+          <div className="absolute top-8 left-12 z-10">
+            <div className="flex items-center space-x-3">
+              <p className="bg-white/10 backdrop-blur-sm text-white px-4 py-1 rounded-full text-sm font-medium">Secure Early Access</p>
+              <Sparkles className="h-5 w-5 text-amber-400" />
             </div>
-            <p className="text-xl text-blue-100 leading-relaxed">
-              Improve staff's spoken English without scheduling trainers. Fluentpro's AI automates the learning process and provides real-time analytics to track performance, monitor progress and measure ROI. Secure early access today.
-            </p>
-            <div className="mt-8">
+            <h3 className="text-5xl font-bold mt-4 text-white">FluentPro AI</h3>
+          </div>
+        </div>
+        
+        {/* Main content area */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+          {/* Left column - Value proposition */}
+          <div className="lg:col-span-7 px-12 py-12">
+            <div className="max-w-xl">
+              <p className="text-lg text-slate-700 leading-relaxed mb-8">
+                Improve staff's spoken English without scheduling trainers. Fluentpro's AI automates the learning process and provides real-time analytics to track performance, monitor progress and measure ROI. Secure early access today.
+              </p>
+              
+              {/* Feature highlights */}
+              <div className="grid grid-cols-2 gap-6 mb-10">
+                <div className="flex items-start space-x-3">
+                  <Globe className="h-6 w-6 text-slate-700 mt-1" />
+                  <div>
+                    <h4 className="font-medium text-slate-900">Automated Learning</h4>
+                    <p className="text-sm text-slate-600">No scheduling required</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <BarChart className="h-6 w-6 text-slate-700 mt-1" />
+                  <div>
+                    <h4 className="font-medium text-slate-900">Real-time Analytics</h4>
+                    <p className="text-sm text-slate-600">Track ROI instantly</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* CTA Button */}
               <Button 
                 variant="default" 
                 size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 shadow-lg px-8 py-6 text-lg"
+                className="bg-dynamic-blue hover:bg-dynamic-blue/90 shadow-md px-8 py-6 text-lg w-full lg:w-auto"
               >
                 Secure Your Spot
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
             </div>
           </div>
-
-          {/* Image Column - Made larger with more padding */}
-          <div className="w-full h-full flex items-center justify-center pr-2">
-            <div className="w-full aspect-[1/1] relative">
-              {/* Background image */}
-              <img 
-                src="/abstract-bg/imageBackground9.png"
-                alt="Abstract Background"
-                className="w-full h-full object-cover rounded-3xl"
-              />
-              
-              {/* Computer SVG positioned on top of the background */}
-              <img 
-                src="/images/rolePlay.png"
-                alt="FluentPro Computer"
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-auto z-10 scale-110 rounded-3xl"
-              />
+          
+          {/* Right column - Visuals */}
+          <div className="lg:col-span-5 relative min-h-[400px]">
+            {/* Offset image container */}
+            <div className="absolute -top-28 right-0 w-full h-[calc(100%+7rem)] overflow-hidden">
+              {/* Computer image with shadow */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5/6">
+                <img 
+                  src="/app-screenshots/fp-computer.svg"
+                  alt="FluentPro Computer"
+                  className="w-full h-auto drop-shadow-xl scale-[1.1]"
+                />
+                
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Decorative elements */}
-        <div className="absolute top-12 left-8 w-24 h-24 bg-blue-400/10 rounded-full blur-2xl" />
-        <div className="absolute bottom-12 right-8 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl" />
       </div>
     </div>
   );

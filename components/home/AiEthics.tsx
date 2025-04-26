@@ -47,7 +47,7 @@ const EthicsCard: React.FC<EthicsCardProps & { index?: number }> = ({
   
   return (
     <div 
-      className={`bg-light-3 p-6 shadow-sm hover:shadow-md transition-all duration-300 
+      className={`bg-gray-50 p-6 shadow-sm hover:shadow-md transition-all duration-300 
         ${isLastCard ? 'rounded-lg rounded-br-[3.5rem]' : 'rounded-lg'}`}
     >
       <div className="flex items-center gap-3 mb-3">
@@ -113,7 +113,7 @@ const AiEthics: React.FC = () => {
   const { heading, subHeading, description, cards } = aiEthicsData;
   
   return (
-    <section className="w-full bg-white relative py-16 my-16">
+    <section className="w-full bg-gray-100 relative py-32">
       <BackgroundDecoration />
       <div className="container mx-auto px-4">
         <HeaderSection 

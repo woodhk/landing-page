@@ -19,7 +19,7 @@ export const industriesHeroData: IndustryHeroData[] = [
       secureAccessLink: '/industry/banking-finance/access',
       brochureLink: '/industry/banking-finance/brochure',
       industryName: 'Fluentpro for Banking & Finance',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/ui-elements/banking-finance-hero.png',
     },
   },
   {
@@ -32,7 +32,7 @@ export const industriesHeroData: IndustryHeroData[] = [
       secureAccessLink: '/industry/shipping-logistics/access',
       brochureLink: '/industry/shipping-logistics/brochure',
       industryName: 'Fluentpro for Shipping & Logistics',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/ui-elements/shipping-hero.png',
     },
   },
   {
@@ -45,7 +45,7 @@ export const industriesHeroData: IndustryHeroData[] = [
       secureAccessLink: '/industry/hotel-hospitality/access',
       brochureLink: '/industry/hotel-hospitality/brochure',
       industryName: 'Fluentpro for Hotel & Hospitality',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/ui-elements/hotel-hero.png',
     },
   },
   {
@@ -58,7 +58,7 @@ export const industriesHeroData: IndustryHeroData[] = [
       secureAccessLink: '/industry/real-estate/access',
       brochureLink: '/industry/real-estate/brochure',
       industryName: 'Fluentpro for Real Estate',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/ui-elements/realEstate-hero.png',
     },
   },
   {
@@ -71,7 +71,7 @@ export const industriesHeroData: IndustryHeroData[] = [
       secureAccessLink: '/industry/retail/access',
       brochureLink: '/industry/retail/brochure',
       industryName: 'Fluentpro for Retail',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/ui-elements/retail-hero.png',
     },
   },
   {
@@ -84,7 +84,7 @@ export const industriesHeroData: IndustryHeroData[] = [
       secureAccessLink: '/industry/telecommunications/access',
       brochureLink: '/industry/telecommunications/brochure',
       industryName: 'Fluentpro for Telecommunications',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/ui-elements/telecoms-hero.png',
     },
   },
 ];

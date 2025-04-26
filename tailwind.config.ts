@@ -50,13 +50,22 @@ const config: Config = {
   				'100%': {
   					opacity: '1'
   				}
-  			}
+  			},
+			infiniteScroll: {
+				'0%': {
+					transform: 'translateX(0)'
+				},
+				'100%': {
+					transform: 'translateX(-50%)'
+				}
+			}
   		},
   		animation: {
   			blob: 'blob 7s infinite',
   			zigzag: 'zigzagFlow 20s linear infinite',
   			underline: 'underline 1s ease-out forwards',
-  			fadeIn: 'fadeIn 0.2s ease-out forwards'
+  			fadeIn: 'fadeIn 0.2s ease-out forwards',
+			'infinite-scroll': 'infiniteScroll 40s linear infinite'
   		},
   		utilities: {
   			'.animation-delay-2000': {

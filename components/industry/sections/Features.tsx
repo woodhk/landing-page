@@ -9,9 +9,9 @@ export const Features: React.FC<FeaturesProps> = ({ data }) => {
   const { sectionTitle, mainDescription, features } = data;
 
   return (
-    <section className="w-full py-16 md:py-24">
+    <section className="w-full py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        <div className="bg-dynamic-blue/80 rounded-3xl rounded-bl-none">
+        <div className="bg-dynamic-blue/80 rounded-3xl rounded-bl-none shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-6">
             {/* Left side - Main heading and description */}
             <div className="text-white p-8 md:p-12">
