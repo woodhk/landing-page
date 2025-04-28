@@ -13,7 +13,7 @@ export interface CourseStep {
 export const courseSteps: CourseStep[] = [
   {
     id: 1,
-    title: "Custom Learning Paths",
+    title: "Assign Custom Learning Paths",
     description: [
       "Increase engagement by 20% and boost retention by 15% with job-specific English training.",
       "FluentPro’s AI tailors each course to your team’s job title, industry, and communication needs—only teaching the English they actually use at work."
@@ -24,7 +24,7 @@ export const courseSteps: CourseStep[] = [
   },
   {
     id: 2,
-    title: "Scenario Based Courses",
+    title: "Receive Scenario Based Courses",
     description: [
       "Accelerate progress with role-specific speaking practice.",
       "Automatically build and deliver 1,000+ workplace scenarios using AI and expert guidance—each one tailored to the real conversations your team faces on the job.",
@@ -35,7 +35,7 @@ export const courseSteps: CourseStep[] = [
   },
   {
     id: 3,
-    title: "Step by Step Lessons",
+    title: "Engage in Step by Step Lessons",
     description: [
       "Train your team on exactly what to say, and when to say it, by guiding them through each phase of a real customer interaction from first contact to final follow-up."
     ],
@@ -45,7 +45,7 @@ export const courseSteps: CourseStep[] = [
   },
   {
     id: 4,
-    title: "Role-play Practice",
+    title: "Role-play Workplace Interactions",
     description: [
       "Boost real-world readiness through role-play exercises that go beyond memorization.",
       "Let your team simulate customer conversations with AI and start applying English in context—just like top-performing learners who see 17.48% better results."
@@ -57,7 +57,7 @@ export const courseSteps: CourseStep[] = [
   },
   {
     id: 5,
-    title: "Multiple Scenarios",
+    title: "Experience Multiple Scenarios",
     description: [
       "Practice the same scenario with three different conversation partners.",
       "This helps your team adapt to different tones, personalities, and phrasing, just like they would at work."

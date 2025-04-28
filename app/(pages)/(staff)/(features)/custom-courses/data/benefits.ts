@@ -6,11 +6,11 @@ export interface Benefits {
 
 export const benefits: Benefits[] = [
   {
-    title: 'Learn Only What Matters, Faster',
-    description: 'Skip generic lessons. FluentPro trains staff on the exact English skills they need for their role, helping them progress faster and with more confidence.',
+    title: 'Learn Job-Specific Content',
+    description: 'Skip generic lessons. FluentPro trains staff on the exact English skills they need for their role, helping them progress faster and with more workplace confidence.',
   },
   {
-    title: 'Cut Training Time — and Costs',
+    title: 'Cut Training Time & Costs',
     description: 'Targeted, role-specific courses mean less time spent on irrelevant content and more time applying real skills on the job — saving hours and budget.',
   },
     

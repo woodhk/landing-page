@@ -22,7 +22,7 @@ const phases: Phase[] = [
     analogyTitle: "Phase 1 Analogy",
     analogy: "Cooking with a chef, step by step. The chef walks you through every step: ingredients, timing, techniques. You can ask questions along the way to fully understand how the dish should turn out.",
     imagePath: "/abstract-bg/imageBackground4.svg",
-    smallImagePath: "/app-screenshots/roleplay.png"
+    smallImagePath: "/app-screenshots/roleplay3.png"
   },
   {
     id: "phase-2",
@@ -32,7 +32,7 @@ const phases: Phase[] = [
     analogyTitle: "Phase 2 Analogy",
     analogy: "You cook, chef watches and gives tips after each step. You're in charge now, but after each move (like seasoning or flipping), the chef gives feedback to help you adjust and improve.",
     imagePath: "/abstract-bg/imageBackground5.svg",
-    smallImagePath: "/app-screenshots/roleplay.png"
+    smallImagePath: "/app-screenshots/rolePlayQuestion.png"
   },
   {
     id: "phase-3",

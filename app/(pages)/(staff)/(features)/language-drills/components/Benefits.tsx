@@ -1,33 +1,119 @@
-import React from 'react';
-import Image from 'next/image';
+'use client';
 
-const Benefits = () => {
+import { benefitsData, benefitsHeading } from '../data/benefits';
+import { LucideIcon } from 'lucide-react';
+import { useState } from 'react';
+
+type BenefitItemProps = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+};
+
+const BenefitItem = ({ icon: Icon, title, description }: BenefitItemProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <section className="w-full py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
-      <div className="flex flex-col lg:flex-row gap-8 items-center">
-        <div className="w-full lg:w-1/2">
-          <h1 className="text-5xl md:text-5xl font-bold mb-8 text-dark">
-            Benefits of Dynamic<br /> Language Learning Drills
-          </h1>
-          <p className="text-lg mb-8 text-medium">
-          Fluentpro’s language drills are personalised to cover mistakes made by staff during a lesson.
-          </p>
-          <p className="text-lg text-medium">
-          This allows them to practice and improve on their own mistakes, avoiding wasted time on exercises they’re already comfortable with.
-          </p>
+    <div 
+      className={`p-6 border-gray-200 h-[280px] flex flex-col transition-all duration-300 ease-in-out relative overflow-hidden ${
+        isHovered ? 'bg-gradient-to-br from-white to-gray-50' : 'bg-white'
+      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div 
+        className={`mb-6 inline-flex items-center justify-center w-12 h-12 rounded-lg border border-gray-200 shadow-xl transition-all duration-300 ${
+          isHovered ? 'bg-dynamic-blue' : 'bg-white'
+        }`}
+      >
+        <Icon className={`w-6 h-6 transition-all duration-300 ${
+          isHovered ? 'text-white' : 'text-dynamic-blue'
+        }`} />
+      </div>
+      
+      <h3 className={`text-xl font-semibold mb-3 transition-all duration-300 ${
+        isHovered ? 'text-dark' : ''
+      }`}>
+        {title}
+      </h3>
+      
+      <p className={`text-gray-600 text-sm transition-all duration-300 ${
+        isHovered ? 'text-gray-700' : ''
+      }`}>
+        {description}
+      </p>
+      
+      {/* Subtle corner decorative element that appears on hover */}
+      <div 
+        className={`absolute bottom-0 right-0 w-16 h-16 transition-all duration-500 ease-in-out ${
+          isHovered ? 'opacity-10' : 'opacity-0'
+        }`}
+        style={{
+          background: 'radial-gradient(circle at bottom right, var(--dynamic-blue, #3b82f6), transparent 70%)',
+          transform: isHovered ? 'scale(1.5)' : 'scale(0.8)',
+        }}
+      />
+      
+      {/* Animated underline for title */}
+      <div 
+        className="absolute left-6 w-12 h-0.5 bg-dynamic-blue transition-all duration-300"
+        style={{
+          top: '92px', // Positioned under the title
+          width: isHovered ? '48px' : '0',
+          opacity: isHovered ? 1 : 0,
+        }}
+      />
+    </div>
+  );
+};
+
+export default function Benefits() {
+  return (
+    <section className="py-28 bg-blue-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-20">
+          <h2 className="flex flex-col items-center justify-center">
+            <div className="text-4xl md:text-8xl text-dark-3 relative group">
+             Train <span className="text-dark font-medium">Smarter, </span>Not Harder...
+            </div>
+            <div className="text-4xl md:text-5xl text-dark-3 mt-1 relative group">
+              
+            </div>
+          </h2>
         </div>
-        <div className="w-full lg:w-1/2 h-auto aspect-[1/1]">
-          <Image
-            src="/images/roleplay.png"
-            alt="Role-Play Learning Benefits"
-            width={800}
-            height={600}
-            className="w-full h-full object-screen rounded-md"
-          />
+
+        <div className="max-w-6xl mx-auto bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {benefitsData.map((benefit, index) => (
+              <div 
+                key={index} 
+                className={`
+                  /* Mobile borders (single column) */
+                  ${index < benefitsData.length - 1 ? 'border-b border-gray-200' : ''}
+                  
+                  /* Medium screen borders (two columns) */
+                  ${index % 2 === 0 && index < benefitsData.length - 1 ? 'md:border-r md:border-gray-200' : ''}
+                  ${index < benefitsData.length - 2 ? 'md:border-b md:border-gray-200' : ''}
+                  
+                  /* Large screen borders (three columns) */
+                  ${index % 3 === 0 ? 'lg:border-r lg:border-gray-200' : ''} 
+                  ${index % 3 === 1 ? 'lg:border-r lg:border-gray-200' : ''}
+                  ${index < benefitsData.length - 3 ? 'lg:border-b lg:border-gray-200' : ''}
+                  
+                  /* Hover scale effect for entire card group */
+                  group
+                `}
+              >
+                <BenefitItem
+                  icon={benefit.icon}
+                  title={benefit.title}
+                  description={benefit.description}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Benefits;
+}

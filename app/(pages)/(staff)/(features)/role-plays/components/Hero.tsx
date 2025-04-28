@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
         <div className="hidden lg:flex h-full items-center justify-center">
           <div className="relative p-4 w-full">
             <img 
-              src="/app-screenshots/roleplay.png" 
+              src="/images/rolePlay.png" 
               alt="Role-Play Screenshot" 
               className="w-full h-auto max-w-lg mx-auto transform scale-[1.2] hover:scale-[1.3] transition-transform duration-300 rounded-xl shadow-xl"
             />

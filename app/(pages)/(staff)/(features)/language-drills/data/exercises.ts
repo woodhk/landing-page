@@ -17,7 +17,7 @@ export type ExerciseCard = {
 export const exerciseCards: ExerciseCard[] = [
   {
     pill: "Pronunciation",
-    title: "Pronounce \"L's\" Like \"L's\" and \"R's\" Like \"R's\"",
+    title: "Establish more Authority",
     description: "Refine staff's pronunciation through:",
     checkItems: [
       { text: "Audio comparisons" },
@@ -28,7 +28,7 @@ export const exerciseCards: ExerciseCard[] = [
   },
   {
     pill: "Fluency Builders",
-    title: "Respond Faster & Clearer with less \"umms\" & \"uhhs\"",
+    title: "Speak & Think like a Native",
     description: "Fluency Builder drills aim to increase response speed and reduce hesitation through:",
     checkItems: [
       { text: "Time Restricted Speaking Drills" },
@@ -39,7 +39,7 @@ export const exerciseCards: ExerciseCard[] = [
   },
   {
     pill: "Vocabulary Expansion",
-    title: "Speak using the Business English Dictionary",
+    title: "Increase Authority and Confidence",
     description: "Enhance word choice variety and expand industry-specific terminology, making staff responses more professional and dynamic.",
     checkItems: [
       { text: "AI-Powered Word Substitution" },
@@ -50,7 +50,7 @@ export const exerciseCards: ExerciseCard[] = [
   },
   {
     pill: "Formality Adjustments",
-    title: "Formality Adjustments Based On The Situation",
+    title: "Build Trust and Strengthen Influence",
     description: "Ensure responses match professional settings, helping staff sound professional, respectful, and suited to the workplace context through:",
     checkItems: [
       { text: "Formality Level Detection" },

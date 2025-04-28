@@ -10,8 +10,8 @@ export default function LanguageDrills() {
     <div>
       <Hero />
       <Benefits />
-      <Process />
       <Exercises />
+      <Process />
       <Cta />
     </div>
       

@@ -13,7 +13,7 @@ const Benefits: React.FC = () => {
                Job Specific Training for Any Role
               </h2>
               <p className="text-2xl mb-4">
-              Give your staff the precise skills they need to perform, communicate, and deliver at work.
+              Give your staff the precise language skills they need to perform, communicate, and deliver at work.
               </p>
             </div>
 
