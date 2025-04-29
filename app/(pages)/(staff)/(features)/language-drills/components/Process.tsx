@@ -10,29 +10,31 @@ const Process = () => {
   return (
     <div className="container mx-auto py-16 px-4">
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Three Steps, Unlimited Exercises</h2>
-        <p className="text-lg md:text-xl max-w-3xl mx-auto">
-          The three step process Fluentpro takes to identify common mistakes and create drills to fix them.
+        <h2 className="text-4xl md:text-6xl font-bold mb-4">Break Bad Language Habits Early</h2>
+        <p className="text-lg md:text-3xl max-w-3xl text-gray-600 mx-auto">
+        Use AI to create exercises that stop bad language habits before they cost your business thousands.
         </p>
       </div>
 
       <div className="w-full max-w-6xl mx-auto">
-        {/* Custom Tab Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-gray-100 rounded-lg p-1 inline-flex w-auto sm:w-96">
-            {processes.map((process) => (
-              <button
-                key={process.id}
-                onClick={() => setActiveTab(process.id)}
-                className={`
-                  px-6 py-2 mx-1 text-sm rounded-md transition-colors focus:outline-none flex-1 text-center
-                  ${activeTab === process.id ? "bg-white shadow" : "text-gray-600 hover:bg-gray-200"}
-                `}
-              >
-                {process.pill}
-              </button>
-            ))}
-          </div>
+        {/* Custom Tab Navigation - Underline Style */}
+        <div className="flex justify-center border-b border-gray-200 mb-12"> 
+          {/* Remove the inner div with bg-gray-100 */}
+          {processes.map((process) => (
+            <button
+              key={process.id}
+              onClick={() => setActiveTab(process.id)}
+              className={`
+                px-4 py-3 mx-1 text-sm font-medium transition-colors focus:outline-none flex-1 text-center border-b-2 
+                whitespace-nowrap /* Prevent wrapping on smaller screens */
+                ${activeTab === process.id 
+                  ? 'border-dynamic-blue text-dynamic-blue' 
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}
+              `}
+            >
+              {process.title}
+            </button>
+          ))}
         </div>
 
         {/* Tab Content */}
@@ -42,40 +44,22 @@ const Process = () => {
             className={`${activeTab === process.id ? "block" : "hidden"}`}
           >
             <div className="bg-gray-100 p-10 rounded-lg w-full">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <div className="inline-block bg-gray-200 rounded-full px-4 py-1 mb-4">
-                    {process.pill}
-                  </div>
                   <h3 className="text-3xl font-bold mb-4">{process.title}</h3>
                   <p className="text-lg">{process.description}</p>
                 </div>
                 <div className="flex items-center justify-center">
-                  <div className="relative w-full h-80 overflow-hidden rounded-lg">
-                    {/* Background image */}
+                  <div className="relative w-full h-96 overflow-hidden rounded-lg">
                     <Image
-                      src={process.imagePath}
-                      alt={`${process.title} background`}
+                      src={process.smallImagePath}
+                      alt={process.title}
                       fill
-                      priority
-                      sizes="(max-width: 768px) 100vw, 66vw"
-                      style={{ objectFit: "cover" }}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      style={{ objectFit: "contain" }}
                       className="rounded-lg"
+                      priority
                     />
-                    
-                    {/* Small image overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative w-4/5 h-4/5 shadow-lg">
-                        <Image
-                          src={process.smallImagePath}
-                          alt={process.title}
-                          fill
-                          sizes="(max-width: 768px) 80vw, 50vw"
-                          style={{ objectFit: "contain" }}
-                          className="rounded"
-                        />
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
