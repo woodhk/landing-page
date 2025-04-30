@@ -1,61 +1,61 @@
+import React from 'react';
 import Image from "next/image";
 import { features } from "../data/features";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../../../../../components/shared/card";
-import Button from "../../../../../components/shared/Button";
 
 export default function Features() {
   return (
-    <div className="w-full py-12">
-      <div className="container mx-auto space-y-8">
-        {features.map((feature, index) => (
-          <Card 
-            key={index} 
-            className="overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200"
-          >
-            <div className="flex flex-col lg:flex-row">
-              <div className="flex-1 p-8">
-                <CardHeader className="p-0 space-y-4">
-                  <div className="inline-flex">
-                    <span className="bg-gray-50 text-gray-600 rounded-lg px-3 py-1 text-sm font-medium">
-                      {feature.tag}
-                    </span>
-                  </div>
-                  <CardTitle className="text-4xl font-bold tracking-tight">
-                    {feature.title}
-                  </CardTitle>
-                  <CardDescription className="text-lg text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardFooter className="p-0 mt-6">
-                  <Button 
-                    text={feature.buttonText}
-                    url={feature.href}
-                    primary={false}
-                    size="medium"
-                  />
-                </CardFooter>
+    <section className="w-full py-16 md:py-24 lg:py-32 bg-white">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-16 md:mb-24 lg:mb-32">
+          <h2 className="max-w-3xl mx-auto text-4xl md:text-8xl font-bold mb-6 text-gray-900 tracking-tight">
+            Access Powerful Tools to Prove ROI
+          </h2>
+          <p className="text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto">
+            Effortlessly onboard staff, monitor performance, personalise training and share reports to department heads and executives
+          </p>
+        </div>
+
+        <div className="space-y-24 md:space-y-32 lg:space-y-48">
+          {features.map((feature, index) => (
+            <div 
+              key={index} 
+              className="flex flex-col md:flex-row items-center gap-16 lg:gap-24"
+            >
+              <div className={`md:w-2/5 flex flex-col justify-center my-auto ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
+                <div className="inline px-3 py-1 text-sm font-semibold rounded-full bg-blue-50 text-blue-700 mb-5 w-fit">
+                  {feature.tag}
+                </div>
+                <h3 className="text-2xl md:text-4xl font-bold mb-6 text-gray-900 tracking-tight">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-700 text-base md:text-lg mb-8 leading-relaxed">
+                  {feature.description}
+                </p>
+                
+                <a 
+                  href={feature.href} 
+                  className="text-blue-600 hover:text-blue-800 font-medium underline transition-colors"
+                >
+                  {feature.buttonText}
+                </a>
               </div>
-              <div className="relative lg:w-[45%] h-[300px] lg:h-auto bg-gray-50">
-                <Image
-                  src={feature.image}
-                  alt={feature.title}
-                  fill
-                  className="object-contain p-4"
-                  priority={index === 0}
-                />
+              
+              <div className={`md:w-3/5 ${index % 2 !== 0 ? 'md:order-first' : ''}`}>
+                <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-lg">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 60vw"
+                    priority={index === 0}
+                  />
+                </div>
               </div>
             </div>
-          </Card>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

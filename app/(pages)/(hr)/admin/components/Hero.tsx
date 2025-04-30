@@ -29,7 +29,7 @@ const HeroSection: React.FC = () => {
           {/* Main content with improved vertical rhythm */}
           <div>
             <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold text-dark leading-tight mb-3">
-            Track ROI From Your Team's English Training Instantly
+            Meet KPI Targets With ROI-Focused Business English Training
             </h1>
           </div>
           
@@ -58,7 +58,7 @@ const HeroSection: React.FC = () => {
         <div className="hidden lg:flex h-full items-center justify-center">
           <div className="relative p-4 w-full">
             <img 
-              src="/app-screenshots/fp-computer.svg" 
+              src="/ui-elements/hrHero.png" 
               alt="Computer Illustration" 
               className="w-full h-auto max-w-lg mx-auto transform scale-[1.2] hover:scale-[1.3] transition-transform duration-300"
             />

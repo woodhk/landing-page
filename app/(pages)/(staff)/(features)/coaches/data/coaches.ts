@@ -33,7 +33,7 @@ export const coachFeatures: (CoachFeature | PerformanceCoachFeature)[] = [
   },
   {
     pillText: "Performance Coach",
-    title: "Graded on how you handle workplace situations, not quizzes",
+    title: "Graded on handling workplace situations, not quizzes",
     description: "Our performance coach analyses every response from role-play exercises and grades them based on completeness, logical flow, clarity, professionalism & tone.",
     imageUrl: "/ui-elements/performanceCoach.png",
     rubricLink: "here.",
