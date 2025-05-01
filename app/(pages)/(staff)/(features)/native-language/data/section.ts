@@ -14,7 +14,7 @@ export const languageFeatures: LanguageFeature[] = [
       "The whole platform can be changed into staffs native language in just 2 clicks.",
       "This allows for more efficient training as staff spend more time learning English rather than understanding instructions or understanding what buttons do."
     ],
-    imagePath: "/app-screenshots/nativeHomeScreen.png"
+    imagePath: "/ui-elements/multilingualInterface.png"
   },
   {
     id: "ai-translations",
@@ -23,7 +23,7 @@ export const languageFeatures: LanguageFeature[] = [
       "Struggling to understand complex English phrases during training can slow down the learning process by 25%",
       "FluentPro's on-demand AI translation instantly clarifies confusing terms in the user's native language, so learning stays efficient, focused, and frustration-free."
     ],
-    imagePath: "/app-screenshots/pronounciation.png"
+    imagePath: "/ui-elements/aiTranslation.png"
   },
   {
     id: "native-language-qa",
@@ -32,6 +32,6 @@ export const languageFeatures: LanguageFeature[] = [
       "When users can speak in their native language, they ask more questions, learn faster, and feel more supported",
       "FluentPro's multilingual AI understands and responds in the user's native language, making communication clearer, questions easier to ask, and learning more intuitive."
     ],
-    imagePath: "/app-screenshots/rolePlayQuestion.png"
+    imagePath: "/ui-elements/nativeQA.png"
   }
 ];

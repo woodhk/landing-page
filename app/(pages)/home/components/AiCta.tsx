@@ -38,7 +38,7 @@ const AiCta = () => {
                   <Globe className="h-6 w-6 text-slate-700 mt-1" />
                   <div>
                     <h4 className="font-medium text-slate-900">Automated Learning</h4>
-                    <p className="text-sm text-slate-600">No scheduling required</p>
+                    <p className="text-sm text-slate-600">No trainers required</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">

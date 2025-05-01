@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from "next/image";
+import { ArrowRight } from 'lucide-react';
 import { features } from "../data/features";
 
 export default function Features() {
@@ -34,9 +35,10 @@ export default function Features() {
                 
                 <a 
                   href={feature.href} 
-                  className="text-blue-600 hover:text-blue-800 font-medium underline transition-colors"
+                  className="text-blue-600 hover:text-blue-800 font-medium group flex items-center gap-1 w-fit transition-colors"
                 >
-                  {feature.buttonText}
+                  <span>{feature.buttonText}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
               

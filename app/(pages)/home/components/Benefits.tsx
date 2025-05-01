@@ -88,7 +88,7 @@ const Benefits = () => {
               </p>
               <br />
               <Button variant="default" size="lg" className="bg-dynamic-blue hover:bg-dynamic-blue/90 shadow-lg mt-4">
-                Get real-time Reports & Analytics
+                Get Real-Time Reports & Analytics
                 <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
