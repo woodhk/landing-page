@@ -8,14 +8,17 @@ const commonFeatures = [
   {
     title: 'Reduce Miscommunication',
     description: '$12,500/year per employee is lost to poor communication. With job-relevant training, staff can make mistakes with our AI, not your clients.',
+    iconName: 'MessageSquare'
   },
   {
     title: 'Reclaim Lost Productivity',
     description: 'Staff reclaim up to 7.5 hours a week by avoiding repeated explanations and misunderstandings.',
+    iconName: 'Clock'
   },
   {
     title: 'Real World Practice',
     description: 'Practice real workplace conversations to avoid awkward misunderstandings and streamline team collaboration.',
+    iconName: 'Users'
   }
 ];
 
@@ -37,32 +40,38 @@ export const industryFeaturesData: Record<IndustrySlug, FeaturesSection> = {
   'banking-finance': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('banking-finance'),
-    features: commonFeatures
+    features: commonFeatures,
+    imageUrl: '/ui-elements/aiTeacher.png'
   },
   'shipping-logistics': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('shipping-logistics'),
-    features: commonFeatures
+    features: commonFeatures,
+    imageUrl: '/ui-elements/aiTeacher.png'
   },
   'hotel-hospitality': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('hotel-hospitality'),
-    features: commonFeatures
+    features: commonFeatures,
+    imageUrl: '/ui-elements/aiTeacher.png'
   },
   'real-estate': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('real-estate'),
-    features: commonFeatures
+    features: commonFeatures,
+    imageUrl: '/ui-elements/aiTeacher.png'
   },
   'retail': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('retail'),
-    features: commonFeatures
+    features: commonFeatures,
+    imageUrl: '/ui-elements/aiTeacher.png'
   },
   'telecommunications': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('telecommunications'),
-    features: commonFeatures
+    features: commonFeatures,
+    imageUrl: '/ui-elements/aiTeacher.png'
   },
 };
 

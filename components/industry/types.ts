@@ -16,12 +16,14 @@ export interface FeatureCard {
 export interface Feature {
   title: string;
   description: string;
+  iconName: string;
 }
 
 export interface FeaturesSection {
   sectionTitle: string;
   mainDescription: string;
   features: Feature[];
+  imageUrl: string;
 }
 
 export interface CourseCard {

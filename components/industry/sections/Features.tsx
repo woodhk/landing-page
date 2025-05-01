@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+import * as Icons from 'lucide-react';
 import { FeaturesSection } from '../types';
 
 interface FeaturesProps {
@@ -6,36 +8,56 @@ interface FeaturesProps {
 }
 
 export const Features: React.FC<FeaturesProps> = ({ data }) => {
-  const { sectionTitle, mainDescription, features } = data;
+  const { sectionTitle, mainDescription, features, imageUrl } = data;
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        <div className="bg-dynamic-blue/80 rounded-3xl rounded-bl-none shadow-xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-6">
-            {/* Left side - Main heading and description */}
-            <div className="text-white p-8 md:p-12">
-              <h2 className="text-4xl md:text-5xl font-semibold mb-8">
-                {sectionTitle}
-              </h2>
-              <p className="text-2xl mb-4">
-                {mainDescription}
-              </p>
-            </div>
+    <section className="w-full py-20 bg-white">
+      <div className="container mx-auto px-4">
+        {/* Heading and subheading at top center */}
+        <h2 className="text-center text-4xl lg:text-5xl max-w-3xl mx-auto font-bold text-gray-900 mb-4">
+          {sectionTitle}
+        </h2>
+        <p className="text-center text-xl max-w-3xl mx-auto text-gray-600 mb-16">
+          {mainDescription}
+        </p>
+        
+        {/* Two-column layout */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 mt-8 items-start">
+          
+          {/* Left Column: Image */}
+          <div className="w-full lg:w-3/5 flex justify-center lg:justify-start">
+            <Image 
+              src={imageUrl}
+              alt="Feature illustration"
+              width={1000}
+              height={750}
+              className="w-full h-auto border border-gray-200 rounded-2xl shadow-sm"
+              priority
+            />
+          </div>
 
-            {/* Right side - Features list */}
-            <div className="bg-light-3 p-8 md:p-12 space-y-12 rounded-tr-3xl rounded-br-3xl">
-              {features.map((feature, index) => (
-                <div key={index} className="space-y-2">
-                  <h3 className="text-2xl md:text-3xl font-semibold">
+          {/* Right Column: Features cards */}
+          <div className="w-full lg:w-2/5 flex flex-col gap-6">
+            {features.map((feature, index) => {
+              const IconComponent = (Icons as any)[feature.iconName] || Icons.HelpCircle;
+              
+              return (
+                <div 
+                  key={index}
+                  className="bg-white rounded-lg p-6 border border-gray-200 transition-all duration-300 hover:border-dynamic-blue/40 hover:shadow-sm flex flex-col items-start text-left"
+                >
+                  <div className="mb-4">
+                    <IconComponent className="w-10 h-10 text-dynamic-blue" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {feature.title}
                   </h3>
-                  <p>
+                  <p className="text-base text-gray-600 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>

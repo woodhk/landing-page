@@ -15,13 +15,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any Administrative Support Professional',
-          description: 'Staff can engage in training without the need for travel or coordinating schedules with trainers, allowing for uninterrupted progress at their convenience.'
+          description: 'Staff can engage in training without the need for travel or coordinating schedules with trainers, allowing for uninterrupted progress at their convenience.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'We only cover the essential English-facing scenarios admin support professionals encounter with clients, customers, and colleagues. No wasted time, no unnecessary content, just targeted training that maximizes learning efficiency and company ROI.'
+          description: 'We only cover the essential English-facing scenarios admin support professionals encounter with clients, customers, and colleagues. No wasted time, no unnecessary content, just targeted training that maximizes learning efficiency and company ROI.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   {
@@ -32,13 +35,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any Customer Support Professional',
-          description: 'Support staff can complete training sessions between calls, during slower periods, or outside of working hours—ensuring consistent skill development without disrupting customer service operations.'
+          description: 'Support staff can complete training sessions between calls, during slower periods, or outside of working hours—ensuring consistent skill development without disrupting customer service operations.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'Our training covers only the essential English-facing scenarios customer support professionals encounter daily. From handling complaints to explaining technical solutions, we deliver targeted training that directly improves customer satisfaction scores.'
+          description: 'Our training covers only the essential English-facing scenarios customer support professionals encounter daily. From handling complaints to explaining technical solutions, we deliver targeted training that directly improves customer satisfaction scores.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   {
@@ -49,13 +55,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any Operations or Project Management Professional',
-          description: 'Team members can progress through training materials between meetings, during travel, or whenever their schedule allows—ensuring continuous improvement without disrupting critical project timelines.'
+          description: 'Team members can progress through training materials between meetings, during travel, or whenever their schedule allows—ensuring continuous improvement without disrupting critical project timelines.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'Our training addresses the essential English-facing scenarios project managers and operations specialists encounter daily. From stakeholder presentations to cross-functional team coordination, we deliver targeted training that directly improves project outcomes.'
+          description: 'Our training addresses the essential English-facing scenarios project managers and operations specialists encounter daily. From stakeholder presentations to cross-functional team coordination, we deliver targeted training that directly improves project outcomes.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   {
@@ -66,13 +75,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any Marketing or Communications Professional',
-          description: 'Team members can complete training sessions during content development processes, between campaign launches, or whenever their creative flow allows—ensuring continuous improvement without disrupting critical marketing timelines.'
+          description: 'Team members can complete training sessions during content development processes, between campaign launches, or whenever their creative flow allows—ensuring continuous improvement without disrupting critical marketing timelines.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'Our training addresses the essential English-facing scenarios marketing professionals encounter daily. From pitching creative concepts to crafting persuasive content, we deliver targeted training that directly improves audience engagement and campaign effectiveness.'
+          description: 'Our training addresses the essential English-facing scenarios marketing professionals encounter daily. From pitching creative concepts to crafting persuasive content, we deliver targeted training that directly improves audience engagement and campaign effectiveness.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   {
@@ -83,13 +95,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any IT or Technical Support Professional',
-          description: 'Team members can access training sessions between support tickets, during system maintenance windows, or whenever their workload allows—ensuring continuous skill development without disrupting critical support operations.'
+          description: 'Team members can access training sessions between support tickets, during system maintenance windows, or whenever their workload allows—ensuring continuous skill development without disrupting critical support operations.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'Our training addresses the essential English-facing scenarios technical professionals encounter daily. From explaining system errors to guiding users through complex procedures, we deliver targeted training that directly improves resolution times and user satisfaction.'
+          description: 'Our training addresses the essential English-facing scenarios technical professionals encounter daily. From explaining system errors to guiding users through complex procedures, we deliver targeted training that directly improves resolution times and user satisfaction.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   {
@@ -100,13 +115,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any Finance Professional',
-          description: 'Team members can progress through training materials during non-peak periods, between reporting cycles, or whenever their schedule allows—ensuring continuous development without disrupting critical financial operations.'
+          description: 'Team members can progress through training materials during non-peak periods, between reporting cycles, or whenever their schedule allows—ensuring continuous development without disrupting critical financial operations.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'Our training addresses the essential English-facing scenarios finance professionals encounter daily. From presenting financial results to explaining compliance requirements, we deliver targeted training that directly improves communication effectiveness and stakeholder confidence.'
+          description: 'Our training addresses the essential English-facing scenarios finance professionals encounter daily. From presenting financial results to explaining compliance requirements, we deliver targeted training that directly improves communication effectiveness and stakeholder confidence.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   {
@@ -117,13 +135,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any HR Professional',
-          description: 'Team members can engage with training modules between interviews, during recruitment cycles, or whenever their schedule permits—ensuring continuous skill development without disrupting critical people operations.'
+          description: 'Team members can engage with training modules between interviews, during recruitment cycles, or whenever their schedule permits—ensuring continuous skill development without disrupting critical people operations.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'Our training addresses the essential English-facing scenarios HR professionals encounter daily. From conducting interviews to explaining benefits packages, we deliver targeted training that directly improves employee experience and organizational effectiveness.'
+          description: 'Our training addresses the essential English-facing scenarios HR professionals encounter daily. From conducting interviews to explaining benefits packages, we deliver targeted training that directly improves employee experience and organizational effectiveness.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   {
@@ -134,13 +155,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any Client Management Professional',
-          description: 'Account managers can progress through training between client meetings, during travel time, or whenever their schedule allows—ensuring continuous improvement without disrupting critical client relationships.'
+          description: 'Account managers can progress through training between client meetings, during travel time, or whenever their schedule allows—ensuring continuous improvement without disrupting critical client relationships.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'Our training addresses the essential English-facing scenarios client relationship managers encounter daily. From navigating difficult conversations to presenting new solutions, we deliver targeted training that directly improves client satisfaction and retention rates.'
+          description: 'Our training addresses the essential English-facing scenarios client relationship managers encounter daily. From navigating difficult conversations to presenting new solutions, we deliver targeted training that directly improves client satisfaction and retention rates.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   {
@@ -151,13 +175,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any Sales Professional',
-          description: 'Sales teams can complete training modules between calls, during travel time, or whenever their schedule permits—ensuring continuous improvement without disrupting critical deal cycles or prospect engagements.'
+          description: 'Sales teams can complete training modules between calls, during travel time, or whenever their schedule permits—ensuring continuous improvement without disrupting critical deal cycles or prospect engagements.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'Our training addresses the essential English-facing scenarios sales professionals encounter daily. From articulating value propositions to handling objections, we deliver targeted training that directly improves conversion rates and accelerates deal velocity.'
+          description: 'Our training addresses the essential English-facing scenarios sales professionals encounter daily. From articulating value propositions to handling objections, we deliver targeted training that directly improves conversion rates and accelerates deal velocity.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   {
@@ -168,13 +195,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any L&D Professional',
-          description: 'Training teams can progress through modules between workshops, during preparation time, or whenever their schedule allows—ensuring continuous improvement without disrupting critical learning initiatives and development programs.'
+          description: 'Training teams can progress through modules between workshops, during preparation time, or whenever their schedule allows—ensuring continuous improvement without disrupting critical learning initiatives and development programs.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'Our training addresses the essential English-facing scenarios L&D professionals encounter daily. From facilitating workshops to creating engaging materials, we deliver targeted training that directly improves instructional effectiveness and learning outcomes.'
+          description: 'Our training addresses the essential English-facing scenarios L&D professionals encounter daily. From facilitating workshops to creating engaging materials, we deliver targeted training that directly improves instructional effectiveness and learning outcomes.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   {
@@ -185,13 +215,16 @@ export const crossIndustryFeaturesData: CrossIndustryFeaturesData[] = [
       features: [
         {
           title: 'Flexible Learning for Any Leadership Level',
-          description: 'Leaders can complete training modules between meetings, during travel time, or whenever their busy schedule allows—ensuring continuous development without disrupting critical management responsibilities and team oversight.'
+          description: 'Leaders can complete training modules between meetings, during travel time, or whenever their busy schedule allows—ensuring continuous development without disrupting critical management responsibilities and team oversight.',
+          iconName: 'flexibility'
         },
         {
           title: 'Focused Training for Maximum Impact',
-          description: 'Our training addresses the essential English-facing scenarios leaders encounter daily. From conducting performance reviews to leading team meetings, we deliver targeted training that directly improves leadership effectiveness and organizational performance.'
+          description: 'Our training addresses the essential English-facing scenarios leaders encounter daily. From conducting performance reviews to leading team meetings, we deliver targeted training that directly improves leadership effectiveness and organizational performance.',
+          iconName: 'target'
         }
       ],
+      imageUrl: ''
     },
   },
   // Additional cross-industry roles can be added here

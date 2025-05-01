@@ -19,7 +19,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/administrative-support/access',
       brochureLink: '/cross-industry/administrative-support/brochure',
       industryName: 'Fluentpro for Administrative Support',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/adminSupport.png',
     },
   },
   {
@@ -32,7 +32,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/customer-support-staff/access',
       brochureLink: '/cross-industry/customer-support-staff/brochure',
       industryName: 'Fluentpro for Customer Support Staff',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/customerSupport.png',
     },
   },
   {
@@ -45,7 +45,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/operations-project-management/access',
       brochureLink: '/cross-industry/operations-project-management/brochure',
       industryName: 'Fluentpro for Operations and Project Management',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/projectManager.png',
     },
   },
   {
@@ -58,7 +58,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/marketing-communications/access',
       brochureLink: '/cross-industry/marketing-communications/brochure',
       industryName: 'Fluentpro for Marketing and Communications',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/marketing.png',
     },
   },
   {
@@ -71,7 +71,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/it-technical-support/access',
       brochureLink: '/cross-industry/it-technical-support/brochure',
       industryName: 'Fluentpro for IT and Technical Support',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/technicalSupport.png',
     },
   },
   {
@@ -84,7 +84,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/finance/access',
       brochureLink: '/cross-industry/finance/brochure',
       industryName: 'Fluentpro for Finance',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/finance.png',
     },
   },
   {
@@ -97,7 +97,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/hr-onboarding-staff/access',
       brochureLink: '/cross-industry/hr-onboarding-staff/brochure',
       industryName: 'Fluentpro for HR and Onboarding Staff',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/humanResources.png',
     },
   },
   {
@@ -110,7 +110,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/client-relationship/access',
       brochureLink: '/cross-industry/client-relationship/brochure',
       industryName: 'Fluentpro for Client Relationship & Account Management Staff',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/clientRelations.png',
     },
   },
   {
@@ -123,7 +123,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/sales-business-development/access',
       brochureLink: '/cross-industry/sales-business-development/brochure',
       industryName: 'Fluentpro for Sales and Business Development',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/sales.png',
     },
   },
   {
@@ -136,7 +136,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/learning-development-staff/access',
       brochureLink: '/cross-industry/learning-development-staff/brochure',
       industryName: 'Fluentpro for Learning and Development Staff',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/learningDevelopment.png',
     },
   },
   {
@@ -149,7 +149,7 @@ export const crossIndustriesHeroData: CrossIndustryHeroData[] = [
       secureAccessLink: '/cross-industry/team-department-leadership/access',
       brochureLink: '/cross-industry/team-department-leadership/brochure',
       industryName: 'Fluentpro for Team and Department Leadership',
-      imageUrl: '/images/banking-finance-hero.png',
+      imageUrl: '/images/teamLeadership.png',
     },
   },
   // Additional cross-industry roles can be added here

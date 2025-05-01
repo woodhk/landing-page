@@ -6,6 +6,7 @@ export interface IndustryHeroData {
   name: string;
   slug: IndustrySlug;
   hero: HeroSection;
+  icon: string; // Lucide React icon name
 }
 
 export const industriesHeroData: IndustryHeroData[] = [
@@ -13,6 +14,7 @@ export const industriesHeroData: IndustryHeroData[] = [
     id: '1',
     name: 'Banking & Finance',
     slug: 'banking-finance',
+    icon: 'Landmark',
     hero: {
       title: 'Turn Language Barriers into Assets, Not Liabilities',
       description: 'Give your team the Business English Speaking skills needed to articulate complex financial insights persuasively and gain client trust.',
@@ -26,6 +28,7 @@ export const industriesHeroData: IndustryHeroData[] = [
     id: '2',
     name: 'Shipping & Logistics',
     slug: 'shipping-logistics',
+    icon: 'Ship',
     hero: {
       title: 'Deliver Clear Messages, Not Just Packages',
       description: 'Give staff the right Business English speaking skills to smoothly communicate with clients, suppliers, and partners, avoiding costly misunderstandings.',
@@ -39,6 +42,7 @@ export const industriesHeroData: IndustryHeroData[] = [
     id: '3',
     name: 'Hotel & Hospitality',
     slug: 'hotel-hospitality',
+    icon: 'Hotel',
     hero: {
       title: 'Make Every Guest Interaction a Five-Star Experience',
       description: 'Help your staff resolve issues smoothly, make guests feel valued, and turn great service into lasting loyalty with confident Business English speaking skills.',
@@ -52,6 +56,7 @@ export const industriesHeroData: IndustryHeroData[] = [
     id: '4',
     name: 'Real Estate',
     slug: 'real-estate',
+    icon: 'House',
     hero: {
       title: 'Your Properties Are Premium. Your Staffs English Should Be Too.',
       description: 'Improve tenant interactions, close deals faster, and enhance team professionalism with tailored Business English training.',
@@ -65,6 +70,7 @@ export const industriesHeroData: IndustryHeroData[] = [
     id: '5',
     name: 'Retail',
     slug: 'retail',
+    icon: 'ShoppingBag',
     hero: {
       title: "Turn 'Can I Help You?' into 'Would You Like a Receipt?'",
       description: 'Give your retail staff the Business English speaking skills needed to handle customer inquiries with confidence—and increase sales.',
@@ -78,6 +84,7 @@ export const industriesHeroData: IndustryHeroData[] = [
     id: '6',
     name: 'Telecommunications',
     slug: 'telecommunications',
+    icon: 'Wifi',
     hero: {
       title: "Deliver Strong English Communication, Not Just Bandwidth",
       description: 'Help your telecom staff speak clear Business English so they can easily communicate with clients, suppliers, and partners—preventing delays, service issues, and lost deals.',
