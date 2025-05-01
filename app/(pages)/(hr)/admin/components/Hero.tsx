@@ -28,7 +28,7 @@ const HeroSection: React.FC = () => {
         <div className="flex flex-col space-y-4 md:space-y-6 max-w-[560px]">
           {/* Main content with improved vertical rhythm */}
           <div>
-            <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold text-dark leading-tight mb-3">
+            <h1 className="text-4xl sm:text-4xl md:text-6xl font-bold text-dark leading-tight mb-3">
             Meet KPI Targets With ROI-Focused Business English Training
             </h1>
           </div>
