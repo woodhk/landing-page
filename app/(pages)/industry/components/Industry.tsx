@@ -87,6 +87,11 @@ export default function IndustryLandingPage() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 'start' });
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(true);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
+  
+  // Calculate number of pages based on 3 cards per page
+  const visibleCardsPerView = 3;
 
   // Update button states when carousel state changes
   React.useEffect(() => {
@@ -95,15 +100,22 @@ export default function IndustryLandingPage() {
     const onSelect = () => {
       setCanScrollPrev(emblaApi.canScrollPrev());
       setCanScrollNext(emblaApi.canScrollNext());
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    // Get all possible scroll snap positions
+    const onReInit = () => {
+      setScrollSnaps(emblaApi.scrollSnapList());
+      onSelect();
     };
 
     emblaApi.on('select', onSelect);
-    emblaApi.on('reInit', onSelect);
-    onSelect();
+    emblaApi.on('reInit', onReInit);
+    onReInit();
 
     return () => {
       emblaApi.off('select', onSelect);
-      emblaApi.off('reInit', onSelect);
+      emblaApi.off('reInit', onReInit);
     };
   }, [emblaApi]);
 
@@ -114,6 +126,11 @@ export default function IndustryLandingPage() {
 
   const scrollNext = React.useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  // Scroll to specific slide
+  const scrollTo = React.useCallback((index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index);
   }, [emblaApi]);
 
   // Animation variants
@@ -169,27 +186,6 @@ export default function IndustryLandingPage() {
                 </div>
               </motion.div>
 
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex space-x-2">
-                  <button 
-                    onClick={scrollPrev} 
-                    disabled={!canScrollPrev}
-                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none transition-all duration-300"
-                    aria-label="Previous slide"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button 
-                    onClick={scrollNext} 
-                    disabled={!canScrollNext}
-                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none transition-all duration-300"
-                    aria-label="Next slide"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
-
               {/* Embla Carousel */}
               <div className="overflow-hidden" ref={emblaRef}>
                 <motion.div 
@@ -210,6 +206,42 @@ export default function IndustryLandingPage() {
                     </motion.div>
                   ))}
                 </motion.div>
+              </div>
+              
+              {/* Pagination dots with navigation arrows on sides */}
+              <div className="flex justify-center items-center mt-8">
+                <button 
+                  onClick={scrollPrev} 
+                  disabled={!canScrollPrev}
+                  className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none transition-all duration-300 mr-4"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                
+                <div className="flex space-x-2">
+                  {scrollSnaps.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none ${
+                        selectedIndex === index 
+                          ? 'bg-dynamic-blue scale-110' 
+                          : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
+                      onClick={() => scrollTo(index)}
+                      aria-label={`Go to page ${index + 1}`}
+                    />
+                  ))}
+                </div>
+                
+                <button 
+                  onClick={scrollNext} 
+                  disabled={!canScrollNext}
+                  className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none transition-all duration-300 ml-4"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
               </div>
             </div>
           </section>

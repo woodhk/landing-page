@@ -45,7 +45,7 @@ const CrossIndustryCard: React.FC<CrossIndustryCardProps> = ({ industry, isActiv
               className="inline-flex items-center text-dynamic-blue hover:text-dynamic-blue/80 transition-colors focus:outline-none focus:underline mt-2"
             >
               <Download className="mr-2 h-5 w-5" />
-              Download Brochure
+              Download Course Outline
             </Link>
           </div>
         </div>
