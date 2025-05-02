@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from './components/Hero';
+import Benefits from './components/Benefits';
 import Calculator from './components/Calculator';
 import FourFeatures from './components/FourFeatures';
 import ThreeFeatures from './components/ThreeFeatures';
@@ -8,6 +9,7 @@ export default function AdminDashboard() {
   return (
     <div>
       <Hero />
+      <Benefits />
       <FourFeatures />
       <ThreeFeatures />
       <Cta />

@@ -3,8 +3,8 @@ export interface Feature {
   title: string;
   description: string;
   image: string;
-  buttonText: string;
-  href: string;
+  buttonText?: string;
+  href?: string;
 }
 
 export const features: Feature[] = [
@@ -36,8 +36,6 @@ export const features: Feature[] = [
     tag: "Share Reports",
     title: "Export and Share Reports",
     description: "Share reports with department heads and executives to show the impact of your training.",
-    image: "/ui-elements/shareReports.png",
-    buttonText: "Learn more",
-    href: "/share-reports"
+    image: "/ui-elements/shareReports.png"
   }
 ];

@@ -33,13 +33,15 @@ export default function Features() {
                   {feature.description}
                 </p>
                 
-                <a 
-                  href={feature.href} 
-                  className="text-blue-600 hover:text-blue-800 font-medium group flex items-center gap-1 w-fit transition-colors"
-                >
-                  <span>{feature.buttonText}</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
+                {feature.buttonText && (
+                  <a 
+                    href={feature.href} 
+                    className="text-blue-600 hover:text-blue-800 font-medium group flex items-center gap-1 w-fit transition-colors"
+                  >
+                    <span>{feature.buttonText}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                )}
               </div>
               
               <div className={`md:w-3/5 ${index % 2 !== 0 ? 'md:order-first' : ''}`}>
