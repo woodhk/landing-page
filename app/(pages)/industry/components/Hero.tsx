@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
         
         {/* Subheading */}
         <p className="text-xl font-medium text-gray-900 max-w-2xl mx-auto mb-8">
-          Dynamically generated language drills that improve staff's pronounciation, vocabulary, formality and response structure.
+          Insert subheading here
         </p>
         
         {/* CTA Button */}

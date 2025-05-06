@@ -1,35 +1,44 @@
-import { Banknote, Clock, GaugeCircle, LineChart, LucideIcon } from "lucide-react";
+import { 
+  History, 
+  BookOpenCheck, 
+  TrendingUp, 
+  MessagesSquare, 
+  Languages, 
+  CircleGauge
+ } from "lucide-react";
 
-export interface Benefit {
-  heading: string;
-  description: string;
-  icon: LucideIcon;
-  color: string;
-}
 
-export const benefitsData: Benefit[] = [
+
+
+export const benefitsData = [
   {
-    heading: "Save Miscommunication Costs",
-    description: "Save up to $12,500 per employee each year in miscommunication costs.",
-    icon: Banknote,
-    color: "text-gray-900"
+    icon: History,
+    title: "Time Studied",
+    description: "Track time studied to measure staff engagement and spot your most committed learners."
   },
   {
-    heading: "Recover Lost Productivity",
-    description: "Reclaim up to 7.5 hours per employee each week by avoiding repeated explanations and misunderstandings.",
-    icon: Clock,
-    color: "text-gray-900"
+    icon: BookOpenCheck,
+    title: "Lessons Learned",
+    description: "Monitor lessons learned to evaluate training coverage."
   },
   {
-    heading: "Meet KPI Targets",
-    description: "From reaching sustainability targets to fulfilling department head requests, Fluentpro's real-time reports and analytics ensure training meets your KPI needs.",
-    icon: GaugeCircle,
-    color: "text-gray-900"
+    icon: TrendingUp,
+    title: "Course Progression",
+    description: "Analyze course progression to spot plateaus and guide staff toward completion."
   },
   {
-    heading: "Drive ROI",
-    description: "Deliver training programs that make an impact on your business, not just grammar.",
-    icon: LineChart,
-    color: "text-gray-900"
+    icon: MessagesSquare,
+    title: "Conversations Completed",
+    description: "Measure conversations completed to track real-world speaking practice frequency."
   },
+  {
+    icon: Languages,
+    title: "Industry Specific Language",
+    description: "Identify industry-specific language gained to assess increased workplace professionalism."
+  },
+  {
+    icon: CircleGauge,
+    title: "Estimated Productivity Gain",
+    description: "Estimate productivity gain to quantify training impact on daily work efficiency."
+  }
 ];

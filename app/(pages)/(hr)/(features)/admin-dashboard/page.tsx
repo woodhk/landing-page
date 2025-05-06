@@ -1,17 +1,18 @@
 import React from 'react';
 import Hero from './components/Hero';
+import EmotionBenefits from './components/EmotionBenefits';
 import Benefits from './components/Benefits';
-import Calculator from './components/Calculator';
-import FourFeatures from './components/FourFeatures';
-import ThreeFeatures from './components/ThreeFeatures';
+import Performance from './components/Performance';
+import Admin from './components/Admin';
 import Cta from '../../../../../components/home/Cta';
 export default function AdminDashboard() {
   return (
     <div>
       <Hero />
+      <EmotionBenefits />
       <Benefits />
-      <FourFeatures />
-      <ThreeFeatures />
+      <Performance />
+      <Admin />
       <Cta />
     </div>
   );

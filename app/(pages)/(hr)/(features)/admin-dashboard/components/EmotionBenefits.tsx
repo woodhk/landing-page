@@ -1,11 +1,13 @@
+"use client";
+
 import React from 'react';
-import { benefitsData, Benefit } from '../data/benefits';
+import { benefitsData, Benefit } from '../data/emotionBenefit';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 // Removed the vibrant colors array since we're using dynamic-blue for all icons
 
-const Benefits: React.FC = () => {
+const EmotionBenefits: React.FC = () => {
   return (
     <section className="py-24 md:py-32 bg-white">
       <div className="max-w-screen-xl mx-auto px-6 lg:px-8">
@@ -18,7 +20,7 @@ const Benefits: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            Designed By Experts, Conducted By AI <span className="font-medium">Controlled By You</span>
+            Measurable Benefits For Your Organization
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -109,32 +111,9 @@ const Benefits: React.FC = () => {
             ))}
           </div>
         </div>
-        
-        {/* Optional: Bottom section with CTA or additional information */}
-        <motion.div 
-          className="mt-24 md:mt-32 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
-            Trusted by leading organizations to deliver measurable language training results
-          </p>
-          <div className="inline-flex">
-            <motion.a 
-              href="#" 
-              className="inline-block px-8 py-4 text-sm font-medium tracking-wide text-white bg-dynamic-blue border border-transparent rounded-md hover:bg-dynamic-blue/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Secure Early Access
-            </motion.a>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
 };
 
-export default Benefits;
+export default EmotionBenefits;

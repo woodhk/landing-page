@@ -62,7 +62,7 @@ const Benefits = () => {
             <div className="flex flex-col justify-center lg:col-span-2">
               <h3 className="text-4xl font-medium mb-6">Soft Skills</h3>
               <p className="text-xl text-gray-600 leading-relaxed">
-              Soft skills are just as important as language skills. Fluentpro trains your staff on effective communication, cultural awareness, and other soft skills needed to succeed in the workplace.
+              Soft skills are just as important as language skills. Train your staff on effective communication, cultural awareness, and other soft skills needed to succeed in the workplace.
               </p>
               <br />
               <Button variant="default" size="lg" className="bg-dynamic-blue hover:bg-dynamic-blue/90 shadow-lg mt-4">

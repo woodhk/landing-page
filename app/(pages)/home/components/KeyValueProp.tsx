@@ -29,7 +29,7 @@ const KeyValueProp = () => {
           <div className="flex flex-col justify-center">
             <h3 className="text-4xl font-medium mb-6">Role-Specific Tailoring</h3>
             <p className="text-xl text-gray-600 leading-relaxed">
-            Our AI creates tailored English courses and lessons that directly reflect your staff's daily interactions. If a job position isn't covered, our language experts will create a free custom course within 48 hours.
+            Create tailored English courses and lessons that directly reflect your staff's daily interactions using AI. If a job position isn't covered, our language experts will create a free custom course within 48 hours.
             </p>
             <br />
             <Button variant="default" size="lg" className="bg-dynamic-blue hover:bg-dynamic-blue/90 shadow-lg mt-4">

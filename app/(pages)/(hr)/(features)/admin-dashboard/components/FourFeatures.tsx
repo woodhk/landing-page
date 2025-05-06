@@ -6,6 +6,7 @@ const FourFeatures: React.FC = () => {
   return (
     <section className="w-full py-16 bg-gray-50">
       <div className="container mx-auto px-4">
+        <h2 className="max-w-5xl mx-auto text-2xl sm:text-3xl md:text-6xl font-bold mb-10 text-center">Access Real-Time Training Progression</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {fourFeatures.map((feature, index) => (
             <div 
