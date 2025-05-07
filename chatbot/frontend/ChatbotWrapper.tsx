@@ -42,7 +42,7 @@ const ChatbotWrapper = () => {
           >
             <header className="bg-gradient-to-r from-blue-900 to-blue-600 text-white p-4 flex justify-between items-center sticky top-0 z-10">
               <div className="flex items-center space-x-3">
-                <img src="/logo/logo.svg" alt="Logo" className="h-8 w-8" />
+                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                 <h2 className="text-lg font-semibold">Chat with us!</h2>
               </div>
               <div className="flex space-x-2">
