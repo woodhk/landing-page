@@ -19,7 +19,7 @@ const ChatbotWrapper = () => {
     <>
       <button
         onClick={toggleChatbot}
-        className="fixed bottom-6 right-6 bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-4 rounded-full shadow-xl hover:scale-110 transition-transform duration-300 ease-in-out z-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75"
+        className="fixed bottom-6 right-6 bg-gradient-to-r from-blue-900 to-blue-600 text-white p-4 rounded-full shadow-xl hover:scale-110 transition-transform duration-300 ease-in-out z-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75"
         aria-label="Toggle chatbot"
       >
         {isOpen ? <X size={28} /> : <MessageSquare size={28} />}
@@ -40,7 +40,7 @@ const ChatbotWrapper = () => {
               maxWidth: 'calc(100vw - 3rem)' // 1.5rem (right-6) * 2 for some padding
             }}
           >
-            <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-4 flex justify-between items-center sticky top-0 z-10">
+            <header className="bg-gradient-to-r from-blue-900 to-blue-600 text-white p-4 flex justify-between items-center sticky top-0 z-10">
               <div className="flex items-center space-x-3">
                 <img src="/logo/logo.svg" alt="Logo" className="h-8 w-8" />
                 <h2 className="text-lg font-semibold">Chat with us!</h2>

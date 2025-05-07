@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import Image from 'next/image';
 import type { Message } from './Chatbot';
 
 type ChatMessageProps = {
@@ -20,7 +20,13 @@ const ChatMessage = ({ message, loading = false }: ChatMessageProps) => {
       className={`mb-3 flex items-end gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}
     >
       {!isUser && !loading && (
-        <Sparkles className="text-purple-500 mb-1" size={20} />
+        <Image 
+          src="/logo/logo.svg" 
+          alt="Assistant Logo"
+          width={30}
+          height={30}
+          className="mb-1"
+        />
       )}
       <div
         className={`max-w-[85%] rounded-xl px-4 py-3 shadow-md ${
