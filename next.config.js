@@ -1,3 +1,4 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   async redirects() {
     return [
@@ -57,6 +58,20 @@ const nextConfig = {
   
   // Add transpilePackages configuration to tell Next.js to transpile framer-motion
   transpilePackages: ['framer-motion'],
+  
+  // Add rewrites for API calls to proxy to our backend server
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:8000/api/:path*',
+      },
+      {
+        source: '/health',
+        destination: 'http://localhost:8000/health',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

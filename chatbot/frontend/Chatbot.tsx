@@ -64,16 +64,48 @@ const Chatbot = () => {
     setInputValue('');
     setIsLoading(true);
 
-    setTimeout(() => {
-      const aiMessage: Message = {
-        id: uuidv4(),
-        text: `Echo: ${userMessage.text}`,
-        isUser: false,
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, aiMessage]);
-      setIsLoading(false);
-    }, 1000);
+    // Call the API instead of the mock response
+    fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        messages: [...messages, userMessage].map(msg => ({
+          id: msg.id,
+          text: msg.text,
+          isUser: msg.isUser,
+          timestamp: msg.timestamp.toISOString()
+        }))
+      }),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const aiMessage: Message = {
+          id: data.id,
+          text: data.text,
+          isUser: false,
+          timestamp: new Date(data.timestamp),
+        };
+        setMessages((prev) => [...prev, aiMessage]);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        const errorMessage: Message = {
+          id: uuidv4(),
+          text: 'Sorry, there was an error processing your request. Please try again.',
+          isUser: false,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, errorMessage]);
+        setIsLoading(false);
+      });
   };
 
   const handlePromptClick = (promptText: string) => {
@@ -88,16 +120,48 @@ const Chatbot = () => {
     setMessages((prev) => [...prev, userMessage]);
     setIsLoading(true);
 
-    setTimeout(() => {
-      const aiMessage: Message = {
-        id: uuidv4(),
-        text: `Echo: ${promptText}`,
-        isUser: false,
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, aiMessage]);
-      setIsLoading(false);
-    }, 1000);
+    // Call the API instead of the mock response
+    fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        messages: [...messages, userMessage].map(msg => ({
+          id: msg.id,
+          text: msg.text,
+          isUser: msg.isUser,
+          timestamp: msg.timestamp.toISOString()
+        }))
+      }),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const aiMessage: Message = {
+          id: data.id,
+          text: data.text,
+          isUser: false,
+          timestamp: new Date(data.timestamp),
+        };
+        setMessages((prev) => [...prev, aiMessage]);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        const errorMessage: Message = {
+          id: uuidv4(),
+          text: 'Sorry, there was an error processing your request. Please try again.',
+          isUser: false,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, errorMessage]);
+        setIsLoading(false);
+      });
   };
 
   return (
