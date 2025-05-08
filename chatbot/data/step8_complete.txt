@@ -1,3 +1,3 @@
 Step 8: Run the agentic RAG - COMPLETED
-- Created interactive interface for the RAG system
+- Demonstrated the RAG system with example questions
 - Successfully processed and displayed streamed results

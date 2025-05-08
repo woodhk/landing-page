@@ -1,0 +1,278 @@
+# RAG Chatbot Integration Plan
+
+## System Analysis
+
+### Backend Analysis
+- The backend utilizes an agentic RAG (Retrieval Augmented Generation) system implemented with LangGraph
+- Main components:
+  1. `rag_graph.py`: Assembles the RAG graph with nodes for query generation, retrieval, question rewriting, and answer generation
+  2. `run_rag.py`: Provides two interfaces - interactive CLI and example-based execution
+  3. Various specialized components: query generator, retriever, document grader, question rewriter, and answer generator
+- The RAG system flow:
+  1. Processes user input through a state graph
+  2. Conditionally determines whether to retrieve information or directly respond
+  3. If retrieving, evaluates document quality and either generates an answer or rewrites the question
+  4. Returns streamed results through the graph
+
+### Frontend Analysis
+- React-based chat interface with the following components:
+  1. `Chatbot.tsx`: Core chat interface with message handling and user input
+  2. `ChatbotWrapper.tsx`: Container component that manages the chat window's visibility and size
+  3. `ChatMessage.tsx`: Individual message display component
+- Current implementation:
+  1. Maintains message state in the frontend
+  2. Has a placeholder response system that echoes back user messages after a delay
+  3. Includes suggested follow-up prompts and welcome screen
+  4. No actual integration with backend services
+
+## Integration Plan
+
+### Step 1: Create FastAPI Backend API Endpoint []
+1. Create a new file `api.py` in the backend directory
+2. Set up FastAPI application:
+   ```python
+   from fastapi import FastAPI, BackgroundTasks, HTTPException, Depends
+   from fastapi.middleware.cors import CORSMiddleware
+   from pydantic import BaseModel
+   
+   app = FastAPI()
+   
+   # Configure CORS
+   app.add_middleware(
+       CORSMiddleware,
+       allow_origins=["*"],  # Update for production
+       allow_credentials=True,
+       allow_methods=["*"],
+       allow_headers=["*"],
+   )
+   ```
+3. Define request/response models:
+   ```python
+   class ChatRequest(BaseModel):
+       message: str
+       conversation_id: str = None
+       
+   class ChatResponse(BaseModel):
+       answer: str
+       conversation_id: str
+   ```
+4. Implement FastAPI endpoints:
+   - `POST /api/chat`: Process user messages through the RAG system
+   - `GET /api/health`: Health check endpoint for monitoring
+5. Add streaming response support using FastAPI's StreamingResponse:
+   ```python
+   from fastapi.responses import StreamingResponse
+   
+   @app.post("/api/chat/stream")
+   async def stream_chat(request: ChatRequest):
+       async def generate():
+           # Process with RAG graph and yield results
+           for chunk in graph.stream({"messages": [{"role": "user", "content": request.message}]}):
+               yield f"data: {json.dumps(chunk)}\n\n"
+       
+       return StreamingResponse(
+           generate(), 
+           media_type="text/event-stream"
+       )
+   ```
+
+### Step 2: Set Up FastAPI Backend Environment []
+1. Create a `requirements.txt` file with FastAPI dependencies:
+   ```
+   fastapi>=0.95.0
+   uvicorn>=0.21.1
+   pydantic>=1.10.7
+   python-dotenv>=1.0.0
+   langchain>=0.0.267
+   langgraph>=0.0.10
+   # Add other required dependencies
+   ```
+2. Create a FastAPI launcher script `main.py`:
+   ```python
+   import uvicorn
+   
+   if __name__ == "__main__":
+       uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)
+   ```
+3. Add proper error handling, validation, and logging:
+   ```python
+   import logging
+   
+   logging.basicConfig(level=logging.INFO)
+   logger = logging.getLogger(__name__)
+   
+   @app.exception_handler(Exception)
+   async def generic_exception_handler(request, exc):
+       logger.error(f"Unexpected error: {exc}")
+       return JSONResponse(
+           status_code=500,
+           content={"message": "An unexpected error occurred"},
+       )
+   ```
+4. Implement request rate limiting using FastAPI dependencies
+
+### Step 3: Create Frontend Service Layer []
+1. Create a new file `chatService.ts` in the frontend directory:
+   ```typescript
+   // API client for the FastAPI backend
+   export interface ChatResponse {
+     answer: string;
+     conversation_id: string;
+   }
+   
+   export interface StreamChunk {
+     node: string;
+     update: {
+       messages: Array<{content: string}>;
+     };
+   }
+   
+   export const sendMessage = async (message: string): Promise<ChatResponse> => {
+     const response = await fetch('http://localhost:8000/api/chat', {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({message})
+     });
+     
+     if (!response.ok) {
+       throw new Error(`API error: ${response.status}`);
+     }
+     
+     return await response.json();
+   };
+   
+   export const streamResponse = async function* (message: string): AsyncGenerator<string> {
+     const response = await fetch('http://localhost:8000/api/chat/stream', {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({message})
+     });
+     
+     if (!response.ok) {
+       throw new Error(`API error: ${response.status}`);
+     }
+     
+     const reader = response.body!.getReader();
+     const decoder = new TextDecoder();
+     
+     let buffer = '';
+     while (true) {
+       const {value, done} = await reader.read();
+       if (done) break;
+       
+       buffer += decoder.decode(value, {stream: true});
+       const lines = buffer.split('\n\n');
+       buffer = lines.pop() || '';
+       
+       for (const line of lines) {
+         if (line.startsWith('data: ')) {
+           const data = JSON.parse(line.substring(6));
+           const node = Object.keys(data)[0];
+           const update = data[node];
+           
+           if (update?.messages?.length > 0) {
+             yield update.messages[update.messages.length - 1].content;
+           }
+         }
+       }
+     }
+   };
+   ```
+2. Add proper error handling for network issues and API failures
+3. Implement simple retry logic for failed requests
+
+### Step 4: Update Frontend Components []
+1. Modify `Chatbot.tsx` to use the new chat service:
+   ```typescript
+   import { streamResponse } from './chatService';
+   
+   // In handleSubmit function, replace setTimeout with:
+   const userMessage: Message = {
+     id: uuidv4(),
+     text: inputValue,
+     isUser: true,
+     timestamp: new Date(),
+   };
+   
+   setShowWelcome(false);
+   setMessages((prev) => [...prev, userMessage]);
+   setInputValue('');
+   setIsLoading(true);
+   
+   // Create a temporary message for streaming updates
+   const tempId = uuidv4();
+   const tempMessage: Message = {
+     id: tempId,
+     text: '',
+     isUser: false,
+     timestamp: new Date(),
+   };
+   setMessages((prev) => [...prev, tempMessage]);
+   
+   try {
+     // Stream the response from the backend
+     for await (const chunk of streamResponse(userMessage.text)) {
+       setMessages((prev) => {
+         const updated = [...prev];
+         const index = updated.findIndex(m => m.id === tempId);
+         if (index !== -1) {
+           updated[index] = {
+             ...updated[index],
+             text: chunk,
+           };
+         }
+         return updated;
+       });
+     }
+   } catch (error) {
+     console.error('Error streaming response:', error);
+     setMessages((prev) => {
+       const updated = [...prev];
+       const index = updated.findIndex(m => m.id === tempId);
+       if (index !== -1) {
+         updated[index] = {
+           ...updated[index],
+           text: 'Sorry, there was an error processing your request.',
+         };
+       }
+       return updated;
+     });
+   } finally {
+     setIsLoading(false);
+   }
+   ```
+2. Update the Message type to add optional metadata for sources
+
+### Step 5: Testing Plan []
+1. Create unit tests for both backend and frontend components:
+   - Backend FastAPI tests using pytest and TestClient
+   - Frontend React component tests using Jest and React Testing Library
+2. Implement integration tests for the full system
+3. Test edge cases:
+   - Network failures
+   - Malformed requests
+   - Long processing times
+   - Large conversation histories
+
+### Step 6: Deployment Considerations []
+1. Document environment variables and configuration needs:
+   - Create `.env.example` with all required variables
+   - Document configuration options in README.md
+2. Create Docker containers for easy deployment:
+   ```dockerfile
+   # FastAPI Backend Dockerfile
+   FROM python:3.10-slim
+   
+   WORKDIR /app
+   
+   COPY requirements.txt .
+   RUN pip install --no-cache-dir -r requirements.txt
+   
+   COPY ./chatbot/backend /app/backend
+   
+   CMD ["python", "backend/main.py"]
+   ```
+3. Add monitoring and logging for production deployment:
+   - Integrate FastAPI with Prometheus for metrics
+   - Set up structured logging with correlation IDs
+
