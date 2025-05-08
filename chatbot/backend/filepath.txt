@@ -1,0 +1,41 @@
+chatbot/backend/
+├── main.py                     # FastAPI application entry point
+├── requirements.txt            # Project dependencies
+├── config/
+│   ├── __init__.py
+│   └── settings.py             # Environment variables and configuration
+├── core/
+│   ├── __init__.py
+│   ├── document_loader.py      # Document loading functionality
+│   ├── text_splitter.py        # Text chunking functionality
+│   ├── vector_store.py         # Vector store implementation
+│   └── embeddings.py           # Embedding models
+├── graph/
+│   ├── __init__.py
+│   ├── state.py                # Graph state definitions
+│   ├── nodes/
+│   │   ├── __init__.py
+│   │   ├── generate_query.py   # Query generation node
+│   │   ├── grade_documents.py  # Document grading node
+│   │   ├── rewrite_question.py # Question rewriting node
+│   │   └── generate_answer.py  # Answer generation node
+│   ├── edges/
+│   │   ├── __init__.py
+│   │   └── conditions.py       # Edge condition definitions
+│   └── workflow.py             # Graph workflow definition
+├── tools/
+│   ├── __init__.py
+│   └── retriever_tool.py       # Retriever tool implementation
+├── models/
+│   ├── __init__.py
+│   └── schema.py               # Pydantic models and schemas
+├── api/
+│   ├── __init__.py
+│   ├── router.py               # FastAPI router
+│   └── endpoints/
+│       ├── __init__.py
+│       └── chat.py             # Chat endpoint
+└── utils/
+    ├── __init__.py
+    ├── logging.py              # Logging utilities
+    └── prompts.py              # Prompt templates

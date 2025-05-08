@@ -1,0 +1,3 @@
+Step 5: Rewrite question - COMPLETED
+- Created rewrite_question function to improve the original question
+- Successfully tested with a sample question
