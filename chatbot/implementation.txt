@@ -1,0 +1,328 @@
+# Chatbot Backend Implementation Plan
+
+## Project Overview
+
+This document outlines the step-by-step backend implementation plan for a LangGraph-based chatbot. The chatbot will feature persistent memory, Retrieval Augmented Generation (RAG) using DataStax AstraDB, automatic suggested prompt generation, a customizable AI system prompt, and will be served via a FastAPI backend.
+
+## Working Directory: chatbot/
+Backend -> chatbot/backend
+FrontEnd -> chatbot/frontend
+
+---
+
+## Milestone 1: Core Chatbot Setup & Basic LangGraph Integration []
+
+**Goal:** Establish the project structure, install necessary dependencies, and create a foundational LangGraph chatbot capable of basic conversation.
+
+**Steps:**
+
+1.  **Environment Setup:** [x]
+    *   Create a Python virtual environment (e.g., using `venv` or `conda`).
+    *   Activate the virtual environment.
+2.  **Install Core Dependencies:** [x]
+    *   Create a `requirements.txt` file.
+    *   Add the following initial dependencies:
+        *   `langgraph`
+        *   `langchain`
+        *   `langchain-openai`
+        *   `fastapi`
+        *   `uvicorn[standard]`
+        *   `python-dotenv` (for managing API keys and configurations)
+        *   `typing_extensions`
+    *   Install dependencies: `pip install -r requirements.txt`.
+3.  **Project Structure (Initial):** [x]
+    *   Inside `chatbot/backend`, create:
+        *   `main.py`: For FastAPI application.
+        *   `graph.py`: For LangGraph definitions (state, nodes, graph).
+        *   `config.py`: For configurations like API keys, system prompts.
+    *   Inside `.env.development`: To store environment variables (API keys). Add this to `.gitignore` (These files already exist)
+4.  **Configure API Keys:** [x]
+    *   Add your LLM API key (e.g., `OPENAI_API_KEY`) to the `.env` file (this file already exists, find it)
+    *   Load environment variables in `config.py` using `dotenv`.
+5.  **Define LangGraph State:** [x]
+    *   In `graph.py`, define the `State` `TypedDict` (e.g., `class State(TypedDict): messages: Annotated[list, add_messages]`).
+6.  **Implement Basic Chatbot Node:** [x]
+    *   In `graph.py`, instantiate your chosen LLM (e.g., `ChatOpenai`).
+    *   Create a function (e.g., `chatbot_node`) that takes the `State` as input, invokes the LLM with the current messages, and returns the LLM's response to be added to `messages`.
+7.  **Build Initial Graph:** [x]
+    *   In `graph.py`, create a `StateGraph` instance with the defined `State`.
+    *   Add the `chatbot_node` as a node to the graph.
+    *   Set the `chatbot_node` as the entry point and finish point of the graph for now.
+    *   Compile the graph: `app = graph_builder.compile()`.
+8.  **Basic FastAPI Endpoint:** [x]
+    *   In `main.py`, import the compiled LangGraph app from `graph.py`.
+    *   Create a simple FastAPI endpoint (e.g., `/invoke_chat_basic`) that:
+        *   Takes a user message as input.
+        *   Invokes the LangGraph app with the user message.
+        *   Returns the AI's response.
+9.  **Initial Testing:** [x]
+    *   Run the FastAPI app using Uvicorn: `uvicorn chatbot.main:app --reload`.
+    *   Test the `/invoke_chat_basic` endpoint using a tool like `curl` or Postman to ensure basic conversational flow.
+
+---
+
+## Milestone 2: Persistent Memory Implementation []
+
+**Goal:** Integrate a persistent checkpointer to maintain conversation history across sessions.
+
+**Steps:**
+
+1.  **Choose a Checkpointer:** []
+    *   Based on the requirement "Don't use `MemorySaver` in production — it's in-memory and volatile. Use `SqliteSaver` or `PostgresSaver` to persist state to a real DB."
+    *   For initial development and simplicity, `SqliteSaver` can be used. Plan for `PostgresSaver` if a PostgreSQL database is intended for production.
+    *   Add necessary database drivers to `requirements.txt` (e.g., `psycopg2-binary` for PostgreSQL, `aiosqlite` for SqliteSaver if not already included by LangChain). Re-run `pip install -r requirements.txt`.
+2.  **Initialize Checkpointer:** []
+    *   In `graph.py` (or a dedicated persistence module), initialize your chosen checkpointer.
+        *   For `SqliteSaver`: `memory = SqliteSaver.from_conn_string(":memory:")` (for in-memory testing) or `memory = SqliteSaver.from_conn_string("chatbot_memory.sqlite")` (for a file-based SQLite DB).
+        *   Ensure the SQLite database file (`chatbot_memory.sqlite`) is added to `.gitignore` if created.
+3.  **Compile Graph with Checkpointer:** []
+    *   When compiling the LangGraph app in `graph.py`, pass the checkpointer instance: `app = graph_builder.compile(checkpointer=memory)`.
+4.  **Manage Conversation IDs:** []
+    *   The FastAPI endpoint in `main.py` will need to manage conversation IDs.
+    *   For each user session or conversation thread, a unique `thread_id` (or `configurable={"thread_id": "your_unique_id"}`) must be used when invoking the graph. This ID is used by the checkpointer to save and load state.
+    *   Modify the `/invoke_chat_basic` endpoint (or create a new one like `/chat`) to:
+        *   Accept a `conversation_id` from the client or generate/manage one.
+        *   Pass this `conversation_id` in the `configurable` argument when calling `app.invoke()` or `app.stream()`.
+        *   Example: `app.invoke({"messages": [("user", user_message)]}, configurable={"thread_id": conversation_id})`
+5.  **Testing Persistent Memory:** []
+    *   Test by sending multiple messages using the same `conversation_id`.
+    *   Verify that the chatbot remembers previous parts of the conversation in subsequent calls.
+    *   If using a file-based SQLite DB, inspect the database to see how state is stored (optional).
+
+---
+
+## Milestone 3: RAG Implementation with DataStax AstraDB []
+
+**Goal:** Integrate RAG to allow the chatbot to answer questions using information from a vector store (DataStax AstraDB). Implement a fallback if answers are not found.
+
+**Steps:**
+
+1.  **Setup DataStax AstraDB:** []
+    *   Create a DataStax AstraDB account and a serverless vector database.
+    *   Obtain the AstraDB Application Token and Database ID (API Endpoint).
+    *   Store these credentials securely, e.g., in the `.env` file (`ASTRA_DB_APPLICATION_TOKEN`, `ASTRA_DB_API_ENDPOINT`).
+    *   Add the AstraDB Python client library to `requirements.txt`: `astrapy` and potentially `langchain-astradb`. Re-run `pip install -r requirements.txt`.
+2.  **Document Preparation & Vectorization (Separate Process/Script):** []
+    *   Create a new Python script (e.g., `chatbot/scripts/load_data_to_astradb.py`).
+    *   This script will:
+        *   Load your source documents (e.g., from text files, PDFs, URLs).
+        *   Use a `DocumentLoader` from LangChain (e.g., `TextLoader`, `PyPDFLoader`).
+        *   Split documents into manageable chunks using a `TextSplitter` (e.g., `RecursiveCharacterTextSplitter`).
+        *   Choose an embedding model (e.g., from `langchain_openai.OpenAIEmbeddings` or `langchain_community.embeddings.HuggingFaceEmbeddings`). Ensure API keys for the embedding model are set up if required.
+        *   Initialize the `AstraDBVectorStore` from `langchain_astradb.vectorstores` with your AstraDB credentials, collection name, and embedding model.
+        *   Embed the document chunks and store them in your AstraDB collection.
+    *   Run this script once or whenever your source documents are updated.
+3.  **Define RAG Components in LangGraph (`graph.py`):** []
+    *   **Retriever Node:**
+        *   Create a function (e.g., `retrieve_documents_node`).
+        *   This node will:
+            *   Take the latest user query from the `State`.
+            *   Initialize `AstraDBVectorStore` with credentials and the *same* embedding model used for ingestion.
+            *   Convert the `AstraDBVectorStore` into a retriever: `retriever = vectorstore.as_retriever()`.
+            *   Invoke the retriever with the user query to get relevant documents.
+            *   Add the retrieved documents to a new field in the `State` (e.g., `State` now includes `documents: list | None`).
+    *   **Grade Documents Node (Conditional Logic):**
+        *   Create a function (e.g., `grade_documents_node`).
+        *   This node will:
+            *   Examine the retrieved `documents` from the `State`.
+            *   Determine if the documents are relevant to the user's query. This could be a simple check (are there any documents?) or a more complex LLM-based check.
+            *   Return a string indicating the next step: `"generate_with_rag"` or `"fallback_no_answer"`.
+    *   **RAG Generation Node:**
+        *   Create a function (e.g., `generate_with_rag_node`).
+        *   This node will:
+            *   Take the user query and the retrieved `documents` from the `State`.
+            *   Construct a prompt that includes the context from the documents and the user query.
+            *   Invoke the LLM with this augmented prompt.
+            *   Add the LLM's response to `messages` in the `State`.
+    *   **Fallback Node:**
+        *   Create a function (e.g., `fallback_node`).
+        *   This node will:
+            *   Return a predefined message: "I don't know that, please email fluentpro@languagekey.com".
+            *   Add this message to `messages` in the `State`.
+4.  **Update LangGraph State and Graph Definition:** []
+    *   Modify the `State` `TypedDict` in `graph.py` to include `documents: list | None`.
+    *   Update the `StateGraph` definition:
+        *   Add `retrieve_documents_node`, `grade_documents_node`, `generate_with_rag_node`, and `fallback_node` as nodes.
+        *   Define the graph edges:
+            *   Entry point now goes to `retrieve_documents_node`.
+            *   `retrieve_documents_node` goes to `grade_documents_node`.
+            *   `grade_documents_node` will have conditional edges:
+                *   If "generate_with_rag", go to `generate_with_rag_node`.
+                *   If "fallback_no_answer", go to `fallback_node`.
+            *   Both `generate_with_rag_node` and `fallback_node` will be end points or lead to a common "end" node.
+5.  **Testing RAG:** []
+    *   Ensure your AstraDB is populated with some test documents.
+    *   Test with queries that should find relevant documents and queries that shouldn't.
+    *   Verify the correct path (RAG generation or fallback) is taken based on document relevance.
+
+---
+
+## Milestone 4: Automatic Suggested Prompts/Follow-up Questions []
+
+**Goal:** Generate and provide users with suggested follow-up questions or prompts after the chatbot's response.
+
+**Steps:**
+
+1.  **Define State for Suggested Prompts:** []
+    *   Update the `State` `TypedDict` in `graph.py` to include a field for suggested prompts, e.g., `suggested_prompts: list[str] | None`.
+2.  **Implement Suggested Prompts Node:** []
+    *   Create a new function (e.g., `generate_suggestions_node`) in `graph.py`.
+    *   This node will:
+        *   Take the current conversation history (`messages`) and the latest AI response from the `State`.
+        *   Use an LLM call (could be the main LLM or a smaller, faster one) to generate 2-3 relevant follow-up questions or prompts based on the conversation context.
+        *   The prompt for this LLM call should instruct it to generate concise and relevant suggestions.
+        *   Add the generated suggestions to the `suggested_prompts` field in the `State`.
+3.  **Integrate into Graph:** []
+    *   Add `generate_suggestions_node` to the `StateGraph`.
+    *   This node should typically run after the main response generation (`generate_with_rag_node` or `fallback_node`).
+    *   Adjust graph edges:
+        *   `generate_with_rag_node` -> `generate_suggestions_node`.
+        *   `fallback_node` -> `generate_suggestions_node` (or decide if suggestions are needed after a fallback).
+        *   `generate_suggestions_node` becomes the new end point of the graph.
+4.  **Update FastAPI Response:** []
+    *   Modify the FastAPI endpoint in `main.py` to include the `suggested_prompts` from the LangGraph app's output in its response to the client.
+5.  **Testing Suggested Prompts:** []
+    *   Test the chat flow and verify that relevant suggested prompts are generated and returned with the AI's main response.
+
+---
+
+## Milestone 5: Customizable AI System Prompt []
+
+**Goal:** Allow the AI's system prompt to be easily customized.
+
+**Steps:**
+
+1.  **Store System Prompt in Configuration:** []
+    *   In `config.py`, define a variable for the system prompt, e.g., `DEFAULT_SYSTEM_PROMPT = "You are a helpful AI assistant."`.
+    *   Consider loading this from an environment variable for easier external configuration: `SYSTEM_PROMPT = os.getenv("SYSTEM_PROMPT", DEFAULT_SYSTEM_PROMPT)`. Add `SYSTEM_PROMPT` to your `.env` file.
+2.  **Apply System Prompt in LLM Nodes:** []
+    *   Modify the LLM invocation in relevant nodes (`chatbot_node` if still used, `generate_with_rag_node`, and `generate_suggestions_node`) to use this system prompt.
+    *   When creating messages for the LLM, prepend a `SystemMessage` with the content from `config.SYSTEM_PROMPT`.
+    *   Example: `messages_for_llm = [SystemMessage(content=config.SYSTEM_PROMPT)] + state_messages`
+3.  **Mechanism for Updating (if dynamic is needed):** []
+    *   The current request implies "customizable" (likely at startup/configuration time).
+    *   If runtime customization is needed (e.g., an admin endpoint to change it without restarting), this would involve:
+        *   Storing the system prompt in a persistent way (e.g., in the database or a config file that the app can reload).
+        *   An API endpoint in `main.py` to update this stored prompt.
+        *   Ensuring the LangGraph nodes read the *current* system prompt when invoked. This might involve passing the prompt through the `State` or re-initializing parts of the graph/LLM client, which can be complex. **For now, assume configuration-time customization.**
+4.  **Testing Custom System Prompt:** []
+    *   Change the system prompt in `.env` or `config.py`.
+    *   Restart the application and observe if the chatbot's behavior/tone reflects the new system prompt.
+
+---
+
+## Milestone 6: FastAPI Integration and Final API Design []
+
+**Goal:** Refine FastAPI endpoints for frontend interaction, ensuring all necessary data is exchanged.
+
+**Steps:**
+
+1.  **Define API Request/Response Models (Pydantic):** []
+    *   In `main.py` (or a new `schemas.py` file imported by `main.py`), define Pydantic models for:
+        *   Request: `ChatMessageRequest(user_message: str, conversation_id: str | None = None)`
+        *   Response: `ChatReponse(ai_message: str, conversation_id: str, suggested_prompts: list[str] | None = None, error_message: str | None = None)`
+2.  **Implement Main Chat Endpoint (`/chat`):** []
+    *   Create/Refine the `/chat` endpoint in `main.py`.
+    *   It should:
+        *   Accept a `ChatMessageRequest`.
+        *   Manage `conversation_id`:
+            *   If `conversation_id` is not provided by the client, generate a new one (e.g., using `uuid.uuid4().hex`) and return it in the response so the client can use it for subsequent messages in the same conversation.
+            *   If provided, use it.
+        *   Prepare the input for the LangGraph app: `{"messages": [("user", chat_request.user_message)]}`.
+        *   Invoke the compiled LangGraph app using `app.invoke(input_data, configurable={"thread_id": conversation_id})`.
+        *   Extract the latest AI message, and suggested prompts from the LangGraph app's output state.
+        *   Return a `ChatResponse`.
+        *   Implement proper error handling (e.g., try-except blocks for LangGraph invocation, returning appropriate HTTP status codes and error messages in `ChatResponse`).
+3.  **Consider Asynchronous Operations:** []
+    *   LangGraph operations, especially LLM calls, can be I/O bound.
+    *   Define FastAPI route handlers as `async def`.
+    *   Run LangGraph invocations in a thread pool to avoid blocking the main Uvicorn event loop:
+        ```python
+        import asyncio
+        from concurrent.futures import ThreadPoolExecutor
+
+        # At module level or app startup
+        thread_pool_executor = ThreadPoolExecutor(max_workers=...) 
+
+        # In async route handler
+        loop = asyncio.get_event_loop()
+        result_state = await loop.run_in_executor(
+            thread_pool_executor, 
+            lambda: compiled_graph_app.invoke(input_data, config)
+        )
+        ```
+        Alternatively, LangGraph's `ainvoke` can be used if all components in the graph support async.
+4.  **CORS Configuration:** []
+    *   If the TypeScript frontend will be on a different domain/port, configure CORS in FastAPI:
+    *   The frontend is located in the `chatbot/frontend` directory. Ensure the `allow_origins` setting correctly points to the address where the frontend is served during development (e.g., `http://localhost:3000` if using a typical React/Vue/Angular setup) or `"*"` for broader access if appropriate.
+        ```python
+        from fastapi.middleware.cors import CORSMiddleware
+        app.add_middleware(
+            CORSMiddleware,
+            allow_origins=["*"], # Or specify your frontend's origin
+            allow_credentials=True,
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
+        ```
+5.  **API Documentation:** []
+    *   FastAPI automatically generates OpenAPI (Swagger UI at `/docs` and ReDoc at `/redoc`).
+    *   Ensure Pydantic models and endpoint definitions are clear for good documentation.
+6.  **Testing Full API Flow:** []
+    *   Use Postman or a similar tool to test the `/chat` endpoint thoroughly:
+        *   Starting new conversations.
+        *   Continuing existing conversations with `conversation_id`.
+        *   Verify RAG, fallback, suggested prompts, and memory persistence.
+
+---
+
+## Milestone 7: Directory Structure, Finalization & Deployment Prep []
+
+**Goal:** Organize the codebase, add final documentation, and prepare for potential deployment.
+
+**Steps:**
+
+1.  **Review and Refine Directory Structure:** []
+    *   Ensure logical organization within the `chatbot/` directory:
+        *   `chatbot/`
+            *   `main.py` (FastAPI app)
+            *   `graph.py` (LangGraph definitions: state, nodes, graph compilation)
+            *   `config.py` (Configuration, API keys, system prompts)
+            *   `rag_components.py` (RAG-specific logic, retriever setup - optional, could be in graph.py)
+            *   `persistence.py` (Checkpointer setup - optional, could be in graph.py)
+            *   `schemas.py` (Pydantic models for API)
+            *   `scripts/`
+                *   `load_data_to_astradb.py`
+            *   `.env`
+            *   `requirements.txt`
+            *   `README.md`
+            *   `chatbot_memory.sqlite` (if using SQLite, ensure it's in .gitignore)
+2.  **Finalize `requirements.txt`:** []
+    *   Run `pip freeze > requirements.txt` to capture all exact versions of dependencies after testing.
+3.  **Write `README.md`:** []
+    *   Include:
+        *   Project description.
+        *   Setup instructions (Python version, virtual environment, installing dependencies).
+        *   Configuration steps (how to set up `.env` file with API keys and AstraDB credentials).
+        *   How to run the AstraDB data loading script.
+        *   How to run the FastAPI application.
+        *   Available API endpoints and example usage, including how the backend connects to the frontend in the `chatbot/frontend` directory.
+4.  **Add Code Comments and Docstrings:** []
+    *   Ensure code is well-commented, especially complex parts of the LangGraph definition and API logic.
+    *   Add docstrings to functions and classes.
+5.  **Comprehensive Testing:** []
+    *   Perform end-to-end testing of all features:
+        *   Basic conversation flow.
+        *   Memory over multiple turns.
+        *   RAG with relevant and irrelevant queries.
+        *   Fallback behavior.
+        *   Suggested prompt generation.
+        *   Custom system prompt effects.
+        *   Error handling in the API.
+6.  **Consider Logging:** []
+    *   Implement structured logging throughout the application (e.g., using Python's `logging` module) to help with debugging and monitoring. Log important events like graph invocations, RAG retrievals, errors, etc.
+7.  **Deployment Considerations (Outline):** []
+    *   Choose a deployment platform (e.g., Docker container on AWS, Google Cloud, Azure, Heroku, etc.).
+    *   Containerize the application using a `Dockerfile`.
+    *   Manage environment variables securely in the deployment environment.
+    *   If using SQLite, consider its limitations in a scaled production environment (concurrency). `PostgresSaver` with a managed PostgreSQL instance is more robust for production.
