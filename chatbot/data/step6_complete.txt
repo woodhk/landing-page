@@ -1,3 +1,0 @@
-Step 6: Generate an answer - COMPLETED
-- Created generate_answer function based on retrieved context
-- Successfully tested with a relevant question and context

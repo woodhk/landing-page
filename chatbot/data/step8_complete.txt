@@ -1,3 +1,0 @@
-Step 8: Run the agentic RAG - COMPLETED
-- Demonstrated the RAG system with example questions
-- Successfully processed and displayed streamed results

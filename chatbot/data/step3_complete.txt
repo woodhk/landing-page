@@ -1,3 +1,0 @@
-Step 3: Generate query - COMPLETED
-- Created generate_query_or_respond function
-- Successfully tested with simple greeting and semantic search query

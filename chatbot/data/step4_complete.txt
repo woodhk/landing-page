@@ -1,3 +1,0 @@
-Step 4: Grade documents - COMPLETED
-- Created grade_documents function with structured output schema
-- Successfully tested with both relevant and irrelevant documents
