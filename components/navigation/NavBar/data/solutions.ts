@@ -35,17 +35,11 @@ interface SectionBase {
   href: string;
 }
 
-// Tab for Industry and Cross-Industry
+// Tab for Industry
 export const industryTab: SectionBase = {
   title: "Industry",
   icon: Building2,
   href: "/solutions/industry",
-};
-
-export const crossIndustryTab: SectionBase = {
-  title: "Cross-Industry",
-  icon: Users,
-  href: "/solutions/cross-industry",
 };
 
 // CTA items
@@ -120,82 +114,11 @@ export const industryItems: IndustryItem[] = [
   },
 ];
 
-// Cross-Industry items
-export const crossIndustryItems: IndustryItem[] = [
-  {
-    title: "Administrative Support Staff",
-    description: "Communicate professionally in office interactions.",
-    icon: UserCog,
-    href: "/cross-industry/administrative-support",
-  },
-  {
-    title: "Client Relationship & Account Management Staff",
-    description: "Build strong client relationships and handle business discussions effectively.",
-    icon: UserCircle,
-    href: "/cross-industry/client-relationship",
-  },
-  {
-    title: "Customer Support Staff",
-    description: "Respond to customer inquiries, complaints, and support requests with clarity.",
-    icon: Store,
-    href: "/cross-industry/customer-support",
-  },
-  {
-    title: "HR & Onboarding Staff",
-    description: "Conduct interviews, onboard employees, and handle HR-related communication confidently.",
-    icon: Users,
-    href: "/cross-industry/hr-onboarding",
-  },
-  {
-    title: "Sales & Business Development",
-    description: "Persuade clients, negotiate deals, and present business proposals effectively.",
-    icon: Briefcase,
-    href: "/cross-industry/sales-business-development",
-  },
-  {
-    title: "Marketing & Communications",
-    description: "Craft messages, manage campaigns, and maintain brand consistency.",
-    icon: Users,
-    href: "/cross-industry/marketing-communications",
-  },
-  {
-    title: "Operations & Project Management",
-    description: "Lead projects, delegate tasks, and manage cross-functional teams effectively.",
-    icon: Users,
-    href: "/cross-industry/operations-project-management",
-  },
-  {
-    title: "Team & Department Leadership",
-    description: "Inspire teams, manage performance, and lead with authority.",
-    icon: Users,
-    href: "/cross-industry/team-department-leadership",
-  },
-  {
-    title: "Finance",
-    description: "Analyze financial data, manage budgets, and communicate financial information clearly.",
-    icon: Users,
-    href: "/cross-industry/finance",
-  },
-  {
-    title: "IT & Technical Support",
-    description: "Troubleshoot technical issues, provide support, and maintain systems efficiently.",
-    icon: Users,
-    href: "/cross-industry/it-technical-support",
-  },
-  {
-    title: "Learning & Development",
-    description: "Develop training programs, conduct workshops, and enhance employee skills.",
-    icon: Users,
-    href: "/cross-industry/learning-development-staff",
-  },
-];
-
 // Main solutions menu structure
 export const solutionsMenu = {
   title: "Solutions",
-  tabs: [industryTab, crossIndustryTab],
+  tabs: [industryTab],
   industry: industryItems,
-  crossIndustry: crossIndustryItems,
   requestIndustry,
   cta: secureEarlyAccess,
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { benefits } from "../data/reasons";
+import { ArrowRight } from 'lucide-react';
 
 const Reasons = () => {
   return (
@@ -24,8 +25,12 @@ const Reasons = () => {
           })}
         </div>
         <div className="text-center mt-20">
-          <a href="/staff" className="text-dark text-lg font-medium underline">
-            See all features
+          <a href="/staff" className="text-dark text-lg font-medium underline inline-flex items-center gap-1 group">
+            See all features 
+            <ArrowRight 
+              size={20} 
+              className="transition-transform duration-300 group-hover:translate-x-1" 
+            />
           </a>
         </div>
       </div>

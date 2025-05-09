@@ -21,7 +21,7 @@ const Performance: React.FC = () => {
         <div className="text-center mb-28">
           <h2 className="text-7xl font-bold mb-4">Track Individual and Team Growth</h2>
           <p className="text-gray-600 max-w-4xl text-3xl mx-auto ">
-          Discover the analytics that reveal how each individual is progressing and how teams are performing as a whole.
+          Discover the analytics that reveal how each individual is performing and how teams are performing as a whole.
           </p>
         </div>
         

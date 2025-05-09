@@ -29,11 +29,10 @@ const cardColorSchemes = [
 ];
 
 export const Solutions = () => {
-  const [activeTab, setActiveTab] = useState<string>("Industry");
   const [isOpen, setIsOpen] = useState(false);
 
-  // Handle which array of items to display based on activeTab
-  const items = activeTab === "Industry" ? solutionsMenu.industry : solutionsMenu.crossIndustry;
+  // Use industryItems directly
+  const items = solutionsMenu.industry;
   
   // Group items into rows of 3
   const groupedItems = items.reduce((resultArray, item, index) => { 
@@ -64,17 +63,14 @@ export const Solutions = () => {
               onMouseEnter={() => setIsOpen(true)}
             >
               <div className="flex h-[500px] max-h-[calc(100vh-100px)]">
-                {/* Left sidebar with Industry/Cross-Industry tabs */}
+                {/* Left sidebar with Industry tab */}
                 <div className="w-[180px] p-4 pr-4 border-r border-gray-100">
                   {solutionsMenu.tabs.map((tab, i) => (
                     <button
                       key={i}
-                      onClick={() => setActiveTab(tab.title)}
                       className={cn(
                         "flex items-center gap-2 p-2 rounded-md w-full text-left mb-2 last:mb-0",
-                        activeTab === tab.title 
-                          ? "bg-blue-50" 
-                          : "hover:bg-gray-50"
+                        "bg-blue-50" 
                       )}
                     >
                       <div className="flex items-center justify-center w-8 h-8 rounded-md bg-blue-50">

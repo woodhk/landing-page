@@ -57,8 +57,8 @@ const Audience = () => {
               />
             </div>
             <div className="lg:w-1/2 space-y-6">
-              <div className="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-2">
-                For HR Teams
+              <div className="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">
+              Admin Panel
               </div>
               <h3 className="text-3xl md:text-4xl font-medium leading-tight">
                 {hrData[0].title}

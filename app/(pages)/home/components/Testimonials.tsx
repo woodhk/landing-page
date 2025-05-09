@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 import { testimonialLogos } from '../data/testimonial';
+import { ArrowRight } from 'lucide-react';
 
 // Helper function to clamp a value between min and max
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
@@ -88,7 +89,7 @@ const Testimonials = () => {
   }, [handleScroll]);
 
   return (
-    <div className="bg-gray-50 py-24">
+    <div className="bg-white pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1
@@ -106,7 +107,7 @@ const Testimonials = () => {
 
               if (index < activeWordIndex) {
                  // Word is fully revealed (dark)
-                 lightness = 20;
+                 lightness = 10;
               } else if (index > activeWordIndex) {
                  // Word is not yet revealed (light gray)
                  lightness = 70;
@@ -114,7 +115,7 @@ const Testimonials = () => {
                  // This is the currently active word, calculate its specific progress
                  // Handle edge case where scrollProgress is exactly 1
                  if (scrollProgress === 1) {
-                     lightness = 20; // Fully dark if progress is 1
+                     lightness = 10; // Fully dark if progress is 1
                  } else {
                      const progressInCurrentSegment = (scrollProgress % wordSegment) / wordSegment;
                      // Interpolate from 70% to 20% lightness based on segment progress
@@ -144,13 +145,11 @@ const Testimonials = () => {
           
           <div className="mb-8">
             <a 
-              href="#" 
-              className="text-blue-600 hover:text-blue-800 font-medium transition-colors text-lg inline-flex items-center"
+              href="https://language-key.vercel.app/home" 
+              className="text-blue-600 hover:text-blue-800 font-medium transition-colors text-2xl inline-flex items-center group"
             >
               Learn more
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
+              <ArrowRight className="h-5 w-5 ml-1 transition-transform duration-300 transform group-hover:translate-x-1" />
             </a>
           </div>
           

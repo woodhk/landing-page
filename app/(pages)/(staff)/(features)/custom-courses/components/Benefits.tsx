@@ -3,8 +3,14 @@ import { benefits } from '../data/benefits';
 
 const Benefits: React.FC = () => {
   return (
-    <section className="w-full py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+    <section className="w-full py-16 md:py-24 relative">
+      {/* Background split */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="h-2/3 bg-white"></div>
+        <div className="h-1/3 bg-gray-50"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
         <div className="bg-dynamic-blue/80 rounded-3xl rounded-bl-none shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-6">
             {/* Left side - Main heading and description */}

@@ -26,7 +26,7 @@ export type hr = {
 export const hrData: hr[] = [
   {
     title: "Fluentpro for HR",
-    description: "Training, onboarding, and proving ROI can feel hard to quantify. Explore how FluentPro helps you tailor learning, monitor staff progress, and showcase ROI with features built for HR and team leads.",
+    description: "Explore how FluentPro helps you tailor learning, monitor staff progress, and showcase ROI with features built for HR and team leads.",
     image: "/app-screenshots/fp-computer.svg",
     href: "/admin",
   },

@@ -4,7 +4,7 @@ import { HRSection } from '@/components/industry/types';
 export const hrSectionData: HRSection = {
   mainTitle: "Designed For Learners",
   subtitle: "Loved by Human Resources",
-  description: "FluentPro helps tailor learning, monitor staff progress, and showcase ROI with features built for HR and team leads.",
+  description: "Tailor learning, monitor staff progress, and showcase ROI with features built for HR and team leads.",
   tabs: [
     {
       id: "automated-onboarding",

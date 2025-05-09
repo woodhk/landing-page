@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#1C2530] text-white">
+    <footer className="bg-gray-200 text-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -13,17 +13,11 @@ const Footer: React.FC = () => {
               <Image src="/logo/logo.svg" alt="FluentPro Logo" width={40} height={40} />
               <span className="ml-2 text-xl font-bold">FluentPro</span>
             </div>
-            <p className="text-[#C9D2E5] text-sm sm:text-base">
+            <p className="text-dark text-sm sm:text-base">
               AI-Powered English Training Tailored to Staff's Industry & Role
             </p>
             <div className="mt-6">
-              <Link href="https://www.linkedin.com" aria-label="LinkedIn">
-                <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-200 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="black">
-                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                  </svg>
-                </div>
-              </Link>
+             
             </div>
           </div>
 
@@ -31,7 +25,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-start">
             <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Company</h3>
             <ul className="space-y-2">
-              <li><Link href="https://language-key.vercel.app/home" className="text-[#C9D2E5] hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="https://language-key.vercel.app/home" className="text-dark hover:text-dark/80 transition-colors">About Us</Link></li>
             </ul>
           </div>
 
@@ -39,9 +33,9 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-start">
             <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Legal</h3>
             <ul className="space-y-2">
-              <li><Link href="/terms" className="text-[#C9D2E5] hover:text-white transition-colors">Terms & Conditions</Link></li>
-              <li><Link href="/privacy" className="text-[#C9D2E5] hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/cookies" className="text-[#C9D2E5] hover:text-white transition-colors">Cookie Policy</Link></li>
+              <li><Link href="/terms" className="text-dark hover:text-dark/80 transition-colors">Terms & Conditions</Link></li>
+              <li><Link href="/privacy" className="text-dark hover:text-dark/80 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/cookies" className="text-dark hover:text-dark/80 transition-colors">Cookie Policy</Link></li>
             </ul>
           </div>
 
@@ -74,7 +68,7 @@ const Footer: React.FC = () => {
         </div>
         
         {/* Copyright section */}
-        <div className="mt-8 pt-6 border-t border-gray-700 text-center sm:text-left text-sm text-[#C9D2E5]">
+        <div className="mt-8 pt-6 border-t border-gray-700 text-center sm:text-left text-sm text-dark">
           <p>© {new Date().getFullYear()} FluentPro. All rights reserved.</p>
         </div>
       </div>

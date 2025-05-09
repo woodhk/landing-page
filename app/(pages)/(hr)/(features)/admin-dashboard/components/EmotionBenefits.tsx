@@ -20,7 +20,7 @@ const EmotionBenefits: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            Measurable Benefits For Your Organization
+            Designed By Experts, Conducted By AI, <span className="font-medium">Controlled By You</span>
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

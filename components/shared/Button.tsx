@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { LucideIcon } from 'lucide-react';
 
 interface ButtonProps {
   text: string;
@@ -8,6 +9,7 @@ interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   onClick?: () => void;
   url?: string;
+  icon?: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({ 
@@ -15,7 +17,8 @@ const Button: React.FC<ButtonProps> = ({
   primary = true, 
   size = 'medium',
   onClick,
-  url = "https://forms.gle/tLkLiSziGZZDjLpJA"
+  url = "https://forms.gle/tLkLiSziGZZDjLpJA",
+  icon
 }) => {
   const baseClasses = "inline-flex items-center justify-center font-medium rounded-md focus:outline-none transition-colors";
   
@@ -47,6 +50,7 @@ const Button: React.FC<ButtonProps> = ({
       className={`${baseClasses} ${sizeClasses[size]} ${variantClasses}`}
     >
       {text}
+      {icon && <span className="ml-2">{icon}</span>}
     </button>
   );
 };

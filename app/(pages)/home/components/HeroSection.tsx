@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../../../components/shared/Button';
+import { Download, ArrowRight } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
 
@@ -20,7 +21,7 @@ const HeroSection: React.FC = () => {
       <div className="relative flex flex-col items-center py-4 md:py-8 pb-12 md:pb-24 md:pt-32 px-4 sm:px-6 lg:px-4 max-w-7xl mx-auto">
         {/* Main content centered with improved vertical rhythm */}
         <div className="flex flex-col items-center text-center max-w-7xl mx-auto mb-12">
-          <h1 className="text-4xl sm:text-5xl md:text-[64px] font-semibold text-dark leading-tight mb-6 max-w-7xl">
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-semibold text-dark leading-tight mb-8 max-w-7xl">
                English Training Without English Trainers
           </h1>
           
@@ -36,11 +37,13 @@ const HeroSection: React.FC = () => {
               primary
               size="large" 
               text="Secure Early Access"
+              icon={<ArrowRight size={20} />}
             />
             <Button 
               primary={false}
               size="large" 
               text="Download Brochure"
+              icon={<Download size={20} />}
             />
           </div>
         </div>
