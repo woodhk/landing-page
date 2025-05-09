@@ -26,6 +26,9 @@ const Chatbot = () => {
   const [showWelcome, setShowWelcome] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  
+  // Base URL for API calls - empty string means it will use relative URLs in production
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -64,8 +67,8 @@ const Chatbot = () => {
     setInputValue('');
     setIsLoading(true);
 
-    // Call the API instead of the mock response
-    fetch('/api/chat', {
+    // Call the API using the baseUrl
+    fetch(`${baseUrl}/api/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -120,8 +123,8 @@ const Chatbot = () => {
     setMessages((prev) => [...prev, userMessage]);
     setIsLoading(true);
 
-    // Call the API instead of the mock response
-    fetch('/api/chat', {
+    // Call the API using the baseUrl
+    fetch(`${baseUrl}/api/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
