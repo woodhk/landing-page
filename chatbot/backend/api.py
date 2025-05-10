@@ -29,10 +29,15 @@ from agentic_rag import (
 # Create FastAPI app
 app = FastAPI(title="Agentic RAG API")
 
+origins = [
+    "http://localhost:3000",
+    "https://fluentpro-landing-page.vercel.app"
+]
+
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
