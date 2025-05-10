@@ -35,7 +35,7 @@ export default function HomePage() {
       <Reasons />
       <Audience />
       <AiEthics />
-      <FAQ />
+      <FAQ pageKey="home"/>
       <Cta />
     </div>
   );

@@ -78,8 +78,8 @@ export const GenericIndustryTemplate: React.FC<GenericIndustryTemplateProps> = (
       {/* AI Ethics Section */}
       <AiEthics />
       
-      {/* FAQ Section */}
-      <FAQ />
+      {/* FAQ Section - Now using the industry-specific FAQ data */}
+      <FAQ pageKey="industry" />
       
       {/* Call to Action Section */}
       <Cta />

@@ -1,9 +1,17 @@
 export type FAQItem = {
   question: string;
   answer: string;
+  additionalContent?: React.ReactNode;
 };
 
-export const faqData: FAQItem[] = [
+export type FAQSection = {
+  title: string;
+  subtitle: string;
+  items: FAQItem[];
+};
+
+// Homepage FAQ data
+export const homeFaqData: FAQItem[] = [
   {
     question: "Do we have the budget for this training?",
     answer: "We understand that training budgets are limited. That's why FluentPro is designed to be cost-effective, delivering measurable results like fewer communication errors, better client interactions, and improved efficiency. Plus, you only need to purchase a set number of seats—inactive users are automatically removed, freeing up space for more motivated staff at no extra cost."
@@ -14,7 +22,7 @@ export const faqData: FAQItem[] = [
   },
   {
     question: "How is this different from our current training?",
-    answer: "Traditional training methods can certainly help with general English skills like everyday vocabulary and grammar. However, for those looking to build job-specific English skills, FluentPro offers a more targeted approach. By focusing on industry and role-specific scenarios, interactive role-plays, and AI-powered feedback, FluentPro ensures that employees don’t just improve their English—they develop the precise language skills needed to excel in their roles."
+    answer: "Traditional training methods can certainly help with general English skills like everyday vocabulary and grammar. However, for those looking to build job-specific English skills, FluentPro offers a more targeted approach. By focusing on industry and role-specific scenarios, interactive role-plays, and AI-powered feedback, FluentPro ensures that employees don't just improve their English—they develop the precise language skills needed to excel in their roles."
   },
   {
     question: "How can we ensure staff will use it?",
@@ -25,3 +33,45 @@ export const faqData: FAQItem[] = [
     answer: "FluentPro helps staff practice real conversations they'll have at work, making learning relevant and practical. We've trained over 10,000 professionals in Hong Kong for more than 30 years, working with 200+ companies, including Fortune 500 firms like J.P. Morgan and the Bank of China, whilst maintaining a 90%+ approval rating."
   }
 ];
+
+// Industry FAQ data
+export const industryFaqData: FAQItem[] = [
+  {
+    question: "How is FluentPro customized for specific industries?",
+    answer: "FluentPro offers industry-specific language training modules tailored to the unique terminology, scenarios, and communication challenges of your sector. Our platform's AI analyzes the most common communication scenarios in your industry and creates targeted learning paths."
+  },
+  {
+    question:"What if our employees work across departments or industries?",
+    answer:"We offer cross-department and cross-industry role training, ensuring that employees can communicate effectively regardless of their role or industry."
+  },
+  {
+    question: "What happens if our industry isn't covered?",
+    answer: "If your industry isn't covered, our language experts will create a custom curriculum for you, for free."
+  },
+  {
+    question: "What happens if staff's role isn't covered?",
+    answer: "If staff's role isn't covered, our language experts will create a free custom course for them within 48 hours."
+  },
+  {
+    question: "How is this different from our current training?",
+    answer: "Traditional training methods can certainly help with general English skills like everyday vocabulary and grammar. However, for those looking to build job-specific English skills, FluentPro offers a more targeted approach. By focusing on industry and role-specific scenarios, interactive role-plays, and AI-powered feedback, FluentPro ensures that employees don't just improve their English—they develop the precise language skills needed to excel in their roles."
+  }
+];
+
+// Create a central object that contains all FAQ sections
+export const faqDataByPage = {
+  home: {
+    title: "AI Language",
+    subtitle: "Learning FAQs",
+    items: homeFaqData
+  },
+  industry: {
+    title: "Industry-Specific",
+    subtitle: "Language Training FAQs",
+    items: industryFaqData
+  },
+  // Add more sections as needed
+};
+
+// For backward compatibility
+export const faqData = homeFaqData;

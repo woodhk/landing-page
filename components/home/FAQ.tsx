@@ -1,10 +1,18 @@
 "use client";
 
 import { useState } from 'react';
-import { faqData } from '../../data/FAQ';
+import { faqDataByPage, FAQSection } from '../../data/FAQ';
 
-const FAQ = () => {
+interface FAQProps {
+  pageKey?: keyof typeof faqDataByPage;
+  customData?: FAQSection;
+}
+
+const FAQ = ({ pageKey = 'home', customData }: FAQProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  
+  // Use either custom data or data from the faqDataByPage based on pageKey
+  const data = customData || faqDataByPage[pageKey];
 
   const toggleQuestion = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -19,14 +27,14 @@ const FAQ = () => {
             FAQs
           </div>
           <h2 className="text-5xl font-bold text-gray-900 leading-tight">
-            AI Language<br />
-            Learning FAQs
+            {data.title}<br />
+            {data.subtitle}
           </h2>
         </div>
         
         {/* Right Column - Questions */}
         <div className="md:w-3/5 lg:w-2/3 space-y-5">
-          {faqData.map((faq, index) => (
+          {data.items.map((faq, index) => (
             <div 
               key={index} 
               className="bg-blue-50 rounded-xl overflow-hidden"
@@ -65,21 +73,7 @@ const FAQ = () => {
               {activeIndex === index && (
                 <div className="px-6 pb-6">
                   <p className="text-base text-gray-700">{faq.answer}</p>
-                  {faq.question === "Do we have the budget for this training?" && (
-                    <p className="mt-2">
-                      
-                    </p>
-                  )}
-                  {faq.question === "Will this actually improve workplace communication?" && (
-                    <p className="mt-2">
-                      <a 
-                        href="https://language-key.vercel.app/home" 
-                        className="text-blue-600 hover:underline"
-                      >
-                        Learn more
-                      </a>
-                    </p>
-                  )}
+                  {faq.additionalContent}
                 </div>
               )}
             </div>
