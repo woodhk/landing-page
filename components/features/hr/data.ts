@@ -9,16 +9,16 @@ export const hrSectionData: HRSection = {
     {
       id: "automated-onboarding",
       title: "Automated Onboarding",
-      description: "Getting your team started is effortless—just send one email. Our magic link connects staff to your dashboard instantly, with no extra steps or wasted time.",
+      description: "Get your entire team started by sending one email. Our magic link technology connects staff to your dashboard instantly, with no extra steps or wasted time.",
       link: "/training-onboarding",
-      imageUrl: '/app-screenshots/invite-staff.png',
+      imageUrl: '/app-screenshots/inviteStaff.png',
     },
     {
       id: "reports-analytics",
       title: "Reports & Analytics",
       description: "Gain insights into employee performance with detailed, real time analytics and reporting—designed to reduce HR workload, not add to it.",
       link: "/admin-dashboard",
-      imageUrl: '/app-screenshots/admin-dashboard2.png',
+      imageUrl: '/ui-elements/averagePerformance.png',
     },
     {
       id: "company-personalisation",

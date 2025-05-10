@@ -11,7 +11,7 @@ export const features: Feature[] = [
   {
     tag: "Magic Link Technology",
     title: "Onboard Staff In Minutes",
-    description: "Getting your team started is effortless—just send one email. Our magic link connects staff to your dashboard instantly, with no extra steps or wasted time.",
+    description: "Get your entire team started by sending one email. Our magic link connects staff to your dashboard instantly, with no extra steps or wasted time.",
     image: "/ui-elements/magicLink.png",
     buttonText: "Learn more",
     href: "/training-onboarding"

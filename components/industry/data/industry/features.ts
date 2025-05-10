@@ -33,7 +33,7 @@ const getMainDescription = (industry: string): string => {
     .map(word => word.trim())
     .join(' & ');
   
-  return `FluentPro gives your ${displayIndustry} staff the speaking practice they need to avoid misunderstandings, save time, and communicate with confidence.`;
+  return `Give your ${displayIndustry} staff the speaking practice they need to avoid misunderstandings, save time, and communicate with confidence.`;
 };
 
 export const industryFeaturesData: Record<IndustrySlug, FeaturesSection> = {
@@ -41,37 +41,37 @@ export const industryFeaturesData: Record<IndustrySlug, FeaturesSection> = {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('banking-finance'),
     features: commonFeatures,
-    imageUrl: '/ui-elements/aiTeacher.png'
+    imageUrl: '/app-screenshots/reportsAnalytics.png'
   },
   'shipping-logistics': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('shipping-logistics'),
     features: commonFeatures,
-    imageUrl: '/ui-elements/aiTeacher.png'
+    imageUrl: '/app-screenshots/reportsAnalytics.png'
   },
   'hotel-hospitality': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('hotel-hospitality'),
     features: commonFeatures,
-    imageUrl: '/ui-elements/aiTeacher.png'
+    imageUrl: '/app-screenshots/reportsAnalytics.png'
   },
   'real-estate': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('real-estate'),
     features: commonFeatures,
-    imageUrl: '/ui-elements/aiTeacher.png'
+    imageUrl: '/app-screenshots/reportsAnalytics.png'
   },
   'retail': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('retail'),
     features: commonFeatures,
-    imageUrl: '/ui-elements/aiTeacher.png'
+    imageUrl: '/app-screenshots/reportsAnalytics.png'
   },
   'telecommunications': {
     sectionTitle: commonSectionTitle,
     mainDescription: getMainDescription('telecommunications'),
     features: commonFeatures,
-    imageUrl: '/ui-elements/aiTeacher.png'
+    imageUrl: '/app-screenshots/reportsAnalytics.png'
   },
 };
 
